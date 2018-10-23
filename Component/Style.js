@@ -10,7 +10,7 @@ import {
       backgroundColor: "rgb(243,242,242)",
     },
     input: {
-      height: "60%",
+      height: "35%",
       width: "70%",
       marginBottom: "5%",
       fontSize:18,

@@ -37,7 +37,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={{flex:1}}>
-        <View style={{backgroundColor:"white",height:"10%",width:"100%",marginBottom:"4%",flexDirection:"row"}}>
+        {/* <View style={{backgroundColor:"white",height:"10%",width:"100%",marginBottom:"4%",flexDirection:"row"}}>
           <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
                     <Image
                                 source={require('../Image/icon/back.png')}
@@ -48,7 +48,7 @@ export default class App extends Component {
                     />
                     </TouchableOpacity>
                <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"20%",paddingVertical:"5%"}}>SHARE</Text>
-          </View>
+          </View> */}
         <Button title="Share 2 images" onPress={() => this.onShare()}/>
         <Button title="Share single image" onPress={() => this.onShare2()}/>
       </View>

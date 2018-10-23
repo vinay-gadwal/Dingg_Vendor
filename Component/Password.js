@@ -28,7 +28,7 @@ export default class Password extends Component {
   render() {
     return (
       <View  style={styles.container}>
-      <View style={{backgroundColor:"white",height:"10%",width:"100%",marginBottom:"4%",flexDirection:"row"}}>
+      {/* <View style={{backgroundColor:"white",height:"10%",width:"100%",marginBottom:"4%",flexDirection:"row"}}>
           <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
                     <Image
                                 source={require('../Image/icon/back.png')}
@@ -39,7 +39,7 @@ export default class Password extends Component {
                     />
                     </TouchableOpacity>
                <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"25%",paddingVertical:"5%"}}>SIGN UP</Text>
-          </View>
+          </View> */}
         <View style={[styles.box_SignUp,{marginTop:"30%"}]}>
           <TextInput
             value={this.state.password}

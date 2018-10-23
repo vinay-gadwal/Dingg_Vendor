@@ -108,7 +108,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-         <View style={{backgroundColor:"white",flexDirection:"row"}}>
+         {/* <View style={{backgroundColor:"white",flexDirection:"row"}}>
           <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignUp')}}>
                     <Image
                                 source={require('../Image/icon/back.png')}
@@ -120,7 +120,7 @@ export default class App extends Component {
                     />
                     </TouchableOpacity>
                <Text style={{fontSize:18,color:"black",paddingHorizontal:"10%",paddingVertical:"5%"}}>ADD DETAILS</Text>
-          </View>
+          </View> */}
         <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
             <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"30%"}]}>
                   { this.state.avatarSource === null ? <Image

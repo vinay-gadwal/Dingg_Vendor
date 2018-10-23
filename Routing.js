@@ -29,9 +29,7 @@ console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
     screen: DashBoard,
-    headerMode:"none",
     navigationOptions: ({ navigation }) => ({
-      headerMode:"none",
       title: 'D',
     })
   },
@@ -185,34 +183,30 @@ const RootStack = createStackNavigator({
         },
   SignUp: {
           screen: sing_up,
-          headerLeft: null,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
-            headerMode:"none",
-            headerLeft: null
+            headerBackTitle:null
           })
         },
   Crea_pass: {
           screen: Crea_pass,
-          headerLeft: null,
           navigationOptions: ({ navigation }) => ({
-            
+            title: 'CREATE PASSWORD',
+            headerBackTitle:null
           })
         },
   Password: {
           screen: Password,
           headerLeft: null,
           navigationOptions: ({ navigation }) => ({
-            title: 'SIGN UP',
-            headerMode:"none",
+            title: 'PASSWORD',
+            headerBackTitle:null
           })
         },
   AddDetails:{
           screen: Add_Details,
-          headerLeft: null,
           navigationOptions: ({ navigation }) => ({
-            title: 'ADD BUSINESS DETAIL',
-            headerMode:"none",
+            title: 'ADD BUSINESS DETAILS',
             headerBackTitle:null
           })
         },
@@ -220,23 +214,20 @@ const RootStack = createStackNavigator({
           screen: DashBoard,
           navigationOptions: ({ navigation }) => ({
             title: 'DASHBOARD',
-            headerMode:"none",
             headerBackTitle:null,
             headerLeft: null,
           })
            },
   AuthStack:{
              screen:AuthStack,
-             headerMode: null,
              navigationOptions: ({ navigation }) => ({
               headerLeft: null,
             })
             },
   Setting:{
             screen:Setting,
-            headerMode: null,
             navigationOptions: ({ navigation }) => ({
-            headerLeft: null,
+              title: 'SETTINGS',
             })
           } ,
   Queue:{
@@ -283,7 +274,7 @@ const RootStack = createStackNavigator({
  
       {
         initialRouteName:"SignIn",
-        headerMode: "none",
+        // headerMode: "none",
         navigationOptions: {
               headerStyle: {
                 backgroundColor: 'white',

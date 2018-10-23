@@ -17,9 +17,9 @@ export default class App extends Component {
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
          
          {/* Header */}
-         <View style={{backgroundColor:"white",flexDirection:"row"}}>
+         {/* <View style={{backgroundColor:"white",flexDirection:"row"}}>
                 <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"35%",paddingVertical:"5%"}}>SETTINGS</Text>
-        </View>
+        </View> */}
         
         
         {/* body */}

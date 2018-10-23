@@ -216,9 +216,9 @@ export default class example extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={{backgroundColor:"white",height:"10%",width:"100%"}}>
+        {/* <View style={{backgroundColor:"white",height:"10%",width:"100%"}}>
         <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"40%",paddingVertical:"5%"}}>SIGN UP</Text>
-        </View>
+        </View> */}
         <Text style={styles.header}>{headerText}</Text>
         <View style={styles.box_SignUp}>
         <Form ref={'form'} style={styles.form}>
@@ -249,7 +249,7 @@ export default class example extends Component {
           </View>
         </Form>
         </View>
-        <TouchableOpacity style={styles.button} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
+        <TouchableOpacity style={[styles.button,{width:"50%"}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
 

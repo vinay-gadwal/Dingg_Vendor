@@ -16,12 +16,6 @@ export default class App extends Component {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)",flex:1}} horizontal={false}>
          
-         {/* Header */}
-         <View style={{backgroundColor:"white",flexDirection:"row"}}>
-                <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"35%",paddingVertical:"5%"}}>DASHBOARD</Text>
-        </View>
-        
-        
         {/* body */}
         <View style={{flex:1,paddingVertical:"10%",justifyContent:"space-evenly",paddingHorizontal:"5%"}}>
         

@@ -29,10 +29,10 @@ export default class Login extends Component {
   render() {
     return (
       <View  style={styles.container}>
-      <View style={{backgroundColor:"white",height:"10%",width:"100%"}}>
+      {/* <View style={{backgroundColor:"white",height:"10%",width:"100%"}}>
         <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"40%",paddingVertical:"5%"}}>SIGN IN</Text>
-        </View>
-        <View style={styles.box}>
+        </View> */}
+        <View style={[styles.box,{marginTop:"40%"}]}>
           <TextInput
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
