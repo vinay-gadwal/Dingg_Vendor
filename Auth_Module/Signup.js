@@ -10,7 +10,7 @@ import {
   Platform,
   Image,ScrollView
 } from 'react-native';
-import styles from './Style'
+import styles from '../Component/Style'
 // import Frisbee from 'frisbee';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';
@@ -188,6 +188,7 @@ export default class example extends Component {
   }
 
   _renderCallingCode = () => {
+    GLOBAL.code=this.state.country.callingCode;
 
     if (this.state.enterCode)
       return (
@@ -199,7 +200,7 @@ export default class example extends Component {
         <Text style={styles.callingCodeText}>+{this.state.country.callingCode}</Text>
       </View>
     );
-      GLOBAL.code=this.state.country.callingCode;
+      
   }
 
   render() {

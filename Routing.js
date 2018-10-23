@@ -11,8 +11,10 @@ import {
   createDrawerNavigator
 } from 'react-navigation';
 // import { Dropdown } from 'react-native-material-dropdown';
-import sing_in from './Component/Signin'
-import sing_up from './Component/Signup'
+import sing_in from './Auth_Module/Signin'
+import sing_up from './Auth_Module/Signup'
+import Password from './Auth_Module/Password'
+import Crea_pass from './Auth_Module/Create_password'
 import Add_Details from './Component/AddDetails'
 import DashBoard from './Component/Dashboard'
 import Setting from './Component/Setting'
@@ -23,8 +25,7 @@ import Share from './Component/Share'
 import Rating from './Component/Star_Rating'
 import Queue from './Component/Queue'
 import Queue_request from './Component/Queue_Request'
-import Password from './Component/Password'
-import Crea_pass from './Component/Create_password'
+
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {

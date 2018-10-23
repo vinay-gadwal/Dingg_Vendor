@@ -7,9 +7,8 @@ import {
   TextInput,
   TouchableOpacity
 } from "react-native";
-import styles from './Style'
+import styles from '../Component/Style'
 import PasswordInputText from 'react-native-hide-show-password-input';
-import StarRating from 'react-native-star-rating';
 
 export default class Login extends Component {
   constructor(props) {

@@ -126,9 +126,9 @@ import {
     },
     avatar: {
       borderRadius: 7,
-      width: 120,
-      height: 120,
-      marginTop:"10%"
+      width: 100,
+      height: 100,
+      marginTop:"0%"
     },
     avatarMultiple: {
       borderRadius: 7,

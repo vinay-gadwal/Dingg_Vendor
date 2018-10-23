@@ -34,12 +34,25 @@ const data = [
     }
   ];
 export default class App extends Component {
-    state = {
+  constructor(){
+    super()
+  
+    this.state = {
         avatarSource: null,avatarSource1:null,
-        videoSource: null,Address:"",Add_Data:""
-      };
+        Image_Source:null,Image_Source1:null,
+        Image_Source_1:null,Image_Source_1_1:null,
+        Image_Source_2:null,Image_Source_2_1:null,
+       Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
+       Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
+       Landline_No:"",Master_Ven_ID:""
+      }
+    }
+    Fun_save(){
+        GLOBAL.Buss_name=this.state.Add_Bus_Details;
+        GLOBAL.Address=this.state.Address;
+    }
     
-      selectPhotoTapped() {
+      selectPhotoTapped1() {
         const options = {
           quality: 1.0,
           maxWidth: 500,
@@ -63,33 +76,28 @@ export default class App extends Component {
           }
           else {
             let source = { uri: response.uri };
-    
-            // You can also display the image using data:
-            // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-    
-            this.setState({
-              avatarSource: source
-            });
-            this.setState({
-              avatarSource1:source
-            })
+              GLOBAL.Image=source;
+              this.setState({ avatarSource: source });
+              this.setState({ avatarSource1:source });
           }
         });
       }
     
-      selectVideoTapped() {
+      selectPhotoTapped2() {
         const options = {
-          title: 'Video Picker',
-          takePhotoButtonTitle: 'Take Video...',
-          mediaType: 'video',
-          videoQuality: 'medium'
+          quality: 1.0,
+          maxWidth: 500,
+          maxHeight: 500,
+          storageOptions: {
+            skipBackup: true
+          }
         };
     
         ImagePicker.showImagePicker(options, (response) => {
           console.log('Response = ', response);
     
           if (response.didCancel) {
-            console.log('User cancelled video picker');
+            console.log('User cancelled photo picker');
           }
           else if (response.error) {
             console.log('ImagePicker Error: ', response.error);
@@ -98,36 +106,103 @@ export default class App extends Component {
             console.log('User tapped custom button: ', response.customButton);
           }
           else {
+            let source = { uri: response.uri };
+             GLOBAL.Image1=source;
+            this.setState({ Image_Source_2: source });
+            this.setState({ Image_Source_2_1:source})
+          }
+        });
+      }
+
+      selectPhotoTapped3() {
+        debugger
+        const options = {
+          quality: 1.0,
+          maxWidth: 500,
+          maxHeight: 500,
+          storageOptions: {
+            skipBackup: true
+          }
+        };
+    
+        ImagePicker.showImagePicker(options, (response) => {
+          console.log('Response = ', response);
+    
+          if (response.didCancel) {
+            console.log('User cancelled photo picker');
+          }
+          else if (response.error) {
+            console.log('ImagePicker Error: ', response.error);
+          }
+          else if (response.customButton) {
+            console.log('User tapped custom button: ', response.customButton);
+          }
+          else {
+            let source = { uri: response.uri };
+            GLOBAL.Image2=source;
+            // You can also display the image using data:
+            // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+    
             this.setState({
-              videoSource: response.uri
+              Image_Source: source
             });
+            this.setState({
+              Image_Source1:source
+            })
+          }
+        });
+      }
+
+      selectPhotoTapped4() {
+        const options = {
+          quality: 1.0,
+          maxWidth: 500,
+          maxHeight: 500,
+          storageOptions: {
+            skipBackup: true
+          }
+        };
+    
+        ImagePicker.showImagePicker(options, (response) => {
+          console.log('Response = ', response);
+    
+          if (response.didCancel) {
+            console.log('User cancelled photo picker');
+          }
+          else if (response.error) {
+            console.log('ImagePicker Error: ', response.error);
+          }
+          else if (response.customButton) {
+            console.log('User tapped custom button: ', response.customButton);
+          }
+          else {
+            let source = { uri: response.uri };
+            GLOBAL.Image3=source;
+             this.setState({
+              Image_Source_1: source
+            });
+            this.setState({
+              Image_Source_1_1:source
+            })
           }
         });
       }
     
+      address_google(){
+        
+      }
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-         {/* <View style={{backgroundColor:"white",flexDirection:"row"}}>
-          <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignUp')}}>
-                    <Image
-                                source={require('../Image/icon/back.png')}
-                                style={{ marginTop:"25%",
-                                width: 40,
-                                height: 40,
-                                alignItems:"flex-start",marginLeft:"10%"
-                        }}
-                    />
-                    </TouchableOpacity>
-               <Text style={{fontSize:18,color:"black",paddingHorizontal:"10%",paddingVertical:"5%"}}>ADD DETAILS</Text>
-          </View> */}
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-            <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"30%"}]}>
+          <View style={{paddingVertical:"5%"}}>
+
+        <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+            <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"35%"}]}>
                   { this.state.avatarSource === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
                                         width: 16,
-                                        height: 16,
+                                        height: 18,
                                         // left: 20
                   }}
                   /> :
@@ -135,7 +210,7 @@ export default class App extends Component {
                   }
             </View>
           </TouchableOpacity>
-          <Text style={{fontSize:18,paddingVertical:"5%",paddingHorizontal:"28%"}}>Add Your Logo</Text>
+          <Text style={{fontSize:18,paddingVertical:"5%",paddingHorizontal:"32%"}}>Add Your Logo</Text>
           <View style={styles.boxDetails}>
           <View style={{width:"80%"}}>
               <Dropdown
@@ -150,8 +225,8 @@ export default class App extends Component {
               />
         </View>
         <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Add_Bus_Details}
+            onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -164,8 +239,8 @@ export default class App extends Component {
             placeholder="Add Business Name"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Address}
+            onChangeText={Address => this.setState({ Address })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -198,7 +273,9 @@ export default class App extends Component {
             language: 'en', // language of the results
             types: '(cities)', // default: 'geocode'
           }}
-          styles={{
+          styles={{paddingHorizontal:"10%", textInputContainer: {
+            width: '80%'
+          },
             description: {
               fontWeight: 'bold',
             },
@@ -225,8 +302,8 @@ export default class App extends Component {
           debounce={200}
         />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Locality}
+            onChangeText={Locality => this.setState({ Locality })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -238,10 +315,9 @@ export default class App extends Component {
             autoCorrect={false}
             placeholder="Locality"
           />
-          <Text>{this.state.Address}</Text>
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.City}
+            onChangeText={City => this.setState({ City })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -254,8 +330,8 @@ export default class App extends Component {
             placeholder="City"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Website_url}
+            onChangeText={Website_url => this.setState({ Website_url })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -268,8 +344,8 @@ export default class App extends Component {
             placeholder="Website URL"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Email}
+            onChangeText={Email => this.setState({ Email })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -282,8 +358,8 @@ export default class App extends Component {
             placeholder="Email ID"
           />
        <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Contact_Name}
+            onChangeText={Contact_Name => this.setState({ Contact_Name })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -296,8 +372,8 @@ export default class App extends Component {
             placeholder="Conatact Name"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Primary_No}
+            onChangeText={Primary_No => this.setState({ Primary_No })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -310,8 +386,8 @@ export default class App extends Component {
             placeholder="Primary Number"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Secondry_no}
+            onChangeText={Secondry_no => this.setState({ Secondry_no })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -324,8 +400,8 @@ export default class App extends Component {
             placeholder="Secondry Number"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Landline_No}
+            onChangeText={Landline_No => this.setState({ Landline_No })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -338,8 +414,8 @@ export default class App extends Component {
             placeholder="Landline Number"
           />
           <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
+            value={this.state.Master_Ven_ID}
+            onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
             style={styles.welcome1}
             placeholderTextColor="rgb(211,211,211)"
             returnKeyType="next"
@@ -353,58 +429,62 @@ export default class App extends Component {
           />
           </View>
           <Text style={{fontSize:18,paddingVertical:"5%",paddingHorizontal:"5%"}}>Add Images</Text>
-    <View style={{paddingVertical:"3%",flexDirection:"row",alignItems:"center"}}>
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-          <View style={[styles.avatar, styles.avatarContainer,marginBottom=2]}>
-          { this.state.avatarSource1 === null 
-                        ? 
-                    <Image
-                        source={require('../Image/icon/plus.png')}
-                        style={{width: 16,height: 16,}}
-                      /> 
-                        :
-                    <Image style={styles.avatarMultiple} source={this.state.avatarSource1} />
-          }
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-          <View style={[styles.avatar, styles.avatarContainer,marginBottom=2]}>
-          { this.state.avatarSource1 === null 
-                        ? 
-                    <Image
-                        source={require('../Image/icon/plus.png')}
-                        style={{width: 16,height: 16,}}
-                      /> 
-                        :
-                    <Image style={styles.avatarMultiple} source={this.state.avatarSource1} />
-          }
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-          <View style={[styles.avatar, styles.avatarContainer,marginBottom=2]}>
-          { this.state.avatarSource1 === null 
-                        ? 
-                    <Image
-                        source={require('../Image/icon/plus.png')}
-                        style={{width: 16,height: 16,}}
-                      /> 
-                        :
-                    <Image style={styles.avatarMultiple} source={this.state.avatarSource1} />
-          }
-          </View>
-        </TouchableOpacity>
+    <View style={{paddingVertical:"3%",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%"}}>
+    <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
+            <View style={[styles.avatar, styles.avatarContainer]}>
+                  { this.state.Image_Source_2_1 === null ? <Image
+                                      source={require('../Image/icon/plus.png')}
+                                      style={{
+                                        width: 16,
+                                        height: 16,
+                                        // left: 20
+                  }}
+                  /> :
+                    <Image style={styles.avatar} source={this.state.Image_Source_2_1} />
+                  }
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
+            <View style={[styles.avatar, styles.avatarContainer]}>
+                  { this.state.Image_Source1 === null ? <Image
+                                      source={require('../Image/icon/plus.png')}
+                                      style={{
+                                        width: 16,
+                                        height: 16,
+                                        // left: 20
+                  }}
+                  /> :
+                    <Image style={styles.avatar} source={this.state.Image_Source1} />
+                  }
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.selectPhotoTapped4.bind(this)}>
+            <View style={[styles.avatar, styles.avatarContainer]}>
+                  { this.state.Image_Source_1_1 === null ? <Image
+                                      source={require('../Image/icon/plus.png')}
+                                      style={{
+                                        width: 16,
+                                        height: 16,
+                                        // left: 20
+                  }}
+                  /> :
+                    <Image style={styles.avatar} source={this.state.Image_Source_1_1} />
+                  }
+            </View>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity style={{ width: "40%",marginLeft:"30%",height:"4%",
                                 backgroundColor: "rgb(255,163,0)",
                                 justifyContent: "center",
                                 paddingVertical: 10,
-                                borderRadius:10}} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
+                                borderRadius:10}} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack'),this.Fun_save()}}>
                   <Text style={{fontSize: 20,
                             alignSelf: "center",
                             textAlign: "center",
                             color: "white",
                             fontWeight: "700"}}>Submit</Text>
               </TouchableOpacity>
+        </View>
       </ScrollView>
     );
   }

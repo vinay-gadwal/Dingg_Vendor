@@ -15,6 +15,6 @@ export default SwitchExample = (props) => {
 const styles = StyleSheet.create ({
    container: {
       alignItems: 'center',
-      marginTop: "5%"
+      marginTop: "5%",marginRight:"30%"
    }
 })
