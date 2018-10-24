@@ -33,7 +33,6 @@ export default class App extends Component {
                     />
                     </TouchableOpacity>
       
-                    <TextInput style={styles.Setting_lineSetting}/>
         </View>
         <View style={{  width:"40%",
                           backgroundColor:"white",
@@ -49,7 +48,6 @@ export default class App extends Component {
                     />
                     </TouchableOpacity  >
                   
-                    <TextInput style={styles.Setting_lineSetting}/>
         </View>
         </View>
         <Text></Text>
@@ -68,7 +66,6 @@ export default class App extends Component {
                     />
                     </TouchableOpacity>
                 
-                    <TextInput style={styles.Setting_lineSetting}/>
         </View>
         <View style={{  width:"40%",
                           backgroundColor:"white",
@@ -83,7 +80,6 @@ export default class App extends Component {
                                 style={styles.setting_Image}
                     />
                     </TouchableOpacity  >
-                    <TextInput style={styles.Setting_lineSetting}/>
         </View>
         </View>
         <Text></Text>

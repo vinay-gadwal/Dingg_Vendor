@@ -222,7 +222,7 @@ export default class example extends Component {
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
+        <View style={[styles.box_SignUp,{ height: hp('15%'),marginBottom:"2%"}]}>
         <Form ref={'form'} style={styles.form}>
 
           <View style={{ flexDirection: 'row' }}>
@@ -244,38 +244,22 @@ export default class example extends Component {
               style={[ styles.textInput,{height: hp('5%'),width: wp('65%'),} ]}
               returnKeyType='next'
               autoFocus
-             placeholderTextColor="rgb(204,204,204)"
+             placeholderTextColor="rgb(211,211,211)"
               selectionColor={brandColor}
               maxLength={this.state.enterCode ? 6 : 20}
-              onSubmitEditing={this._getSubmitAction} />
+              onSubmitEditing={this._getSubmitAction} 
+              />
 
           </View>
         </Form>
         </View>
-        <View style={{marginBottom:"25%"}}>
-        <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
+        <View style={{marginBottom:"40%"}}>
+        <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('For_New_Pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
 
           {this._renderFooter()}
-          </View>
-        <View style={{flexDirection:"row"}}>
-        <Text style={styles.text}>Already have an account? </Text>
-        <View style={{flexDirection:"column"}}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
-        <Text style={styles.text}>Sign In </Text>
-        <Image
-          source={require('../Image/icon/Line/rectangle1.png')}
-          style={{
-            width: wp('16%'),
-            height: hp('.5%'),marginBottom:"5%",marginTop:"4%"
-            // left: 20
-          }}
-        />
-        </TouchableOpacity>
-        </View>
-        <Text style={styles.text}>here</Text>
-        </View>
+       </View>
         <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}

@@ -28,23 +28,12 @@ export default class Password extends Component {
 
   render() {
     return (
-      <View  style={styles.container}>
+      <View  style={[styles.container]}>
       <Image
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box,{ height: hp('25%')}]}>
-        <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
-            ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.input}
-            placeholder="User ID"
-            placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
-             secureTextEntry
-          />
+        <View style={[styles.box,{ height: hp('20%'),marginBottom:"0%"}]}>
           <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -69,9 +58,9 @@ export default class Password extends Component {
           />
         
     </View>
-    <View style={{marginBottom:"20%"}}>
-        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AddDetails')}}>
-        <Text style={styles.buttonText}>Complete Signup</Text>
+    <View style={{marginBottom:"40%"}}> 
+        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Forget_password')}}>
+        <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>

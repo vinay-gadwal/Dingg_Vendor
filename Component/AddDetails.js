@@ -10,6 +10,8 @@ import styles from './Style'
 import {
   GooglePlacesAutocomplete,
 } from 'react-native-google-places-autocomplete'; // 1.2.12
+import RF from "react-native-responsive-fontsize"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const homePlace = {
   description: 'Home',
@@ -197,12 +199,12 @@ export default class App extends Component {
           <View style={{paddingVertical:"5%"}}>
 
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-            <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"35%"}]}>
+            <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"36%"}]}>
                   { this.state.avatarSource === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
-                                        width: 16,
-                                        height: 18,
+                                        width: wp('3%'),
+                                        height: hp('2%'),
                                         // left: 20
                   }}
                   /> :
@@ -218,7 +220,7 @@ export default class App extends Component {
                   value={'Select Category'}
                   dropdownPosition={0}
                   style={{
-                    width: "400%",
+                    width: wp('200%'),fontSize: RF(2.5),
                     // position: 'absolute',
                     top: 0,marginBottom:20,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(255,163,0)"
                 }}
@@ -473,12 +475,15 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={{ width: "40%",marginLeft:"30%",height:"4%",
+        <TouchableOpacity style={{ width: "40%",marginLeft:"30%",height:"5%",
                                 backgroundColor: "rgb(255,163,0)",
                                 justifyContent: "center",
-                                paddingVertical: 10,
+                                paddingVertical: 10, shadowColor: 'rgb(255,164,0)',
+                                shadowOffset: { width: 0, height: 2 },
+                                shadowOpacity: 0.8,
+                                shadowRadius: 2,
                                 borderRadius:10}} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack'),this.Fun_save()}}>
-                  <Text style={{fontSize: 20,
+                  <Text style={{fontSize: RF(3),
                             alignSelf: "center",
                             textAlign: "center",
                             color: "white",

@@ -6,8 +6,7 @@ import {
 } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import styles from './Style'
-
-
+import RF from "react-native-responsive-fontsize"
 
 const data = [
     {
@@ -33,7 +32,7 @@ export default class App extends Component {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
     
-            <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"30%"}]}>
+            <View style={[styles.avatar, styles.avatarContainer,{marginLeft:"35%"}]}>
                   { GLOBAL.Image === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
@@ -52,19 +51,19 @@ export default class App extends Component {
                           justifyContent: 'space-between',marginHorizontal:"5%"}}>
             
                   <View >
-                    <Text style={styles.setting_text}>Address</Text>
+                    <Text style={styles.profile_Small_text}>Address</Text>
                     <Text style={styles.setting_text}>{GLOBAL.code}</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
 
                   <View >
-                    <Text style={styles.setting_text}>Locality</Text>
+                    <Text style={styles.profile_Small_text}>Locality</Text>
                     <Text style={styles.setting_text}>Tilak Nagar</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View >
-                    <Text style={styles.setting_text}>City</Text>
+                    <Text style={styles.profile_Small_text}>City</Text>
                     <Text style={styles.setting_text}>Mumbai</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
@@ -77,13 +76,13 @@ export default class App extends Component {
                           justifyContent: 'space-between',marginHorizontal:"5%"}}>
             
                   <View >
-                    <Text style={styles.setting_text}>Website</Text>
+                    <Text style={styles.profile_Small_text}>Website</Text>
                     <Text style={styles.setting_text}>www.biancabeauty.com</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View >
-                    <Text style={styles.setting_text}>Email</Text>
+                    <Text style={styles.profile_Small_text}>Email</Text>
                     <Text style={styles.setting_text}>contact@biancabeauty.com</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
@@ -96,25 +95,25 @@ export default class App extends Component {
                           justifyContent: 'space-between',marginHorizontal:"5%"}}>
             
                  <View >
-                    <Text style={styles.setting_text}>Conatct Name</Text>
+                    <Text style={styles.profile_Small_text}>Conatct Name</Text>
                     <Text style={styles.setting_text}>Cecilia Andrews</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View >
-                    <Text style={styles.setting_text}>Primary Number</Text>
+                    <Text style={styles.profile_Small_text}>Primary Number</Text>
                     <Text style={styles.setting_text}>+91-9876543210</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
 
-                   <View >
-                    <Text style={styles.setting_text}>Secondry Number</Text>
+                   <View style={{justifyContent:"center"}}>
+                    <Text style={styles.profile_Small_text}>Secondry Number</Text>
                     <Text style={styles.setting_text}>+91-9876543210</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
-                  <View >
-                  <Text style={styles.setting_text}>Landline Number</Text>
+                  <View style={{justifyContent:"center"}}>
+                  <Text style={styles.profile_Small_text}>Landline Number</Text>
                   <Text style={styles.setting_text}>+91-9876543210</Text>
                   <TextInput style={styles.Setting_lineSetting}/>
                 </View>
@@ -126,13 +125,13 @@ export default class App extends Component {
                           borderRadius:10,
                           justifyContent: 'space-between',marginHorizontal:"5%"}}>
             <View >
-                  <Text style={styles.setting_text}>Category</Text>
+                  <Text style={styles.profile_Small_text}>Category</Text>
                   <Text style={styles.setting_text}>salon</Text>
                   <TextInput style={styles.Setting_lineSetting}/>
                 </View>
 
                  <View >
-                  <Text style={styles.setting_text}>Service Type</Text>
+                  <Text style={styles.profile_Small_text}>Service Type</Text>
                   <Text style={styles.setting_text}>Unisex</Text>
                   <TextInput style={styles.Setting_lineSetting}/>
                 </View>
@@ -150,7 +149,8 @@ export default class App extends Component {
                 </View>
                   
             </View>
-            <View style={{paddingVertical:"3%",flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%"}}>
+            <Text></Text>
+            <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%"}}>
             <View style={[styles.avatar, styles.avatarContainer]}>
                   { GLOBAL.Image1 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
@@ -188,10 +188,10 @@ export default class App extends Component {
                   }
             </View>
         </View>
+        <Text></Text>
         <TouchableOpacity style={{ width: "40%",marginLeft:"30%",height:"4%",
                                 backgroundColor: "rgb(255,163,0)",
                                 justifyContent: "center",
-                                paddingVertical: 10,
                                 borderRadius:10}} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
                   <Text style={{fontSize: 20,
                             alignSelf: "center",
@@ -199,6 +199,7 @@ export default class App extends Component {
                             color: "white",
                             fontWeight: "700"}}>Submit</Text>
               </TouchableOpacity>
+              <Text></Text>
       </ScrollView>
     );
   }

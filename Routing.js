@@ -13,7 +13,7 @@ import {
 // import { Dropdown } from 'react-native-material-dropdown';
 import sing_in from './Auth_Module/Signin'
 import sing_up from './Auth_Module/Signup'
-import Password from './Auth_Module/Password'
+import Forget_password from './Auth_Module/Forget_Pass'
 import Crea_pass from './Auth_Module/Create_password'
 import Add_Details from './Component/AddDetails'
 import DashBoard from './Component/Dashboard'
@@ -25,7 +25,9 @@ import Share from './Component/Share'
 import Rating from './Component/Star_Rating'
 import Queue from './Component/Queue'
 import Queue_request from './Component/Queue_Request'
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import styles from './Component/Style';
+import For_New_Pass from './Auth_Module/Forget_Pass_NewPass'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
@@ -180,42 +182,69 @@ const RootStack = createStackNavigator({
           screen: sing_in,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN IN',
+            headerBackTitle:null
           })
         },
   SignUp: {
           screen: sing_up,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
+            headerLeft: null,
             headerBackTitle:null
           })
         },
   Crea_pass: {
           screen: Crea_pass,
           navigationOptions: ({ navigation }) => ({
-            title: 'CREATE PASSWORD',
-            headerBackTitle:null
+            title: 'SIGN UP',
+            // headerLeft: null,
+            // headerBackTitle:null
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
           })
         },
-  Password: {
-          screen: Password,
-          headerLeft: null,
+  Forget_password: {
+          screen: Forget_password,
           navigationOptions: ({ navigation }) => ({
-            title: 'PASSWORD',
-            headerBackTitle:null
+            title:'FORGET PASSWORD',
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
           })
         },
+        For_New_Pass:{
+      screen:For_New_Pass,
+      navigationOptions: ({ navigation }) => ({
+        title:'CREATE NEW PASSWORD',
+        headerLeft:( 
+          <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+        <Image
+          source={require('./Image/icon/back_2x.png')}
+          style={styles.back_butt0n} 
+        />
+        </TouchableOpacity>)
+      })
+  },
   AddDetails:{
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS DETAILS',
-            headerBackTitle:null
+            headerLeft:null
           })
         },
   DashBoard:{
           screen: DashBoard,
           navigationOptions: ({ navigation }) => ({
             title: 'DASHBOARD',
-            headerBackTitle:null,
             headerLeft: null,
           })
            },

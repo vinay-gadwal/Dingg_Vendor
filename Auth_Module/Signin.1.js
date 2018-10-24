@@ -8,15 +8,16 @@ import {
   TouchableOpacity
 } from "react-native";
 import styles from '../Component/Style'
+import PasswordInputText from 'react-native-hide-show-password-input';
+import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-
-export default class Password extends Component {
+export default class Forget extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
-      password: "",hidePassword:"true"
+      New_Password: "",
+      Con_Password: "",hidePassword:"true"
     };
     
   }
@@ -29,21 +30,24 @@ export default class Password extends Component {
   render() {
     return (
       <View  style={styles.container}>
-      <Image
+          <Image
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box,{ height: hp('25%')}]}>
-        <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
-            ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
+        <View style={[styles.box,{marginBottom:"20%"}]}>
+          <TextInput
+            value={this.state.username}
+            onChangeText={username => this.setState({ username })}
             style={styles.input}
-            placeholder="User ID"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
-             secureTextEntry
+            returnKeyType="next"
+            underlineColorAndroid='transparent'
+            ref={input => (this.emailInput = input)}
+            // onSubmitEditing={() => this.passwordCInput.focus()}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="New Password"
           />
           <TextInput
             value={this.state.password}
@@ -51,29 +55,18 @@ export default class Password extends Component {
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
-            placeholder="Enter New Password"
+            placeholder="Confirm Password"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="go"
              secureTextEntry
           />
-           <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
-            ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.input}
-            placeholder="Confirm New Password"
-            placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-        
-    </View>
-    <View style={{marginBottom:"20%"}}>
-        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AddDetails')}}>
-        <Text style={styles.buttonText}>Complete Signup</Text>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
+        <Text style={{color:"rgb(255,163,0)",marginLeft:"30%",fontSize: RF(2),marginBottom:"4%",fontWeight:"bold"}}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
-        </View>
+    </View>
+        <TouchableOpacity style={styles.button} >
+        <Text style={styles.buttonText}>Sign in</Text>
+        </TouchableOpacity>
         <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}

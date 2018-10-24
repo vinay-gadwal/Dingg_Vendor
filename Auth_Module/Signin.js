@@ -8,16 +8,17 @@ import {
   TouchableOpacity
 } from "react-native";
 import styles from '../Component/Style'
-import PasswordInputText from 'react-native-hide-show-password-input';
+import RF from "react-native-responsive-fontsize"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Login extends Component {
-  constructor(props) {
+  constructor(props)
+   {
     super(props);
     this.state = {
       username: "",
-      password: "",hidePassword:"true"
-    };
-    
+      password: '',hidePassword:"true"
+    };  
   }
 
   managePasswordVisibility = () =>
@@ -27,16 +28,18 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View  style={styles.container}>
-      {/* <View style={{backgroundColor:"white",height:"10%",width:"100%"}}>
-        <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"40%",paddingVertical:"5%"}}>SIGN IN</Text>
-        </View> */}
-        <View style={[styles.box,{marginTop:"40%"}]}>
+    <View  style={styles.container}>
+        <Image
+              source={require('../Image/icon/logo_3.png')}
+              style={styles.Logo_style}
+            />
+        
+        <View style={[styles.box,{marginBottom:"0%",height: hp('23%'),}]}>
           <TextInput
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
             style={styles.input}
-            placeholderTextColor="rgb(211,211,211)"
+            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
@@ -46,32 +49,44 @@ export default class Login extends Component {
             autoCorrect={false}
             placeholder="Mobile Number"
           />
-          <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
-            ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.input}
-            placeholder="Enter Password"
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-        <TouchableOpacity >
-        <Text style={{color:"rgb(255,163,0)",marginLeft:"30%",fontSize:14,marginBottom:5,marginTop:0,fontWeight:"bold",alignItems:"flex-end"}}>FORGOT PASSWORD?</Text>
-        </TouchableOpacity>
-    </View>
-        <TouchableOpacity style={styles.button} >
-        <Text style={styles.buttonText}>Sign in</Text>
-        </TouchableOpacity>
-        <View style={{flexDirection:"row"}}>
+          <View style = { styles.textBoxBtnHolder }>
+              <TextInput 
+                  placeholder="Password"
+                  underlineColorAndroid = "transparent" secureTextEntry = { this.state.hidePassword } style = { styles.input }/>
+              <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
+              </TouchableOpacity>
+          </View>
+          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
+          <Text style={{color:"rgb(255,163,0)",marginLeft:"30%",fontSize: RF(2),marginBottom:"4%",fontWeight:"bold"}}>FORGOT PASSWORD?</Text>
+          </TouchableOpacity>
+      </View>
+      
+      <View style={{marginBottom:"10%"}}>
+          <TouchableOpacity style={styles.button} >
+          <Text style={styles.buttonText}>Sign in</Text>
+          </TouchableOpacity>
+      </View>
+      
+      <View style={{flexDirection:"row"}}>
         <Text style={styles.text}>Don't have an account? </Text>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
-        <Text style={styles.text}>Sign Up </Text>
-        </TouchableOpacity>
-        <Text style={styles.text}>here</Text>
+        <View style={{flexDirection:"column"}}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
+            <Text style={styles.text}>Sign Up </Text>
+            <Image
+              source={require('../Image/icon/Line/rectangle1.png')}
+              style={{
+                width: wp('18'),
+                height: hp('.5%'),marginBottom:"5%",marginTop:"4%"
+                // left: 20
+              }}
+            />
+            </TouchableOpacity>
         </View>
-        <View style={{flexDirection:"row"}}>
+        <Text style={styles.text}>here</Text>
+      </View>
+      
+      <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={{
@@ -80,9 +95,10 @@ export default class Login extends Component {
             // left: 20
           }}
         />
-        <Text style={{fontSize:16,color:"rgb(152,152,152)"}}> All copyright reserved to Dingg 2018</Text>
-          </View>
-    </View>
+        <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
+      </View>
+      
+</View>
     );
   }
 }
