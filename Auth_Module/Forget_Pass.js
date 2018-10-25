@@ -16,7 +16,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';
 import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+import {TextInputLayout} from 'rn-textinputlayout';
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
 //   headers: {
@@ -222,14 +222,14 @@ export default class example extends Component {
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box_SignUp,{ height: hp('15%'),marginBottom:"2%"}]}>
-        <Form ref={'form'} style={styles.form}>
+         <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
+        {/* <Form ref={'form'} style={styles.form}>
 
           <View style={{ flexDirection: 'row' }}>
 
             {this._renderCountryPicker()}
             {this._renderCallingCode()}
-
+              
             <TextInput
               ref={'textInput'}
               name={this.state.enterCode ? 'code' : 'phoneNumber' }
@@ -244,14 +244,37 @@ export default class example extends Component {
               style={[ styles.textInput,{height: hp('5%'),width: wp('65%'),} ]}
               returnKeyType='next'
               autoFocus
-             placeholderTextColor="rgb(211,211,211)"
+             placeholderTextColor="rgb(204,204,204)"
               selectionColor={brandColor}
               maxLength={this.state.enterCode ? 6 : 20}
-              onSubmitEditing={this._getSubmitAction} 
-              />
+              onSubmitEditing={this._getSubmitAction} />
 
           </View>
-        </Form>
+        </Form> */}
+          <Text style={styles.text}>Enter the registered mobile number</Text>
+          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+              <TextInputLayout focusColor="rgb(255,164,0)">
+
+              <Text style={{marginTop:"10%",fontSize:18}}>+91     </Text>
+              </TextInputLayout>
+              <Text>   </Text>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInput
+            value={this.state.username}
+            onChangeText={username => this.setState({ username })}
+            style={[styles.input,{width: wp('55'), height: hp('4%')}]}
+            placeholderTextColor="rgb(204,204,204)"
+            returnKeyType="next"
+            underlineColorAndroid='transparent'
+            ref={input => (this.emailInput = input)}
+            // onSubmitEditing={() => this.passwordCInput.focus()}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Mobile Number"
+          />
+         </TextInputLayout>
+          </View>
         </View>
         <View style={{marginBottom:"40%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('For_New_Pass')}}>

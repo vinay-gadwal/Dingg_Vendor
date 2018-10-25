@@ -9,13 +9,13 @@ import {
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+import {TextInputLayout} from 'rn-textinputlayout';
 
 export default class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      Uid:"",conf_pass:"",
       password: "",hidePassword:"true"
     };
     
@@ -33,18 +33,21 @@ export default class Password extends Component {
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box,{ height: hp('25%')}]}>
+        <View style={[styles.box,{ height: hp('30%')}]}>
+        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+            value={this.state.Uid}
+            onChangeText={Uid => this.setState({ Uid })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
             placeholder="User ID"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="go"
-             secureTextEntry
+            //  secureTextEntry
           />
+          </TextInputLayout>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -56,9 +59,11 @@ export default class Password extends Component {
             returnKeyType="go"
              secureTextEntry
           />
+          </TextInputLayout>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
            <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+            value={this.state.conf_pass}
+            onChangeText={conf_pass => this.setState({ conf_pass })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
@@ -67,7 +72,7 @@ export default class Password extends Component {
             returnKeyType="go"
              secureTextEntry
           />
-        
+        </TextInputLayout>
     </View>
     <View style={{marginBottom:"20%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AddDetails')}}>

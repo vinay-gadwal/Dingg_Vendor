@@ -9,13 +9,13 @@ import {
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+import {TextInputLayout} from 'rn-textinputlayout';
 
 export default class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+        new_pass:"",
       password: "",hidePassword:"true"
     };
     
@@ -33,7 +33,8 @@ export default class Password extends Component {
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box,{ height: hp('20%'),marginBottom:"0%"}]}>
+        <View style={[styles.box,{ height: hp('22%'),marginBottom:"0%"}]}>
+        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -45,9 +46,11 @@ export default class Password extends Component {
             returnKeyType="go"
              secureTextEntry
           />
+          </TextInputLayout>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
            <TextInput
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+            value={this.state.new_pass}
+            onChangeText={new_pass => this.setState({ new_pass })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
@@ -56,10 +59,10 @@ export default class Password extends Component {
             returnKeyType="go"
              secureTextEntry
           />
-        
+        </TextInputLayout>
     </View>
     <View style={{marginBottom:"40%"}}> 
-        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Forget_password')}}>
+        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>

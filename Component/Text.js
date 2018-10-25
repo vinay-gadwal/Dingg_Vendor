@@ -1,321 +1,331 @@
-import React from 'react';
+
+import React, { Component } from 'react';
+
 import {
+  AppRegistry,
+  StyleSheet,
   Text,
   TextInput,
-  ScrollView,
-  View,
   TouchableOpacity,
-  Image,ListView
+  View,
+  Platform,
+  Alert
 } from 'react-native';
-import styles from './Style'
-import { Dropdown } from 'react-native-material-dropdown';
-import ImagePicker from 'react-native-image-picker';
-import {
-  GooglePlacesAutocomplete,
-} from 'react-native-google-places-autocomplete'; // 1.2.12
+import {TextInputLayout} from 'rn-textinputlayout';
+import Frisbee from 'frisbee';
+import Spinner from 'react-native-loading-spinner-overlay';
+import Form from 'react-native-form';
+import CountryPicker from 'react-native-country-picker-modal';
 
-
-const data = [
-  {
-    value: 'Salon',
-  },
-  {
-    value: 'Doctor',
-  },
-  {
-    value: 'Food',
-  },
-  {
-    value: 'Plumber',
+const api = new Frisbee({
+  baseURI: 'http://localhost:3000',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
   }
-];
-export default class App extends React.Component {
+});
 
-  state = {
-    avatarSource: null,avatarSource1:null,
-    videoSource: null
-  };
+const MAX_LENGTH_CODE = 6;
+const MAX_LENGTH_NUMBER = 20;
 
-  selectPhotoTapped() {
-    const options = {
-      quality: 1.0,
-      maxWidth: 500,
-      maxHeight: 500,
-      storageOptions: {
-        skipBackup: true
+// if you want to customize the country picker
+const countryPickerCustomStyles = {};
+
+// your brand's theme primary color
+const brandColor = 'black';
+
+const styles = StyleSheet.create({
+  countryPicker: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  container: {
+    flex: 1
+  },
+  header: {
+    textAlign: 'center',
+    marginTop: 60,
+    fontSize: 22,
+    margin: 20,
+    color: '#4A4A4A',
+  },
+  form: {
+    margin: 20
+  },
+  textInput: {
+    padding: 0,
+    margin: 0,
+    flex: 1,
+    fontSize: 20,
+    color: brandColor
+  },
+  button: {
+    marginTop: 20,
+    height: 50,
+    backgroundColor: brandColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontFamily: 'Helvetica',
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  wrongNumberText: {
+    margin: 10,
+    fontSize: 14,
+    textAlign: 'center'
+  },
+  disclaimerText: {
+    marginTop: 30,
+    fontSize: 12,
+    color: 'grey'
+  },
+  callingCodeView: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  callingCodeText: {
+    fontSize: 20,
+    color: brandColor,
+    fontFamily: 'Helvetica',
+    fontWeight: 'bold',
+    paddingRight: 10
+  }
+});
+
+export default class example extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      enterCode: false,
+      spinner: false,
+      country: {
+        cca2: 'US',
+        callingCode: '1'
       }
     };
-
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
-
-      if (response.didCancel) {
-        console.log('User cancelled photo picker');
-      }
-      else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      }
-      else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      }
-      else {
-        let source = { uri: response.uri };
-
-        // You can also display the image using data:
-        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-        this.setState({
-          avatarSource: source
-        });
-        this.setState({
-          avatarSource1:source
-        })
-      }
-    });
   }
 
-  selectVideoTapped() {
-    const options = {
-      title: 'Video Picker',
-      takePhotoButtonTitle: 'Take Video...',
-      mediaType: 'video',
-      videoQuality: 'medium'
-    };
+  _getCode = () => {
 
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
+    this.setState({ spinner: true });
 
-      if (response.didCancel) {
-        console.log('User cancelled video picker');
-      }
-      else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      }
-      else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      }
-      else {
-        this.setState({
-          videoSource: response.uri
+    setTimeout(async () => {
+
+      try {
+
+        const res = await api.post('/v1/verifications', {
+          body: {
+            ...this.refs.form.getValues(),
+            ...this.state.country
+          }
         });
+
+        if (res.err) throw res.err;
+
+        this.setState({
+          spinner: false,
+          enterCode: true,
+          verification: res.body
+        });
+        this.refs.form.refs.textInput.setNativeProps({ text: '' });
+
+        setTimeout(() => {
+          Alert.alert('Sent!', "We've sent you a verification code", [{
+            text: 'OK',
+            onPress: () => this.refs.form.refs.textInput.focus()
+          }]);
+        }, 100);
+
+      } catch (err) {
+        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
+        this.setState({ spinner: false });
+        setTimeout(() => {
+          Alert.alert('Oops!', err.message);
+        }, 100);
       }
-    });
+
+    }, 100);
+
+  }
+
+  _verifyCode = () => {
+
+    this.setState({ spinner: true });
+
+    setTimeout(async () => {
+
+      try {
+
+        const res = await api.put('/v1/verifications', {
+          body: {
+            ...this.refs.form.getValues(),
+            ...this.state.country
+          }
+        });
+
+        if (res.err) throw res.err;
+
+        this.refs.form.refs.textInput.blur();
+        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
+        this.setState({ spinner: false });
+        setTimeout(() => {
+          Alert.alert('Success!', 'You have successfully verified your phone number');
+        }, 100);
+
+      } catch (err) {
+        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
+        this.setState({ spinner: false });
+        setTimeout(() => {
+          Alert.alert('Oops!', err.message);
+        }, 100);
+      }
+
+    }, 100);
+
+  }
+
+  _onChangeText = (val) => {
+    if (!this.state.enterCode) return;
+    if (val.length === MAX_LENGTH_CODE)
+    this._verifyCode();
+  }
+
+  _tryAgain = () => {
+    this.refs.form.refs.textInput.setNativeProps({ text: '' })
+    this.refs.form.refs.textInput.focus();
+    this.setState({ enterCode: false });
+  }
+
+  _getSubmitAction = () => {
+    this.state.enterCode ? this._verifyCode() : this._getCode();
+  }
+
+  _changeCountry = (country) => {
+    this.setState({ country });
+    this.refs.form.refs.textInput.focus();
+  }
+
+  _renderFooter = () => {
+
+    if (this.state.enterCode)
+      return (
+        <View>
+          <Text style={styles.wrongNumberText} onPress={this._tryAgain}>
+            Enter the wrong number or need a new code?
+          </Text>
+        </View>
+      );
+
+    return (
+      <View>
+        <Text style={styles.disclaimerText}>By tapping "Send confirmation code" above, we will send you an SMS to confirm your phone number. Message &amp; data rates may apply.</Text>
+      </View>
+    );
+
+  }
+
+  _renderCountryPicker = () => {
+
+    if (this.state.enterCode)
+      return (
+        <View />
+      );
+
+    return (
+      <CountryPicker
+        ref={'countryPicker'}
+        closeable
+        style={styles.countryPicker}
+        onChange={this._changeCountry}
+        cca2={this.state.country.cca2}
+        styles={countryPickerCustomStyles}
+        translation='eng'/>
+    );
+
+  }
+
+  _renderCallingCode = () => {
+
+    if (this.state.enterCode)
+      return (
+        <View />
+      );
+
+    return (
+      <View style={styles.callingCodeView}>
+        <Text style={styles.callingCodeText}>+{this.state.country.callingCode}</Text>
+      </View>
+    );
+
   }
 
   render() {
+
+    let headerText = `What's your ${this.state.enterCode ? 'verification code' : 'phone number'}?`
+    let buttonText = this.state.enterCode ? 'Verify confirmation code' : 'Send confirmation code';
+    let textStyle = this.state.enterCode ? {
+      height: 50,
+      textAlign: 'center',
+      fontSize: 40,
+      fontWeight: 'bold',
+      fontFamily: 'Courier'
+    } : {};
+
     return (
-    <ScrollView style={{backgroundColor: "rgb(243,242,242)",height:300}}>
-    <View style={styles.container}>
-    <View style={{backgroundColor:"white",height:"10%",width:"100%",marginBottom:"4%",flexDirection:"row"}}>
-          <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignUp')}}>
-                    <Image
-                                source={require('../Image/icon/back.png')}
-                                style={{ marginTop:"35%",
-                                width: 20,
-                                height: 20,
-                                alignItems:"flex-start",marginLeft:"10%"
-                        }}
-                    />
-                    </TouchableOpacity>
-               <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"20%",paddingVertical:"5%"}}>RATE US</Text>
+
+      <View style={styles.container}>
+
+        <Text style={styles.header}>{headerText}</Text>
+
+        <Form ref={'form'} style={styles.form}>
+
+          <View style={{ flexDirection: 'row' }}>
+
+            {/* {this._renderCountryPicker()}
+            {this._renderCallingCode()} */}
+
+            <TextInput
+              ref={'textInput'}
+              name={this.state.enterCode ? 'code' : 'phoneNumber' }
+              type={'TextInput'}
+              underlineColorAndroid={'transparent'}
+              autoCapitalize={'none'}
+              autoCorrect={false}
+              onChangeText={this._onChangeText}
+              placeholder={this.state.enterCode ? '_ _ _ _ _ _' : 'Phone Number'}
+              keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
+              style={[ styles.textInput, textStyle ]}
+              returnKeyType='go'
+              autoFocus
+              placeholderTextColor={brandColor}
+              selectionColor={brandColor}
+              maxLength={this.state.enterCode ? 6 : 20}
+              onSubmitEditing={this._getSubmitAction} />
+
           </View>
-           <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-            <View style={[styles.avatar, styles.avatarContainer,marginBottom=2]}>
-                  { this.state.avatarSource === null ? <Image
-                                      source={require('../Image/icon/plus.png')}
-                                      style={{
-                                        width: 16,
-                                        height: 16,
-                                        // left: 20
-                  }}
-                  /> :
-                    <Image style={styles.avatar} source={this.state.avatarSource} />
-                  }
-            </View>
+
+          <TouchableOpacity style={styles.button} onPress={this._getSubmitAction}>
+            <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
-          
-              <Text style={{fontSize:18,paddingVertical:"5%"}}>Add Your Logo</Text>
-         <View>
-         <View style={styles.boxDetails}>
-         <View style={{width:240}}>
-              <Dropdown
-                  data={data}
-                  value={'Select Category'}
-                  dropdownPosition={0}
-                  style={{
-                    width: "400%",
-                    // position: 'absolute',
-                    top: 0,marginBottom:20,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(255,163,0)"
-                }}
-              />
-        </View>
-          <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
-            style={styles.inputSignUp}
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="next"
-            underlineColorAndroid='transparent'
-            // ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Address"
-          />
-          <TextInput
-            // value={this.state.password}
-            // onChangeText={password => this.setState({ password })}
-            // ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.inputSignUp}
-            placeholder="Locality"
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-          <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
-            style={styles.inputSignUp}
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="next"
-            underlineColorAndroid='transparent'
-            // ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="City"
-          />
-          <TextInput
-            // value={this.state.password}
-            // onChangeText={password => this.setState({ password })}
-            // ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.inputSignUp}
-            placeholder="Website URL"
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-          <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
-            style={styles.inputSignUp}
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="next"
-            underlineColorAndroid='transparent'
-            // ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            // keyboardType="Email ID"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Mobile Number"
-          />
-          <TextInput
-            // value={this.state.password}
-            // onChangeText={password => this.setState({ password })}
-            // ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.inputSignUp}
-            placeholder="Contact Name"
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-          <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
-            style={styles.inputSignUp}
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="next"
-            underlineColorAndroid='transparent'
-            // ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Primary Number"
-          />
-          <TextInput
-            // value={this.state.password}
-            // onChangeText={password => this.setState({ password })}
-            // ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.inputSignUp}
-            placeholder="Secondry Number"
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-          <TextInput
-            // value={this.state.username}
-            // onChangeText={username => this.setState({ username })}
-            style={styles.inputSignUp}
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="next"
-            underlineColorAndroid='transparent'
-            // ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Landline Number"
-          />
-          <TextInput
-            // value={this.state.password}
-            // onChangeText={password => this.setState({ password })}
-            ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.inputSignUp}
-            placeholder="Master Vendor ID"
-            placeholderTextColor="rgb(211,211,211)"
-            returnKeyType="go"
-             secureTextEntry
-          />
-    </View>
-    <Text style={{fontSize:18,fontWeight:"bold",paddingTop:"4%",justifyContent:"center"}}>Add Images</Text>
-    <View style={{paddingVertical:"3%",flexDirection:"row"}}>
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-          <View style={[styles.avatar, styles.avatarContainer,marginBottom=2]}>
-          { this.state.avatarSource1 === null 
-                        ? 
-                    <Image
-                        source={require('../Image/icon/plus.png')}
-                        style={{width: 16,height: 16,}}
-                      /> 
-                        :
-                    <Image style={styles.avatarMultiple} source={this.state.avatarSource1} />
-          }
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-          <View style={[styles.avatar, styles.avatarContainer,marginBottom=2]}>
-          { this.state.avatarSource1 === null 
-                        ? 
-                    <Image
-                        source={require('../Image/icon/plus.png')}
-                        style={{width: 16,height: 16,}}
-                      /> 
-                        :
-                    <Image style={styles.avatarMultiple} source={this.state.avatarSource1} />
-          }
-          </View>
-        </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={[styles.button,paddingHorizontal="20%"]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
-        <Text style={{fontSize: 20,
-                  alignSelf: "center",
-                  textAlign: "center",
-                  color: "white",
-                  fontWeight: "700",marginHorizontal:"20%"}}>Submit</Text>
-        </TouchableOpacity>
-        </View>
-</View>
-</ScrollView>
+
+          {this._renderFooter()}
+
+        </Form>
+
+        <Spinner
+          visible={this.state.spinner}
+          textContent={'One moment...'}
+          textStyle={{ color: '#fff' }} />
+
+      </View>
+
     );
   }
-
 }
 
+AppRegistry.registerComponent('example', () => example);

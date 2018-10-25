@@ -221,7 +221,7 @@ const RootStack = createStackNavigator({
             </TouchableOpacity>)
           })
         },
-        For_New_Pass:{
+    For_New_Pass:{
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
@@ -238,7 +238,13 @@ const RootStack = createStackNavigator({
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS DETAILS',
-            headerLeft:null
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
           })
         },
   DashBoard:{
