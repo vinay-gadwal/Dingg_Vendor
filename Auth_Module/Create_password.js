@@ -33,14 +33,14 @@ export default class Password extends Component {
           source={require('../Image/icon/logo_3.png')}
           style={styles.Logo_style}
         />
-        <View style={[styles.box,{ height: hp('30%')}]}>
+        <View style={[styles.box,{ height: hp('35%')}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
             onChangeText={Uid => this.setState({ Uid })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.input}
+            style={[styles.input,{height:hp("1")}]}
             placeholder="User ID"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="go"
@@ -82,11 +82,7 @@ export default class Password extends Component {
         <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
-          style={{
-            width: 16,
-            height: 16,
-            // left: 20
-          }}
+          style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>

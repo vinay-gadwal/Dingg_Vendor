@@ -28,6 +28,8 @@ import Queue_request from './Component/Queue_Request'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import styles from './Component/Style';
 import For_New_Pass from './Auth_Module/Forget_Pass_NewPass'
+import New_User from './Component/New_User'
+import Exist_User from './Component/Existing_user'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
@@ -182,7 +184,10 @@ const RootStack = createStackNavigator({
           screen: sing_in,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN IN',
-            headerBackTitle:null
+            headerBackTitle:null,
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
           })
         },
   SignUp: {
@@ -190,15 +195,19 @@ const RootStack = createStackNavigator({
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
             headerLeft: null,
-            headerBackTitle:null
+            headerBackTitle:null,
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
           })
         },
   Crea_pass: {
           screen: Crea_pass,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
-            // headerLeft: null,
-            // headerBackTitle:null
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -212,6 +221,9 @@ const RootStack = createStackNavigator({
           screen: Forget_password,
           navigationOptions: ({ navigation }) => ({
             title:'FORGET PASSWORD',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -225,6 +237,9 @@ const RootStack = createStackNavigator({
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
+        headerTitleStyle: {
+          fontFamily:'Muli-Bold',marginBottom:hp("2%")
+        },
         headerLeft:( 
           <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
         <Image
@@ -238,6 +253,9 @@ const RootStack = createStackNavigator({
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS DETAILS',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -247,6 +265,7 @@ const RootStack = createStackNavigator({
             </TouchableOpacity>)
           })
         },
+
   DashBoard:{
           screen: DashBoard,
           navigationOptions: ({ navigation }) => ({
@@ -254,6 +273,43 @@ const RootStack = createStackNavigator({
             headerLeft: null,
           })
            },
+
+ New_User:{
+            screen:New_User,
+            headerMode: null,
+            navigationOptions: ({ navigation }) => ({
+              title: 'New User',
+              headerTitleStyle: {
+                fontFamily:'Muli-Bold',marginBottom:hp("2%")
+              },
+              headerLeft:( 
+                <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+              <Image
+                source={require('./Image/icon/back_2x.png')}
+                style={styles.back_butt0n} 
+              />
+              </TouchableOpacity>)
+            })
+          },
+
+ Exist_User:{
+            screen:Exist_User,
+            headerMode: null,
+            navigationOptions: ({ navigation }) => ({
+              title: 'Existing User',
+              headerTitleStyle: {
+                fontFamily:'Muli-Bold',marginBottom:hp("2%")
+              },
+              headerLeft:( 
+                <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+              <Image
+                source={require('./Image/icon/back_2x.png')}
+                style={styles.back_butt0n} 
+              />
+              </TouchableOpacity>)
+            })
+          },   
+
   AuthStack:{
              screen:AuthStack,
              navigationOptions: ({ navigation }) => ({

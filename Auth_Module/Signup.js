@@ -17,6 +17,7 @@ import Form from 'react-native-form';
 import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
+import RF from "react-native-responsive-fontsize"
 
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
@@ -255,14 +256,14 @@ export default class example extends Component {
           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"10%",fontSize:18}}>+91     </Text>
+              <Text style={{marginTop:"15%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
-            style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+            style={[styles.input,{width: wp('52'), height: hp('5%')}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             underlineColorAndroid='transparent'
@@ -271,13 +272,13 @@ export default class example extends Component {
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false}
-            placeholder="Mobile Number"
+            placeholder="Enter Mobile Number"
           />
          </TextInputLayout>
           </View>
         </View>
         <View style={{marginBottom:"25%"}}>
-        <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
+        <TouchableOpacity style={[styles.button,{width: wp('40'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
 
@@ -292,7 +293,7 @@ export default class example extends Component {
           source={require('../Image/icon/Line/rectangle1.png')}
           style={{
             width: wp('14%'),
-            height: hp('.5%'),marginBottom:"5%",marginTop:"4%"
+            height: hp('.3%'),marginBottom:"5%",marginTop:"4%"
             // left: 20
           }}
         />
@@ -303,11 +304,7 @@ export default class example extends Component {
         <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
-          style={{
-            width: 16,
-            height: 16,
-            // left: 20
-          }}
+          style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>

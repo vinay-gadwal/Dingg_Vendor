@@ -31,9 +31,9 @@ export default class Password extends Component {
       <View  style={[styles.container]}>
       <Image
           source={require('../Image/icon/logo_3.png')}
-          style={styles.Logo_style}
+          style={[styles.Logo_style,{marginVertical:"5%"}]}
         />
-        <View style={[styles.box,{ height: hp('22%'),marginBottom:"0%"}]}>
+        <View style={[styles.box,{ height: hp('30%'),marginBottom:"0%"}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
@@ -61,19 +61,15 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-    <View style={{marginBottom:"40%"}}> 
-        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
+    <View style={{marginBottom:"20%"}}> 
+        <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>
         <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
-          style={{
-            width: 16,
-            height: 16,
-            // left: 20
-          }}
+          style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>

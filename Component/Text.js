@@ -1,331 +1,196 @@
-
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  Platform,
-  Alert
-} from 'react-native';
-import {TextInputLayout} from 'rn-textinputlayout';
-import Frisbee from 'frisbee';
-import Spinner from 'react-native-loading-spinner-overlay';
-import Form from 'react-native-form';
-import CountryPicker from 'react-native-country-picker-modal';
-
-const api = new Frisbee({
-  baseURI: 'http://localhost:3000',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  }
-});
-
-const MAX_LENGTH_CODE = 6;
-const MAX_LENGTH_NUMBER = 20;
-
-// if you want to customize the country picker
-const countryPickerCustomStyles = {};
-
-// your brand's theme primary color
-const brandColor = 'black';
+    Alert,
+    AppRegistry,
+    Button,
+    Image,
+    StyleSheet,
+    Text,
+    View,
+} from "react-native";
+import { Dialog, ProgressDialog, ConfirmDialog } from "react-native-simple-dialogs";
 
 const styles = StyleSheet.create({
-  countryPicker: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  container: {
-    flex: 1
-  },
-  header: {
-    textAlign: 'center',
-    marginTop: 60,
-    fontSize: 22,
-    margin: 20,
-    color: '#4A4A4A',
-  },
-  form: {
-    margin: 20
-  },
-  textInput: {
-    padding: 0,
-    margin: 0,
-    flex: 1,
-    fontSize: 20,
-    color: brandColor
-  },
-  button: {
-    marginTop: 20,
-    height: 50,
-    backgroundColor: brandColor,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: '#fff',
-    fontFamily: 'Helvetica',
-    fontSize: 16,
-    fontWeight: 'bold'
-  },
-  wrongNumberText: {
-    margin: 10,
-    fontSize: 14,
-    textAlign: 'center'
-  },
-  disclaimerText: {
-    marginTop: 30,
-    fontSize: 12,
-    color: 'grey'
-  },
-  callingCodeView: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  callingCodeText: {
-    fontSize: 20,
-    color: brandColor,
-    fontFamily: 'Helvetica',
-    fontWeight: 'bold',
-    paddingRight: 10
-  }
+    container: {
+        alignItems: "center",
+        backgroundColor: "#F5FCFF",
+        flex: 1,
+        justifyContent: "center",
+    },
+    welcomeText: {
+        fontSize: 20,
+        margin: 10,
+        textAlign: "center",
+    },
+    exampleText: {
+        fontSize: 20,
+        marginBottom: 25,
+        textAlign: "center",
+    },
+    instructionsText: {
+        color: "#333333",
+        fontSize: 16,
+        marginBottom: 40,
+        textAlign: "center",
+    },
 });
 
-export default class example extends Component {
+export default class App extends Component {
+    state = {}
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      enterCode: false,
-      spinner: false,
-      country: {
-        cca2: 'US',
-        callingCode: '1'
-      }
-    };
-  }
+    openDialog = (show) => {
+        this.setState({ showDialog: show });
+    }
 
-  _getCode = () => {
+    openConfirm = (show) => {
+        this.setState({ showConfirm: show });
+    }
 
-    this.setState({ spinner: true });
+    openProgress = () => {
+        this.setState({ showProgress: true });
 
-    setTimeout(async () => {
+        setTimeout(
+            () => {
+                this.setState({ showProgress: false });
+            },
+            4000,
+        );
+    }
 
-      try {
+    optionYes = () => {
+        this.openConfirm(false);
+        // Yes, this is a workaround :(
+        // Why? See this https://github.com/facebook/react-native/issues/10471
+        setTimeout(
+            () => {
+                Alert.alert("The YES Button touched!");
+            },
+            300,
+        );
+    }
 
-        const res = await api.post('/v1/verifications', {
-          body: {
-            ...this.refs.form.getValues(),
-            ...this.state.country
-          }
-        });
+    optionNo = () => {
+        this.openConfirm(false);
+        // Yes, this is a workaround :(
+        // Why? See this https://github.com/facebook/react-native/issues/10471
+        setTimeout(
+            () => {
+                Alert.alert("The NO Button touched!");
+            },
+            300,
+        );
+    }
 
-        if (res.err) throw res.err;
+    render() {
+        return (
+            <View style={ styles.container }>
 
-        this.setState({
-          spinner: false,
-          enterCode: true,
-          verification: res.body
-        });
-        this.refs.form.refs.textInput.setNativeProps({ text: '' });
+                <Text style={ styles.welcomeText }>
+                    Welcome to React Native Simple Dialogs!
+                </Text>
+                <Text style={ styles.exampleText }>
+                    Examples
+                </Text>
+                <Text style={ styles.instructionsText }>
+                    To get started, touch on the buttons
+                </Text>
 
-        setTimeout(() => {
-          Alert.alert('Sent!', "We've sent you a verification code", [{
-            text: 'OK',
-            onPress: () => this.refs.form.refs.textInput.focus()
-          }]);
-        }, 100);
+                <Button
+                    onPress={ () => this.openDialog(true) }
+                    title="Custom Dialog"
+                />
 
-      } catch (err) {
-        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
-        this.setState({ spinner: false });
-        setTimeout(() => {
-          Alert.alert('Oops!', err.message);
-        }, 100);
-      }
+                <View style={ { height: 40 } } />
 
-    }, 100);
+                <Button
+                    onPress={ () => this.openConfirm(true) }
+                    title="Confirm Dialog"
+                />
 
-  }
+                <View style={ { height: 40 } } />
 
-  _verifyCode = () => {
+                <Button
+                    onPress={ this.openProgress }
+                    title="Progress Dialog"
+                />
 
-    this.setState({ spinner: true });
+                <Dialog
+                    title="Custom Dialog"
+                    animationType="fade"
+                    contentStyle={
+                        {
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }
+                    }
+                    onTouchOutside={ () => this.openDialog(false) }
+                    visible={ this.state.showDialog }
+                >
+                    <Image
+                        source={
+                            {
+                                uri: "https://facebook.github.io/react-native/img/header_logo.png",
+                            }
+                        }
+                        style={
+                            {
+                                width: 99,
+                                height: 87,
+                                backgroundColor: "black",
+                                marginTop: 10,
+                                resizeMode: "contain",
+                            }
+                        }
+                    />
+                    <Text style={ { marginVertical: 30 } }>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </Text>
+                    <Button
+                        onPress={ () => this.openDialog(false) }
+                        style={ { marginTop: 10 } }
+                        title="CLOSE"
+                    />
+                </Dialog>
 
-    setTimeout(async () => {
+                <ConfirmDialog
+                    title="Confirm Dialog"
+                    message="Are you sure about that?"
+                    onTouchOutside={ () => this.openConfirm(false) }
+                    visible={ this.state.showConfirm }
+                    negativeButton={
+                        {
+                            title: "NO",
+                            onPress: this.optionNo,
+                            // disabled: true,
+                            titleStyle: {
+                                color: "blue",
+                                colorDisabled: "aqua",
+                            },
+                            style: {
+                                backgroundColor: "transparent",
+                                backgroundColorDisabled: "transparent",
+                            },
+                        }
+                    }
+                    positiveButton={
+                        {
+                            title: "YES",
+                            onPress: this.optionYes,
+                        }
+                    }
+                />
 
-      try {
-
-        const res = await api.put('/v1/verifications', {
-          body: {
-            ...this.refs.form.getValues(),
-            ...this.state.country
-          }
-        });
-
-        if (res.err) throw res.err;
-
-        this.refs.form.refs.textInput.blur();
-        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
-        this.setState({ spinner: false });
-        setTimeout(() => {
-          Alert.alert('Success!', 'You have successfully verified your phone number');
-        }, 100);
-
-      } catch (err) {
-        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
-        this.setState({ spinner: false });
-        setTimeout(() => {
-          Alert.alert('Oops!', err.message);
-        }, 100);
-      }
-
-    }, 100);
-
-  }
-
-  _onChangeText = (val) => {
-    if (!this.state.enterCode) return;
-    if (val.length === MAX_LENGTH_CODE)
-    this._verifyCode();
-  }
-
-  _tryAgain = () => {
-    this.refs.form.refs.textInput.setNativeProps({ text: '' })
-    this.refs.form.refs.textInput.focus();
-    this.setState({ enterCode: false });
-  }
-
-  _getSubmitAction = () => {
-    this.state.enterCode ? this._verifyCode() : this._getCode();
-  }
-
-  _changeCountry = (country) => {
-    this.setState({ country });
-    this.refs.form.refs.textInput.focus();
-  }
-
-  _renderFooter = () => {
-
-    if (this.state.enterCode)
-      return (
-        <View>
-          <Text style={styles.wrongNumberText} onPress={this._tryAgain}>
-            Enter the wrong number or need a new code?
-          </Text>
-        </View>
-      );
-
-    return (
-      <View>
-        <Text style={styles.disclaimerText}>By tapping "Send confirmation code" above, we will send you an SMS to confirm your phone number. Message &amp; data rates may apply.</Text>
-      </View>
-    );
-
-  }
-
-  _renderCountryPicker = () => {
-
-    if (this.state.enterCode)
-      return (
-        <View />
-      );
-
-    return (
-      <CountryPicker
-        ref={'countryPicker'}
-        closeable
-        style={styles.countryPicker}
-        onChange={this._changeCountry}
-        cca2={this.state.country.cca2}
-        styles={countryPickerCustomStyles}
-        translation='eng'/>
-    );
-
-  }
-
-  _renderCallingCode = () => {
-
-    if (this.state.enterCode)
-      return (
-        <View />
-      );
-
-    return (
-      <View style={styles.callingCodeView}>
-        <Text style={styles.callingCodeText}>+{this.state.country.callingCode}</Text>
-      </View>
-    );
-
-  }
-
-  render() {
-
-    let headerText = `What's your ${this.state.enterCode ? 'verification code' : 'phone number'}?`
-    let buttonText = this.state.enterCode ? 'Verify confirmation code' : 'Send confirmation code';
-    let textStyle = this.state.enterCode ? {
-      height: 50,
-      textAlign: 'center',
-      fontSize: 40,
-      fontWeight: 'bold',
-      fontFamily: 'Courier'
-    } : {};
-
-    return (
-
-      <View style={styles.container}>
-
-        <Text style={styles.header}>{headerText}</Text>
-
-        <Form ref={'form'} style={styles.form}>
-
-          <View style={{ flexDirection: 'row' }}>
-
-            {/* {this._renderCountryPicker()}
-            {this._renderCallingCode()} */}
-
-            <TextInput
-              ref={'textInput'}
-              name={this.state.enterCode ? 'code' : 'phoneNumber' }
-              type={'TextInput'}
-              underlineColorAndroid={'transparent'}
-              autoCapitalize={'none'}
-              autoCorrect={false}
-              onChangeText={this._onChangeText}
-              placeholder={this.state.enterCode ? '_ _ _ _ _ _' : 'Phone Number'}
-              keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
-              style={[ styles.textInput, textStyle ]}
-              returnKeyType='go'
-              autoFocus
-              placeholderTextColor={brandColor}
-              selectionColor={brandColor}
-              maxLength={this.state.enterCode ? 6 : 20}
-              onSubmitEditing={this._getSubmitAction} />
-
-          </View>
-
-          <TouchableOpacity style={styles.button} onPress={this._getSubmitAction}>
-            <Text style={styles.buttonText}>{ buttonText }</Text>
-          </TouchableOpacity>
-
-          {this._renderFooter()}
-
-        </Form>
-
-        <Spinner
-          visible={this.state.spinner}
-          textContent={'One moment...'}
-          textStyle={{ color: '#fff' }} />
-
-      </View>
-
-    );
-  }
+                <ProgressDialog
+                    title="Progress Dialog"
+                    activityIndicatorColor="blue"
+                    activityIndicatorSize="large"
+                    animationType="slide"
+                    message="Please, wait..."
+                    visible={ this.state.showProgress }
+                />
+            </View>
+        );
+    }
 }
 
-AppRegistry.registerComponent('example', () => example);
+AppRegistry.registerComponent('Sample', () => App);

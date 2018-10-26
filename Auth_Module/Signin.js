@@ -36,19 +36,19 @@ export default class Login extends Component {
               style={styles.Logo_style}
             />
         
-        <View style={[styles.box,{marginBottom:"0%",height: hp('27%'),}]}>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('34%'),}]}>
         
          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"17%",fontSize:18}}>+91     </Text>
+              <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
-            style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+            style={[styles.input,{width: wp('52')}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             underlineColorAndroid='transparent'
@@ -63,18 +63,18 @@ export default class Login extends Component {
           </View>
          
           <View style = { styles.textBoxBtnHolder }>
-                <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-                 <TextInput 
-                  placeholder="Password"
-                  underlineColorAndroid = "transparent" secureTextEntry = { this.state.hidePassword } style = { styles.input }/>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                      <TextInput 
+                        placeholder="Password"
+                        underlineColorAndroid = "transparent" secureTextEntry = { this.state.hidePassword } style = { styles.input }/>
                   </TextInputLayout>
-                <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
-                <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-              </TouchableOpacity>
+                  <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                        <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
+                  </TouchableOpacity>
           </View>
           <Text></Text>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('36%'),fontSize: RF(2),marginBottom:"4%",fontWeight:"bold"}}>Forget Password?</Text>
+          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("4%"),fontFamily:'Muli-Bold'}}>Forget Password?</Text>
           </TouchableOpacity>
       </View>
       
@@ -93,7 +93,7 @@ export default class Login extends Component {
               source={require('../Image/icon/Line/rectangle1.png')}
               style={{
                 width: wp('16'),
-                height: hp('.5%'),marginBottom:"5%",marginTop:"4%"
+                height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp("0.5%")
                 // left: 20
               }}
             />
@@ -105,11 +105,7 @@ export default class Login extends Component {
       <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
-          style={{
-            width: 16,
-            height: 16,
-            // left: 20
-          }}
+          style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
       </View>

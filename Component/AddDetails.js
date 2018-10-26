@@ -40,9 +40,9 @@ export default class App extends Component {
         Image_Source:null,Image_Source1:null,
         Image_Source_1:null,Image_Source_1_1:null,
         Image_Source_2:null,Image_Source_2_1:null,Image_Source_3:null,Image_Source_3_1:null,
-       Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
-       Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
-       Landline_No:"",Master_Ven_ID:""
+        Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
+        Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
+        Landline_No:"",Master_Ven_ID:""
       }
     }
     Fun_Phot_save(){
@@ -210,7 +210,7 @@ export default class App extends Component {
           }
           else {
             let source = { uri: response.uri };
-            GLOBAL.Image3=source;
+            GLOBAL.Image4=source;
              this.setState({
               Image_Source_3: source
             });
@@ -228,7 +228,7 @@ export default class App extends Component {
           <View style={{paddingVertical:"5%"}}>
 
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-                <View style={[styles.avatarMultiple, styles.avatarContainer,{marginLeft:"36%"}]}>
+                <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                       { this.state.avatarSource === null ? <Image
                                           source={require('../Image/icon/plus.png')}
                                           style={{
@@ -242,7 +242,7 @@ export default class App extends Component {
                 </View>
           </TouchableOpacity>
         
-          <Text style={{fontSize:18,paddingVertical:"5%",paddingHorizontal:"32%"}}>Add Your Logo</Text>
+          <Text style={{fontSize: RF(2.2),paddingVertical:"5%",paddingHorizontal:wp("36%"),fontFamily:'Muli-Bold'}}>Add Your Logo</Text>
           
           <View style={styles.boxDetails}>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -260,10 +260,10 @@ export default class App extends Component {
                   </TextInputLayout>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data}
+                          data={data} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Select Category'}
                           dropdownPosition={0}
-                          style={{
+                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
@@ -272,17 +272,19 @@ export default class App extends Component {
                   </View>
                   
                   <GooglePlacesAutocomplete
+                         value={this.state.Address}
+                         onChangeText={Address => this.setState({ Address })}
                         placeholder="Address"
                         minLength={2} // minimum length of text to search
                         autoFocus={false}
-                        returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
-                        listViewDisplayed="auto" // true/false/undefined
+                        returnKeyType={'next'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
+                        listViewDisplayed={false} // true/false/undefined
                         fetchDetails={true}
                         renderDescription={row => row.description} // custom description render
-                        onPress={(data = null) => {
-                          console.log(data);
-                          // console.log(details);
-                        }}
+                        // onPress={(data = null) => {
+                        //   console.log(data);
+                        //   // console.log(details);
+                        // }}
                         getDefaultValue={() => {
                           return ''; // text input default value
                         }}
@@ -293,9 +295,8 @@ export default class App extends Component {
                           types: '(cities)', // default: 'geocode'
                         }}
                         styles={{
-                          paddingHorizontal:"10%",
                           description: {
-                                fontWeight: 'bold',
+                            fontFamily:'Muli-Bold'
                                 },
                           predefinedPlacesDescription: {
                                 color: '#1faadb',
@@ -304,16 +305,16 @@ export default class App extends Component {
                                 backgroundColor: 'rgba(0,0,0,0)',
                                 borderTopWidth: 0,
                                 borderBottomWidth:1,
-                                borderColor:"rgb(201,201,201)",width:"78%",
+                                borderColor:"rgb(201,201,201)",width:wp("70%")
                               },
                           textInput: {
-                                // marginLeft: 0,
+                                marginLeft: 0,
                                 // marginRight: 100,
                                 color: '#5d5d5d',
                                 fontSize:hp('2.2%')
                               },
                         }}
-                        currentLocation={false} // Will add a 'Current location' button at the top of the predefined places list
+                        currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
                         currentLocationLabel="Current location"
                         nearbyPlacesAPI="GooglePlacesSearch" // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
                         GoogleReverseGeocodingQuery={{
@@ -398,7 +399,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                   <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:"17%",fontSize:18}}>+91     </Text>
+                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -415,13 +416,14 @@ export default class App extends Component {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Primary Number"
+                          fontFamily='Muli-Bold'
                         />
                 </TextInputLayout>
                   </View>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                       <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:"17%",fontSize:18}}>+91     </Text>
+                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -444,7 +446,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                       <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:"17%",fontSize:18}}>+91     </Text>
+                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -477,8 +479,8 @@ export default class App extends Component {
                           />
                   </TextInputLayout>
           </View>
-          <Text style={{fontSize:18,paddingVertical:"5%",paddingHorizontal:"5%"}}>Add Images</Text>
-    <View style={{paddingVertical:"3%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
+          <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontFamily:'Muli-Bold'}}>Add Images</Text>
+    <View style={{paddingVertical:"2%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_2_1 === null ? <Image
@@ -521,7 +523,7 @@ export default class App extends Component {
                   }
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.selectPhotoTapped4.bind(this)}>
+          <TouchableOpacity onPress={this.selectPhotoTapped5.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_3_1 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
@@ -536,19 +538,8 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={{ width: "40%",marginLeft:"30%",height:"5%",
-                                backgroundColor: "rgb(255,163,0)",
-                                justifyContent: "center",
-                                paddingVertical: 10, shadowColor: 'rgb(255,164,0)',
-                                shadowOffset: { width: 0, height: 2 },
-                                shadowOpacity: 0.8,
-                                shadowRadius: 2,
-                                borderRadius:10}} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack'),this.Fun_Phot_save()}}>
-                  <Text style={{fontSize: RF(3),
-                            alignSelf: "center",
-                            textAlign: "center",
-                            color: "white",
-                            fontWeight: "700"}}>Submit</Text>
+        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack'),this.Fun_Phot_save()}}>
+                  <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
         </View>
       </ScrollView>

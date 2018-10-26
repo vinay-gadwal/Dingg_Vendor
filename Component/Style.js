@@ -13,16 +13,22 @@ const styles = StyleSheet.create({
     },
     
     copy_rigth:{
-      fontSize: RF(2),color:"rgb(153,153,153)"
+      fontSize: RF("2.2"),color:"rgb(153,153,153)",
+      fontFamily:'Muli-Bold'
+    },
+    copy_rigth_image:{
+      width: wp("2.9%"),
+      height: hp("1.7%"),marginTop:hp(".8%")
     },
     
     input: {
       width: wp('70%'),
-      height: hp('2%'),
+      height: hp('5%'),
       marginBottom: hp('1%'),
-      fontSize: RF(2.5),
+      fontSize: RF(2.2),
       marginTop:"3%",
       textAlign:'left',  
+      fontFamily:'Muli-Bold'
     },
     
     inputSignUp: {
@@ -33,7 +39,7 @@ const styles = StyleSheet.create({
       paddingHorizontal:"62%",
       borderBottomStartRadius:2,
       alignItems:"flex-start",
-      textAlign:'left'
+      textAlign:'left',
     },
     
     button: {
@@ -44,17 +50,18 @@ const styles = StyleSheet.create({
         paddingVertical: hp('1%'),
         borderRadius:10,
         shadowColor: 'rgb(255,164,0)',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
-        shadowRadius: 2,
+        shadowRadius: 4,
     },
     
     buttonText: {
-        fontSize: RF(3),
+      fontSize: RF(2.2),
         alignSelf: "center",
         textAlign: "center",
         color: "white",
-        fontWeight: "700"
+        fontWeight: "700",
+        fontFamily:'Muli-Bold',
     },
    
     margin:{
@@ -88,8 +95,9 @@ const styles = StyleSheet.create({
           borderRadius:10,
     },
     text:{
-          fontSize: RF(2.5), 
+          fontSize: RF(2.2), 
           color: "rgb(68,68,68)",
+          fontFamily:'Muli-Bold',
         },
    
     countryPicker: {
@@ -143,18 +151,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor:"white",
     },
-    
-    avatar: {
-      borderRadius: 7,
-      width: wp('25%'),
-      height: hp('12%'),
-      marginTop:"0%"
-    },
-    
+  
     avatarMultiple: {
-      borderRadius: 7,
+      borderRadius: wp("3.5"),
       width: wp('20%'),
-      height: hp('10%'),
+      height: hp('11%'),
       paddingHorizontal:"1%"
     },
     
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
       width: "80%",
       borderColor:"rgb(201,201,201)",
       borderBottomWidth:1,
-      paddingLeft:"10%"
+      marginLeft:"10%"
     },
     
     setting_compo:{
@@ -191,30 +192,32 @@ const styles = StyleSheet.create({
     setting_text:{
       fontSize: RF(2.5),
       justifyContent:"flex-start"
-      ,marginLeft:"5%",
-      marginTop:"5%"
+      ,marginLeft:"10%",
+      marginTop:"5%",
+      fontFamily:"Muli-Bold"
     },
     
     setting_Image:{
-      width: 20,
-      height: 20,
-      marginTop:14,
-      paddingRight:"5%"
+      width: hp("2%"),
+      height: hp("2%"),
+      marginTop:hp("3"),
+      marginRight:wp("8%")
     },
     
     profile_Small_text:{
       fontSize: RF(2),
       justifyContent:"flex-start",
-      marginLeft:"5%",
+      marginLeft:"10%",
       marginTop:"5%",
       color:"rgb(176,176,176)",
-      fontWeight:"bold"
+      fontWeight:"bold",
+      fontFamily:"Muli-Bold"
     },
     
     Logo_style:{
       width: wp('23%'),
-        height: hp('7.5%'),
-     marginVertical:wp("5%")
+        height: hp('9%'),
+     marginVertical:wp("4%")
     },
     
     back_butt0n:{
@@ -239,10 +242,16 @@ const styles = StyleSheet.create({
 
   btnImage:{
           resizeMode: 'contain',
-          height: hp('5%'),
-          width: wp('5%'),marginTop:"45%"
-        }
+          height: hp('2%'),
+          width: wp('2%'),marginTop:hp("4%"),paddingLeft:wp("14%")
+        },
 
+  Profile_Container:{
+      width:"90%",paddingVertical:"5%",
+      backgroundColor:"white",
+      borderRadius:10,
+      justifyContent: 'space-between',marginHorizontal:"5%"
+    }
     
   });
   

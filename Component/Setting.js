@@ -5,26 +5,31 @@ import {
   ScrollView,TextInput,TouchableOpacity
 } from 'react-native';
 import styles from './Style'
-
+import ToggleSwitch from 'toggle-switch-react-native'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 export default class App extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
-        videoSource: null
+        videoSource: null,
+        isOnDefaultToggleSwitch: true,
+        isOnLargeToggleSwitch: false,
+        isOnBlueToggleSwitch: false,
       };
+      openDialog = (show) => {
+        this.setState({ showDialog: show });
+    }
+
+    onToggle(isOn){
+      // alert('Changed to ' + isOn)
+    }
     
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-         
-         {/* Header */}
-         {/* <View style={{backgroundColor:"white",flexDirection:"row"}}>
-                <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"35%",paddingVertical:"5%"}}>SETTINGS</Text>
-        </View> */}
-        
-        
-        {/* body */}
+
         <View style={{paddingVertical:"10%"}}>
-          <View style={styles.setting_compo}>
+          <View style={styles.Profile_Container}>
                 
                 <View >
                   <View style={styles.setting_Row}>
@@ -32,7 +37,7 @@ export default class App extends Component {
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
@@ -45,7 +50,7 @@ export default class App extends Component {
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
@@ -58,7 +63,7 @@ export default class App extends Component {
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
@@ -71,7 +76,7 @@ export default class App extends Component {
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
@@ -84,7 +89,7 @@ export default class App extends Component {
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
@@ -94,12 +99,18 @@ export default class App extends Component {
               <View >
               <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>Auto Accept</Text>
-                    <TouchableOpacity>
-                    <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                    <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
+                    <ToggleSwitch  
+                      onColor="rgb(255,164,0)" 
+                      width={"1%"}
+                      size="small"
+                      isOn={this.state.isOnDefaultToggleSwitch}
+                      onToggle={isOnDefaultToggleSwitch => {
+                        this.setState({ isOnDefaultToggleSwitch });
+                        this.onToggle(isOnDefaultToggleSwitch);
+                      }}
                     />
-                    </TouchableOpacity>
+                    </View>
                   </View>
                 <TextInput style={styles.Setting_lineSetting}/>
               </View>             
@@ -110,7 +121,7 @@ export default class App extends Component {
                   <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                 </View>
@@ -123,20 +134,16 @@ export default class App extends Component {
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
-                <TextInput style={styles.Setting_lineSetting}/>
               </View>             
             
         
           </View>
           <Text></Text>
-          <View style={{  width:"90%",
-                          backgroundColor:"white",
-                          borderRadius:10,
-                          justifyContent: 'space-between',marginHorizontal:"5%"}}>
+          <View style={styles.Profile_Container}>
             
                   <View >
                   <View style={styles.setting_Row}>
@@ -144,7 +151,7 @@ export default class App extends Component {
                     <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Share')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity  >
                   </View>
@@ -157,11 +164,10 @@ export default class App extends Component {
                     <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Rating')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={styles.setting_Image}
+                                style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
-                    <TextInput style={styles.Setting_lineSetting}/>
                   </View>
 
             </View>

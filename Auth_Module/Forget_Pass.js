@@ -14,6 +14,7 @@ import styles from '../Component/Style'
 // import Frisbee from 'frisbee';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';
+import RF from "react-native-responsive-fontsize"
 import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
@@ -255,7 +256,7 @@ export default class example extends Component {
           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"10%",fontSize:18}}>+91     </Text>
+              <Text style={{marginTop:"10%",fontSize: RF(2.2)}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -286,11 +287,7 @@ export default class example extends Component {
         <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
-          style={{
-            width: 16,
-            height: 16,
-            // left: 20
-          }}
+          style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>
