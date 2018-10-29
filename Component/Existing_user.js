@@ -83,7 +83,7 @@ export default class Login extends Component {
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false}
-            placeholder="Mobile Number"
+            placeholder="Enter Mobile Number"
           />
          </TextInputLayout>
           </View>   

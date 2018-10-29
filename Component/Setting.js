@@ -142,46 +142,8 @@ export default class App extends Component {
             
         
           </View>
-          <Text></Text>
-          <View style={styles.Profile_Container}>
-            
-                  <View >
-                  <View style={styles.setting_Row}>
-                    <Text style={styles.setting_text}>Share</Text>
-                    <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Share')}}>
-                    <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
-                    />
-                    </TouchableOpacity  >
-                  </View>
-                    <TextInput style={styles.Setting_lineSetting}/>
-                  </View>
-                  
-                  <View >
-                  <View style={styles.setting_Row}>
-                    <Text style={styles.setting_text}>Rate Us</Text>
-                    <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Rating')}}>
-                    <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
-                    />
-                    </TouchableOpacity>
-                  </View>
-                  </View>
-
-            </View>
-              <TouchableOpacity style={{ width: "40%",marginLeft:"30%",height:"8%",
-                                backgroundColor: "rgb(255,163,0)",
-                                marginTop: "5%",
-                                justifyContent: "center",
-                                paddingVertical: 10,
-                                borderRadius:10}} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
-                  <Text style={{fontSize: 20,
-                            alignSelf: "center",
-                            textAlign: "center",
-                            color: "white",
-                            fontWeight: "700"}}>Submit</Text>
+              <TouchableOpacity style={[styles.button,{marginTop:hp("5"),marginHorizontal:wp("30%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
+                  <Text style={styles.buttonText}>Log Out</Text>
               </TouchableOpacity>
         </View>
       </ScrollView>

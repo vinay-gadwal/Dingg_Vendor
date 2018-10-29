@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     },
   
     avatarMultiple: {
-      borderRadius: wp("3.5"),
+      borderRadius: wp("2"),
       width: wp('20%'),
       height: hp('11%'),
       paddingHorizontal:"1%"
@@ -170,10 +170,10 @@ const styles = StyleSheet.create({
     },
     
     Setting_lineSetting:{
-      width: "80%",
+      width: "90%",
       borderColor:"rgb(201,201,201)",
       borderBottomWidth:1,
-      marginLeft:"10%"
+      marginLeft:"5%"
     },
     
     setting_compo:{
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     setting_text:{
       fontSize: RF(2.5),
       justifyContent:"flex-start"
-      ,marginLeft:"10%",
+      ,marginLeft:"5%",
       marginTop:"5%",
       fontFamily:"Muli-Bold"
     },
@@ -202,6 +202,12 @@ const styles = StyleSheet.create({
       height: hp("2%"),
       marginTop:hp("3"),
       marginRight:wp("8%")
+    },
+    Dashbosrd_image:{
+      width: hp("2%"),
+      height: hp("2.5%"),
+      // marginVertical:hp("1"),
+      // marginRight:wp("8%")
     },
     
     profile_Small_text:{
@@ -225,6 +231,11 @@ const styles = StyleSheet.create({
         width: wp('7%'),
         height: hp('2.8%'),
     },
+    tab_button:{
+      marginLeft:wp("5%"),
+      width: wp('4.6%'),
+      height: hp('2.8%'),
+  },
     
     textBoxBtnHolder:{
           position: "relative",

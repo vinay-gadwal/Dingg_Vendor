@@ -92,7 +92,7 @@ export default class Login extends Component {
             <Image
               source={require('../Image/icon/Line/rectangle1.png')}
               style={{
-                width: wp('16'),
+                width: wp('13.5'),
                 height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp("0.5%")
                 // left: 20
               }}

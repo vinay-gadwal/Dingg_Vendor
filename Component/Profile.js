@@ -98,7 +98,7 @@ export default class App extends Component {
             <View style={styles.Profile_Container}>
             <View >
                   <Text style={styles.profile_Small_text}>Category</Text>
-                  <Text style={styles.setting_text}>salon</Text>
+                  <Text style={styles.setting_text}>{GLOBAL.Category}</Text>
                   <TextInput style={styles.Setting_lineSetting}/>
                 </View>
 

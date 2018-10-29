@@ -42,12 +42,14 @@ export default class App extends Component {
         Image_Source_2:null,Image_Source_2_1:null,Image_Source_3:null,Image_Source_3_1:null,
         Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
-        Landline_No:"",Master_Ven_ID:""
+        Landline_No:"",Master_Ven_ID:"",Category:"",
       }
     }
     Fun_Phot_save(){
+      GLOBAL.Category=this.state.Category
         GLOBAL.Buss_name=this.state.Add_Bus_Details;
         GLOBAL.Address=this.state.Address;
+        
     }
     
       selectPhotoTapped1() 
@@ -220,6 +222,22 @@ export default class App extends Component {
           }
         });
       }
+
+      delete_photo_1(){
+        this.setState({avatarSource1:null})
+      }
+      delete_photo_2(){
+        this.setState({Image_Source:null})
+      }
+      delete_photo_3(){
+        this.setState({Image_Source_1_1:null})
+      }
+      delete_photo_4(){
+        this.setState({Image_Source_2_1:null})
+      }
+      delete_photo_5(){
+        this.setState({Image_Source_3_1:null})
+      }
     
      
   render() {
@@ -262,6 +280,7 @@ export default class App extends Component {
                       <Dropdown
                           data={data} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Select Category'}
+                          onChangeText={() => this.setState({Category:data})}
                           dropdownPosition={0}
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
@@ -538,7 +557,7 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack'),this.Fun_Phot_save()}}>
+        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>
                   <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
         </View>

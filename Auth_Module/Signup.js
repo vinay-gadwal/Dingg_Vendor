@@ -292,7 +292,7 @@ export default class example extends Component {
         <Image
           source={require('../Image/icon/Line/rectangle1.png')}
           style={{
-            width: wp('14%'),
+            width: wp('12.5%'),
             height: hp('.3%'),marginBottom:"5%",marginTop:"4%"
             // left: 20
           }}

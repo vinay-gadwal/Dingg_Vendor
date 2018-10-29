@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  Image,
-  Dimensions,
-  SafeAreaView,View
-} from 'react-native';
-import {
-  createBottomTabNavigator,
-  createStackNavigator,
-  createDrawerNavigator
-} from 'react-navigation';
+import {TouchableOpacity,Image,Dimensions,Icon,SafeAreaView,View} from 'react-native';
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 // import { Dropdown } from 'react-native-material-dropdown';
 import sing_in from './Auth_Module/Signin'
 import sing_up from './Auth_Module/Signup'
@@ -30,32 +21,116 @@ import styles from './Component/Style';
 import For_New_Pass from './Auth_Module/Forget_Pass_NewPass'
 import New_User from './Component/New_User'
 import Exist_User from './Component/Existing_user'
+import Welcome from './Component/Welcome'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
     screen: DashBoard,
-    navigationOptions: ({ navigation }) => ({
-      title: 'D',
-    })
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const image = focused 
+        ? require('./Image/icon/dashboard_yellow2x.png') 
+        : require('./Image/icon/dashboardIcon.png')
+        return (
+            <Image 
+                source={image}
+                style={[styles.tab_button,{width:"37%",height:"45%"}]}
+            />
+        )
+    }
+  })
   },
   QR: {
-    screen: Queue_request
+    screen: Queue_request,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const image = focused 
+        ? require('./Image/icon/queueRequest_yellow2x.png') 
+        : require('./Image/icon/queueRequestIcon2x.png')
+        return (
+            <Image 
+                source={image}
+                style={[styles.tab_button,{width:"37%",height:"45%"}]}
+            />
+        )
+    }
+    })
   },
   Q: {
-    screen: Queue
+    screen: Queue,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const image = focused 
+        ? require('./Image/icon/queueIcon_yellow2x.png') 
+        : require('./Image/icon/queueIcon2x.png')
+        return (
+            <Image 
+                source={image}
+                style={[styles.tab_button,{width:"34%",height:"45%"}]}
+            />
+        )
+    }
+    })
   },
   H: {
-    screen: history
+    screen: history,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const image = focused 
+        ? require('./Image/icon/historyIcon_yellow2x.png') 
+        : require('./Image/icon/historyIcon2x.png')
+        return (
+            <Image 
+                source={image}
+                style={[styles.tab_button,{width:"34%",height:"45%"}]}
+            />
+        )
+    }
+    })
   },
   S: {
-    screen: Setting
+    screen: Setting,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const image = focused 
+        ? require('./Image/icon/settingsIcon_yellow2x.png') 
+        : require('./Image/icon/settingsIcon2x.png')
+        return (
+            <Image 
+                source={image}
+                style={[styles.tab_button,{width:"34%",height:"45%"}]}
+            />
+        )
+    }
+    })
   },
   P: {
-    screen: Profile
+    screen: Profile,
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => {
+        const image = focused 
+        ? require('./Image/icon/profileIcon_yellow2x.png') 
+        : require('./Image/icon/profileIcon2x.png')
+        return (
+            <Image 
+                source={image}
+                style={[styles.tab_button,{width:"34%",height:"45%"}]}
+            />
+        )
+    }
+    })
   }
 },
 {
   initialRouteName: 'D',
+  tabBarOptions: {
+    showLabel: false, // hide labels
+    // activeTintColor: '#F8F8F8', // active icon color
+    // inactiveTintColor: '#586589',  // inactive icon color
+    style: {
+        backgroundColor: 'white' // TabBar background
+    }
+}
 });
 
 // const data = [
@@ -233,7 +308,7 @@ const RootStack = createStackNavigator({
             </TouchableOpacity>)
           })
         },
-    For_New_Pass:{
+  For_New_Pass:{
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
@@ -248,6 +323,17 @@ const RootStack = createStackNavigator({
         />
         </TouchableOpacity>)
       })
+  },
+  Welcome: {
+    screen: Welcome,
+    navigationOptions: ({ navigation }) => ({
+      title: 'WELCOME',
+      headerLeft: null,
+      headerBackTitle:null,
+      headerTitleStyle: {
+        fontFamily:'Muli-Bold',marginBottom:hp("2%")
+      },
+    })
   },
   AddDetails:{
           screen: Add_Details,
@@ -278,7 +364,7 @@ const RootStack = createStackNavigator({
             screen:New_User,
             headerMode: null,
             navigationOptions: ({ navigation }) => ({
-              title: 'New User',
+              title: 'NEW USER',
               headerTitleStyle: {
                 fontFamily:'Muli-Bold',marginBottom:hp("2%")
               },
@@ -296,7 +382,7 @@ const RootStack = createStackNavigator({
             screen:Exist_User,
             headerMode: null,
             navigationOptions: ({ navigation }) => ({
-              title: 'Existing User',
+              title: 'EXISTING USER',
               headerTitleStyle: {
                 fontFamily:'Muli-Bold',marginBottom:hp("2%")
               },

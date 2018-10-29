@@ -9,6 +9,7 @@ import {
     View,
 } from "react-native";
 import { Dialog, ProgressDialog, ConfirmDialog } from "react-native-simple-dialogs";
+import CountDown from 'react-native-countdown-component';
 
 const styles = StyleSheet.create({
     container: {
@@ -188,6 +189,11 @@ export default class App extends Component {
                     message="Please, wait..."
                     visible={ this.state.showProgress }
                 />
+                <CountDown
+                        until={45*60}
+                        timeToShow	={['M', 'S']}
+                        size={20}
+                    />
             </View>
         );
     }
