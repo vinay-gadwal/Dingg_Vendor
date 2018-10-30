@@ -18,6 +18,8 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
+      <Text style={styles.Header}>PROFILE</Text>
+
         <Text></Text>
             <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                   { GLOBAL.Image === null ? <Image
@@ -31,7 +33,9 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                   }
             </View>
-          <Text style={{fontSize: RF(3),paddingVertical:"5%",fontFamily:"Muli-Bold"}}>{GLOBAL.Buss_name}</Text>
+          <Text style={{fontSize: RF(3),paddingVertical:"2%",fontFamily:"Muli-Bold"}}>{GLOBAL.Buss_name}</Text>
+          
+          <Text style={{fontSize: RF(2),paddingVertical:"2%",fontFamily:"Muli-Bold"}}>{GLOBAL.Master_Ven_ID}</Text>
           <View style={styles.Profile_Container}>
             
                   <View >
@@ -42,13 +46,13 @@ export default class App extends Component {
 
                   <View >
                     <Text style={styles.profile_Small_text}>Locality</Text>
-                    <Text style={styles.setting_text}>Tilak Nagar</Text>
+                    <Text style={styles.setting_text}>{GLOBAL.Locality}</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View >
                     <Text style={styles.profile_Small_text}>City</Text>
-                    <Text style={styles.setting_text}>Mumbai</Text>
+                    <Text style={styles.setting_text}>{GLOBAL.City}</Text>
                   </View>
 
             </View>
@@ -57,13 +61,13 @@ export default class App extends Component {
             
                   <View >
                     <Text style={styles.profile_Small_text}>Website</Text>
-                    <Text style={styles.setting_text}>www.biancabeauty.com</Text>
+                    <Text style={styles.setting_text}>{GLOBAL.Website_url}</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View >
                     <Text style={styles.profile_Small_text}>Email</Text>
-                    <Text style={styles.setting_text}>contact@biancabeauty.com</Text>
+                    <Text style={styles.setting_text}>{GLOBAL.Email}</Text>
                   </View>
 
             </View>
@@ -72,25 +76,25 @@ export default class App extends Component {
             
                  <View >
                     <Text style={styles.profile_Small_text}>Conatct Name</Text>
-                    <Text style={styles.setting_text}>Cecilia Andrews</Text>
+                    <Text style={styles.setting_text}>{GLOBAL.Contact_Name}</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View >
                     <Text style={styles.profile_Small_text}>Primary Number</Text>
-                    <Text style={styles.setting_text}>+91-9876543210</Text>
+                    <Text style={styles.setting_text}>+91-{GLOBAL.Primary_No}</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
 
                    <View style={{justifyContent:"center"}}>
                     <Text style={styles.profile_Small_text}>Secondry Number</Text>
-                    <Text style={styles.setting_text}>+91-9876543210</Text>
+                    <Text style={styles.setting_text}>+91-{GLOBAL.Secondry_no}</Text>
                     <TextInput style={styles.Setting_lineSetting}/>
                   </View>
                   
                   <View style={{justifyContent:"center"}}>
                   <Text style={styles.profile_Small_text}>Landline Number</Text>
-                  <Text style={styles.setting_text}>+91-9876543210</Text>
+                  <Text style={styles.setting_text}>+91-{GLOBAL.Landline_No}</Text>
                 </View>
 
             </View>

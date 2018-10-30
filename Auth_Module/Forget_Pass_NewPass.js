@@ -10,6 +10,7 @@ import {
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
+import ResponsiveImage from 'react-native-responsive-image'
 
 export default class Password extends Component {
   constructor(props) {
@@ -29,10 +30,7 @@ export default class Password extends Component {
   render() {
     return (
       <View  style={[styles.container]}>
-      <Image
-          source={require('../Image/icon/logo_3.png')}
-          style={[styles.Logo_style,{marginVertical:"5%"}]}
-        />
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         <View style={[styles.box,{ height: hp('30%'),marginBottom:"0%"}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput

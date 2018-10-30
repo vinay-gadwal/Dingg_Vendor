@@ -18,6 +18,8 @@ import RF from "react-native-responsive-fontsize"
 import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
+import ResponsiveImage from 'react-native-responsive-image'
+
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
 //   headers: {
@@ -219,10 +221,8 @@ export default class example extends Component {
 
     return (
       <View style={styles.container}>
-        <Image
-          source={require('../Image/icon/logo_3.png')}
-          style={styles.Logo_style}
-        />
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+
          <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
         {/* <Form ref={'form'} style={styles.form}>
 

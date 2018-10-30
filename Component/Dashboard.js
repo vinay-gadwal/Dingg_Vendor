@@ -10,6 +10,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RF from "react-native-responsive-fontsize"
 import { Dialog } from "react-native-simple-dialogs";
 import CountDown from 'react-native-countdown-component';
+import ResponsiveImage from 'react-native-responsive-image'
 
 export default class App extends Component {
     state = {
@@ -30,29 +31,24 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
+          <Text style={styles.Header}>DASHBOARD</Text>
           <Text></Text>
          <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"5%",marginVertical:hp("3%")}}>
          <View style={{  width:wp("40%"),flexDirection:"row",
                           backgroundColor:"white",
                           borderRadius:10,}}>
-             <TouchableOpacity >
-                    <Image
-                                source={require('../Image/main/totalIcon2x.png')}
-                                style={[styles.setting_Image,{height:hp("4%"),width:wp("7.5%"),marginLeft:wp("2%"),marginVertical:wp("5%")}]}
-                    />
-                    </TouchableOpacity>
-                
+                    <View style={styles.Dashbosrd_image_top}>
+                    <ResponsiveImage source={require('../Image/main/totalIcon2x.png')} initWidth="23" initHeight="25"/>                
+                    </View>
                     <Text style={[styles.setting_text,{color:"rgb(168,168,168)"}]}>Total</Text>      
         </View>
         <View style={{  width:wp("40%"),flexDirection:"row",
                           backgroundColor:"white",
                           borderRadius:10}}>
-                    <TouchableOpacity >
-                    <Image
-                                source={require('../Image/main/customersHandledCopy3x.png')}
-                                style={[styles.setting_Image,{height:hp("4%"),width:wp("7.5%"),marginLeft:wp("2%"),marginVertical:wp("5%")}]}
-                    />
-                    </TouchableOpacity  >
+                    
+                    <View style={styles.Dashbosrd_image_top}>
+                    <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth="23" initHeight="25"/>                
+                    </View>
                  
                     <Text style={[styles.setting_text,{color:"rgb(168,168,168)"}]}>Served</Text>        
         </View>
@@ -62,41 +58,31 @@ export default class App extends Component {
          <View style={{  width:wp("40%"),flexDirection:"row",
                           backgroundColor:"white",
                           borderRadius:10,}}>
-             <TouchableOpacity >
-                    <Image
-                                source={require('../Image/main/queueCopy3x.png')}
-                                style={[styles.setting_Image,{height:hp("4%"),width:wp("10%"),marginLeft:wp("2%"),marginVertical:wp("5%")}]}
-                    />
-                    </TouchableOpacity>
-                
+             
+                    <View style={styles.Dashbosrd_image_top}>
+                      <ResponsiveImage source={require('../Image/main/queueCopy3x.png')} initWidth="30" initHeight="23"/>                
+                    </View>
                     <Text style={[styles.setting_text,{color:"rgb(168,168,168)"}]}>Queue</Text>      
         </View>
         <View style={{  width:wp("40%"),flexDirection:"row",
                           backgroundColor:"white",
                           borderRadius:10}}>
-                    <TouchableOpacity >
-                    <Image
-                                source={require('../Image/main/waitTimeIcon3x.png')}
-                                style={[styles.setting_Image,{height:hp("4%"),width:wp("7.5%"),marginLeft:wp("2%"),marginVertical:wp("5%")}]}
-                    />
-                    </TouchableOpacity  >
-                 
+                    
+                    <View style={styles.Dashbosrd_image_top}>
+                      <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth="23" initHeight="23"/>                
+                    </View>
                     <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginRight:wp("1%"),marginLeft:wp("0%")}]}>Wait Time</Text>        
         </View>
         </View>
         <Text></Text>
         <View style={styles.Profile_Container}>
-                  <View>
-
-                  </View>
-                 
-                  <View >
-                  <View style={styles.setting_Row}>
-                    <Text style={styles.setting_text}>Ready to Accept Booking</Text>
+        
+        <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                    <Text style={styles.setting_text}>Ready to accept booking</Text>
                     <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
                     <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
-                      width={"1%"}
+                      width={"0%"}
                       size="small"
                       isOn={this.state.isOnDefaultToggleSwitch}
                       onToggle={isOnDefaultToggleSwitch => {
@@ -105,22 +91,23 @@ export default class App extends Component {
                       }}
                     />
                     </View>
-                  </View>
-                    <TextInput style={styles.Setting_lineSetting}/>
-                  </View>
+                   </View>
+                  <View style={{marginHorizontal:"5%"}}>
+              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+              </View>
                   
-                  <View >
-                  <View style={styles.setting_Row}>
+                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Add Customer</Text>
                     <TouchableOpacity onPress={ () => this.openDialog(true) }>
-                    <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image,{marginRight:wp("8%")}]}
-                    />
+                      <Image
+                                  source={require('../Image/icon/arrow_right.png')}
+                                  style={[styles.setting_Image,{marginRight:wp("8%")}]}
+                      />
                     </TouchableOpacity>
                   </View>
-                    <TextInput style={styles.Setting_lineSetting}/>
-                  </View>
+                  <View style={{marginHorizontal:"5%"}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>              
                 <Dialog
                     // title="Choose a Dingg User Type"
                     animationType="fade"
@@ -154,65 +141,64 @@ export default class App extends Component {
               </Dialog>
 
 
-                  <View >
                   <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>View Offers</Text>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image,{marginRight:wp("8%")}]}
                     />
                     </TouchableOpacity>
                   </View>
-                  </View>
 
-            </View>
+        </View>
+        
         <View style={{paddingVertical:"10%"}}>
           <View style={styles.Profile_Container}>
               
-              <View >
-                  <View style={styles.setting_Row}>
-                        <Image
-                                      source={require('../Image/main/attendanceIcon3x.png')}
-                                      style={[styles.Dashbosrd_image,{marginLeft:wp("4%")}]}
-                          />
-                          <Image
-                                      source={require('../Image/main/iconDivider3x.png')}
-                                      style={[styles.Dashbosrd_image,{width:wp(.5),marginRight:hp("5%")}]}
-                          />
-                          <Image
-                                      source={require('../Image/main/employeeNameIcon3x.png')}
-                                      style={[styles.Dashbosrd_image]}
-                          />
-                          <Image
-                                      source={require('../Image/main/iconDivider3x.png')}
-                                      style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("12%")}]}
-                          />
-                          <Image
-                                      source={require('../Image/main/customersHandledCopy3x.png')}
-                                      style={[styles.Dashbosrd_image,]}
-                          />
-                          <Image
-                                      source={require('../Image/main/iconDivider3x.png')}
-                                      style={[styles.Dashbosrd_image,{width:wp(.5)}]}
-                          />
-                          <Image
-                                      source={require('../Image/main/queueCopy3x.png')}
-                                      style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%")}]}
-                          />
-                          <Image
-                                      source={require('../Image/main/iconDivider3x.png')}
-                                      style={[styles.Dashbosrd_image,{width:wp(.5)}]}
-                          />
-                          <Image
-                                      source={require('../Image/main/waitTimeIcon3x.png')}
-                                      style={[styles.Dashbosrd_image,{marginRight:wp("5%")}]}
-                          />
+              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                          
+                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("4%")}]}>
+                             <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth="23" initHeight="23"/>                
+                          </View>
+                          
+                      
+                          <View style={[styles.Dashbosrd_image,{width:wp(.5),marginRight:hp("5%")}]}>
+                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
+                          </View>
+                          
+                          <View style={[styles.Dashbosrd_image]}>
+                             <ResponsiveImage source={require('../Image/main/employeeNameIcon3x.png')} initWidth="15" initHeight="23"/>                
+                          </View>
+                    
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("12%")}]}>
+                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
+                          </View>
+                        
+                          <View style={[styles.Dashbosrd_image,]}>
+                             <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth="23" initHeight="23"/>                
+                          </View>
+                          
+                          <View style={[styles.Dashbosrd_image,{width:wp(.5)}]}>
+                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
+                          </View>
+                          
+                          <View style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%")}]}>
+                             <ResponsiveImage source={require('../Image/main/queueCopy3x.png')} initWidth="32" initHeight="23"/>                
+                          </View>
+                          
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5)}]}>
+                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
+                          </View>
+                          
+                           <View style={[styles.Dashbosrd_image,{marginRight:wp("5%")}]}>
+                             <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth="23" initHeight="23"/>                
+                          </View>
                   </View>
-                  <TextInput style={styles.Setting_lineSetting}/>
-                </View>
+                  <View style={{marginHorizontal:"5%"}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>  
                 
-                <View >
                   <View style={[styles.setting_Row,{marginBottom:"5%"}]}>
                   <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
@@ -224,7 +210,7 @@ export default class App extends Component {
                         this.onToggle(isOnLargeToggleSwitch_user);
                       }}
                     />
-                    <Text style={[styles.setting_text,{marginRight:"0%"}]}>John Doe</Text>
+                    <Text style={[styles.setting_text,{marginRight:"3%"}]}>John Doe</Text>
                    <Text style={styles.setting_text}>20</Text>
                    <Text style={styles.setting_text}>14</Text>
                     <CountDown
@@ -233,9 +219,9 @@ export default class App extends Component {
                         size={18}
                         digitBgColor="false"
                         label="false"
+                        
                     /> 
                   </View>
-                  </View>    
              </View>
           <Text></Text>
         </View>

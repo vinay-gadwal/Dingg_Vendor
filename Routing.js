@@ -21,7 +21,12 @@ import styles from './Component/Style';
 import For_New_Pass from './Auth_Module/Forget_Pass_NewPass'
 import New_User from './Component/New_User'
 import Exist_User from './Component/Existing_user'
-import Welcome from './Component/Welcome'
+import Welcome from './Auth_Module/Welcome'
+import ResponsiveImage from 'react-native-responsive-image'
+import ViewOffer from './Component/View_offer'
+import AddOffer from './Component/Add_offers'
+import App_setting from './Setting_screens/App_Setting'
+
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
@@ -32,10 +37,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/dashboard_yellow2x.png') 
         : require('./Image/icon/dashboardIcon.png')
         return (
-            <Image 
-                source={image}
-                style={[styles.tab_button,{width:"37%",height:"45%"}]}
-            />
+          <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
         )
     }
   })
@@ -48,10 +50,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/queueRequest_yellow2x.png') 
         : require('./Image/icon/queueRequestIcon2x.png')
         return (
-            <Image 
-                source={image}
-                style={[styles.tab_button,{width:"37%",height:"45%"}]}
-            />
+          <ResponsiveImage source={image} initWidth="27" initHeight="23"/>
         )
     }
     })
@@ -64,10 +63,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/queueIcon_yellow2x.png') 
         : require('./Image/icon/queueIcon2x.png')
         return (
-            <Image 
-                source={image}
-                style={[styles.tab_button,{width:"34%",height:"45%"}]}
-            />
+          <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
         )
     }
     })
@@ -80,10 +76,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/historyIcon_yellow2x.png') 
         : require('./Image/icon/historyIcon2x.png')
         return (
-            <Image 
-                source={image}
-                style={[styles.tab_button,{width:"34%",height:"45%"}]}
-            />
+          <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
         )
     }
     })
@@ -96,10 +89,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/settingsIcon_yellow2x.png') 
         : require('./Image/icon/settingsIcon2x.png')
         return (
-            <Image 
-                source={image}
-                style={[styles.tab_button,{width:"34%",height:"45%"}]}
-            />
+          <ResponsiveImage source={image} initWidth="24" initHeight="25"/>
         )
     }
     })
@@ -112,10 +102,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/profileIcon_yellow2x.png') 
         : require('./Image/icon/profileIcon2x.png')
         return (
-            <Image 
-                source={image}
-                style={[styles.tab_button,{width:"34%",height:"45%"}]}
-            />
+          <ResponsiveImage source={image} initWidth="21" initHeight="23"/>
         )
     }
     })
@@ -123,6 +110,7 @@ const AuthStack = createBottomTabNavigator({
 },
 {
   initialRouteName: 'D',
+  headerMode:"none",
   tabBarOptions: {
     showLabel: false, // hide labels
     // activeTintColor: '#F8F8F8', // active icon color
@@ -396,10 +384,48 @@ const RootStack = createStackNavigator({
             })
           },   
 
+
+ ViewOffer:{
+  screen:ViewOffer,
+  headerMode: null,
+  navigationOptions: ({ navigation }) => ({
+    title: 'VIEW OFFER',
+    headerTitleStyle: {
+      fontFamily:'Muli-Bold',marginBottom:hp("2%")
+    },
+    headerLeft:( 
+      <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+    <Image
+      source={require('./Image/icon/back_2x.png')}
+      style={styles.back_butt0n} 
+    />
+    </TouchableOpacity>)
+  })
+},   
+
+AddOffer:{
+  screen:AddOffer,
+  headerMode: null,
+  navigationOptions: ({ navigation }) => ({
+    title: 'ADD OFFER',
+    headerTitleStyle: {
+      fontFamily:'Muli-Bold',marginBottom:hp("2%")
+    },
+    headerLeft:( 
+      <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+    <Image
+      source={require('./Image/icon/back_2x.png')}
+      style={styles.back_butt0n} 
+    />
+    </TouchableOpacity>)
+  })
+},   
+
   AuthStack:{
              screen:AuthStack,
+             headerMode:"none",
              navigationOptions: ({ navigation }) => ({
-              headerLeft: null,
+              header: null,
             })
             },
   Setting:{
@@ -446,6 +472,23 @@ const RootStack = createStackNavigator({
           screen:Rating,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
+          })
+        },  
+  App_setting:{
+          screen:App_setting,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'APP SETTING',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
           })
         },        
       },

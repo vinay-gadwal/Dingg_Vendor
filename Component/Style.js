@@ -209,11 +209,17 @@ const styles = StyleSheet.create({
       // marginVertical:hp("1"),
       // marginRight:wp("8%")
     },
-    
+    Dashbosrd_image_top:{
+      height:hp("4%"),
+      width:wp("7.5%"),
+      marginLeft:wp("2%"),
+      marginVertical:wp("5%"),
+      marginRight:wp("8%")
+    },
     profile_Small_text:{
       fontSize: RF(2),
       justifyContent:"flex-start",
-      marginLeft:"10%",
+      marginLeft:"5%",
       marginTop:"5%",
       color:"rgb(176,176,176)",
       fontWeight:"bold",
@@ -262,6 +268,14 @@ const styles = StyleSheet.create({
       backgroundColor:"white",
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"
+    },
+    Header:{
+      justifyContent:"center",
+      fontSize: RF(3),
+      color:"black",
+      paddingHorizontal:wp("34%"),
+      paddingVertical:hp("3%"),
+      backgroundColor:"white"
     }
     
   });

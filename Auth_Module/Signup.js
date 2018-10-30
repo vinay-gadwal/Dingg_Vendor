@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  Image,ScrollView
+  Image,KeyboardAvoidingView
 } from 'react-native';
 import styles from '../Component/Style'
 // import Frisbee from 'frisbee';
@@ -18,6 +18,7 @@ import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import RF from "react-native-responsive-fontsize"
+import ResponsiveImage from 'react-native-responsive-image'
 
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
@@ -219,11 +220,9 @@ export default class example extends Component {
     } : {};
 
     return (
-      <View style={styles.container}>
-        <Image
-          source={require('../Image/icon/logo_3.png')}
-          style={styles.Logo_style}
-        />
+      <KeyboardAvoidingView  style={styles.container}  behavior="padding" enabled>
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+
         <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
         {/* <Form ref={'form'} style={styles.form}>
 
@@ -269,7 +268,7 @@ export default class example extends Component {
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
+            keyboardType="numeric"
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Enter Mobile Number"
@@ -314,7 +313,7 @@ export default class example extends Component {
           textContent={'One moment...'}
           textStyle={{ color: '#fff' }} />
 
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }

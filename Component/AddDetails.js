@@ -46,10 +46,18 @@ export default class App extends Component {
       }
     }
     Fun_Phot_save(){
-      GLOBAL.Category=this.state.Category
+        GLOBAL.Category=this.state.Category
         GLOBAL.Buss_name=this.state.Add_Bus_Details;
         GLOBAL.Address=this.state.Address;
-        
+        GLOBAL.Locality=this.state.Locality;
+        GLOBAL.City=this.state.City;
+        GLOBAL.Website_url=this.state.Website_url;
+        GLOBAL.Email=this.state.Email;
+        GLOBAL.Contact_Name=this.state.Contact_Name;
+        GLOBAL.Primary_No=this.state.Primary_No;
+        GLOBAL.Secondry_no=this.state.Secondry_no;
+        GLOBAL.Landline_No=this.state.Landline_No;
+        GLOBAL.Master_Ven_ID=this.state.Master_Ven_ID
     }
     
       selectPhotoTapped1() 
@@ -272,7 +280,7 @@ export default class App extends Component {
                         style={[styles.input,{marginBottom:"0%"}]}
                         placeholder="Add business name"
                         placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="go"
+                        returnKeyType="next"
                         
                       />
                   </TextInputLayout>
@@ -360,7 +368,7 @@ export default class App extends Component {
                         style={styles.input}
                         placeholder="Locality"
                         placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="go"
+                        returnKeyType="next"
                         
                       />
                   </TextInputLayout>
@@ -373,7 +381,7 @@ export default class App extends Component {
                         style={styles.input}
                         placeholder="City"
                         placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="go"
+                        returnKeyType="next"
                         
                       />
                   </TextInputLayout>
@@ -386,8 +394,8 @@ export default class App extends Component {
                         style={styles.input}
                         placeholder="Website Url"
                         placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="go"
-                        
+                        returnKeyType="next"
+                        keyboardType="email-address"
                       />
                   </TextInputLayout>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -399,8 +407,8 @@ export default class App extends Component {
                           style={styles.input}
                           placeholder="Email Id"
                           placeholderTextColor="rgb(204,204,204)"
-                          returnKeyType="go"
-                          
+                          returnKeyType="next"
+                          keyboardType="email-address"
                         />
                   </TextInputLayout>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -494,7 +502,7 @@ export default class App extends Component {
                             style={styles.input}
                             placeholder="Master vendor id"
                             placeholderTextColor="rgb(204,204,204)"
-                            returnKeyType="go"
+                            returnKeyType="next"
                           />
                   </TextInputLayout>
           </View>

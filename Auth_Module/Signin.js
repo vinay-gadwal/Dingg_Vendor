@@ -6,10 +6,11 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,KeyboardAvoidingView
 } from "react-native";
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
+import ResponsiveImage from 'react-native-responsive-image'
 import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default class Login extends Component {
@@ -29,12 +30,9 @@ export default class Login extends Component {
 
   render() {
     return (
-    <View  style={styles.container}>
+    <KeyboardAvoidingView  style={styles.container}  behavior="padding" enabled>
 
-        <Image
-              source={require('../Image/icon/logo_3.png')}
-              style={styles.Logo_style}
-            />
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         
         <View style={[styles.box,{marginBottom:"0%",height: hp('34%'),}]}>
         
@@ -54,7 +52,7 @@ export default class Login extends Component {
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
+            keyboardType="numeric"
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Mobile Number"
@@ -110,7 +108,7 @@ export default class Login extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
       </View>
       
-</View>
+</KeyboardAvoidingView>
     );
   }
 }

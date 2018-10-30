@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
-import {TextInputLayout} from 'rn-textinputlayout';
+import ResponsiveImage from 'react-native-responsive-image'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default class Login extends Component {
   constructor(props)
@@ -21,11 +21,11 @@ export default class Login extends Component {
   render() {
     return (
     <View  style={styles.container}>
-
-        <Image
-              source={require('../Image/icon/illustration2x.png')}
-              style={[styles.Logo_style,{height:hp("15%"),width:wp("26.5%"),marginTop:hp("10%")}]}
-            />
+        
+        <View style={{paddingVertical:hp("8%")}}>
+        <ResponsiveImage source={require('../Image/icon/illustration2x.png')} initWidth="130" initHeight="130"/>
+        </View>
+       
        <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"0%"}]}>Thank you for submitting the information.</Text>
       
        <Text style={[styles.text,{marginHorizontal:hp("10%"),alignItems:"flex-end",marginBottom:"15%"}]}>You are now all set to explore your business.</Text>

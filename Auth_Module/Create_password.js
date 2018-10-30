@@ -5,11 +5,12 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,KeyboardAvoidingView
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
+import ResponsiveImage from 'react-native-responsive-image'
 
 export default class Password extends Component {
   constructor(props) {
@@ -28,22 +29,19 @@ export default class Password extends Component {
 
   render() {
     return (
-      <View  style={styles.container}>
-      <Image
-          source={require('../Image/icon/logo_3.png')}
-          style={styles.Logo_style}
-        />
-        <View style={[styles.box,{ height: hp('35%')}]}>
+      <KeyboardAvoidingView  style={styles.container}  behavior="padding" enabled>
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <View style={[styles.box,{ height: hp('40%')}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
             onChangeText={Uid => this.setState({ Uid })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("1")}]}
+            style={[styles.input]}
             placeholder="User ID"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
@@ -56,7 +54,7 @@ export default class Password extends Component {
             style={styles.input}
             placeholder="Enter New Password"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
              secureTextEntry
           />
           </TextInputLayout>
@@ -69,7 +67,7 @@ export default class Password extends Component {
             style={styles.input}
             placeholder="Confirm New Password"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
              secureTextEntry
           />
         </TextInputLayout>
@@ -86,7 +84,7 @@ export default class Password extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>
-    </View>
+    </KeyboardAvoidingView>
     );
   }
 }
