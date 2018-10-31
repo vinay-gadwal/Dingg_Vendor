@@ -6,36 +6,62 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,KeyboardAvoidingView
+  TouchableOpacity,KeyboardAvoidingView,Keyboard,ScrollView
 } from "react-native";
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RadioGroup from 'react-native-radio-buttons-group';
+
 export default class Login extends Component {
   constructor(props)
    {
     super(props);
     this.state = {
       username: "",
-      password: '',hidePassword:"true"
+      password: '',hidePassword:"true",
+      data: [ 
+        {
+            label: 'phone',
+            value:this.hello(),
+        },
+        {
+            label: 'email',
+            value:this.hello(),
+        }, 
+         {
+            label: 'uid',
+            value:this.hello(),
+        },  
+            ],
     };  
   }
-
+  hello(){
+    return(
+      <Text>hello</Text>
+    )
+  }
+  onPress = data => this.setState({ data });
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
   }
 
   render() {
+    let selectedButton = this.state.data.find(e => e.selected == true);
+        selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
     return (
-    <KeyboardAvoidingView  style={styles.container}  behavior="padding" enabled>
-
+    <ScrollView  contentContainerStyle={styles.container}
+                 keyboardShouldPersistTaps='handled'>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         
-        <View style={[styles.box,{marginBottom:"0%",height: hp('34%'),}]}>
-        
+        <View style={[styles.box,{marginBottom:"0%",height: hp('40%'),}]}>
+        <Text style={styles.text}>
+                   {selectedButton}
+                </Text>
+         <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
@@ -48,7 +74,7 @@ export default class Login extends Component {
             onChangeText={username => this.setState({ username })}
             style={[styles.input,{width: wp('52')}]}
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="next"
+            returnKeyType='done'
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
@@ -59,12 +85,12 @@ export default class Login extends Component {
           />
          </TextInputLayout>
           </View>
-         
+          {/* secureTextEntry = { this.state.hidePassword } */}
           <View style = { styles.textBoxBtnHolder }>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput 
                         placeholder="Password"
-                        underlineColorAndroid = "transparent" secureTextEntry = { this.state.hidePassword } style = { styles.input }/>
+                        underlineColorAndroid = "transparent"  style = { styles.input }/>
                   </TextInputLayout>
                   <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
@@ -108,7 +134,7 @@ export default class Login extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
       </View>
       
-</KeyboardAvoidingView>
+</ScrollView>
     );
   }
 }

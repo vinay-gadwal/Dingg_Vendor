@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,KeyboardAvoidingView
+  TouchableOpacity,KeyboardAvoidingView,ScrollView
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -29,9 +29,11 @@ export default class Password extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView  style={styles.container}  behavior="padding" enabled>
+<ScrollView  contentContainerStyle={styles.container}
+  keyboardShouldPersistTaps='handled'
+>
       <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
-        <View style={[styles.box,{ height: hp('40%')}]}>
+        <View style={[styles.box,{ height: hp('30%')}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -52,25 +54,13 @@ export default class Password extends Component {
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
-            placeholder="Enter New Password"
+            placeholder="New Password"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-           <TextInput
-            value={this.state.conf_pass}
-            onChangeText={conf_pass => this.setState({ conf_pass })}
-            ref={input => (this.passwordCInput = input)}
-            // onSubmitEditing={() => this.passwordInput.focus()}
-            style={styles.input}
-            placeholder="Confirm New Password"
-            placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="next"
-             secureTextEntry
-          />
-        </TextInputLayout>
+         
     </View>
     <View style={{marginBottom:"20%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AddDetails')}}>
@@ -84,7 +74,7 @@ export default class Password extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>
-    </KeyboardAvoidingView>
+</ScrollView>
     );
   }
 }

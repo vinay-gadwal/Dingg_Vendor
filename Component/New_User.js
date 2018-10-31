@@ -125,11 +125,11 @@ export default class Login extends Component {
             onChangeText={username => this.setState({ username })}
             style={[styles.input,{width: wp('52')}]}
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="next"
+            returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
+            keyboardType="numeric"
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Enter Mobile Number"

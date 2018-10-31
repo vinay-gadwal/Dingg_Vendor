@@ -186,7 +186,8 @@ const styles = StyleSheet.create({
     
     setting_Row:{
         flexDirection:"row",
-        justifyContent:"space-between"
+        justifyContent:"space-between",
+        
         },
     
     setting_text:{
@@ -276,6 +277,11 @@ const styles = StyleSheet.create({
       paddingHorizontal:wp("34%"),
       paddingVertical:hp("3%"),
       backgroundColor:"white"
+    },
+    Dashboard_block:{
+      width:wp("40%"),flexDirection:"row",
+                          backgroundColor:"white",height:hp("13%"),
+                          borderRadius:10
     }
     
   });

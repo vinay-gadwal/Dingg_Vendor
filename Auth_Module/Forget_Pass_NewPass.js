@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,ScrollView
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -29,7 +29,9 @@ export default class Password extends Component {
 
   render() {
     return (
-      <View  style={[styles.container]}>
+<ScrollView  contentContainerStyle={styles.container}
+  keyboardShouldPersistTaps='handled'
+>
       <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         <View style={[styles.box,{ height: hp('30%'),marginBottom:"0%"}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -71,7 +73,7 @@ export default class Password extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
           </View>
-    </View>
+</ScrollView>
     );
   }
 }

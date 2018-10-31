@@ -6,7 +6,7 @@ import {
   View,
   Button,TouchableOpacity,Image
 } from 'react-native';
-import Share from 'react-native-share';
+// import Share from 'react-native-share';
 import images from '../image_src/imageBase64';
 
 const instructions = Platform.select({
@@ -18,21 +18,21 @@ const instructions = Platform.select({
 
 export default class App extends Component {
 
-  onShare() {
-    const shareOptions = {
-      title: 'Share file',
-      urls: [images.image1, images.image2],
-    };
-    return Share.open(shareOptions);
-  }
+  // onShare() {
+  //   const shareOptions = {
+  //     title: 'Share file',
+  //     urls: [images.image1, images.image2],
+  //   };
+  //   return Share.open(shareOptions);
+  // }
 
-  onShare2() {
-    const shareOptions = {
-      title: 'Share file',
-      url: images.image1,
-    };
-    return Share.open(shareOptions);
-  }
+  // onShare2() {
+  //   const shareOptions = {
+  //     title: 'Share file',
+  //     url: images.image1,
+  //   };
+  //   return Share.open(shareOptions);
+  // }
 
   render() {
     return (
@@ -49,8 +49,8 @@ export default class App extends Component {
                     </TouchableOpacity>
                <Text style={{justifyContent:"center",fontSize:18,color:"black",paddingHorizontal:"20%",paddingVertical:"5%"}}>SHARE</Text>
           </View> */}
-        <Button title="Share 2 images" onPress={() => this.onShare()}/>
-        <Button title="Share single image" onPress={() => this.onShare2()}/>
+        {/* <Button title="Share 2 images" onPress={() => this.onShare()}/>
+        <Button title="Share single image" onPress={() => this.onShare2()}/> */}
       </View>
     );
   }

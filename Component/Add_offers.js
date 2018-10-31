@@ -115,7 +115,8 @@ export default class Login extends Component {
             style={[styles.input,{height:hp("3")}]}
             placeholder="Offer Percentage"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="next"
+            returnKeyType="done"
+            keyboardType="numeric"
           />
           </TextInputLayout>
             </View>     

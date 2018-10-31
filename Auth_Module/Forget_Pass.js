@@ -7,7 +7,6 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Platform,
   Image,ScrollView
 } from 'react-native';
 import styles from '../Component/Style'
@@ -220,8 +219,10 @@ export default class example extends Component {
     } : {};
 
     return (
-      <View style={styles.container}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+<ScrollView  contentContainerStyle={styles.container}
+  keyboardShouldPersistTaps='handled'
+>        
+    <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
 
          <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
         {/* <Form ref={'form'} style={styles.form}>
@@ -265,11 +266,11 @@ export default class example extends Component {
             onChangeText={username => this.setState({ username })}
             style={[styles.input,{width: wp('55'), height: hp('4%')}]}
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="next"
+            returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="email-address"
+            keyboardType="numeric"
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Mobile Number"
@@ -297,7 +298,7 @@ export default class example extends Component {
           textContent={'One moment...'}
           textStyle={{ color: '#fff' }} />
 
-      </View>
+</ScrollView>
     );
   }
 }

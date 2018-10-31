@@ -271,13 +271,7 @@ const RootStack = createStackNavigator({
             headerTitleStyle: {
               fontFamily:'Muli-Bold',marginBottom:hp("2%")
             },
-            headerLeft:( 
-              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-            <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
-            />
-            </TouchableOpacity>)
+            headerLeft:null
           })
         },
   Forget_password: {
@@ -330,13 +324,7 @@ const RootStack = createStackNavigator({
             headerTitleStyle: {
               fontFamily:'Muli-Bold',marginBottom:hp("2%")
             },
-            headerLeft:( 
-              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-            <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
-            />
-            </TouchableOpacity>)
+            headerLeft:null
           })
         },
 

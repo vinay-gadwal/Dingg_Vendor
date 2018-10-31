@@ -268,7 +268,7 @@ export default class App extends Component {
                 </View>
           </TouchableOpacity>
         
-          <Text style={{fontSize: RF(2.2),paddingVertical:"5%",paddingHorizontal:wp("36%"),fontFamily:'Muli-Bold'}}>Add Your Logo</Text>
+          <Text style={{fontSize: RF("18%"),paddingVertical:"5%",paddingHorizontal:wp("36%"),fontFamily:'Muli-Bold'}}>Add Your Logo</Text>
           
           <View style={styles.boxDetails}>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -420,7 +420,7 @@ export default class App extends Component {
                             style={styles.input}
                             placeholder="Contact name"
                             placeholderTextColor="rgb(204,204,204)"
-                            returnKeyType="go"
+                            returnKeyType="next"
                           />
                   </TextInputLayout>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
@@ -435,11 +435,11 @@ export default class App extends Component {
                           onChangeText={Primary_No => this.setState({ Primary_No })}
                           style={[styles.input,{width: wp('52'), height: hp('4%')}]}
                           placeholderTextColor="rgb(204,204,204)"
-                          returnKeyType="next"
+                          returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
                           // onSubmitEditing={() => this.passwordCInput.focus()}
-                          keyboardType="email-address"
+                          keyboardType="numeric"
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Primary Number"
@@ -459,40 +459,34 @@ export default class App extends Component {
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
                             style={[styles.input,{width: wp('52'), height: hp('4%')}]}
                             placeholderTextColor="rgb(204,204,204)"
-                            returnKeyType="next"
+                            returnKeyType="done"
                             underlineColorAndroid='transparent'
                             ref={input => (this.emailInput = input)}
                             // onSubmitEditing={() => this.passwordCInput.focus()}
-                            keyboardType="email-address"
+                            keyboardType="numeric"
                             autoCapitalize="none"
                             autoCorrect={false}
                             placeholder="Secondary Number"
                           />
                 </TextInputLayout>
                   </View>
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                      <TextInputLayout focusColor="rgb(204,204,204)">
-
-                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
-                      </TextInputLayout>
-                      <Text>   </Text>
+                
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
                           style={[styles.input,{width: wp('52'), height: hp('4%')}]}
                           placeholderTextColor="rgb(204,204,204)"
-                          returnKeyType="next"
+                          returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
                           // onSubmitEditing={() => this.passwordCInput.focus()}
-                          keyboardType="email-address"
+                          keyboardType="numeric"
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Landline Number"
                         />
                 </TextInputLayout>
-                  </View>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}

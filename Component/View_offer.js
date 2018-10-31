@@ -1,102 +1,134 @@
-import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator,Image ,TouchableOpacity} from "react-native";
-import { List, ListItem, SearchBar } from "react-native-elements";
+import React, { Component } from 'react';
+ import styles from './Style'
+import { StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
- import styles from './Style'
-class FlatListDemo extends Component {
-  constructor(props) {
-    super(props);
+// const dataSource = [
+//   {
+//     value: 'Salon',
+//   },
+//   {
+//     value: 'Doctor',
+//   },
+//   {
+//     value: 'Food',
+//   },
+//   {
+//     value: 'Plumber',
+//   }
+// ];
+export default class Project extends Component {
+ 
+ constructor(props) {
 
-    this.state = {
-      loading: false,
-      data: "hellllo",
-      page: 1,
-      seed: 1,
-      error: null,
-      refreshing: false
-    };
-  }
+   super(props);
 
-  componentDidMount() {
-    this.makeRemoteRequest();
-  }
+   this.state = {
 
-  makeRemoteRequest = () => {
-    // const { page, seed } = this.state;
-    // const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
-    // this.setState({ loading: true });
+     isLoading: true,dataSource : [
+      {
+        Offer_name: GLOBAL.Offer_name,Start_date:GLOBAL.Start_date,End_date:GLOBAL.end_date,offer_per:GLOBAL.Offer_percentage
+      },
+    //   {
+    //     Start_date:GLOBAL.Start_date
+    //   },
+    //   {
+    //     End_date:GLOBAL.end_date
+    //   },
+    //   {
+    //       offer_per:GLOBAL.Offer_percentage
+    //   }
+    ]
 
-    // fetch(url)
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     this.setState({
-    //       data: page === 1 ? res.results : [...this.state.data, ...res.results],
-    //       error: res.error || null,
-    //       loading: false,
-    //       refreshing: false
-    //     });
-    //   })
-    //   .catch(error => {
-    //     this.setState({ error, loading: false });
-    //   });
-  };
+   }
 
-//   handleRefresh = () => {
-//     this.setState(
-//       {
-//         page: 1,
-//         seed: this.state.seed + 1,
-//         refreshing: true
-//       },
-//       () => {
-//         this.makeRemoteRequest();
-//       }
-//     );
-//   };
+   YellowBox.ignoreWarnings([
+    'Warning: componentWillMount is deprecated',
+    'Warning: componentWillReceiveProps is deprecated',
+  ]);
 
-//   handleLoadMore = () => {
-//     this.setState(
-//       {
-//         page: this.state.page + 1
-//       },
-//       () => {
-//         this.makeRemoteRequest();
-//       }
-//     );
-//   };
-
-//   renderSeparator = () => {
-//     return (
-//       <View
-//         style={{
-//           height: 1,
-//           width: "100%",
-//           backgroundColor: "#CED0CE",
-//           marginLeft: "14%"
-//         }}
-//       />
-//     );
-//   };
-
+ }
+ 
+GetItem (flower_name) {
   
-  render() {
-    return (
-        <View style={{
-                        flex: 1,
-                        justifyContent: "space-between",
-                        backgroundColor: "rgb(243,242,242)",
-                        paddingVertical:"0%"}}>
-                <FlatList
-                data={this.state.data}
-                renderItem={()=> (
-                    <View style={{ 
-                        width: wp('90%'),marginLeft:"5%",
-                        height: hp('30%'),
-                        backgroundColor:"white",
-                        marginVertical:hp('1%'),
-                        borderRadius:10,}}>
-                        <View style={{flexDirection:"row"}}>
+ Alert.alert(flower_name);
+ 
+ }
+ 
+ FlatListItemSeparator = () => {
+   return (
+     <View
+       style={{
+         height: .5,
+         width: "100%",
+         backgroundColor: "#000",
+       }}
+     />
+   );
+ }
+
+ webCall=()=>{
+
+  // return fetch('https://reactnativecode.000webhostapp.com/FlowersList.php')
+  //        .then((response) => response.json())
+  //        .then((responseJson) => {
+  //          this.setState({
+  //            isLoading: false,
+  //            dataSource: responseJson
+  //          }, function() {
+  //            // In this block you can do something with new state.
+  //          });
+  //        })
+  //        .catch((error) => {
+  //          console.error(error);
+  //        });
+
+ }
+
+ componentDidMount(){
+
+  this.webCall();
+
+ }
+ 
+ render() {
+
+  //  if (this.state.isLoading) {
+  //    return (
+
+  //     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+
+  //        <ActivityIndicator size="large" />
+
+  //      </View>
+       
+  //    );
+
+  //  }
+ 
+   return (
+ 
+     <View style={{  flex: 1,
+      justifyContent: "space-between",
+      backgroundColor: "rgb(243,242,242)",
+      paddingVertical:"0%"}}>
+ 
+       <FlatList
+       
+        data={ this.state.dataSource }
+        
+        // ItemSeparatorComponent = {this.FlatListItemSeparator}
+
+        renderItem={({item}) => 
+        
+        <View style={{ 
+          width: wp('90%'),marginLeft:"5%",
+          height: hp('30%'),
+          backgroundColor:"white",
+          marginVertical:hp('5%'),
+          borderRadius:10,}}>
+               <View style={{flexDirection:"row"}}>
+
                             <Image
                                     source={require('../Image/icon/editIcon2x.png')}
                                     style={[styles.setting_Image,{marginLeft:wp("70%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
@@ -104,39 +136,38 @@ class FlatListDemo extends Component {
                             <Image
                                     source={require('../Image/icon/deleteIcon2x.png')}
                                     style={[styles.setting_Image,{marginRight:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
-                                />
-                        </View>
-                        <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{GLOBAL.Offer_name}</Text>
-                        <View style={{flexDirection:"row"}}>
+                                />  
+              </View>          
+              <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.Offer_name}</Text>
+                <View style={{flexDirection:"row"}}>
                             <Image
                                         source={require('../Image/icon/serviceIcon3x.png')}
                                         style={[styles.setting_Image,{marginLeft:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
                                     />
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{GLOBAL.Offer_name}</Text>
+                            <Text onPress={this.GetItem.bind(this, Offer_name)} style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.offer_per}</Text>
 
-                        </View>
-                        <View style={{flexDirection:"row"}}>
+                </View>
+                <View style={{flexDirection:"row"}}>
                             <Image
                                         source={require('../Image/icon/calenderIcon2x.png')}
                                         style={[styles.setting_Image,{marginLeft:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
                                     />
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{ GLOBAL.Start_date}</Text>
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{ GLOBAL.end_date}</Text>
-                        </View>
-                            <View style={[styles.button,{borderRadius:40,height:hp("5%"),width:wp("30%"),marginHorizontal:wp("10%")}]} >
-                            <Text style={styles.buttonText}>{GLOBAL.Offer_percentage}% Off</Text>
-                            </View>
-                     </View>
-                    )}
-                />
-                <View style={{marginVertical:hp("2%"),marginHorizontal:wp("30%"),backgroundColor:"white"}}>
-                    <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.navigate('AddOffer')}}>
-                    <Text style={styles.buttonText}>Add Offers</Text>
-                    </TouchableOpacity>
+                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.Start_date}</Text>
+                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.End_date}</Text>
                 </View>
-        </View>
-    );
-  }
-}
+                <View style={[styles.button,{borderRadius:40,height:hp("5%"),width:wp("30%"),marginHorizontal:wp("5%")}]} >
+                            <Text style={styles.buttonText}>{item.offer_per}% Off</Text>
+                </View>
+            </View>
+        
+          }
 
-export default FlatListDemo;
+        // keyExtractor={(item, index) => index.toString()}
+        
+        />
+ 
+     </View>
+   );
+ }
+}
+ 
