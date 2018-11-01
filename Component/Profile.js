@@ -21,6 +21,7 @@ export default class App extends Component {
       <Text style={styles.Header}>PROFILE</Text>
 
         <Text></Text>
+        <Text></Text>
             <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                   { GLOBAL.Image === null ? <Image
                                       source={require('../Image/icon/plus.png')}
@@ -33,9 +34,10 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                   }
             </View>
-          <Text style={{fontSize: RF(3),paddingVertical:"2%",fontFamily:"Muli-Bold"}}>{GLOBAL.Buss_name}</Text>
-          
-          <Text style={{fontSize: RF(2),paddingVertical:"2%",fontFamily:"Muli-Bold"}}>{GLOBAL.Master_Ven_ID}</Text>
+          <Text style={{fontSize: RF(3),fontFamily:"Muli-Bold"}}>{GLOBAL.Buss_name}</Text>
+          <Text></Text>
+          <Text style={{fontSize: RF(2),fontFamily:"Muli-Bold"}}>{GLOBAL.Master_Ven_ID}</Text>
+          <Text></Text>
           <View style={styles.Profile_Container}>
             
                   <View >
@@ -127,7 +129,7 @@ export default class App extends Component {
                     </TouchableOpacity  >                  
             </View>
             <Text></Text>
-            <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%",paddingVertical:"%"}}>
+            <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%"}}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { GLOBAL.Image1 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
@@ -177,9 +179,7 @@ export default class App extends Component {
                   }
             </View>
         </View>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
+        <Text style={{marginBottom:hp("5%")}}></Text>
       </ScrollView>
     );
   }

@@ -31,7 +31,7 @@ export default class App extends Component {
         <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
           
-          <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
+          <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Notification</Text>
                     <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
                     <ToggleSwitch  
@@ -51,7 +51,7 @@ export default class App extends Component {
               </View>
                 
              <View style={{justifyContent:"space-between"}}>
-                   <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
+                   <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Change Password</Text>
                     <TouchableOpacity>
                     <Image
@@ -65,7 +65,7 @@ export default class App extends Component {
                    </View>
              </View>  
               
-              <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
+              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
 
                     <Text style={styles.setting_text}>Terms & Condition</Text>
                     <TouchableOpacity>
@@ -79,7 +79,7 @@ export default class App extends Component {
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>
             
-              <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
+              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Privacy Policy</Text>
                     <TouchableOpacity>
                     <Image
@@ -92,7 +92,7 @@ export default class App extends Component {
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>            
              
-              <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
+              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>FAQ</Text>
                     <TouchableOpacity>
                     <Image
