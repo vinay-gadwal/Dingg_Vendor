@@ -16,7 +16,7 @@ export default class App extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
         videoSource: null,isOnDefaultToggleSwitch: false,
-        isOnLargeToggleSwitch_user: false,
+        isOnLargeToggleSwitch_user: true,
         isOnBlueToggleSwitch: false,
         dataSource : [
           {
@@ -27,6 +27,9 @@ export default class App extends Component {
           },
           {
             name: "john alexer",served:"10",queue:"24",wait_time:10
+          },
+          {
+            name: "same flintop",served:"4",queue:"4",wait_time:3
           }
         ]
     
@@ -178,7 +181,7 @@ export default class App extends Component {
 
         </View>
         
-        <View style={{paddingVertical:"10%"}}>
+        <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
               
               <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
@@ -219,10 +222,10 @@ export default class App extends Component {
                            <View style={[styles.Dashbosrd_image,{marginRight:wp("5%")}]}>
                              <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth="23" initHeight="23"/>                
                           </View>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
-                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-                   </View>  
+                          </View>
+                          <View style={{marginHorizontal:"5%"}}>
+                          <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                          </View>  
                    <FlatList
        
                       data={ this.state.dataSource }

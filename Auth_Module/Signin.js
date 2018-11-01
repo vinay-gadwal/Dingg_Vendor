@@ -24,23 +24,88 @@ export default class Login extends Component {
       password: '',hidePassword:"true",
       data: [ 
         {
-            label: 'phone',
-            value:this.hello(),
+            label: 'Phone',
+            value:this.phone(),
+            color: 'rgb(255,164,0)'
         },
         {
-            label: 'email',
-            value:this.hello(),
+            label: 'Email',
+            value:this.email(),
+            color: 'rgb(255,164,0)'
         }, 
          {
-            label: 'uid',
-            value:this.hello(),
+            label: 'User ID',
+            value:this.uid(),
+            color: 'rgb(255,164,0)'
         },  
             ],
     };  
   }
-  hello(){
+  phone(){
     return(
-      <Text>hello</Text>
+      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+      <TextInputLayout focusColor="rgb(255,164,0)">
+
+      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      </TextInputLayout>
+       <Text>   </Text>
+       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input,{width: wp('52')}]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='done'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="numeric"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Mobile Number"
+       />
+      </TextInputLayout>
+      </View>
+    )
+  }
+  email(){
+    return(
+      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input,{width: wp('70')}]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='next'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="email-address"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Email"
+       />
+      </TextInputLayout>
+    )
+  }
+  uid(){
+    return(
+      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+      <TextInput
+       //  value={this.state.username}
+        onChangeText={username => this.setState({ username })}
+        style={[styles.input,{width: wp('70')}]}
+        placeholderTextColor="rgb(204,204,204)"
+        returnKeyType='next'
+        underlineColorAndroid='transparent'
+        ref={input => (this.emailInput = input)}
+        // onSubmitEditing={() => this.passwordCInput.focus()}
+        keyboardType="email-address"
+        autoCapitalize="none"
+        autoCorrect={false}
+        placeholder="USER ID"
+      />
+     </TextInputLayout>
     )
   }
   onPress = data => this.setState({ data });
@@ -51,58 +116,35 @@ export default class Login extends Component {
 
   render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
-        selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
+        selectedButton = selectedButton ? selectedButton.value : this.phone()
     return (
     <ScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         
-        <View style={[styles.box,{marginBottom:"0%",height: hp('40%'),}]}>
-        <Text style={styles.text}>
-                   {selectedButton}
-                </Text>
-         <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-              <TextInputLayout focusColor="rgb(255,164,0)">
-
-              <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
-              </TextInputLayout>
-              <Text>   </Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-          <TextInput
-            value={this.state.username}
-            onChangeText={username => this.setState({ username })}
-            style={[styles.input,{width: wp('52')}]}
-            placeholderTextColor="rgb(204,204,204)"
-            returnKeyType='done'
-            underlineColorAndroid='transparent'
-            ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="numeric"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Mobile Number"
-          />
-         </TextInputLayout>
-          </View>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('38%'),}]}>
+        <Text style={styles.text}>Login With</Text>
+         <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         {selectedButton}
           {/* secureTextEntry = { this.state.hidePassword } */}
           <View style = { styles.textBoxBtnHolder }>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput 
                         placeholder="Password"
-                        underlineColorAndroid = "transparent"  style = { styles.input }/>
+                        underlineColorAndroid = "transparent" 
+                         style = { styles.input }/>
                   </TextInputLayout>
                   <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
                   </TouchableOpacity>
           </View>
-          <Text></Text>
+          <Text>{this.state.username}</Text>
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
           <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("4%"),fontFamily:'Muli-Bold'}}>Forget Password?</Text>
           </TouchableOpacity>
       </View>
       
-      <View style={{marginBottom:"10%"}}>
+      <View style={{marginBottom:"7%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Sign in</Text>
           </TouchableOpacity>

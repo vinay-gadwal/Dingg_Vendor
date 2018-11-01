@@ -18,6 +18,7 @@ import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
+import RadioGroup from 'react-native-radio-buttons-group';
 
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
@@ -45,9 +46,21 @@ export default class example extends Component {
       enterCode: false,
       spinner: false,
       country: {
-        cca2: 'US',
-        callingCode: '1'
-      }
+        cca2: 'I',
+        callingCode: '91'
+      },
+      data: [ 
+        {
+            label: 'Phone',
+            value:this.phone(),
+            color: 'rgb(255,164,0)'
+        },
+        {
+            label: 'Email',
+            value:this.email(),
+            color: 'rgb(255,164,0)'
+        }, 
+            ],
     };
   }
 
@@ -206,6 +219,57 @@ export default class example extends Component {
       
   }
 
+  phone(){
+    return(
+      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+      <TextInputLayout focusColor="rgb(255,164,0)">
+
+      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      </TextInputLayout>
+       <Text>   </Text>
+       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input,{width: wp('52')}]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='done'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="numeric"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Mobile Number"
+       />
+      </TextInputLayout>
+      </View>
+    )
+  }
+  
+  email(){
+    return(
+      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input,{width: wp('70')}]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='next'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="email-address"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Email"
+       />
+      </TextInputLayout>
+    )
+  }
+
+  onPress = data => this.setState({ data });
+
   render() {
 
     let headerText = `What's your ${this.state.enterCode ? 'verification code' : 'Enter Mobile Number'}?`
@@ -218,14 +282,19 @@ export default class example extends Component {
       fontFamily: 'Courier'
     } : {};
 
-    return (
-<ScrollView  contentContainerStyle={styles.container}
-  keyboardShouldPersistTaps='handled'
->        
-    <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+    let selectedButton = this.state.data.find(e => e.selected == true);
+    selectedButton = selectedButton ? selectedButton.value : this.phone()
 
-         <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
-        {/* <Form ref={'form'} style={styles.form}>
+    return (
+    <ScrollView  contentContainerStyle={styles.container}
+      keyboardShouldPersistTaps='handled'
+    >        
+    <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+      
+         <View style={[styles.box_SignUp,{height: hp('25%')}]}>
+         <Text style={styles.text}>Enter the registered mobile or email</Text>
+       
+         {/* <Form ref={'form'} style={styles.form}>
 
           <View style={{ flexDirection: 'row' }}>
 
@@ -242,9 +311,9 @@ export default class example extends Component {
               onChangeText={this._onChangeText}
               placeholder={this.state.enterCode ? '_ _ _ _ _ _' : 'Enter Mobile Number'}
               // keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
-              keyboardType="email-address"
+              keyboardType="numeric"
               style={[ styles.textInput,{height: hp('5%'),width: wp('65%'),} ]}
-              returnKeyType='next'
+              returnKeyType='done'
               autoFocus
              placeholderTextColor="rgb(204,204,204)"
               selectionColor={brandColor}
@@ -252,9 +321,10 @@ export default class example extends Component {
               onSubmitEditing={this._getSubmitAction} />
 
           </View>
-        </Form> */}
-          <Text style={styles.text}>Enter the registered mobile number</Text>
-          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+        </Form>  */}
+          <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+          {selectedButton}
+          {/* <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
               <Text style={{marginTop:"10%",fontSize: RF(2.2)}}>+91     </Text>
@@ -276,7 +346,7 @@ export default class example extends Component {
             placeholder="Mobile Number"
           />
          </TextInputLayout>
-          </View>
+          </View> */}
         </View>
         <View style={{marginBottom:"40%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('For_New_Pass')}}>

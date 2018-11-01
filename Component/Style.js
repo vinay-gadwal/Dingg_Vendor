@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
     copy_rigth_image:{
       width: wp("2.9%"),
       height: hp("1.7%"),marginTop:hp(".8%")
-    },
-    
+    },    
     input: {
       width: wp('70%'),
       height: hp('5%'),
@@ -40,8 +39,7 @@ const styles = StyleSheet.create({
       borderBottomStartRadius:2,
       alignItems:"flex-start",
       textAlign:'left',
-    },
-    
+    },    
     button: {
         width: wp('40%'),
         height: hp('7.2%'),
@@ -53,8 +51,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
         shadowRadius: 4,
-    },
-    
+    },   
     buttonText: {
       fontSize: RF(2.2),
         alignSelf: "center",
@@ -272,7 +269,7 @@ const styles = StyleSheet.create({
     },
     Header:{
       justifyContent:"center",
-      fontSize: RF(3),
+      fontSize: RF(2.5),
       color:"black",
       paddingHorizontal:wp("34%"),
       paddingVertical:hp("3%"),

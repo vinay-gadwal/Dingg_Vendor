@@ -475,7 +475,7 @@ export default class App extends Component {
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
-                          style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+                          style={[styles.input,{width: wp('70'), height: hp('4%')}]}
                           placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
