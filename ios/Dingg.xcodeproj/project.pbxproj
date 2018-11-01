@@ -44,6 +44,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* DinggTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DinggTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		323E08BA58054CB9AC6B8B12 /* libRNNavybitsDateTimePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C58C6CE20264CB797C2602E /* libRNNavybitsDateTimePicker.a */; };
 		35C48BA6A7404035A8B37637 /* Muli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D066D55B9E42B0884D775D /* Muli.ttf */; };
 		382437807F5E4A55A29FF914 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46B1628C04AB4E438A45D10F /* FontAwesome5_Regular.ttf */; };
 		3D1438298B3348B9B7887EA7 /* Muli Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4AE6B86AC1742BABB9D3B6D /* Muli Italic.ttf */; };
@@ -122,6 +123,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Dingg;
+		};
+		042B1691218B2E9100F56F13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BC76F1D57D54771BCFE75AC /* RNNavybitsDateTimePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNNavybitsDateTimePicker;
 		};
 		043F85182174A8B500ED0C12 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -400,6 +408,7 @@
 		04E4AA4D580E4947BDDFDBF2 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		06DAA5C5FFDD4FACADFC5DD7 /* Muli Light Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli Light Italic.ttf"; path = "../assets/fonts/Muli Light Italic.ttf"; sourceTree = "<group>"; };
 		09BE6BCA06114D0AB4469AAD /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		0BC76F1D57D54771BCFE75AC /* RNNavybitsDateTimePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNNavybitsDateTimePicker.xcodeproj; path = "../node_modules/react-native-navybits-date-time-picker/ios/RNNavybitsDateTimePicker.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Dingg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dingg.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -425,6 +434,7 @@
 		5480CD31F7E04AA2839781CF /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		69202372895943759C7BE386 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		6C58C6CE20264CB797C2602E /* libRNNavybitsDateTimePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNNavybitsDateTimePicker.a; sourceTree = "<group>"; };
 		6FED0328AA4C4BDDB7642FAF /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		78F1B5C4B29B4DADA106C6D3 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
@@ -487,6 +497,7 @@
 				2197A33C2B5B48D89042B2D7 /* libRNImagePicker.a in Frameworks */,
 				8A9E684596D848B8A4D91639 /* libRNShare.a in Frameworks */,
 				DD2542AFC32E41C2A8350FA9 /* libRNVectorIcons.a in Frameworks */,
+				323E08BA58054CB9AC6B8B12 /* libRNNavybitsDateTimePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +587,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		042B168E218B2E9100F56F13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				042B1692218B2E9100F56F13 /* libRNNavybitsDateTimePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		043F84EF2174A8B400ED0C12 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +602,7 @@
 				B3EEA81AD5D34423B654EA92 /* libRNShare.a */,
 				AC044D4723FC4CD5B6C14660 /* libRNVectorIcons.a */,
 				6FED0328AA4C4BDDB7642FAF /* libRNVectorIcons-tvOS.a */,
+				6C58C6CE20264CB797C2602E /* libRNNavybitsDateTimePicker.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -715,6 +735,7 @@
 				A25B84BB324E4CFBB9D9E325 /* RNImagePicker.xcodeproj */,
 				280CA57F734D48B0B723C7C5 /* RNShare.xcodeproj */,
 				04E4AA4D580E4947BDDFDBF2 /* RNVectorIcons.xcodeproj */,
+				0BC76F1D57D54771BCFE75AC /* RNNavybitsDateTimePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -974,6 +995,10 @@
 					ProjectRef = A25B84BB324E4CFBB9D9E325 /* RNImagePicker.xcodeproj */;
 				},
 				{
+					ProductGroup = 042B168E218B2E9100F56F13 /* Products */;
+					ProjectRef = 0BC76F1D57D54771BCFE75AC /* RNNavybitsDateTimePicker.xcodeproj */;
+				},
+				{
 					ProductGroup = 044C39CE21771A0C00FE662D /* Products */;
 					ProjectRef = 280CA57F734D48B0B723C7C5 /* RNShare.xcodeproj */;
 				},
@@ -1026,6 +1051,13 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		042B1692218B2E9100F56F13 /* libRNNavybitsDateTimePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNNavybitsDateTimePicker.a;
+			remoteRef = 042B1691218B2E9100F56F13 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		043F85192174A8B500ED0C12 /* libRNImagePicker.a */ = {
@@ -1447,12 +1479,14 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1479,12 +1513,14 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1512,6 +1548,7 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1538,6 +1575,7 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1570,11 +1608,13 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1609,11 +1649,13 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1647,11 +1689,13 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1685,11 +1729,13 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

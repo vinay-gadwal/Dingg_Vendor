@@ -3,6 +3,7 @@ package com.dingg;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNNavybitsDateTimePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import cl.json.RNSharePackage;
 import cl.json.ShareApplication;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNNavybitsDateTimePickerPackage(),
             new VectorIconsPackage(),
             new RNSharePackage(),
             new ImagePickerPackage()

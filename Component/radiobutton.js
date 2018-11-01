@@ -46,20 +46,20 @@ render () {
             />
             
             { this.state.activeSwitch === 1 ? console.log('view1') : console.log('view2') }
-            <Text>{selectedHours}:{selectedMinutes}</Text>
+            {/* <Text>{selectedHours}:{selectedMinutes}</Text>
         <TimePicker
           selectedHours={selectedHours}
           selectedMinutes={selectedMinutes}
           onChange={(hours, minutes) => this.setState({ selectedHours: hours, selectedMinutes: minutes })}
-        />
-         <TouchableOpacity onPress={this._showDateTimePicker}>
+        /> */}
+         {/* <TouchableOpacity onPress={this._showDateTimePicker}>
           <Text>Show DatePicker</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this._handleDatePicked}
           onCancel={this._hideDateTimePicker}
-        />
+        /> */}
         </View>
 
     );
