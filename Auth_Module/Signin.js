@@ -21,23 +21,20 @@ export default class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: '',hidePassword:"true",
+      password: '',
+      hidePassword:"true",
       data: [ 
         {
-            label: 'Phone',
+            label: 'Mobile Number',
             value:this.phone(),
             color: 'rgb(255,164,0)'
         },
         {
-            label: 'Email',
+            label: 'Email Id',
             value:this.email(),
             color: 'rgb(255,164,0)'
         }, 
-         {
-            label: 'User ID',
-            value:this.uid(),
-            color: 'rgb(255,164,0)'
-        },  
+           
             ],
     };  
   }
@@ -74,7 +71,7 @@ export default class Login extends Component {
        <TextInput
         //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
-         style={[styles.input,{width: wp('70')}]}
+         style={[styles.input]}
          placeholderTextColor="rgb(204,204,204)"
          returnKeyType='next'
          underlineColorAndroid='transparent'
@@ -103,7 +100,7 @@ export default class Login extends Component {
         keyboardType="email-address"
         autoCapitalize="none"
         autoCorrect={false}
-        placeholder="USER ID"
+        placeholder="User ID"
       />
      </TextInputLayout>
     )
@@ -128,8 +125,8 @@ export default class Login extends Component {
          {selectedButton}
           {/* secureTextEntry = { this.state.hidePassword } */}
           <View style = { styles.textBoxBtnHolder }>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-                      <TextInput 
+                  <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
+                      <TextInput secureTextEntry = { this.state.hidePassword }
                         placeholder="Password"
                         underlineColorAndroid = "transparent" 
                          style = { styles.input }/>
@@ -144,7 +141,7 @@ export default class Login extends Component {
           </TouchableOpacity>
       </View>
       
-      <View style={{marginBottom:"7%"}}>
+      <View style={{marginBottom:"3%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Sign in</Text>
           </TouchableOpacity>

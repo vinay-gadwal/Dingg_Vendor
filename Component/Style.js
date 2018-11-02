@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
     input: {
       width: wp('70%'),
       height: hp('5%'),
-      marginBottom: hp('1%'),
+      marginBottom: hp('0%'),
       fontSize: RF(2.2),
-      marginTop:"3%",
+      marginTop:"4%",
       textAlign:'left',  
       fontFamily:'Muli-Bold'
     },
@@ -277,8 +277,16 @@ const styles = StyleSheet.create({
     },
     Dashboard_block:{
       width:wp("40%"),flexDirection:"row",
-                          backgroundColor:"white",height:hp("13%"),
-                          borderRadius:10
+      backgroundColor:"white",
+      height:hp("13%"),
+      borderRadius:10
+    },
+
+    Business_hour:{
+      flexDirection:"row",
+      justifyContent:"space-between",
+      marginVertical:hp("1.5%"),
+      paddingHorizontal:wp("7%")
     }
     
   });

@@ -16,8 +16,9 @@ export default class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        new_pass:"",
-      password: "",hidePassword:"true"
+      new_pass:"",
+      password: "",
+      hidePassword:"true"
     };
     
   }

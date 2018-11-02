@@ -9,11 +9,24 @@ import {
   TouchableOpacity
 } from "react-native";
 import styles from '../Component/Style'
-import TimePicker from 'react-native-simple-time-picker';
-
+import { Dropdown } from 'react-native-material-dropdown';
+import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import SwitchButton from 'switch-button-react-native';
-
+const data_Services = [
+    {
+      value: '01',
+    },
+    {
+      value: '02',
+    },
+    {
+      value: '03',
+    },
+    {
+      value: '04',
+    }
+  ];
 
 export default class Login extends Component {
   constructor(props)
@@ -35,10 +48,10 @@ export default class Login extends Component {
     return (
     <View  style={styles.container}>
             
-        <View style={[styles.box,{marginBottom:"0%",height: hp('73%'),marginTop:hp("10%")}]}>     
-        <Text style={styles.text}>Add Day and Time</Text>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('70%'),marginTop:hp("0%")}]}>     
+        <Text style={[styles.text,{fontSize:RF(3.2)}]}>Add Day and Time</Text>
         <View style={{flexDirection:"column"}}>
-        <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -57,12 +70,22 @@ export default class Login extends Component {
                 activeFontColor = '#fff'            // optional: active font color --- default #fff
             />
             </View>
-            <Text style={[styles.text,{marginRight:wp("10%")}]}> 9:00 </Text>
+            {/* <Dropdown
+                          data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="black"
+                          value={'01'}
+                          dropdownPosition={0}
+                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
+                            width: wp('5%'),fontSize: RF(2.5),
+                            // position: 'absolute',
+                            borderColor:"rgb(255,163,0)",placeholderTextColor:"black"
+                        }}
+                      />             */}
+                                  <Text style={[styles.text,{marginRight:wp("10%")}]}> 9:00 </Text>
             <Text style={[styles.text,{marginRight:wp("10%")}]}>to</Text>
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
 
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -86,7 +109,7 @@ export default class Login extends Component {
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
 
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -110,7 +133,7 @@ export default class Login extends Component {
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
 
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -134,7 +157,7 @@ export default class Login extends Component {
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
 
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -158,7 +181,7 @@ export default class Login extends Component {
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
 
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -182,7 +205,7 @@ export default class Login extends Component {
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
 
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:hp("2%")}}>
+        <View style={styles.Business_hour}>
         <View style={{marginLeft:"0%",marginRight:"15%"}}>
         <SwitchButton
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
@@ -205,8 +228,8 @@ export default class Login extends Component {
             <Text style={[styles.text,{marginRight:wp("10%")}]}>to</Text>
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
-        <View style={{marginBottom:"3%"}}>
-          <TouchableOpacity style={[styles.button,{backgroundColor:"white",shadowColor: 'grey',marginHorizontal:wp("25%")}]} >
+        <View style={{marginBottom:"4%"}}>
+          <TouchableOpacity style={[styles.button,{backgroundColor:"white",shadowColor: 'grey',marginHorizontal:wp("30%")}]} onPress={() => {this.props.navigation.navigate('Calendar')}} >
           <Text style={[styles.buttonText,{color:"rgb(255,164,0)", shadowColor: 'white',}]}>Set up holidays</Text>
           </TouchableOpacity>
       </View>
@@ -216,7 +239,7 @@ export default class Login extends Component {
       
       <View style={{marginTop:"5%"}}>
           <TouchableOpacity style={styles.button} >
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
       </View>    
 </View>

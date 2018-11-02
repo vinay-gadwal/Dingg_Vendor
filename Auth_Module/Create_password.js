@@ -16,8 +16,10 @@ export default class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Uid:"",conf_pass:"",
-      password: "",hidePassword:"true"
+      Uid:"",
+      conf_pass:"",
+      password: "",
+      hidePassword:"true"
     };
     
   }
@@ -33,7 +35,7 @@ export default class Password extends Component {
   keyboardShouldPersistTaps='handled'
 >
       <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
-        <View style={[styles.box,{ height: hp('30%')}]}>
+        <View style={[styles.box,{ height: hp('40%')}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -60,9 +62,22 @@ export default class Password extends Component {
              secureTextEntry
           />
           </TextInputLayout>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInput
+            value={this.state.conf_pass}
+            onChangeText={conf_pass => this.setState({ conf_pass })}
+            ref={input => (this.passwordCInput = input)}
+            // onSubmitEditing={() => this.passwordInput.focus()}
+            style={styles.input}
+            placeholder="Confirm Password"
+            placeholderTextColor="rgb(204,204,204)"
+            returnKeyType="next"
+             secureTextEntry
+          />
+          </TextInputLayout>
          
     </View>
-    <View style={{marginBottom:"20%"}}>
+    <View style={{marginBottom:"10%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AddDetails')}}>
         <Text style={styles.buttonText}>Complete Signup</Text>
         </TouchableOpacity>

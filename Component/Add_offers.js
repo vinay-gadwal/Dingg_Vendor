@@ -3,7 +3,7 @@ import DatePicker from 'react-native-datepicker'
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
   AppRegistry,
-  Image,
+  ScrollView,
   Text,
   View,
   TextInput,
@@ -13,6 +13,7 @@ import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
+import RadioGroup from 'react-native-radio-buttons-group';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const data_Services = [
   {
@@ -34,11 +35,33 @@ export default class Login extends Component {
    {
     super(props);
     this.state = {
-      Offer_name: "",services:"",
-      Offer_percenatge: '',Start_date:"2017-05-15",end_date: "2017-05-15",
+      Offer_name: "",
+      services:"",
+      Offer_percenatge: '',
+      Start_date:"2017-05-15",
+      end_date: "2017-05-15",
+      data: [ 
+        {
+            label: 'New',
+            value:this.phone(),
+            color: 'rgb(255,164,0)'
+        },
+        {
+            label: 'Existant',
+            value:this.phone(),
+            color: 'rgb(255,164,0)'
+        }, 
+        {
+          label: 'Frequent',
+          value:this.phone(),
+          color: 'rgb(255,164,0)'
+        }
+          ],
     };  
   }
+  phone(){
 
+  }
   Function_save_global(){
       GLOBAL.Offer_name=this.state.Offer_name
       GLOBAL.Offer_percentage=this.state.Offer_percenatge
@@ -48,9 +71,9 @@ export default class Login extends Component {
   }
   render() {
     return (
-    <View  style={styles.container}>
-            
-        <View style={[styles.box,{marginBottom:"0%",height: hp('50%'),marginTop:hp("5%")}]}>
+      <ScrollView  contentContainerStyle={styles.container}
+      keyboardShouldPersistTaps='handled'>            
+        <View style={[styles.box,{marginBottom:"0%",height: hp('55%'),marginTop:hp("5%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_name}
@@ -119,13 +142,17 @@ export default class Login extends Component {
             keyboardType="numeric"
           />
           </TextInputLayout>
+          <Text></Text>
+          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         {/* {selectedButton}       */}
+         <Text></Text>
             </View>     
-        <View style={{marginBottom:"20%"}}>
+        <View style={{marginBottom:"15%"}}>
             <TouchableOpacity style={styles.button} onPress={() => {this.Function_save_global();this.props.navigation.navigate('ViewOffer')}}>
             <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
         </View>    
-</View>
+</ScrollView>
     );
   }
 }

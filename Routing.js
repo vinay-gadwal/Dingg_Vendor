@@ -26,7 +26,10 @@ import ResponsiveImage from 'react-native-responsive-image'
 import ViewOffer from './Component/View_offer'
 import AddOffer from './Component/Add_offers'
 import App_setting from './Setting_screens/App_Setting'
-
+import Business_Hour from './Setting_screens/Busi_Hour_Setting'
+import Calendar from './Setting_screens/Calendar'
+import Manage_user from './Setting_screens/Manage_users'
+import Add_user from './Setting_screens/Add_users'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
@@ -478,7 +481,78 @@ AddOffer:{
             />
             </TouchableOpacity>)
           })
-        },        
+        },  
+  
+  Business_Hour:{
+          screen:Business_Hour,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'BUSINESS HOUR',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        }, 
+
+  Calendar:{
+          screen:Calendar,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'CALENDAR',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },   
+ Manage_user:{
+          screen:Manage_user,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'MANAGE USER',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+ Add_user:{
+          screen:Add_user,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ADD USER',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+
       },
  
       {

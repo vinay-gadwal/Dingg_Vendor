@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import {
   AppRegistry,
-  Image,
+  ScrollView,
   Text,
   View,
   TextInput,
@@ -12,6 +12,7 @@ import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
+import RadioGroup from 'react-native-radio-buttons-group';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const data_Services = [
   {
@@ -48,8 +49,18 @@ export default class Login extends Component {
    {
     super(props);
     this.state = {
-      username: "",
-      password: '',hidePassword:"true"
+      Mob_no: "",
+      password: '',hidePassword:"true",
+      data: [ 
+        {
+            label: 'Join Now',
+            color: 'rgb(255,164,0)'
+        },
+        {
+            label: 'Join Later',
+            color: 'rgb(255,164,0)'
+        }, 
+          ],
     };  
   }
 
@@ -60,9 +71,10 @@ export default class Login extends Component {
 
   render() {
     return (
-    <View  style={styles.container}>
+      <ScrollView  contentContainerStyle={styles.container}
+      keyboardShouldPersistTaps='handled'>
             
-        <View style={[styles.box,{marginBottom:"0%",height: hp('38%'),marginTop:hp("12%")}]}>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('60%'),marginTop:hp("5%")}]}>
         
          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(204,204,204)">
@@ -72,8 +84,8 @@ export default class Login extends Component {
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
           <TextInput
-            value={this.state.username}
-            onChangeText={username => this.setState({ username })}
+            value={this.state.Mob_no}
+            onChangeText={Mob_no => this.setState({ Mob_no })}
             style={[styles.input,{width: wp('52')}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
@@ -110,14 +122,18 @@ export default class Login extends Component {
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
                         }}
                       />
-                  </View>       
+                  </View>    
+                  <Text></Text>
+          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         {/* {selectedButton}       */}
+         <Text></Text>   
       </View>     
-      <View style={{marginBottom:"20%"}}>
+      <View style={{marginBottom:"5%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
       </View>    
-</View>
+</ScrollView>
     );
   }
 }

@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import {
   AppRegistry,
-  Image,
+  ScrollView,
   Text,
   View,
   TextInput,
   TouchableOpacity
 } from "react-native";
+import RadioGroup from 'react-native-radio-buttons-group';
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
@@ -49,9 +50,72 @@ export default class Login extends Component {
     super(props);
     this.state = {
       First_name: "",
-      Last_name: '',hidePassword:"true"
+      Last_name: '',
+      mob_no:'',
+      hidePassword:"true",
+      data: [ 
+        {
+            label: 'Join Now',
+            value:this.phone(),
+            color: 'rgb(255,164,0)'
+        },
+        {
+            label: 'Join Later',
+            value:this.email(),
+            color: 'rgb(255,164,0)'
+        }, 
+          ],
     };  
   }
+  phone(){
+    return(
+      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+      <TextInputLayout focusColor="rgb(255,164,0)">
+
+      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      </TextInputLayout>
+       <Text>   </Text>
+       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input,{width: wp('52')}]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='done'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="numeric"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Mobile Number"
+       />
+      </TextInputLayout>
+      </View>
+    )
+  }
+  email(){
+    return(
+      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='next'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="email-address"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Email"
+       />
+      </TextInputLayout>
+    )
+  }
+
+  onPress = data => this.setState({ data });
 
   managePasswordVisibility = () =>
   {
@@ -59,10 +123,12 @@ export default class Login extends Component {
   }
 
   render() {
+    let selectedButton = this.state.data.find(e => e.selected == true);
+        selectedButton = selectedButton ? selectedButton.value : this.phone()
     return (
-    <View  style={styles.container}>
-            
-        <View style={[styles.box,{marginBottom:"0%",height: hp('55%'),marginTop:hp("5%")}]}>
+   <ScrollView  contentContainerStyle={styles.container}
+                 keyboardShouldPersistTaps='handled'>      
+        <View style={[styles.box,{marginBottom:"0%",height: hp('58%'),marginTop:hp("5%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
@@ -72,7 +138,7 @@ export default class Login extends Component {
             style={[styles.input,{height:hp("3")}]}
             placeholder="First Name"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
@@ -85,7 +151,7 @@ export default class Login extends Component {
             style={[styles.input,{height:hp("3")}]}
             placeholder="Last Name"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
@@ -121,8 +187,8 @@ export default class Login extends Component {
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
-            value={this.state.username}
-            onChangeText={username => this.setState({ username })}
+            value={this.state.mob_no}
+            onChangeText={mob_no => this.setState({ mob_no })}
             style={[styles.input,{width: wp('52')}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
@@ -135,15 +201,19 @@ export default class Login extends Component {
             placeholder="Enter Mobile Number"
           />
          </TextInputLayout>
-          </View>       
+          </View> 
+          <Text></Text>
+          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         {/* {selectedButton}       */}
+         <Text></Text>
       </View>     
-      <View style={{marginBottom:"15%"}}>
+      <View style={{marginBottom:"5%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
       </View>    
-</View>
-    );
+      </ScrollView>   
+       );
   }
 }
 

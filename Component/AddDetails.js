@@ -297,7 +297,8 @@ export default class App extends Component {
                         }}
                       />
                   </View>
-                  
+                  <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
+                  <Text style={{color:"white"}}>bjjaaa</Text>
                   <GooglePlacesAutocomplete
                          value={this.state.Address}
                          onChangeText={Address => this.setState({ Address })}
@@ -359,6 +360,8 @@ export default class App extends Component {
                         predefinedPlaces={[homePlace, workPlace]}
                         debounce={200}
                 />
+                <Text style={{color:"white"}}>bjjase</Text>
+                </View>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Locality}
@@ -426,7 +429,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                   <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{marginTop:"20%",fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>

@@ -3,6 +3,7 @@ import { View,StyleSheet,Text,TouchableOpacity } from 'react-native';
 import SwitchButton from 'switch-button-react-native';
 import TimePicker from 'react-native-simple-time-picker';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import CalendarPicker from 'react-native-calendar-picker';
 
 export default class app extends Component{
 constructor () {
@@ -46,20 +47,20 @@ render () {
             />
             
             { this.state.activeSwitch === 1 ? console.log('view1') : console.log('view2') }
-            {/* <Text>{selectedHours}:{selectedMinutes}</Text>
+            <Text>{selectedHours}:{selectedMinutes}</Text>
         <TimePicker
           selectedHours={selectedHours}
           selectedMinutes={selectedMinutes}
           onChange={(hours, minutes) => this.setState({ selectedHours: hours, selectedMinutes: minutes })}
-        /> */}
-         {/* <TouchableOpacity onPress={this._showDateTimePicker}>
+        />
+         <TouchableOpacity onPress={this._showDateTimePicker}>
           <Text>Show DatePicker</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this._handleDatePicked}
           onCancel={this._hideDateTimePicker}
-        /> */}
+        />
         </View>
 
     );

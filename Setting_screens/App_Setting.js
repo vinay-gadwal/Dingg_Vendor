@@ -30,7 +30,6 @@ export default class App extends Component {
 
         <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
-          
           <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Notification</Text>
                     <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
@@ -45,11 +44,11 @@ export default class App extends Component {
                       }}
                     />
                     </View>
-                   </View>
-                  <View style={{marginHorizontal:"5%"}}>
+            </View>
+            <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-              </View>
-                
+            </View>
+            <TouchableOpacity>   
              <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Change Password</Text>
@@ -64,7 +63,8 @@ export default class App extends Component {
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
              </View>  
-              
+             </TouchableOpacity>
+             <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
 
                     <Text style={styles.setting_text}>Terms & Condition</Text>
@@ -78,7 +78,8 @@ export default class App extends Component {
                     <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>
-            
+              </TouchableOpacity>
+              <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Privacy Policy</Text>
                     <TouchableOpacity>
@@ -91,7 +92,8 @@ export default class App extends Component {
                   <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>            
-             
+              </TouchableOpacity>
+              <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>FAQ</Text>
                     <TouchableOpacity>
@@ -101,7 +103,7 @@ export default class App extends Component {
                     />
                     </TouchableOpacity>
                   </View>
-                
+              </TouchableOpacity>
           </View>
               <TouchableOpacity style={[styles.button,{marginTop:hp("5"),marginHorizontal:wp("30%"),backgroundColor:"rgb(153,153,153)", shadowColor: 'rgb(153,153,153)',
         shadowOffset: { width: 0, height: hp("0.5%") },

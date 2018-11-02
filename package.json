@@ -18,6 +18,7 @@
     "react-datetime-picker": "^2.0.0",
     "react-modal": "^3.6.1",
     "react-native": "0.57.3",
+    "react-native-calendar-picker": "^5.22.0",
     "react-native-confirmation-code-input": "^1.0.4",
     "react-native-countdown-component": "^1.8.2",
     "react-native-country-picker-modal": "^0.6.2",

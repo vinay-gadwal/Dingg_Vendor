@@ -26,10 +26,10 @@ export default class Login extends Component {
         <ResponsiveImage source={require('../Image/icon/illustration2x.png')} initWidth="130" initHeight="130"/>
         </View>
        
-       <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"0%"}]}>Thank you for submitting the information.</Text>
-      
-       <Text style={[styles.text,{marginHorizontal:hp("10%"),alignItems:"flex-end",marginBottom:"15%"}]}>You are now all set to explore your business.</Text>
-      
+       <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"0%"}]}>Thank you for submitting the</Text>
+       <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"0%"}]}>information.</Text>
+       <Text style={[styles.text,{marginHorizontal:hp("10%"),alignItems:"flex-end",marginBottom:"0%"}]}>You are now all set to explore </Text>
+       <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"15%"}]}>your business.</Text>
       <View style={{marginBottom:"80%"}}>
           <TouchableOpacity style={[styles.button,{width:wp("30%")}]} onPress={() =>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={styles.buttonText}>Let's Go</Text>

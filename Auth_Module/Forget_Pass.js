@@ -348,7 +348,7 @@ export default class example extends Component {
          </TextInputLayout>
           </View> */}
         </View>
-        <View style={{marginBottom:"40%"}}>
+        <View style={{marginBottom:"35%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('For_New_Pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
