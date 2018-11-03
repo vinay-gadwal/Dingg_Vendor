@@ -13,20 +13,23 @@ import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
+import MultiSelect from 'react-native-multiple-select';
+
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const data_Services = [
   {
-    value: 'Face Cleanup',
+    id: '1',
+    value: 'face massage',
+  }, {
+    id: '2',
+    value: 'hair cut',
+  }, {
+    id: '3',
+    value: 'cleaning',
+  }, {
+    id: '4',
+    value: 'shaving',
   },
-  {
-    value: 'Hair Cut',
-  },
-  {
-    value: 'Shaving',
-  },
-  {
-    value: 'Shampoo',
-  }
 ];
 
 const data_Stylist = [
@@ -65,8 +68,27 @@ export default class Login extends Component {
             color: 'rgb(255,164,0)'
         }, 
           ],
-    };  
+          selectedItems :[],
+    }
+    items = [{
+      id: '1',
+      name: 'face massage',
+    }, {
+      id: '2',
+      name: 'hair cut',
+    }, {
+      id: '3',
+      name: 'cleaning',
+    }, {
+      id: '4',
+      name: 'shaving',
+    },];
   }
+  
+  onSelectedItemsChange = selectedItems => {
+    this.setState({ selectedItems });
+  };
+
   phone(){
     return(
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
@@ -125,6 +147,8 @@ export default class Login extends Component {
   render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
         selectedButton = selectedButton ? selectedButton.value : this.phone()
+
+        const { selectedItems } = this.state;
     return (
    <ScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
@@ -155,17 +179,30 @@ export default class Login extends Component {
             //  secureTextEntry
           />
           </TextInputLayout>
-          <View style={{width:wp('70%'),height:hp("10%"),marginVertical:"0%"}}>
-                      <Dropdown
-                          data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
-                          value={'Select Services'}
-                          dropdownPosition={0}
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
-                      />
+          <View style={{width:wp('70%'),height:hp("22%"),marginVertical:"0%"}}>
+          <MultiSelect
+                      hideTags
+                      items={items}
+                      uniqueKey="id"
+                      ref={(component) => { this.multiSelect = component }}
+                      ref={c => this._multiSelect = c}
+                      onSelectedItemsChange={this.onSelectedItemsChange}
+                      selectedItems={selectedItems}
+                      selectText="Pick Items"
+                      searchInputPlaceholderText="Search Items..."
+                      onChangeInput={ (text)=> console.log(text)}
+                      // altFontFamily="ProximaNova-Light"
+                      tagRemoveIconColor="#CCC"
+                      tagBorderColor="#CCC"
+                      tagTextColor="#CCC"
+                      selectedItemTextColor="#CCC"
+                      selectedItemIconColor="green"
+                      itemTextColor="#000"
+                      displayKey="name"
+                      searchInputStyle={{ color: '#CCC' }}
+                      submitButtonColor="#CCC"
+                      submitButtonText="Submit"
+                    />
             </View> 
             <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown

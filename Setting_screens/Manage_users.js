@@ -4,7 +4,7 @@ import { TouchableOpacity, Platform, View, ActivityIndicator, FlatList, Text, Im
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export default class Project extends Component {
+export default class Manage_Users extends Component {
  
  constructor(props) {
 

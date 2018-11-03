@@ -8,7 +8,7 @@ import CalendarPicker from 'react-native-calendar-picker';
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export default class App extends Component {
+export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {

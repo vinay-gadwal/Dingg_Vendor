@@ -28,7 +28,7 @@ const data_Services = [
     }
   ];
 
-export default class Login extends Component {
+export default class Business extends Component {
   constructor(props)
    {
     super(props);

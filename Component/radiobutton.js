@@ -1,76 +1,157 @@
-import React, { Component } from 'react'; 
-import { View,StyleSheet,Text,TouchableOpacity } from 'react-native'; 
-import SwitchButton from 'switch-button-react-native';
-import TimePicker from 'react-native-simple-time-picker';
-import DateTimePicker from 'react-native-modal-datetime-picker';
-import CalendarPicker from 'react-native-calendar-picker';
+import React, { Component } from 'react';
+import { View, TextInput, Platform, StyleSheet, TouchableOpacity, Animated, ScrollView, Image } from 'react-native';
+import RF from "react-native-responsive-fontsize"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+  
+export default class App extends Component
+{
+    constructor()
+    {
+        super();
 
-export default class app extends Component{
-constructor () {
-    super();
+        this.state = { valueArray: [], disabled: false ,Last_name:"",Last_name1:""}
 
-    this.state = {
-      activeSwitch: 1,isDateTimePickerVisible: false,
-    };
+        this.index = 0;
+
+        this.animatedValue = new Animated.Value(0);
+    }
+componentDidMount(){
+  this.addMore();
 }
-_showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
- 
-_hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+    addMore = () =>
+    {
+        this.animatedValue.setValue(0);
 
-_handleDatePicked = (date) => {
-  console.log('A date has been picked: ', date);
-  this._hideDateTimePicker();
-};
+        let newlyAddedValue = { index: this.index }
 
+        this.setState({ disabled: true, valueArray: [ ...this.state.valueArray, newlyAddedValue ] }, () =>
+        {
+            Animated.timing(
+                this.animatedValue,
+                {
+                    toValue: 1,
+                    duration: 500,
+                    useNativeDriver: true
+                }
+            ).start(() =>
+            {
+                this.index = this.index + 1;
+                this.setState({ disabled: false });
+            }); 
+        });              
+    }
 
-render () {
-    const { selectedHours, selectedMinutes } = this.state;
+    render()
+    {
+        const animationValue = this.animatedValue.interpolate(
+        {
+            inputRange: [ 0, 1 ],
+            outputRange: [ -59, 0 ]
+        });
 
-    return (
+        let newArray = this.state.valueArray.map(( item, key ) =>
+        {
+            if(( key ) == this.index)
+            {
+                return(
+                    <View key = { key } style = {[ styles.viewHolder,]}>
+                    <TextInput
+                        value={this.state.Last_name}
+                        onChangeText={Last_name => this.setState({ Last_name })}
+                        ref={input => (this.passwordCInput = input)}
+                        // onSubmitEditing={() => this.passwordInput.focus()}
+                        style={[styles.input]}
+                        placeholder="Last Name"
+                        placeholderTextColor="rgb(204,204,204)"
+                        returnKeyType="next"
+                        //  secureTextEntry
+                      />
+                    </View>
+                );
+            }
+            else
+            {
+                return(
+                    <View key = { key } style = { styles.viewHolder }>
+                       <TextInput
+                        value={this.state.Last_name1}
+                        onChangeText={Last_name1 => this.setState({ Last_name1 })}
+                        ref={input => (this.passwordCInput = input)}
+                        // onSubmitEditing={() => this.passwordInput.focus()}
+                        style={[styles.input]}
+                        placeholder="Last Name"
+                        placeholderTextColor="rgb(204,204,204)"
+                        returnKeyType="next"
+                        //  secureTextEntry
+                      />
+                    </View>
+                );
+            }
+        });
 
-        <View style={{marginHorizontal:"30%",marginVertical:"30%"}}>
-            <SwitchButton
-                onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
-                text1 = 'OFF'                        // optional: first text in switch button --- default ON
-                text2 = 'MON'                       // optional: second text in switch button --- default OFF
-                switchWidth = {70}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
-                switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
-                switchBorderRadius = {100}          // optional: switch border radius --- default oval
-                switchSpeedChange = {500}           // optional: button change speed --- default 100
-                switchBorderColor = '#d4d4d4'       // optional: switch border color --- default #d4d4d4
-                switchBackgroundColor = '#fff'      // optional: switch background color --- default #fff
-                btnBorderColor = '#00a4b9'          // optional: button border color --- default #00a4b9
-                btnBackgroundColor = '#00bcd4'      // optional: button background color --- default #00bcd4
-                fontColor = '#b1b1b1'               // optional: text font color --- default #b1b1b1
-                activeFontColor = '#fff'            // optional: active font color --- default #fff
-            />
-            
-            { this.state.activeSwitch === 1 ? console.log('view1') : console.log('view2') }
-            <Text>{selectedHours}:{selectedMinutes}</Text>
-        <TimePicker
-          selectedHours={selectedHours}
-          selectedMinutes={selectedMinutes}
-          onChange={(hours, minutes) => this.setState({ selectedHours: hours, selectedMinutes: minutes })}
-        />
-         <TouchableOpacity onPress={this._showDateTimePicker}>
-          <Text>Show DatePicker</Text>
-        </TouchableOpacity>
-        <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
-          onConfirm={this._handleDatePicked}
-          onCancel={this._hideDateTimePicker}
-        />
-        </View>
+        return(
+            <View style = { styles.container }>
+                <ScrollView>
+                    <View style = {{ flex: 1, padding: 4 }}>
+                    {
+                        newArray
+                    }
+                    </View>
+                </ScrollView>
 
-    );
+                {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.btn } disabled = { this.state.disabled } onPress = { this.addMore }>
+                    <Image source = { require('../Image/main/completewaitTimeIcon3x.png') } style = { styles.btnImage }/>
+                </TouchableOpacity> */}
+            </View>
+        );
+    }
 }
-}
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+
+const styles = StyleSheet.create(
+{
+    container:
+    {
+        flex: 1,
+        backgroundColor: '#eee',
+        justifyContent: 'center',
+        paddingTop: (Platform.OS == 'ios') ? 20 : 0
     },
-  });
+
+    viewHolder:
+    {
+      width: wp('70%'),
+      height: hp('5%'),
+      marginBottom: hp('0%'),
+      fontSize: RF(2.2),
+      marginTop:"4%",
+      textAlign:'left',  
+      fontFamily:'Muli-Bold'
+    },
+
+    text:
+    {
+        color: 'white',
+        fontSize: 25
+    },
+
+    btn:
+    {
+        position: 'absolute',
+        right: 25,
+        bottom: 25,
+        borderRadius: 30,
+        width: 60,
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0,0,0,0.7)',
+        padding: 15
+    },
+
+    btnImage:
+    {
+        resizeMode: 'contain',
+        width: '100%',
+        tintColor: 'white'
+    }
+});

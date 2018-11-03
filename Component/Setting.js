@@ -64,7 +64,7 @@ export default class App extends Component {
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Set Up Services</Text>
                     <TouchableOpacity>
@@ -92,7 +92,7 @@ export default class App extends Component {
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View> 
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Add Stylist</Text>
                     <TouchableOpacity>

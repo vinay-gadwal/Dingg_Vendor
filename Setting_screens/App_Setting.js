@@ -10,7 +10,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 
-export default class App extends Component {
+export default class App_Setting extends Component {
     state = {
         isOnDefaultToggleSwitch: true,
         isOnLargeToggleSwitch: false,

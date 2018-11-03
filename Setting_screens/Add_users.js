@@ -13,7 +13,7 @@ import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export default class Login extends Component {
+export default class Add_User extends Component {
   constructor(props)
    {
     super(props);

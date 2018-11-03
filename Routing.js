@@ -30,6 +30,8 @@ import Business_Hour from './Setting_screens/Busi_Hour_Setting'
 import Calendar from './Setting_screens/Calendar'
 import Manage_user from './Setting_screens/Manage_users'
 import Add_user from './Setting_screens/Add_users'
+import Set_up from './Setting_screens/Setup_service'
+import Add_stylist from './Setting_screens/Add_stylist'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
@@ -552,7 +554,41 @@ AddOffer:{
             </TouchableOpacity>)
           })
         },
+Set_up:{
+          screen:Set_up,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ADD SERVICES',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
 
+  Add_stylist:{
+          screen:Add_stylist,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ADD STYLIST',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
       },
  
       {

@@ -126,7 +126,7 @@ export default class Login extends Component {
           {/* secureTextEntry = { this.state.hidePassword } */}
           <View style = { styles.textBoxBtnHolder }>
                   <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
-                      <TextInput secureTextEntry = { this.state.hidePassword }
+                      <TextInput 
                         placeholder="Password"
                         underlineColorAndroid = "transparent" 
                          style = { styles.input }/>
