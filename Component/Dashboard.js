@@ -47,8 +47,6 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-          <Text style={styles.Header}>DASHBOARD</Text>
-          <Text></Text>
          <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"5%",marginVertical:hp("3%")}}>
          <View style={styles.Dashboard_block}>
                     <View style={styles.Dashbosrd_image_top}>

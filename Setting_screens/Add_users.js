@@ -137,7 +137,7 @@ export default class Add_User extends Component {
       </View>     
       <View style={{marginBottom:"3%"}}>
           <TouchableOpacity style={styles.button} >
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
       </View>    
       </ScrollView>   

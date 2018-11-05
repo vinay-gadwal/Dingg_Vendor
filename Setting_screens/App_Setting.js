@@ -48,11 +48,11 @@ export default class App_Setting extends Component {
             <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
             </View>
-            <TouchableOpacity>   
+            <TouchableOpacity onPress={() => {this.props.navigation.navigate('For_New_Pass')}}>   
              <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Change Password</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('For_New_Pass')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -105,12 +105,6 @@ export default class App_Setting extends Component {
                   </View>
               </TouchableOpacity>
           </View>
-              <TouchableOpacity style={[styles.button,{marginTop:hp("5"),marginHorizontal:wp("30%"),backgroundColor:"rgb(153,153,153)", shadowColor: 'rgb(153,153,153)',
-        shadowOffset: { width: 0, height: hp("0.5%") },
-        shadowOpacity: 0.8,
-        shadowRadius: 4,}]} >
-                  <Text style={styles.buttonText}>Delete Account</Text>
-              </TouchableOpacity>
         </View>
       </ScrollView>
     );

@@ -32,11 +32,14 @@ import Manage_user from './Setting_screens/Manage_users'
 import Add_user from './Setting_screens/Add_users'
 import Set_up from './Setting_screens/Setup_service'
 import Add_stylist from './Setting_screens/Add_stylist'
+import Star_Rating from './Setting_screens/Review_rating'
+import Reject from './Component/Reject_reason'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
     screen: DashBoard,
     navigationOptions: () => ({
+      title:'Dashboard',
       tabBarIcon: ({ focused }) => {
         const image = focused 
         ? require('./Image/icon/dashboard_yellow2x.png') 
@@ -116,6 +119,7 @@ const AuthStack = createBottomTabNavigator({
 {
   initialRouteName: 'D',
   headerMode:"none",
+  headerLeft:null,
   tabBarOptions: {
     showLabel: false, // hide labels
     // activeTintColor: '#F8F8F8', // active icon color
@@ -336,7 +340,7 @@ const RootStack = createStackNavigator({
   DashBoard:{
           screen: DashBoard,
           navigationOptions: ({ navigation }) => ({
-            title: 'DASHBOARD',
+            title:"Dashboard",
             headerLeft: null,
           })
            },
@@ -379,46 +383,51 @@ const RootStack = createStackNavigator({
 
 
  ViewOffer:{
-  screen:ViewOffer,
-  headerMode: null,
-  navigationOptions: ({ navigation }) => ({
-    title: 'VIEW OFFER',
-    headerTitleStyle: {
-      fontFamily:'Muli-Bold',marginBottom:hp("2%")
-    },
-    headerLeft:( 
-      <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-    <Image
-      source={require('./Image/icon/back_2x.png')}
-      style={styles.back_butt0n} 
-    />
-    </TouchableOpacity>)
-  })
+        screen:ViewOffer,
+        headerMode: null,
+        navigationOptions: ({ navigation }) => ({
+          title: 'VIEW OFFER',
+          headerTitleStyle: {
+            fontFamily:'Muli-Bold',marginBottom:hp("2%")
+          },
+          headerLeft:( 
+            <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+          <Image
+            source={require('./Image/icon/back_2x.png')}
+            style={styles.back_butt0n} 
+          />
+          </TouchableOpacity>)
+        })
 },   
 
 AddOffer:{
-  screen:AddOffer,
-  headerMode: null,
-  navigationOptions: ({ navigation }) => ({
-    title: 'ADD OFFER',
-    headerTitleStyle: {
-      fontFamily:'Muli-Bold',marginBottom:hp("2%")
-    },
-    headerLeft:( 
-      <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-    <Image
-      source={require('./Image/icon/back_2x.png')}
-      style={styles.back_butt0n} 
-    />
-    </TouchableOpacity>)
-  })
+          screen:AddOffer,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ADD OFFER',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
 },   
 
   AuthStack:{
              screen:AuthStack,
-             headerMode:"none",
+            //  headerMode:"none",
              navigationOptions: ({ navigation }) => ({
-              header: null,
+               headerMode:true,
+              headerLeft: null,
+              // headerBackTitle:null,
+              headerTitleStyle: {
+                fontFamily:'Muli-Bold',marginBottom:hp("2%")
+              },
             })
             },
   Setting:{
@@ -577,6 +586,40 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD STYLIST',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+ Star_rating:{
+          screen:Star_Rating,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'Rating & Review',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+  Reject:{
+          screen:Reject,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'Rating & Review',
             headerTitleStyle: {
               fontFamily:'Muli-Bold',marginBottom:hp("2%")
             },

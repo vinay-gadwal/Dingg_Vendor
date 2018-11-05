@@ -342,7 +342,7 @@ export default class App extends Component {
                                 fontSize:hp('2.2%')
                               },
                         }}
-                        currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+                        currentLocation={false} // Will add a 'Current location' button at the top of the predefined places list
                         currentLocationLabel="Current location"
                         nearbyPlacesAPI="GooglePlacesSearch" // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
                         GoogleReverseGeocodingQuery={{
@@ -357,7 +357,7 @@ export default class App extends Component {
                           'locality',
                           'administrative_area_level_3',
                         ]} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
-                        predefinedPlaces={[homePlace, workPlace]}
+                        // predefinedPlaces={[homePlace, workPlace]}
                         debounce={200}
                 />
                 <Text style={{color:"white"}}>bjjase</Text>

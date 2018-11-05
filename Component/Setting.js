@@ -29,7 +29,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-      <Text style={styles.Header}>SETTINGS</Text>
+      {/* <Text style={styles.Header}>SETTINGS</Text> */}
 
         <View style={{paddingVertical:"4%"}}>
           <View style={styles.Profile_Container}>
@@ -78,7 +78,7 @@ export default class App extends Component {
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>            
              </TouchableOpacity>
-             <TouchableOpacity>
+             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Review & rating</Text>
                     <TouchableOpacity>

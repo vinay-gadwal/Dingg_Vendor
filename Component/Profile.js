@@ -18,7 +18,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-      <Text style={styles.Header}>PROFILE</Text>
+      {/* <Text style={styles.Header}>PROFILE</Text> */}
 
         <Text></Text>
         <Text></Text>

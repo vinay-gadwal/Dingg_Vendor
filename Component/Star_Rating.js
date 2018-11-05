@@ -167,7 +167,7 @@ export default class StarReview extends Component {
       )
     }
     return (
-      <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+      <View style={{flexDirection: 'row', justifyContent: 'center',height:"1%"}}>
         {stars}
       </View>
     )
@@ -227,7 +227,7 @@ StarReview.defaultProps = {
   count: 5,
   rating: 0,
   default: 0,
-  starSize: 30,
+  starSize: 20,
   update: () => {},
   backingColor: 'white',
   opacity: false,

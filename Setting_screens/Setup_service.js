@@ -130,17 +130,22 @@ return (
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                    <ScrollView>
-                                        <Text style={[styles.text,{fontSize:28}]}>{item.Ser_name}</Text>                            
-                                        <View style={{flexDirection:"row"}}> 
-                                        <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
-                                        <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>
-                                        
-                                        <View style={{marginHorizontal:"5%"}}>
-                                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-                                        </View>
-                                        </View>          
-                            </View>   
+                    <ScrollView> 
+                        <Text style={[styles.text,{fontSize:28,marginLeft:wp("3%")}]}>{item.Ser_name}</Text> 
+                        <View style={{flexDirection:"row"}}>                          
+                             <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
+                                <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>                                         
+                                 <View style={{marginHorizontal:"5%"}}>
+                                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="250" initHeight="2"/>
+                                 </View>
+                            </View>           
+                              <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
+                                <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>10</Text>                                         
+                                 <View style={{marginHorizontal:"5%"}}>
+                                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="60" initHeight="2"/>
+                                 </View>
+                            </View>           
+                        </View> 
                     </ScrollView>   }                       
                     />
            </View>
@@ -153,7 +158,7 @@ return (
             </View>
 </View>
         
-<View style={{ 
+{/* <View style={{ 
           width: wp('90%'),marginLeft:"5%",
           height: hp('45%'),
           backgroundColor:"white",
@@ -185,7 +190,7 @@ return (
                                 }
                                 </View>
             </View>
-</View>
+</View> */}
 <View style={{ 
           width: wp('90%'),marginLeft:"5%",
           height: hp('10%'),

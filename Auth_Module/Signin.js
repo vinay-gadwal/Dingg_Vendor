@@ -38,6 +38,9 @@ export default class Login extends Component {
             ],
     };  
   }
+  componentDidMount(){
+    this.props.navigation.navigate('AuthStack')
+  }
   phone(){
     return(
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
@@ -121,7 +124,7 @@ export default class Login extends Component {
         
         <View style={[styles.box,{marginBottom:"0%",height: hp('38%'),}]}>
         <Text style={styles.text}>Login With</Text>
-         <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          {selectedButton}
           {/* secureTextEntry = { this.state.hidePassword } */}
           <View style = { styles.textBoxBtnHolder }>
