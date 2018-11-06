@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
         },
 
   Profile_Container:{
-      width:"90%",paddingVertical:"5%",
+      width:"90%",paddingVertical:"2%",
       backgroundColor:"white",
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"

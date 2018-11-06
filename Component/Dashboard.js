@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,Image,Button,
+  View,Image,
   ScrollView,TextInput,TouchableOpacity,FlatList
 } from 'react-native';
 import styles from './Style'
@@ -107,7 +107,7 @@ export default class App extends Component {
         <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Ready to accept booking</Text>
                     <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
-                    <ToggleSwitch  
+                    {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
                       width={"1%"}
                       size="small"
@@ -116,7 +116,25 @@ export default class App extends Component {
                         this.setState({ isOnDefaultToggleSwitch });
                         this.onToggle(isOnDefaultToggleSwitch);
                       }}
-                    />
+                    /> */}
+                     <SwitchButton
+                                      onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
+                                      switchWidth = {wp("12%")}                 // optional: switch width --- default 44
+                                      switchHeight = {hp("3%")}                 // optional: switch height --- default 100
+                                      switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
+                                      switchBorderRadius = {40}          // optional: switch border radius --- default oval
+                                      switchSpeedChange = {500}           // optional: button change speed --- default 100
+                                      switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
+                                      switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
+                                      btnBorderColor = 'rgb(255,164,0)'          // optional: button border color --- default #00a4b9
+                                      btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
+                                      fontColor = 'white'               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = '#fff' 
+                                      text1 = '.'                        // optional: first text in switch button --- default ON
+                                      text2 = '.'   
+                                      fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
+                                  />
                     </View>
                    </View>
                   <View style={{marginHorizontal:"5%"}}>

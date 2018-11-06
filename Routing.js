@@ -34,6 +34,7 @@ import Set_up from './Setting_screens/Setup_service'
 import Add_stylist from './Setting_screens/Add_stylist'
 import Star_Rating from './Setting_screens/Review_rating'
 import Reject from './Component/Reject_reason'
+import QR_Code from './Component/QR_Code'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
@@ -464,6 +465,40 @@ AddOffer:{
           headerLeft: null,
           })
         },  
+ QR_Code:{
+          screen:QR_Code,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'DINGG CODE',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+  Profile_edit:{
+          screen:Profile_edit,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'EDIT PROFILE',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>)
+          })
+        },
   Share:{
           screen:Share,
           headerMode: null,

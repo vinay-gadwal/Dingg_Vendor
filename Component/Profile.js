@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  ScrollView,TextInput,TouchableOpacity,Image
+  ScrollView,TouchableOpacity,Image
 } from 'react-native';
-import { Dropdown } from 'react-native-material-dropdown';
 import styles from './Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import ResponsiveImage from 'react-native-responsive-image'
 
 export default class App extends Component {
   
@@ -18,8 +18,6 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-      {/* <Text style={styles.Header}>PROFILE</Text> */}
-
         <Text></Text>
         <Text></Text>
             <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
@@ -38,18 +36,25 @@ export default class App extends Component {
           <Text></Text>
           <Text style={{fontSize: RF(2),fontFamily:"Muli-Bold"}}>{GLOBAL.Master_Ven_ID}</Text>
           <Text></Text>
-          <View style={styles.Profile_Container}>
-            
+          <View style={{flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+          <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
+          <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="80" initHeight="80"/>
+          </TouchableOpacity>
+          <View style={[styles.Profile_Container]}>
                   <View >
                     <Text style={styles.profile_Small_text}>Address</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Address}</Text>
-                    <TextInput style={styles.Setting_lineSetting}/>
+                    <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                   </View>
 
                   <View >
                     <Text style={styles.profile_Small_text}>Locality</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Locality}</Text>
-                    <TextInput style={styles.Setting_lineSetting}/>
+                    <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                   </View>
                   
                   <View >
@@ -58,13 +63,16 @@ export default class App extends Component {
                   </View>
 
             </View>
+            </View>
             <Text></Text>
             <View style={styles.Profile_Container}>
             
                   <View >
                     <Text style={styles.profile_Small_text}>Website</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Website_url}</Text>
-                    <TextInput style={styles.Setting_lineSetting}/>
+                    <View style={{marginHorizontal:"5%"}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                   </View>
                   
                   <View >
@@ -79,19 +87,25 @@ export default class App extends Component {
                  <View >
                     <Text style={styles.profile_Small_text}>Conatct Name</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Contact_Name}</Text>
-                    <TextInput style={styles.Setting_lineSetting}/>
+                    <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                   </View>
                   
                   <View >
                     <Text style={styles.profile_Small_text}>Primary Number</Text>
                     <Text style={styles.setting_text}>+91-{GLOBAL.Primary_No}</Text>
-                    <TextInput style={styles.Setting_lineSetting}/>
+                    <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                   </View>
 
                    <View style={{justifyContent:"center"}}>
                     <Text style={styles.profile_Small_text}>Secondry Number</Text>
                     <Text style={styles.setting_text}>+91-{GLOBAL.Secondry_no}</Text>
-                    <TextInput style={styles.Setting_lineSetting}/>
+                    <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                   </View>
                   
                   <View style={{justifyContent:"center"}}>
@@ -105,7 +119,9 @@ export default class App extends Component {
             <View >
                   <Text style={styles.profile_Small_text}>Category</Text>
                   <Text style={styles.setting_text}>{GLOBAL.Category}</Text>
-                  <TextInput style={styles.Setting_lineSetting}/>
+                  <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
+                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   </View>
                 </View>
 
                  <View >
@@ -115,19 +131,20 @@ export default class App extends Component {
                   
             </View>
             <Text></Text>
-            <View style={{  width:"90%",height:"4%",flexDirection:"row",
+            <TouchableOpacity style={{  width:"90%",height:"4%",flexDirection:"row",
                           backgroundColor:"white",
                           borderRadius:10,
-                          justifyContent: 'space-between',marginHorizontal:"5%"}}>
-           
+                          justifyContent: 'space-between',marginHorizontal:"5%"}}
+                          onPress={() => {this.props.navigation.navigate('QR_Code')}}>
+                  
                   <Text style={styles.setting_text}>My Dingg Code</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('QR_Code')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image,{marginRight:wp("3%")}]}
                     />
                     </TouchableOpacity  >                  
-            </View>
+            </TouchableOpacity>
             <Text></Text>
             <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%"}}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>

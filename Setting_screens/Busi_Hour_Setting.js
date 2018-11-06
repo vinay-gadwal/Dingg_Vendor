@@ -48,7 +48,7 @@ export default class Business extends Component {
     return (
     <View  style={styles.container}>
             
-        <View style={[styles.box,{marginBottom:"0%",height: hp('65%'),marginTop:hp("0%")}]}>     
+        <View style={[styles.box,{marginBottom:"0%",height: hp('67%'),marginTop:hp("0%")}]}>     
         <Text style={[styles.text,{fontSize:RF(3.2)}]}>Add Day and Time</Text>
         <View style={{flexDirection:"column"}}>
         <View style={styles.Business_hour}>
@@ -57,10 +57,10 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'MON'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}                 // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
-                switchBorderRadius = {100}          // optional: switch border radius --- default oval
+                switchBorderRadius = {50}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
                 switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
                 switchBackgroundColor = 'rgb(255,164,0)'      // optional: switch background color --- default #fff
@@ -91,8 +91,8 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'TUE'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}                // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                 switchBorderRadius = {100}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -115,8 +115,8 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'WED'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}               // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                 switchBorderRadius = {100}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -139,8 +139,8 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'THU'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}               // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                 switchBorderRadius = {100}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -163,8 +163,8 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'FRI'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}               // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                 switchBorderRadius = {100}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -187,8 +187,8 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'SAT'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}                // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                 switchBorderRadius = {100}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -211,8 +211,8 @@ export default class Business extends Component {
                 onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                 text1 = 'OFF'                        // optional: first text in switch button --- default ON
                 text2 = 'SUN'                       // optional: second text in switch button --- default OFF
-                switchWidth = {90}                 // optional: switch width --- default 44
-                switchHeight = {30}                 // optional: switch height --- default 100
+                switchWidth = {70}                 // optional: switch width --- default 44
+                switchHeight = {25}             // optional: switch height --- default 100
                 switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                 switchBorderRadius = {100}          // optional: switch border radius --- default oval
                 switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -228,12 +228,9 @@ export default class Business extends Component {
             <Text style={[styles.text,{marginRight:wp("10%")}]}>to</Text>
             <Text style={[styles.text,{marginRight:wp("5%")}]}> 19:00 </Text>
         </View> 
-        <View style={{marginBottom:"4%"}}>
           <TouchableOpacity style={[styles.button,{backgroundColor:"white",shadowColor: 'grey',marginHorizontal:wp("30%")}]} onPress={() => {this.props.navigation.navigate('Calendar')}} >
           <Text style={[styles.buttonText,{color:"rgb(255,164,0)", shadowColor: 'white',}]}>Set up holidays</Text>
-          </TouchableOpacity>
-      </View>
-        
+          </TouchableOpacity>        
         </View> 
       </View>   
       

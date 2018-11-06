@@ -155,39 +155,6 @@ return (
         
 <View style={{ 
           width: wp('90%'),marginLeft:"5%",
-          height: hp('45%'),
-          backgroundColor:"white",
-          marginBottom:hp('5%'),
-          borderRadius:10,}}>
-       
-       <View style={{flexDirection:"row"}}>
-              <FlatList          
-                    data={ this.state.dataSource }
-                    renderItem={({item}) => 
-                    <ScrollView>
-                                        <Text style={[styles.text,{fontSize:28}]}>{item.sty_name}</Text>                            
-                                        <View style={{flexDirection:"row"}}> 
-                                        <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
-                                        <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>
-                                        
-                                        <View style={{marginHorizontal:"5%"}}>
-                                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-                                        </View>
-                                        </View>          
-                            </View>   
-                    </ScrollView>     }                       
-            />
-           </View>
-            <View style={[styles.text,{marginHorizontal:wp("5%")}]}>
-                                <View style = {{ flex: 1, padding: 4 }}>
-                                {
-                                    newArray
-                                }
-                                </View>
-            </View>
-</View>
-<View style={{ 
-          width: wp('90%'),marginLeft:"5%",
           height: hp('10%'),
           backgroundColor:"white",
           marginBottom:hp('5%'),

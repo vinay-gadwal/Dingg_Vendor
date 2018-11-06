@@ -75,10 +75,10 @@ return (
                      </View>
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-end",marginRight:wp("3%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(3)}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{fontSize:RF(3),marginBottom:hp("1%")}]}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Stylist</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
                             </View>           

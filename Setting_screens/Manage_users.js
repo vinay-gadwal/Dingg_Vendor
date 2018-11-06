@@ -119,12 +119,12 @@ GetItem (flower_name) {
                 <View style={{flexDirection:"row",marginVertical:hp("2%")}}>
                 <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>
                             <Image
-                                        source={require('../Image/icon/serviceIcon3x.png')}
+                                        source={require('../Image/main/editIcon3x.png')}
                                         style={[styles.setting_Image,{marginLeft:wp("25%"),marginBottom:hp("2%"),marginTop:hp("1%")}]}
                                     />
                             <Image
-                                        source={require('../Image/icon/serviceIcon3x.png')}
-                                        style={[styles.setting_Image,{marginLeft:wp("5%"),marginRight:wp("5%"),marginBottom:hp("2%"),marginTop:hp("1%")}]}
+                                        source={require('../Image/main/deleteIcon3x.png')}
+                                        style={[styles.setting_Image,{marginLeft:wp("5%"),marginRight:wp("5%"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end"}]}
                                     />
                 </View>              
                 
