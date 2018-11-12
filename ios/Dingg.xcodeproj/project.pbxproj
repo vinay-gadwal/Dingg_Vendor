@@ -48,9 +48,11 @@
 		35C48BA6A7404035A8B37637 /* Muli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D066D55B9E42B0884D775D /* Muli.ttf */; };
 		382437807F5E4A55A29FF914 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46B1628C04AB4E438A45D10F /* FontAwesome5_Regular.ttf */; };
 		3D1438298B3348B9B7887EA7 /* Muli Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4AE6B86AC1742BABB9D3B6D /* Muli Italic.ttf */; };
+		410F421CD9BA4A3C97A4FA2E /* TimePickerTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D43F4CF78E4353893CD359 /* TimePickerTests.xctest */; };
 		43597E88BE1241D1B7BD083F /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEAFBC77FA6F4011A51DE316 /* Foundation.ttf */; };
 		440B258CFE984CA3A23B1C51 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FA8B99B9CC4181AFADF354 /* Muli-ExtraLight.ttf */; };
 		46412F0D3E7848C4813B9EFA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19445B67EF9544B5B2AAE457 /* FontAwesome.ttf */; };
+		5C9E917ECBD14B248A3FD5CA /* TimePicker.app in Frameworks */ = {isa = PBXBuildFile; fileRef = 65447EA1594A44FFBEF05597 /* TimePicker.app */; };
 		5E650388DF724C50B36DFCA2 /* Muli-Semi-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 340A94C6B6D44F1AA67F9BF0 /* Muli-Semi-BoldItalic.ttf */; };
 		640C55845963443081C40B1A /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29155D7A42AD4C24AEC8B65E /* Muli-Bold.ttf */; };
 		6DCAAE72DCEA4D4E845A0831 /* Muli-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 836E146AE7714800B70633FB /* Muli-Light.ttf */; };
@@ -158,6 +160,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
 			remoteInfo = "RNVectorIcons-tvOS";
+		};
+		047591732199540E007E1D82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 13B07F961A680F5B00A75B9A;
+			remoteInfo = TimePicker;
+		};
+		047591752199540E007E1D82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00E356EE1AD99517003FC87E;
+			remoteInfo = TimePickerTests;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -424,6 +440,7 @@
 		26FA8B99B9CC4181AFADF354 /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-ExtraLight.ttf"; path = "../assets/fonts/Muli-ExtraLight.ttf"; sourceTree = "<group>"; };
 		280CA57F734D48B0B723C7C5 /* RNShare.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		29155D7A42AD4C24AEC8B65E /* Muli-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Bold.ttf"; path = "../assets/fonts/Muli-Bold.ttf"; sourceTree = "<group>"; };
+		29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = TimePicker.xcodeproj; path = "../node_modules/react-native-timepicker/ios/TimePicker.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* Dingg-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dingg-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Dingg-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dingg-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -432,7 +449,9 @@
 		3B4438B5248A4FA88A564FAD /* Aero-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Aero-Regular.ttf"; path = "../assets/fonts/Aero-Regular.ttf"; sourceTree = "<group>"; };
 		46B1628C04AB4E438A45D10F /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		5480CD31F7E04AA2839781CF /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		59D43F4CF78E4353893CD359 /* TimePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TimePickerTests.xctest; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		65447EA1594A44FFBEF05597 /* TimePicker.app */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TimePicker.app; sourceTree = "<group>"; };
 		69202372895943759C7BE386 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		6C58C6CE20264CB797C2602E /* libRNNavybitsDateTimePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNNavybitsDateTimePicker.a; sourceTree = "<group>"; };
 		6FED0328AA4C4BDDB7642FAF /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
@@ -498,6 +517,8 @@
 				8A9E684596D848B8A4D91639 /* libRNShare.a in Frameworks */,
 				DD2542AFC32E41C2A8350FA9 /* libRNVectorIcons.a in Frameworks */,
 				323E08BA58054CB9AC6B8B12 /* libRNNavybitsDateTimePicker.a in Frameworks */,
+				5C9E917ECBD14B248A3FD5CA /* TimePicker.app in Frameworks */,
+				410F421CD9BA4A3C97A4FA2E /* TimePickerTests.xctest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +624,8 @@
 				AC044D4723FC4CD5B6C14660 /* libRNVectorIcons.a */,
 				6FED0328AA4C4BDDB7642FAF /* libRNVectorIcons-tvOS.a */,
 				6C58C6CE20264CB797C2602E /* libRNNavybitsDateTimePicker.a */,
+				65447EA1594A44FFBEF05597 /* TimePicker.app */,
+				59D43F4CF78E4353893CD359 /* TimePickerTests.xctest */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -628,6 +651,15 @@
 			children = (
 				044E612821784ED000FF0390 /* libRNVectorIcons.a */,
 				044E612A21784ED000FF0390 /* libRNVectorIcons-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0475916F2199540E007E1D82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				047591742199540E007E1D82 /* TimePicker.app */,
+				047591762199540E007E1D82 /* TimePickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -736,6 +768,7 @@
 				280CA57F734D48B0B723C7C5 /* RNShare.xcodeproj */,
 				04E4AA4D580E4947BDDFDBF2 /* RNVectorIcons.xcodeproj */,
 				0BC76F1D57D54771BCFE75AC /* RNNavybitsDateTimePicker.xcodeproj */,
+				29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1006,6 +1039,10 @@
 					ProductGroup = 044E612321784ED000FF0390 /* Products */;
 					ProjectRef = 04E4AA4D580E4947BDDFDBF2 /* RNVectorIcons.xcodeproj */;
 				},
+				{
+					ProductGroup = 0475916F2199540E007E1D82 /* Products */;
+					ProjectRef = 29DE8DB74859431A91A8BE37 /* TimePicker.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1086,6 +1123,20 @@
 			fileType = archive.ar;
 			path = "libRNVectorIcons-tvOS.a";
 			remoteRef = 044E612921784ED000FF0390 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		047591742199540E007E1D82 /* TimePicker.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TimePicker.app;
+			remoteRef = 047591732199540E007E1D82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		047591762199540E007E1D82 /* TimePickerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TimePickerTests.xctest;
+			remoteRef = 047591752199540E007E1D82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
@@ -1480,12 +1531,15 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1514,12 +1568,15 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = DinggTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1549,6 +1606,7 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1576,6 +1634,7 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = Dingg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1609,11 +1668,14 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1650,11 +1712,14 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = "Dingg-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1690,11 +1755,14 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1730,11 +1798,14 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navybits-date-time-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-timepicker/ios/TimePicker",
 				);
 				INFOPLIST_FILE = "Dingg-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

@@ -47,6 +47,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
+      
          <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"5%",marginVertical:hp("3%")}}>
          <View style={styles.Dashboard_block}>
                     <View style={styles.Dashbosrd_image_top}>
@@ -91,7 +92,7 @@ export default class App extends Component {
                         timeToShow	={['M']}
                         // size={18}
                         digitBgColor="false"
-                        label="false"
+                        label={['M']}
                         style={marginTop=hp("2%")}
                         marginTop="2%"
                     /> 
@@ -102,7 +103,7 @@ export default class App extends Component {
         </View>
         </View>
         <Text></Text>
-        <View style={styles.Profile_Container}>
+        <View style={[styles.Profile_Container,{paddingBottom:"3%"}]}>
         
         <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Ready to accept booking</Text>
@@ -185,7 +186,7 @@ export default class App extends Component {
                       </TouchableOpacity>
                       <Text></Text>
               </Dialog>
-
+                    <View style={{marginBottom:hp("2%")}}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                   <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>View Offers</Text>
@@ -197,12 +198,13 @@ export default class App extends Component {
                     </TouchableOpacity>
                   </View>
                   </TouchableOpacity>
+                  </View>
         </View>
         
         <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
               
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+              <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
                           
                           <View style={[styles.Dashbosrd_image,{marginLeft:wp("4%")}]}>
                              <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth="23" initHeight="23"/>                
@@ -278,9 +280,9 @@ export default class App extends Component {
                     <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
-                        // size={18}
+                        size={18}
                         digitBgColor="false"
-                        label="false"
+                        label="M"
                         style={marginTop=hp("2%")}
                         marginTop="2%"
                     /> 

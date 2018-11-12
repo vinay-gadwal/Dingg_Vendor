@@ -12,7 +12,7 @@ class Ongoing extends React.Component {
     
         state = {
                      valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
-                     isLoading: true,MakeUp_data:"",makeup_data_time:"",
+                     isLoading: true,MakeUp_data:"",makeup_data_time:"",time:30,Increase_time:10,
                      Select_unselect:"true",Select_unselect_1:"true",Select_unselect_2:"true",
                      Select_unselect_3:"true",Select_unselect_4:"true",Select_unselect_5:"true",
                          dataSource : [ 
@@ -24,7 +24,6 @@ class Ongoing extends React.Component {
             }
           index = 0;
           animatedValue = new Animated.Value(0);
-      
     openDialog = (show) => {
             this.setState({ showDialog: show });
         }
@@ -65,6 +64,10 @@ class Ongoing extends React.Component {
           />
         );
       }
+      increase_time = () => {
+        // var Increase_time = 10;
+        this.setState({time : this.state.Increase_time})
+      }
   render() {
     return (
         <ScrollView>
@@ -86,17 +89,17 @@ class Ongoing extends React.Component {
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="30" initHeight="30"/>
+                                            <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="25" initHeight="25"/>
                                             <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                          </View>
                                          <View style={{marginVertical:hp("2%")}}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
                                          <View style={{flexDirection:"row"}}>
-                                           <TouchableOpacity>
+                                           <TouchableOpacity onPress={() => {this.increase_time}}>
                                            <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="40" initHeight="40"/>
                                            </TouchableOpacity>
-                                           <Text style={[styles.text,{color:"rgb(255,164,0)"}]}>Time</Text>
+                                           <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".5%")}]}>{this.state.time+" " + 'M'}</Text>
                                            <TouchableOpacity>
                                            <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth="40" initHeight="40"/>
                                            </TouchableOpacity>
@@ -418,7 +421,7 @@ class StarReview extends React.Component {
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} initWidth="30" initHeight="30"/>
+                                            <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} initWidth="25" initHeight="25"/>
                                             <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                          </View>
                                          <View style={{marginVertical:hp("2%")}}>
@@ -496,6 +499,7 @@ export default createMaterialTopTabNavigator({
     },
     optimizationsEnabled: true,
     tabBarOptions: {
+      labelStyles:{ fontSize:30 } ,
       upperCaseLabel: false,
       // backgroundColor: 'transparent',
       style: {
@@ -503,15 +507,11 @@ export default createMaterialTopTabNavigator({
         marginTop:hp("3%"),
         backgroundColor: "white",
         borderRadius:10,
-        left: 0,
-        right: 0,
-        top: 0,
-        marginHorizontal:wp("5%")
+        marginHorizontal:wp("5%"),
       },
       indicatorStyle: {
         borderBottomColor: "rgb(255,164,0)",
-        borderBottomWidth: 2,
-        marginHorizontal:5
+        borderBottomWidth: 6,
       },
       tabStyle: {
         borderRightColor: '#ffffff',
@@ -519,7 +519,6 @@ export default createMaterialTopTabNavigator({
       },
       activeTintColor: 'black',
       inactiveTintColor: 'black',
-      
     },
   }
   );

@@ -48,7 +48,7 @@ export default class Business extends Component {
     return (
     <View  style={styles.container}>
             
-        <View style={[styles.box,{marginBottom:"0%",height: hp('67%'),marginTop:hp("0%")}]}>     
+        <View style={[styles.box,{marginBottom:"0%",height: hp('70%'),marginTop:hp("0%")}]}>     
         <Text style={[styles.text,{fontSize:RF(3.2)}]}>Add Day and Time</Text>
         <View style={{flexDirection:"column"}}>
         <View style={styles.Business_hour}>

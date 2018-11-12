@@ -40,7 +40,6 @@ export default class Queue_request extends Component {
 render() {
 return (
  <ScrollView>
-   
 <View style={{  flex: 1,
       justifyContent: "space-between",
       backgroundColor: "rgb(243,242,242)",
@@ -60,28 +59,26 @@ return (
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="25" initHeight="25"/>
-                                    <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
+
                                  </View>
                                  <View style={{marginVertical:hp("2%")}}>
                                  <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                  </View>
-                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                                 <TouchableOpacity>
-                                    <ResponsiveImage source={require('../Image/main/acceptIcon3x.png')} initWidth="25" initHeight="25"/>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('Reject')}}>
-                                    <ResponsiveImage source={require('../Image/main/rejectIcon3x.png')} initWidth="25" initHeight="25"/>
-                                    </TouchableOpacity>
-                     </View>
+                                 <View style={{marginVertical:hp("1%")}}>
+                                 <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="25" initHeight="25"/>
+                                 </View>
+                                 <View style={{marginVertical:hp("1%")}}>
+                                 <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} initWidth="25" initHeight="25"/>
+                                </View>
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-end",marginRight:wp("3%")}}>
+                              <Text style={[styles.text,{fontSize:RF(3)}]}>Rhyan Khan is still </Text>
+                              <Text style={[styles.text,{fontSize:RF(3),marginBottom:hp("2%")}]}>in the queue</Text>
                                  <Text style={[styles.text,{fontSize:RF(3),marginBottom:hp("1%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
+                                 <TouchableOpacity style={[styles.button,{height:hp("5%"),width:wp("30%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}
+                                           onPress={ () => this.openDialog(true) }>
+                                          <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>Send Alert</Text>
+                                </TouchableOpacity>
                             </View>           
                         </View>   }                       
                     />

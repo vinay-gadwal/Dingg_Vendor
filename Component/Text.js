@@ -1,56 +1,79 @@
 import React, { Component } from 'react';
-import {
-  TouchableOpacity,
-  Text,
-  View
-} from 'react-native';
-import PopoverTooltip from 'react-native-popover-tooltip';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+import {View} from 'react-native'
+// import './App.css';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      order: 1
-    };
+// list of items
+const list = [
+  { name: 'item1' },
+  { name: 'item2' },
+  { name: 'item3' },
+  { name: 'item4' },
+  { name: 'item5' },
+  { name: 'item6' },
+  { name: 'item7' },
+  { name: 'item8' },
+  { name: 'item9' }
+];
+
+// One item component
+// selected prop will be passed
+const MenuItem = ({ text, selected }) => {
+  return (
+   
+     <View>{text}</View>
+  );
+};
+
+// All items component
+// Important! add unique key
+export const Menu = (list) => list.map(el => {
+  const { name } = el;
+
+  return (
+    <MenuItem
+      text={name}
+      key={name}
+    />
+  );
+});
+
+
+const Arrow = ({ text, className }) => {
+  return (
+<View>{text}</View>
+  );
+};
+
+
+const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
+const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
+
+class App extends Component {
+  state = {
+    selected: 0
+  };
+  
+  onSelect = key => {
+    this.setState({ selected: key });
   }
-  render() {
-    return (
-      <View style={{flex:1, alignSelf:'stretch', alignItems:'center', justifyContent:'flex-start', backgroundColor:'#fff'}}>
-        <View style={{height: 40}} />
-        <Text>Default Effect</Text>
-        <PopoverTooltip
-          ref='tooltip1'
-          buttonComponent={
-            <View style={{width:200, height:50, backgroundColor: 'orange', justifyContent: 'center', alignItems: 'center', borderRadius: 5}}>
-              <Text>
-                Press Me
-              </Text>
-            </View>
-          }
-          items={[
-            {
-              label: 'Start Serving',
-              onPress: () => {}
-            },
-            {
-              label: 'Move Down',
-              onPress: () => {}
-            }
-            ,
-            {
-              label: 'Drop',
-              onPress: () => {}
-            },
-            {
-              label: 'Alert',
-              onPress: () => {}
-            }
-          ]}
-          // animationType='timing'
-          // using the default timing animation
-          />
 
-        </View>
+  
+  render() {
+    const { selected } = this.state;
+    // Create menu from items
+    const menu = Menu(list, selected);
+
+    return (
+      <View className="App">
+        <ScrollMenu
+          data={menu}
+          arrowLeft={ArrowLeft}
+          arrowRight={ArrowRight}
+          selected={selected}
+          onSelect={this.onSelect}
+        />
+      </View>
     );
   }
 }

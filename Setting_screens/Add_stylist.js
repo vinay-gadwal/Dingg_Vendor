@@ -140,7 +140,7 @@ return (
                                         <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                                         </View>
                                         </View>          
-                            </View>   
+                             </View>   
                     </ScrollView>   }                       
                     />
            </View>
@@ -167,7 +167,7 @@ return (
                                 </View>
             </View>
 </View>
-        <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_user')}}>
+        <TouchableOpacity >
         <View style={[styles.button,{marginBottom:hp("3%"),marginHorizontal:wp("30%")}]} >
         <Text style={styles.buttonText}>Save</Text>
        </View>

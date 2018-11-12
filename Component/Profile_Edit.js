@@ -8,6 +8,7 @@ import {GooglePlacesAutocomplete,} from 'react-native-google-places-autocomplete
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
+import ResponsiveImage from 'react-native-responsive-image'
 
 const homePlace = {
   description: 'Home',
@@ -263,17 +264,23 @@ export default class App extends Component {
                         <Image style={styles.avatarMultiple} source={this.state.avatarSource} />
                       }
                 </View>
+                <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("18%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="70" initHeight="70"/>
+                  </TouchableOpacity>
+                  </View>
           </TouchableOpacity>
                       <Text></Text>
+                      <Text></Text>
           <View style={styles.boxDetails}>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Add_Bus_Details}
                         onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
                         style={[styles.input,{marginBottom:"0%"}]}
-                        placeholder="Add business name"
+                        placeholder="Salon Name"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         
@@ -357,7 +364,7 @@ export default class App extends Component {
                 />
                 <Text style={{color:"white"}}>bjjase</Text>
                 </View>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Locality}
                         onChangeText={Locality => this.setState({ Locality })}
@@ -370,7 +377,7 @@ export default class App extends Component {
                         
                       />
                   </TextInputLayout>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.City}
                         onChangeText={City => this.setState({ City })}
@@ -383,7 +390,7 @@ export default class App extends Component {
                         
                       />
                   </TextInputLayout>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Website_url}
                         onChangeText={Website_url => this.setState({ Website_url })}
@@ -396,7 +403,7 @@ export default class App extends Component {
                         keyboardType="email-address"
                       />
                   </TextInputLayout>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Email}
                           onChangeText={Email => this.setState({ Email })}
@@ -409,7 +416,7 @@ export default class App extends Component {
                           keyboardType="email-address"
                         />
                   </TextInputLayout>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Contact_Name}
                             onChangeText={Contact_Name => this.setState({ Contact_Name })}
@@ -422,12 +429,12 @@ export default class App extends Component {
                           />
                   </TextInputLayout>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                  <TextInputLayout focusColor="rgb(204,204,204)">
+                  <TextInputLayout focusColor="rgb(255,164,0)">
 
                       <Text style={{marginTop:"20%",fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
@@ -446,12 +453,12 @@ export default class App extends Component {
                 </TextInputLayout>
                   </View>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                      <TextInputLayout focusColor="rgb(204,204,204)">
+                      <TextInputLayout focusColor="rgb(255,164,0)">
 
                       <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
@@ -469,7 +476,7 @@ export default class App extends Component {
                 </TextInputLayout>
                   </View>
                 
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
@@ -485,7 +492,7 @@ export default class App extends Component {
                           placeholder="Landline Number"
                         />
                 </TextInputLayout>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
@@ -527,6 +534,11 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
                   }
             </View>
+            <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("0%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="70" initHeight="70"/>
+                  </TouchableOpacity>
+                  </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>

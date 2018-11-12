@@ -42,6 +42,7 @@ export default class Queue_request extends Component {
 render() {
 return (
  <ScrollView>
+    
 <View style={{  flex: 1,
       justifyContent: "space-between",
       backgroundColor: "rgb(243,242,242)",
@@ -61,7 +62,7 @@ return (
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="30" initHeight="30"/>
+                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="25" initHeight="25"/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                  </View>
                                  <View style={{marginVertical:hp("2%")}}>

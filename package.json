@@ -16,6 +16,7 @@
     "prop-types": "^15.6.2",
     "react": "16.6.0-alpha.8af6728",
     "react-datetime-picker": "^2.0.0",
+    "react-horizontal-scrolling-menu": "^0.3.6",
     "react-modal": "^3.6.1",
     "react-native": "0.57.3",
     "react-native-calendar-picker": "^5.22.0",

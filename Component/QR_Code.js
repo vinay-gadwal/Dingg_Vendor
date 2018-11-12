@@ -19,9 +19,9 @@ export default class App extends Component {
       <View style={styles.container}>
      <View style={{flexDirection:"column"}}>
             <Text style={[styles.text,{fontSize:RF(3),alignItems:"center"}]}>Scan this Dingg Code</Text>
-        <Text style={styles.text}>Add to Bianna beauty saloon queue</Text>
+        <Text style={[styles.text,{color:"rgb(176,176,176)"}]}>Add to Bianna beauty saloon queue</Text>
         </View>
-          <View style={[styles.Profile_Container,{justifyContent:"center",alignItems:"center",height:hp("50%")}]}>
+          <View style={[styles.Profile_Container,{justifyContent:"center",alignItems:"center",height:hp("45%"),width:wp("80%"),marginHorizontal:wp("10%")}]}>
           <ResponsiveImage source={require('../Image/main/qrCode3x.jpg')} initWidth="250" initHeight="250"/>
 
             </View>

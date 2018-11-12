@@ -41,7 +41,7 @@ export default class App extends Component {
                 </View>
                 <View style={{marginBottom:"3%"}}>
           <TouchableOpacity style={styles.button} >
-          <Text style={styles.buttonText}>Save</Text>
+          <Text style={styles.buttonText}>Send</Text>
           </TouchableOpacity>
       </View>
             </View>

@@ -35,11 +35,15 @@ import Add_stylist from './Setting_screens/Add_stylist'
 import Star_Rating from './Setting_screens/Review_rating'
 import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
+import Alert from './Component/Alert'
 console.disableYellowBox = true;
 const AuthStack = createBottomTabNavigator({
   D: {
     screen: DashBoard,
+      headerMode:"none",
+
     navigationOptions: () => ({
+      
       title:'Dashboard',
       tabBarIcon: ({ focused }) => {
         const image = focused 
@@ -54,6 +58,7 @@ const AuthStack = createBottomTabNavigator({
   QR: {
     screen: Queue_request,
     navigationOptions: () => ({
+      title:"Que",
       tabBarIcon: ({ focused }) => {
         const image = focused 
         ? require('./Image/icon/queueRequest_yellow2x.png') 
@@ -120,14 +125,15 @@ const AuthStack = createBottomTabNavigator({
 {
   initialRouteName: 'D',
   headerMode:"none",
-  headerLeft:null,
   tabBarOptions: {
     showLabel: false, // hide labels
+    showTitle:true,
     // activeTintColor: '#F8F8F8', // active icon color
     // inactiveTintColor: '#586589',  // inactive icon color
     style: {
-        backgroundColor: 'white' // TabBar background
-    }
+      height: hp("10%"),
+      backgroundColor: "white",
+    },
 }
 });
 
@@ -338,13 +344,20 @@ const RootStack = createStackNavigator({
           })
         },
 
-  DashBoard:{
-          screen: DashBoard,
-          navigationOptions: ({ navigation }) => ({
-            title:"Dashboard",
-            headerLeft: null,
-          })
-           },
+  D: {
+          screen: DashBoard,      
+          navigationOptions: () => ({     
+            title:'Dashboard',
+            tabBarIcon: ({ focused }) => {
+              const image = focused 
+              ? require('./Image/icon/dashboard_yellow2x.png') 
+              : require('./Image/icon/dashboardIcon.png')
+              return (
+                <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
+              )
+          }
+        })
+        },
 
  New_User:{
             screen:New_User,
@@ -421,14 +434,22 @@ AddOffer:{
 
   AuthStack:{
              screen:AuthStack,
-            //  headerMode:"none",
+             headerMode:"none",
              navigationOptions: ({ navigation }) => ({
-               headerMode:true,
+              // header: null,
               headerLeft: null,
-              // headerBackTitle:null,
               headerTitleStyle: {
                 fontFamily:'Muli-Bold',marginBottom:hp("2%")
               },
+              headerRight:( 
+                <TouchableOpacity onPress={() => {navigation.navigate('Alert')}}>
+              <Image
+                source={require('./Image/main/notificationIcon3x.png')}
+                style={{marginRight:wp("5%"),
+                width: wp('6%'),
+                height: hp('4%'),}} 
+              />
+              </TouchableOpacity>),
             })
             },
   Setting:{
@@ -667,6 +688,24 @@ Set_up:{
             </TouchableOpacity>)
           })
         },
+  Alert:{
+          screen:Alert,
+          // headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ALERTS',
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.navigate('D') }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={styles.back_butt0n} 
+            />
+            </TouchableOpacity>),
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+            },
+          })
+        },
+        
       },
  
       {
@@ -675,8 +714,6 @@ Set_up:{
         navigationOptions: {
               headerStyle: {
                 backgroundColor: 'white',
-
-                // height: "130%",
               }, 
             },
       

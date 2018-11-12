@@ -32,16 +32,17 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                   }
             </View>
-          <Text style={{fontSize: RF(3),fontFamily:"Muli-Bold"}}>{GLOBAL.Buss_name}</Text>
+          <Text style={{fontSize: RF(3),fontFamily:"Muli-Bold",justifyContent:"center",alignItems:"center"}}>{GLOBAL.Buss_name}</Text>
           <Text></Text>
-          <Text style={{fontSize: RF(2),fontFamily:"Muli-Bold"}}>{GLOBAL.Master_Ven_ID}</Text>
+          <Text style={{fontSize: RF(2),fontFamily:"Muli-Bold",justifyContent:"center",alignItems:"center"}}>{GLOBAL.Master_Ven_ID}</Text>
           <Text></Text>
-          <View style={{flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-          <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
-          <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="80" initHeight="80"/>
-          </TouchableOpacity>
-          <View style={[styles.Profile_Container]}>
+          <View style={[styles.Profile_Container,{marginVertical:"0%"}]}>
                   <View >
+                  <View style={{height:"1%",justifyContent:"center",alignItems:"center"}}>
+                  <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
+                  <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="100" initHeight="100"/>
+                  </TouchableOpacity>
+                  </View>
                     <Text style={styles.profile_Small_text}>Address</Text>
                     <Text style={styles.setting_text}>{GLOBAL.Address}</Text>
                     <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
@@ -62,7 +63,6 @@ export default class App extends Component {
                     <Text style={styles.setting_text}>{GLOBAL.City}</Text>
                   </View>
 
-            </View>
             </View>
             <Text></Text>
             <View style={styles.Profile_Container}>

@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     Business_hour:{
       flexDirection:"row",
       justifyContent:"space-between",
-      marginVertical:hp("1.5%"),
+      marginVertical:hp("2%"),
       paddingHorizontal:wp("7%")
     }
     

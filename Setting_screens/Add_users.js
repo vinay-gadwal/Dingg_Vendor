@@ -32,7 +32,7 @@ export default class Add_User extends Component {
    <ScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
         <View style={[styles.box,{marginBottom:"0%",height: hp('65%'),marginTop:hp("3%")}]}>
-        <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
@@ -45,7 +45,7 @@ export default class Add_User extends Component {
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Last_name}
             onChangeText={Last_name => this.setState({ Last_name })}
@@ -58,7 +58,7 @@ export default class Add_User extends Component {
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.User_id}
             onChangeText={User_id => this.setState({ User_id })}
@@ -71,7 +71,7 @@ export default class Add_User extends Component {
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Email_id}
             onChangeText={Email_id => this.setState({ Email_id })}
@@ -84,7 +84,7 @@ export default class Add_User extends Component {
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -97,7 +97,7 @@ export default class Add_User extends Component {
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Con_pass}
             onChangeText={Con_pass => this.setState({ Con_pass })}

@@ -68,7 +68,7 @@ export default class App extends Component {
               <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Set Up Services</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -82,7 +82,7 @@ export default class App extends Component {
              <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Review & rating</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -96,7 +96,7 @@ export default class App extends Component {
               <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Add Stylist</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -147,7 +147,7 @@ export default class App extends Component {
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Manage_user')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                   <Text style={styles.setting_text}>Manage Users</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => {this.props.navigation.navigate('Manage_user')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}

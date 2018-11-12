@@ -50,6 +50,8 @@ export default class Calendar extends Component {
               selectedDayColor="rgb(255,164,0)"
               selectedDayTextColor="#FFFFFF"
               onDateChange={this.onDateChange}
+              width="380"
+              enableSwipe="true"
             />
         </View>
         <View>
