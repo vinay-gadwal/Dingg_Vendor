@@ -131,8 +131,9 @@ const AuthStack = createBottomTabNavigator({
     // activeTintColor: '#F8F8F8', // active icon color
     // inactiveTintColor: '#586589',  // inactive icon color
     style: {
-      height: hp("10%"),
+      height: hp("5%"),
       backgroundColor: "white",
+      alignItems:"center"
     },
 }
 });

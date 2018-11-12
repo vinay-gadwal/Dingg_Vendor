@@ -522,6 +522,7 @@ export default class App extends Component {
           <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontFamily:'Muli-Bold'}}>Add Images</Text>
     <View style={{paddingVertical:"2%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
+    
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_2_1 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
@@ -531,14 +532,16 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
-                    <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
+                  // <View style={{flexDirection:"column-reverse"}}>
+                  <Image style={[styles.avatarMultiple,]} source={this.state.Image_Source_2_1} />
+                    // <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                    // <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                    // <ResponsiveImage source={require('../Image/main/deleteImage3x.png')}  initWidth="40" initHeight="40"/>
+                    // </TouchableOpacity>
+                    // </View>
+                    // </View>
                   }
             </View>
-            <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("0%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="70" initHeight="70"/>
-                  </TouchableOpacity>
-                  </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>

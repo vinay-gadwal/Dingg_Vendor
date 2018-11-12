@@ -20,7 +20,7 @@ export default class App extends Component {
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
         <Text></Text>
         <Text></Text>
-            <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
+            <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%"),marginBottom:hp("5%")}]}>
                   { GLOBAL.Image === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
@@ -40,7 +40,7 @@ export default class App extends Component {
                   <View >
                   <View style={{height:"1%",justifyContent:"center",alignItems:"center"}}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
-                  <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="100" initHeight="100"/>
+                  <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="90" initHeight="90"/>
                   </TouchableOpacity>
                   </View>
                     <Text style={styles.profile_Small_text}>Address</Text>
@@ -196,7 +196,6 @@ export default class App extends Component {
                   }
             </View>
         </View>
-        <Text style={{marginBottom:hp("5%")}}></Text>
       </ScrollView>
     );
   }
