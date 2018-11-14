@@ -131,7 +131,7 @@ return (
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                     <ScrollView>
-                                        <Text style={[styles.text,{fontSize:28}]}>{item.sty_name}</Text>                            
+                                        <Text style={[styles.text,{fontSize:28,marginLeft:wp("5%")}]}>{item.sty_name}</Text>                            
                                         <View style={{flexDirection:"row"}}> 
                                         <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
                                         <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text,View,ScrollView,TextInput,TouchableOpacity,Image
+import { Text,View,ScrollView,TextInput,TouchableOpacity,Image,Alert
         } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { Dropdown } from 'react-native-material-dropdown';
@@ -8,6 +8,7 @@ import {GooglePlacesAutocomplete,} from 'react-native-google-places-autocomplete
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const homePlace = {
   description: 'Home',
@@ -46,7 +47,7 @@ export default class App extends Component {
       }
     }
     Fun_Phot_save(){
-        GLOBAL.Category=this.state.Category
+        // GLOBAL.Category=this.state.Category
         GLOBAL.Buss_name=this.state.Add_Bus_Details;
         GLOBAL.Address=this.state.Address;
         GLOBAL.Locality=this.state.Locality;
@@ -246,11 +247,12 @@ export default class App extends Component {
       delete_photo_5(){
         this.setState({Image_Source_3_1:null})
       }
-    
-     
+
   render() {
+    var SampleNameArray = [ "Pankaj", "Rita", "Mohan", "Amit", "Babulal", "Sakshi" ];
+
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
+      <KeyboardAwareScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
           <View style={{paddingVertical:"5%"}}>
 
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
@@ -278,18 +280,18 @@ export default class App extends Component {
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
                         style={[styles.input,{marginBottom:"0%"}]}
-                        placeholder="Add business name"
+                        placeholder="Add Business Name"
                         placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="next"
-                        
+                        returnKeyType="next"                
                       />
                   </TextInputLayout>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
                           data={data} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Select Category'}
-                          onChangeText={() => this.setState({Category:data})}
+                          onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           dropdownPosition={0}
+                          textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',
@@ -297,6 +299,7 @@ export default class App extends Component {
                         }}
                       />
                   </View>
+        {/* <Text>{this.state.Category}</Text> */}
                   <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
                   <Text style={{color:"white"}}>bjjaaa</Text>
                   <GooglePlacesAutocomplete
@@ -395,7 +398,7 @@ export default class App extends Component {
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
                         style={styles.input}
-                        placeholder="Website Url"
+                        placeholder="Website URL"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         keyboardType="email-address"
@@ -408,7 +411,7 @@ export default class App extends Component {
                           ref={input => (this.passwordCInput = input)}
                           // onSubmitEditing={() => this.passwordInput.focus()}
                           style={styles.input}
-                          placeholder="Email Id"
+                          placeholder="Email ID"
                           placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="next"
                           keyboardType="email-address"
@@ -421,7 +424,7 @@ export default class App extends Component {
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
                             style={styles.input}
-                            placeholder="Contact name"
+                            placeholder="Contact Name"
                             placeholderTextColor="rgb(204,204,204)"
                             returnKeyType="next"
                           />
@@ -497,7 +500,7 @@ export default class App extends Component {
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
                             style={styles.input}
-                            placeholder="Master vendor id"
+                            placeholder="Master vendor ID"
                             placeholderTextColor="rgb(204,204,204)"
                             returnKeyType="next"
                           />
@@ -562,11 +565,11 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>
+        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome')}}>
                   <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     );
   }
 }

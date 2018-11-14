@@ -10,6 +10,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RF from "react-native-responsive-fontsize"
 import { Dialog } from "react-native-simple-dialogs";
 import CountDown from 'react-native-countdown-component';
+import TimerCountdown from 'react-native-timer-countdown';
 import ResponsiveImage from 'react-native-responsive-image'
 import SwitchButton from 'switch-button-react-native';
 
@@ -21,16 +22,16 @@ export default class App extends Component {
         isOnBlueToggleSwitch: false,
         dataSource : [
           {
-            name: "John Doe",served:"20",queue:"14",wait_time:2
+            name: "John Doe",served:"20",queue:"14",wait_time:120
           },
           {
-            name: "rohan dell",served:"10",queue:"24",wait_time:5
+            name: "rohan dell",served:"10",queue:"24",wait_time:300
           },
           {
-            name: "john alexer",served:"10",queue:"24",wait_time:10
+            name: "john alexer",served:"10",queue:"24",wait_time:600
           },
           {
-            name: "same flintop",served:"4",queue:"4",wait_time:3
+            name: "same flint",served:"4",queue:"4",wait_time:180
           }
         ]
     
@@ -87,15 +88,16 @@ export default class App extends Component {
                       <ResponsiveImage source={require('../Image/main/completewaitTimeIcon3x.png')} initWidth="55" initHeight="55"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
-                    <CountDown
-                        until={5*60}
-                        timeToShow	={['M']}
-                        // size={18}
-                        digitBgColor="false"
-                        label={['M']}
-                        style={marginTop=hp("2%")}
-                        marginTop="2%"
-                    /> 
+                    <View style={{flexDirection:"row",fontSize: RF(3.2),marginRight:wp("2%")}}>
+                    <TimerCountdown
+                        initialSecondsRemaining={1000*60}
+                        allowFontScaling={true}
+                        style={{ fontSize:RF(3.2),marginTop:hp("1%")  }}
+                    />
+                    <Text style={{ fontSize: RF(3.2),
+                          justifyContent:"flex-start",
+                          fontFamily:"Muli-Bold"}}>m</Text>
+                    </View>
                     <Text style={{color:"rgb(168,168,168)", fontSize: RF(2.5),
                             justifyContent:"flex-start",
                             fontFamily:"Muli-Bold"}}>Wait time</Text>      
@@ -206,12 +208,12 @@ export default class App extends Component {
               
               <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
                           
-                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("4%")}]}>
+                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("5%")}]}>
                              <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth="23" initHeight="23"/>                
                           </View>
                           
                       
-                          <View style={[styles.Dashbosrd_image,{width:wp(.5),marginRight:hp("5%")}]}>
+                          <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:hp("2%")}]}>
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                           
@@ -219,7 +221,7 @@ export default class App extends Component {
                              <ResponsiveImage source={require('../Image/main/employeeNameIcon3x.png')} initWidth="15" initHeight="23"/>                
                           </View>
                     
-                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("12%")}]}>
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("18%")}]}>
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                         
@@ -227,19 +229,19 @@ export default class App extends Component {
                              <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth="23" initHeight="23"/>                
                           </View>
                           
-                          <View style={[styles.Dashbosrd_image,{width:wp(.5)}]}>
+                          <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("4%")}]}>
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                           
-                          <View style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%")}]}>
+                          <View style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%"),marginLeft:wp("2%")}]}>
                              <ResponsiveImage source={require('../Image/main/queueCopy3x.png')} initWidth="32" initHeight="23"/>                
                           </View>
                           
-                           <View style={[styles.Dashbosrd_image,{width:wp(.5)}]}>
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginRight:wp("4%")}]}>
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                           
-                           <View style={[styles.Dashbosrd_image,{marginRight:wp("5%")}]}>
+                           <View style={[styles.Dashbosrd_image,{marginRight:wp("7%")}]}>
                              <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth="23" initHeight="23"/>                
                           </View>
                           </View>
@@ -254,7 +256,7 @@ export default class App extends Component {
 
                       renderItem={({item}) => 
                    <View style={[styles.setting_Row,{marginBottom:"5%",height: hp('7%'),}]}>
-                                   <View style={{marginTop:"6%"}}>
+                                   <View style={{marginTop:"6%",marginLeft:wp("2%")}}>
                                    <SwitchButton
                                       onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                                       switchWidth = {wp("12%")}                 // optional: switch width --- default 44
@@ -263,7 +265,7 @@ export default class App extends Component {
                                       switchBorderRadius = {40}          // optional: switch border radius --- default oval
                                       switchSpeedChange = {500}           // optional: button change speed --- default 100
                                       switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
-                                      switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
+                                      switchBackgroundColor = 'rgb(244,244,244)'      // optional: switch background color --- default #fff
                                       btnBorderColor = 'rgb(255,164,0)'          // optional: button border color --- default #00a4b9
                                       btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
                                       fontColor = 'white'               // optional: text font color --- default #b1b1b1
@@ -277,7 +279,7 @@ export default class App extends Component {
                     <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%")}]}>{item.name}</Text>
                    <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%")}]}>{item.served}</Text>
                    <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%")}]}>{item.queue}</Text>
-                    <CountDown
+                    {/* <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
                         size={18}
@@ -285,7 +287,17 @@ export default class App extends Component {
                         label="M"
                         style={marginTop=hp("2%")}
                         marginTop="2%"
-                    /> 
+                    />  */}
+                    <View style={{marginRight:wp("2%"),flexDirection:"row"}}>
+                    <TimerCountdown
+                        initialSecondsRemaining={1000*item.wait_time}
+                        allowFontScaling={true}
+                        style={{ fontSize:RF(2.2),marginTop:hp("3%"),}}
+                    />
+                    <Text style={{ fontSize: RF(2.5),
+                          justifyContent:"flex-start",marginTop:hp("2%"),
+                          fontFamily:"Muli-Bold"}}> m</Text>
+                    </View>
                   </View>
                    }
 

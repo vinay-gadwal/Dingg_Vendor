@@ -205,7 +205,7 @@ return (
                                 </View>
             </View>
 </View>
-        <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_user')}}>
+        <TouchableOpacity >
         <View style={[styles.button,{marginBottom:hp("3%"),marginHorizontal:wp("30%")}]} >
         <Text style={styles.buttonText}>Save</Text>
        </View>

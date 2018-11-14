@@ -23,8 +23,11 @@ export default class Login extends Component {
     <View  style={styles.container}>
         
         <View style={{paddingVertical:hp("8%")}}>
-        <ResponsiveImage source={require('../Image/icon/illustration2x.png')} initWidth="130" initHeight="130"/>
-        </View>
+        <View style={{paddingVertical:hp("2%")}}>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        
+        </View>   
+             </View>
        
        <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"0%"}]}>Thank you for submitting the</Text>
        <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:"0%"}]}>information.</Text>

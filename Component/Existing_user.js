@@ -13,6 +13,7 @@ import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
 import RadioGroup from 'react-native-radio-buttons-group';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const data_Services = [
   {
@@ -71,10 +72,10 @@ export default class Login extends Component {
 
   render() {
     return (
-      <ScrollView  contentContainerStyle={styles.container}
+      <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'>
             
-        <View style={[styles.box,{marginBottom:"0%",height: hp('60%'),marginTop:hp("5%")}]}>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('45%'),marginTop:hp("5%")}]}>
         
          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(204,204,204)">
@@ -104,6 +105,7 @@ export default class Login extends Component {
                           data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Select Services'}
                           dropdownPosition={0}
+                          textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',
@@ -116,6 +118,7 @@ export default class Login extends Component {
                           data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Select Stylist'}
                           dropdownPosition={0}
+                          textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',
@@ -133,7 +136,7 @@ export default class Login extends Component {
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
       </View>    
-</ScrollView>
+</KeyboardAwareScrollView>
     );
   }
 }

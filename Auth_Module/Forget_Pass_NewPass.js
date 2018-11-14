@@ -11,6 +11,7 @@ import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Password extends Component {
   constructor(props) {
@@ -30,11 +31,14 @@ export default class Password extends Component {
 
   render() {
     return (
-<ScrollView  contentContainerStyle={styles.container}
+<KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
-        <View style={[styles.box,{ height: hp('30%'),marginBottom:"0%"}]}>
+<View style={{paddingVertical:hp("2%")}}>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        
+        </View>
+                <View style={[styles.box,{ height: hp('30%'),marginTop:"3%"}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
@@ -44,7 +48,7 @@ export default class Password extends Component {
             style={styles.input}
             placeholder="Enter New Password"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
              secureTextEntry
           />
           </TextInputLayout>
@@ -55,26 +59,27 @@ export default class Password extends Component {
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
-            placeholder="Confirm New Password"
+            placeholder="Confirm Password"
             placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="go"
+            returnKeyType="next"
              secureTextEntry
           />
         </TextInputLayout>
     </View>
-    <View style={{marginBottom:"20%"}}> 
+    <View style={{marginBottom:"15%",marginTop:hp("5%")}}> 
         <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>
-        <View style={{flexDirection:"row"}}>
+        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
         />
-        <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
+        <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-</ScrollView>
+          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+</KeyboardAwareScrollView>
     );
   }
 }

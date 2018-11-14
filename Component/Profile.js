@@ -118,7 +118,7 @@ export default class App extends Component {
             <View style={styles.Profile_Container}>
             <View >
                   <Text style={styles.profile_Small_text}>Category</Text>
-                  <Text style={styles.setting_text}>{GLOBAL.Category}</Text>
+                  {/* <Text style={styles.setting_text}>{GLOBAL.Category}</Text> */}
                   <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>

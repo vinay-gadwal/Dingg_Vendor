@@ -12,6 +12,7 @@ import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Add_User extends Component {
   constructor(props)
@@ -29,7 +30,7 @@ export default class Add_User extends Component {
   }
   render() {
     return (
-   <ScrollView  contentContainerStyle={styles.container}
+   <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
         <View style={[styles.box,{marginBottom:"0%",height: hp('65%'),marginTop:hp("3%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -140,7 +141,7 @@ export default class Add_User extends Component {
           <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
       </View>    
-      </ScrollView>   
+      </KeyboardAwareScrollView>   
        );
   }
 }

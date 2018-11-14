@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  Image,ScrollView
+  Image,ScrollView,Alert
 } from 'react-native';
 import styles from '../Component/Style'
 // import Frisbee from 'frisbee';
@@ -19,6 +19,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
@@ -52,82 +53,82 @@ export default class example extends Component {
     };
   }
 
-  _getCode = () => {
+  _getCode(){
 
-    // this.setState({ spinner: true });
+    this.setState({ spinner: true });
 
-    // setTimeout(async () => {
+    setTimeout(async () => {
 
-    //   try {
+      try {
 
-    //     const res = await api.post('/v1/verifications', {
-    //       body: {
-    //         ...this.refs.form.getValues(),
-    //         ...this.state.country
-    //       }
-    //     });
+        const res = await api.post('/v1/verifications', {
+          body: {
+            ...this.refs.form.getValues(),
+            ...this.state.country
+          }
+        });
 
-    //     if (res.err) throw res.err;
+        if (res.err) throw res.err;
 
-    //     this.setState({
-    //       spinner: false,
-    //       enterCode: true,
-    //       verification: res.body
-    //     });
-    //     this.refs.form.refs.textInput.setNativeProps({ text: '' });
+        this.setState({
+          spinner: false,
+          enterCode: true,
+          verification: res.body
+        });
+        this.refs.form.refs.textInput.setNativeProps({ text: '' });
 
-    //     setTimeout(() => {
-    //       Alert.alert('Sent!', "We've sent you a verification code", [{
-    //         text: 'OK',
-    //         onPress: () => this.refs.form.refs.textInput.focus()
-    //       }]);
-    //     }, 100);
+        setTimeout(() => {
+          Alert.alert('Sent!', "We've sent you a verification code", [{
+            text: 'OK',
+            onPress: () => this.refs.form.refs.textInput.focus()
+          }]);
+        }, 100);
 
-    //   } catch (err) {
-    //     // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
-    //     this.setState({ spinner: false });
-    //     setTimeout(() => {
-    //       Alert.alert('Oops!', err.message);
-    //     }, 100);
-    //   }
+      } catch (err) {
+        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
+        this.setState({ spinner: false });
+        setTimeout(() => {
+          Alert.alert('Oops!', err.message);
+        }, 100);
+      }
 
-    // }, 100);
+    }, 100);
 
   }
 
   _verifyCode = () => {
 
-    // this.setState({ spinner: true });
+    this.setState({ spinner: true });
 
-    // setTimeout(async () => {
+    setTimeout(async () => {
 
-    //   try {
+      try {
 
-    //     const res = await api.put('/v1/verifications', {
-    //       body: {
-    //         ...this.refs.form.getValues(),
-    //         ...this.state.country
-    //       }
-    //     });
+        const res = await api.put('/v1/verifications', {
+          body: {
+            ...this.refs.form.getValues(),
+            ...this.state.country
+          }
+        });
 
-    //     if (res.err) throw res.err;
+        if (res.err) throw res.err;
 
-    //     this.refs.form.refs.textInput.blur();
-    //     // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
-    //     this.setState({ spinner: false });
-    //     setTimeout(() => {
-    //       Alert.alert('Success!', 'You have successfully verified your phone number');
-    //     }, 100);
+        this.refs.form.refs.textInput.blur();
+        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
+        this.setState({ spinner: false });
+        setTimeout(() => {
+          Alert.alert('Success!', 'You have successfully verified your phone number');
+        }, 100);
 
-    //   } catch (err) {
-    //     // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
-    //     this.setState({ spinner: false });
-    //     setTimeout(() => {
-    //       Alert.alert('Oops!', err.message);
-    //     }, 100);
-    //   }
+      } catch (err) {
+        // <https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/30#issuecomment-276845098>
+        this.setState({ spinner: false });
+        setTimeout(() => {
+          Alert.alert('Oops!', err.message);
+        }, 100);
+      }
 
-    // }, 100);
+    }, 100);
 
   }
 
@@ -163,11 +164,11 @@ export default class example extends Component {
         </View>
       );
 
-    // return (
-    //   <View>
-    //     <Text style={styles.disclaimerText}>By tapping "Submi for OTP" above, we will send you an SMS to confirm your phone number. Message &amp; data rates may apply.</Text>
-    //   </View>
-    // );
+    return (
+      <View>
+        <Text style={styles.disclaimerText}>By tapping "Submi for OTP" above, we will send you an SMS to confirm your phone number. Message &amp; data rates may apply.</Text>
+      </View>
+    );
 
   }
 
@@ -220,12 +221,14 @@ export default class example extends Component {
     } : {};
 
     return (
-<ScrollView  contentContainerStyle={styles.container}
+<KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >      
-      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
-
-        <View style={[styles.box_SignUp,{height: hp('17.3%')}]}>
+<View style={{paddingVertical:hp("2%")}}>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        
+        </View>
+        <View style={[styles.box_SignUp,{height: hp('17.3%'),marginTop:hp("3%")}]}>
         {/* <Form ref={'form'} style={styles.form}>
 
           <View style={{ flexDirection: 'row' }}>
@@ -244,7 +247,7 @@ export default class example extends Component {
               placeholder={this.state.enterCode ? '_ _ _ _ _ _' : 'Enter Mobile Number'}
               // keyboardType={Platform.OS === 'ios' ? 'number-pad' : 'numeric'}
               keyboardType="email-address"
-              style={[ styles.textInput,{height: hp('5%'),width: wp('65%'),} ]}
+            style={[styles.input,{width: wp('52'), height: hp('5%')}]}
               returnKeyType='next'
               autoFocus
              placeholderTextColor="rgb(204,204,204)"
@@ -257,7 +260,7 @@ export default class example extends Component {
           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"15%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:"13%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -278,14 +281,14 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <View style={{marginBottom:"25%"}}>
-        <TouchableOpacity style={[styles.button,{width: wp('40'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Crea_pass')}}>
+        <View style={{marginBottom:"20%",marginTop:hp("3%")}} >
+        <TouchableOpacity style={[styles.button,{width: wp('40'),}]} onPress={() => {this.props.navigation.navigate('Crea_pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
 
-          {this._renderFooter()}
+          {/* {this._renderFooter()} */}
           </View>
-        <View style={{flexDirection:"row"}}>
+        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={{flexDirection:"column"}}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
@@ -302,20 +305,21 @@ export default class example extends Component {
         </View>
         <Text style={styles.text}>here</Text>
         </View>
-        <View style={{flexDirection:"row"}}>
+        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
         />
-        <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
+        <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
+          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
 
         <Spinner
           visible={this.state.spinner}
           textContent={'One moment...'}
           textStyle={{ color: '#fff' }} />
 
-</ScrollView>    );
+</KeyboardAwareScrollView>    );
   }
 }
 

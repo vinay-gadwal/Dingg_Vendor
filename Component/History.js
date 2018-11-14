@@ -164,7 +164,7 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("33%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Regular Hair Cut</Text>
+                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("31%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Regular Hair Cut</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
                         <Image source = { ( this.state.Select_unselect_2 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
                   </TouchableOpacity>
@@ -174,7 +174,7 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("33%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Premium Haircut</Text>
+                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("31%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Premium Haircut</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_3 }>
                         <Image source = { ( this.state.Select_unselect_3 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
                   </TouchableOpacity>
@@ -184,7 +184,7 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("50%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Blow Dry</Text>
+                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("47%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Blow Dry</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
                         <Image source = { ( this.state.Select_unselect_4 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
                   </TouchableOpacity>
@@ -194,7 +194,7 @@ class Ongoing extends React.Component {
                   </View>
 
                     <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("45%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Hair Styling</Text>
+                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("42%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Hair Styling</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
                         <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
                   </TouchableOpacity>

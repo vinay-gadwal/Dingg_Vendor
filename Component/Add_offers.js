@@ -14,6 +14,7 @@ import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
 import RadioGroup from 'react-native-radio-buttons-group';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const data_Services = [
   {
@@ -71,7 +72,7 @@ export default class Login extends Component {
   }
   render() {
     return (
-      <ScrollView  contentContainerStyle={styles.container}
+      <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'>            
         <View style={[styles.box,{marginBottom:"0%",height: hp('55%'),marginTop:hp("5%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -152,7 +153,7 @@ export default class Login extends Component {
             <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
         </View>    
-</ScrollView>
+</KeyboardAwareScrollView>
     );
   }
 }

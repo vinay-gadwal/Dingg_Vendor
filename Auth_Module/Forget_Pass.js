@@ -19,7 +19,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import RadioGroup from 'react-native-radio-buttons-group';
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 // const api = new Frisbee({
 //   baseURI: 'http://localhost:3000',
 //   headers: {
@@ -286,12 +286,14 @@ export default class example extends Component {
     selectedButton = selectedButton ? selectedButton.value : this.phone()
 
     return (
-    <ScrollView  contentContainerStyle={styles.container}
+    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >        
-    <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
-      
-         <View style={[styles.box_SignUp,{height: hp('25%')}]}>
+ <View style={{paddingVertical:hp("2%")}}>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        
+        </View>      
+         <View style={[styles.box_SignUp,{height: hp('20%'),marginTop:hp("3%")}]}>
          <Text style={styles.text}>Enter the registered mobile or email</Text>
        
          {/* <Form ref={'form'} style={styles.form}>
@@ -322,8 +324,8 @@ export default class example extends Component {
 
           </View>
         </Form>  */}
-          <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-          {selectedButton}
+          {/* <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+          {selectedButton} */}
           {/* <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
@@ -347,28 +349,51 @@ export default class example extends Component {
           />
          </TextInputLayout>
           </View> */}
+           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+      <TextInputLayout focusColor="rgb(255,164,0)">
+
+      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      </TextInputLayout>
+       <Text>   </Text>
+       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInput
+        //  value={this.state.username}
+         onChangeText={username => this.setState({ username })}
+         style={[styles.input,{width: wp('52')}]}
+         placeholderTextColor="rgb(204,204,204)"
+         returnKeyType='done'
+         underlineColorAndroid='transparent'
+         ref={input => (this.emailInput = input)}
+         // onSubmitEditing={() => this.passwordCInput.focus()}
+         keyboardType="numeric"
+         autoCapitalize="none"
+         autoCorrect={false}
+         placeholder="Enter Mobile Number"
+       />
+      </TextInputLayout>
+      </View>
         </View>
-        <View style={{marginBottom:"35%"}}>
+        <View style={{marginBottom:"30%",marginTop:hp("5%")}}>
         <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('For_New_Pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
 
           {this._renderFooter()}
        </View>
-        <View style={{flexDirection:"row"}}>
+        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
         />
-        <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
+        <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-
+          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
         <Spinner
           visible={this.state.spinner}
           textContent={'One moment...'}
           textStyle={{ color: '#fff' }} />
 
-</ScrollView>
+</KeyboardAwareScrollView>
     );
   }
 }

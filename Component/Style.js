@@ -22,10 +22,10 @@ const styles = StyleSheet.create({
     },    
     input: {
       width: wp('70%'),
-      height: hp('5%'),
+      height: hp('6%'),
       marginBottom: hp('0%'),
       fontSize: RF(2.2),
-      marginTop:"4%",
+      marginTop:"0%",
       textAlign:'left',  
       fontFamily:'Muli-Bold'
     },
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
   btnImage:{
           resizeMode: 'contain',
           height: hp('2%'),
-          width: wp('2%'),marginTop:hp("4%"),paddingLeft:wp("14%")
+          width: wp('2%'),marginTop:hp("6%"),paddingLeft:wp("14%")
         },
 
   Profile_Container:{

@@ -103,7 +103,7 @@ const AuthStack = createBottomTabNavigator({
         ? require('./Image/icon/settingsIcon_yellow2x.png') 
         : require('./Image/icon/settingsIcon2x.png')
         return (
-          <ResponsiveImage source={image} initWidth="24" initHeight="25"/>
+          <ResponsiveImage source={image} initWidth="24" initHeight="26"/>
         )
     }
     })
@@ -131,7 +131,7 @@ const AuthStack = createBottomTabNavigator({
     // activeTintColor: '#F8F8F8', // active icon color
     // inactiveTintColor: '#586589',  // inactive icon color
     style: {
-      height: hp("5%"),
+      height: hp("8%"),
       backgroundColor: "white",
       alignItems:"center"
     },

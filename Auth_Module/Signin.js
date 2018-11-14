@@ -14,6 +14,7 @@ import ResponsiveImage from 'react-native-responsive-image'
 import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RadioGroup from 'react-native-radio-buttons-group';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Login extends Component {
   constructor(props)
@@ -30,7 +31,7 @@ export default class Login extends Component {
             color: 'rgb(255,164,0)'
         },
         {
-            label: 'Email Id',
+            label: 'Email ID',
             value:this.email(),
             color: 'rgb(255,164,0)'
         }, 
@@ -39,13 +40,12 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AuthStack')
+    // this.props.navigation.navigate('AddDetails')
   }
   phone(){
     return(
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
       <TextInputLayout focusColor="rgb(255,164,0)">
-
       <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
@@ -83,7 +83,7 @@ export default class Login extends Component {
          keyboardType="email-address"
          autoCapitalize="none"
          autoCorrect={false}
-         placeholder="Email"
+         placeholder="Enter Email ID"
        />
       </TextInputLayout>
     )
@@ -118,39 +118,42 @@ export default class Login extends Component {
     let selectedButton = this.state.data.find(e => e.selected == true);
         selectedButton = selectedButton ? selectedButton.value : this.phone()
     return (
-    <ScrollView  contentContainerStyle={styles.container}
+    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>
+                 <View style={{paddingVertical:hp("2%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         
-        <View style={[styles.box,{marginBottom:"0%",height: hp('38%'),}]}>
-        <Text style={styles.text}>Login With</Text>
+        </View>
+        <View style={[styles.box,{marginTop:"2%",height: hp('39%'),}]}>
+        <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("40%")}]}>Sign In Using</Text>
+         <Text></Text>
          <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          {selectedButton}
-          {/* secureTextEntry = { this.state.hidePassword } */}
-          <View style = { styles.textBoxBtnHolder }>
+          <View style = { styles.textBoxBtnHolder } > 
                   <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
                       <TextInput 
-                        placeholder="Password"
-                        underlineColorAndroid = "transparent" 
+                      // secureTextEntry = { this.state.hidePassword }
+                        placeholder="Enter Password"
+                        underlineColorAndroid = "transparent"
                          style = { styles.input }/>
                   </TextInputLayout>
                   <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
                   </TouchableOpacity>
           </View>
-          <Text>{this.state.username}</Text>
+          {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("4%"),fontFamily:'Muli-Bold'}}>Forget Password?</Text>
+          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("4%"),fontFamily:'Muli-Bold'}}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
-      <View style={{marginBottom:"3%"}}>
+      <View style={{marginTop:hp("3%")}}>
           <TouchableOpacity style={styles.button} >
-          <Text style={styles.buttonText}>Sign in</Text>
+          <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       </View>
       
-      <View style={{flexDirection:"row"}}>
+      <View style={{flexDirection:"row",marginTop:hp("2%")}}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={{flexDirection:"column"}}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
@@ -176,7 +179,7 @@ export default class Login extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
       </View>
       
-</ScrollView>
+</KeyboardAwareScrollView>
     );
   }
 }

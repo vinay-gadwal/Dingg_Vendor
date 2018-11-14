@@ -48,62 +48,59 @@ export default class App_Setting extends Component {
             <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
             </View>
-            <TouchableOpacity onPress={() => {this.props.navigation.navigate('For_New_Pass')}}>   
+            
+            <TouchableOpacity >   
              <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Change Password</Text>
-                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('For_New_Pass')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
                     />
-                    </TouchableOpacity>
                     </View>
                     <View style={{marginHorizontal:"5%"}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
              </View>  
              </TouchableOpacity>
+            
              <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
 
                     <Text style={styles.setting_text}>Terms & Condition</Text>
-                    <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
                     />
-                    </TouchableOpacity>
                     </View>
                     <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>
               </TouchableOpacity>
+              
               <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Privacy Policy</Text>
-                    <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
                     />
-                    </TouchableOpacity>
                   </View>
                   <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>            
               </TouchableOpacity>
+              
               <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>FAQ</Text>
-                    <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
                     />
-                    </TouchableOpacity>
                   </View>
               </TouchableOpacity>
+          
           </View>
         </View>
       </ScrollView>
