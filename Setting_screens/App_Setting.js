@@ -9,12 +9,13 @@ import ToggleSwitch from 'toggle-switch-react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
+import Switch from 'react-native-customisable-switch';
 
 export default class App_Setting extends Component {
     state = {
         isOnDefaultToggleSwitch: true,
         isOnLargeToggleSwitch: false,
-        isOnBlueToggleSwitch: false,
+        isOnBlueToggleSwitch: false,switchThreeValue: true,
       };
       openDialog = (show) => {
         this.setState({ showDialog: show });
@@ -25,24 +26,38 @@ export default class App_Setting extends Component {
     }
     
   render() {
+    const {
+      switchThreeValue,
+    } = this.state;
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
 
         <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
-          <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+          <View style={[styles.setting_Row]}>
                     <Text style={styles.setting_text}>Notification</Text>
-                    <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
-                    <ToggleSwitch  
-                      onColor="rgb(255,164,0)" 
-                      width={"0%"}
-                      size="small"
-                      isOn={this.state.isOnDefaultToggleSwitch}
-                      onToggle={isOnDefaultToggleSwitch => {
-                        this.setState({ isOnDefaultToggleSwitch });
-                        this.onToggle(isOnDefaultToggleSwitch);
-                      }}
-                    />
+                    <View style={{marginRight:wp("7%"),paddingVertical:hp("2.5%")}}>
+                    <Switch
+                          value={switchThreeValue}
+                          onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
+                          // activeText={'On'}
+                          // inactiveText={'Off'}
+                          fontSize={16}
+                          switchWidth={48}
+                          switchHeight={18}
+                          switchBorderRadius={12}
+                          switchBorderWidth={0}
+                          buttonWidth={22}
+                          buttonHeight={22}
+                          buttonBorderRadius={20}
+                          buttonBorderWidth={0}
+                          animationTime={150}
+                          // padding={true}
+                          activeBackgroundColor	="rgb(238,238,238)"
+                          inactiveBackgroundColor	="rgb(238,238,238)"
+                          activeButtonBackgroundColor	="rgb(255,164,0)"
+                          inactiveButtonBackgroundColor={'rgb(153,153,153)'}
+                        />
                     </View>
             </View>
             <View style={{marginHorizontal:"5%"}}>
@@ -67,7 +82,7 @@ export default class App_Setting extends Component {
              <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
 
-                    <Text style={styles.setting_text}>Terms & Condition</Text>
+                    <Text style={styles.setting_text}>Terms & Conditions</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}

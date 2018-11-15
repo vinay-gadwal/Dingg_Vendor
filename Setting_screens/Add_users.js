@@ -32,14 +32,14 @@ export default class Add_User extends Component {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
-        <View style={[styles.box,{marginBottom:"0%",height: hp('65%'),marginTop:hp("3%")}]}>
+        <View style={[styles.box,{marginBottom:"4%",height: hp('70%'),marginTop:hp("0%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input]}
             placeholder="First Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -52,7 +52,7 @@ export default class Add_User extends Component {
             onChangeText={Last_name => this.setState({ Last_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input]}
             placeholder="Last Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -65,7 +65,7 @@ export default class Add_User extends Component {
             onChangeText={User_id => this.setState({ User_id })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input]}
             placeholder="User ID"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -78,7 +78,7 @@ export default class Add_User extends Component {
             onChangeText={Email_id => this.setState({ Email_id })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input]}
             placeholder="Email ID"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -91,7 +91,7 @@ export default class Add_User extends Component {
             onChangeText={password => this.setState({ password })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input]}
             placeholder="Password"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -104,7 +104,7 @@ export default class Add_User extends Component {
             onChangeText={Con_pass => this.setState({ Con_pass })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input]}
             placeholder="Confirm Passwaord"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -136,7 +136,7 @@ export default class Add_User extends Component {
           </View> 
          
       </View>     
-      <View style={{marginBottom:"3%"}}>
+      <View style={{marginBottom:"1%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>

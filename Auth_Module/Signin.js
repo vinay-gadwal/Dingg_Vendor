@@ -143,7 +143,7 @@ export default class Login extends Component {
           </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("4%"),fontFamily:'Muli-Bold'}}>Forgot Password?</Text>
+          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("2%"),fontFamily:'Muli-Bold'}}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       

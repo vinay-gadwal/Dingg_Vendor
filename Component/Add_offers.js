@@ -45,17 +45,20 @@ export default class Login extends Component {
         {
             label: 'New',
             value:this.phone(),
-            color: 'rgb(255,164,0)'
+            color: 'rgb(255,164,0)',
+            fontFamily:"Muli-Bold"
         },
         {
-            label: 'Existant',
+            label: 'Existing',
             value:this.phone(),
-            color: 'rgb(255,164,0)'
+            color: 'rgb(255,164,0)',
+            fontFamily:"Muli-Bold"
         }, 
         {
           label: 'Frequent',
           value:this.phone(),
-          color: 'rgb(255,164,0)'
+          color: 'rgb(255,164,0)',
+          fontFamily:"Muli-Bold"
         }
           ],
     };  
@@ -81,7 +84,7 @@ export default class Login extends Component {
             onChangeText={Offer_name => this.setState({ Offer_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input,{height:hp("5")}]}
             placeholder="Offer Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -94,6 +97,7 @@ export default class Login extends Component {
                           value={'Service Name'}
                           onChangeText={() =>{this.setState({services:data_Services})}}
                           dropdownPosition={0}
+                          textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',
@@ -102,7 +106,7 @@ export default class Login extends Component {
                       />
             </View> 
             <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("3%")}}>
-            <Text style={[styles.text,{marginLeft:wp("3%"),marginRight:wp("15%")}]}>Satart Date</Text> 
+            <Text style={[styles.text,{marginLeft:wp("3%"),marginRight:wp("15%")}]}>Start Date</Text> 
             <Text style={[styles.text,{marginLeft:wp("0%"),marginRight:wp("23%")}]}>Valid Till</Text> 
             </View>
             <View style={{flexDirection:"row"}}>
@@ -136,7 +140,7 @@ export default class Login extends Component {
             value={this.state.Offer_percenatge}
             onChangeText={Offer_percenatge => this.setState({ Offer_percenatge })}
             ref={input => (this.passwordCInput = input)}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input,{height:hp("5")}]}
             placeholder="Offer Percentage"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"

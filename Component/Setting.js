@@ -10,6 +10,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import SwitchButton from 'switch-button-react-native';
+import Switch from 'react-native-customisable-switch';
 
 export default class App extends Component {
     state = {
@@ -17,7 +18,7 @@ export default class App extends Component {
         videoSource: null,
         isOnDefaultToggleSwitch: true,
         isOnLargeToggleSwitch: false,
-        isOnBlueToggleSwitch: false,
+        isOnBlueToggleSwitch: false,switchThreeValue: true,
       };
       openDialog = (show) => {
         this.setState({ showDialog: show });
@@ -28,6 +29,9 @@ export default class App extends Component {
     }
     
   render() {
+    const {
+      switchThreeValue,
+    } = this.state;
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
       {/* <Text style={styles.Header}>SETTINGS</Text> */}
@@ -81,7 +85,7 @@ export default class App extends Component {
              </TouchableOpacity>
              <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Review & rating</Text>
+                    <Text style={styles.setting_text}>Review & Rating</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -108,9 +112,9 @@ export default class App extends Component {
               </View>
               </TouchableOpacity>
 
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+              <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>Auto Accept</Text>
-                    <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
+                    <View style={{marginRight:wp("7%"),paddingVertical:hp("2%")}}>
                     {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
                       width={"1%"}
@@ -121,24 +125,27 @@ export default class App extends Component {
                         this.onToggle(isOnDefaultToggleSwitch);
                       }}
                     /> */}
-                     <SwitchButton
-                                      onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
-                                      switchWidth = {wp("12%")}                 // optional: switch width --- default 44
-                                      switchHeight = {hp("3%")}                 // optional: switch height --- default 100
-                                      switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
-                                      switchBorderRadius = {40}          // optional: switch border radius --- default oval
-                                      switchSpeedChange = {500}           // optional: button change speed --- default 100
-                                      switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
-                                      switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
-                                      btnBorderColor = 'rgb(255,164,0)'          // optional: button border color --- default #00a4b9
-                                      btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
-                                      fontColor = 'white'               // optional: text font color --- default #b1b1b1
-                                      activeFontColor = '#fff' 
-                                      text1 = '.'                        // optional: first text in switch button --- default ON
-                                      text2 = '.'   
-                                      fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
-                                      activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
-                                  />
+                     <Switch
+                          value={switchThreeValue}
+                          onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
+                          // activeText={'On'}
+                          // inactiveText={'Off'}
+                          fontSize={16}
+                          switchWidth={48}
+                          switchHeight={18}
+                          switchBorderRadius={12}
+                          switchBorderWidth={0}
+                          buttonWidth={22}
+                          buttonHeight={22}
+                          buttonBorderRadius={20}
+                          buttonBorderWidth={0}
+                          animationTime={150}
+                          // padding={true}
+                          activeBackgroundColor	="rgb(238,238,238)"
+                          inactiveBackgroundColor	="rgb(238,238,238)"
+                          activeButtonBackgroundColor	="rgb(255,164,0)"
+                          inactiveButtonBackgroundColor={'rgb(153,153,153)'}
+                        />
                     </View>
                    </View>
                   <View style={{marginHorizontal:"5%"}}>

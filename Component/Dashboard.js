@@ -13,13 +13,14 @@ import CountDown from 'react-native-countdown-component';
 import TimerCountdown from 'react-native-timer-countdown';
 import ResponsiveImage from 'react-native-responsive-image'
 import SwitchButton from 'switch-button-react-native';
+import Switch from 'react-native-customisable-switch';
 
 export default class App extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
         videoSource: null,isOnDefaultToggleSwitch: false,
         isOnLargeToggleSwitch_user: true,
-        isOnBlueToggleSwitch: false,
+        isOnBlueToggleSwitch: false,switchThreeValue: true,
         dataSource : [
           {
             name: "John Doe",served:"20",queue:"14",wait_time:120
@@ -46,6 +47,9 @@ export default class App extends Component {
     }
     
   render() {
+    const {
+      switchThreeValue,
+    } = this.state;
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
       
@@ -100,27 +104,38 @@ export default class App extends Component {
                     </View>
                     <Text style={{color:"rgb(168,168,168)", fontSize: RF(2.5),
                             justifyContent:"flex-start",
-                            fontFamily:"Muli-Bold"}}>Wait time</Text>      
+                            fontFamily:"Muli-Bold"}}>Wait Time</Text>      
                     </View>      
         </View>
         </View>
         <Text></Text>
         <View style={[styles.Profile_Container,{paddingBottom:"3%"}]}>
         
-        <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
-                    <Text style={styles.setting_text}>Ready to accept booking</Text>
-                    <View style={{marginRight:wp("7%"),marginTop:hp("4%")}}>
-                    {/* <ToggleSwitch  
-                      onColor="rgb(255,164,0)" 
-                      width={"1%"}
-                      size="small"
-                      isOn={this.state.isOnDefaultToggleSwitch}
-                      onToggle={isOnDefaultToggleSwitch => {
-                        this.setState({ isOnDefaultToggleSwitch });
-                        this.onToggle(isOnDefaultToggleSwitch);
-                      }}
-                    /> */}
-                     <SwitchButton
+        <View style={[styles.setting_Row,{paddingVertical:hp("2%")}]}>
+                    <Text style={styles.setting_text}>Ready to Accept booking</Text>
+                    <View style={{marginRight:wp("7%"),marginTop:hp("2%")}}>
+                    <Switch
+                          value={switchThreeValue}
+                          onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
+                          // activeText={'On'}
+                          // inactiveText={'Off'}
+                          fontSize={16}
+                          switchWidth={48}
+                          switchHeight={18}
+                          switchBorderRadius={12}
+                          switchBorderWidth={0}
+                          buttonWidth={22}
+                          buttonHeight={22}
+                          buttonBorderRadius={20}
+                          buttonBorderWidth={0}
+                          animationTime={150}
+                          // padding={true}
+                          activeBackgroundColor	="rgb(238,238,238)"
+                          inactiveBackgroundColor	="rgb(238,238,238)"
+                          activeButtonBackgroundColor	="rgb(255,164,0)"
+                          inactiveButtonBackgroundColor={'rgb(153,153,153)'}
+                        />
+                     {/* <SwitchButton
                                       onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                                       switchWidth = {wp("12%")}                 // optional: switch width --- default 44
                                       switchHeight = {hp("3%")}                 // optional: switch height --- default 100
@@ -137,14 +152,14 @@ export default class App extends Component {
                                       text2 = '.'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
-                                  />
+                                  /> */}
                     </View>
                    </View>
                   <View style={{marginHorizontal:"5%"}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
               </View>
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>
-                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                <View style={[styles.setting_Row,{paddingVertical:hp("2%")}]}>
                     <Text style={styles.setting_text}>Add Customer</Text>
                     <TouchableOpacity onPress={ () => this.openDialog(true) }>
                       <Image
@@ -188,7 +203,7 @@ export default class App extends Component {
                       </TouchableOpacity>
                       <Text></Text>
               </Dialog>
-                    <View style={{marginBottom:hp("2%")}}>
+                    <View style={{paddingVertical:hp("2%")}}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                   <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>View Offers</Text>
@@ -217,15 +232,15 @@ export default class App extends Component {
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                           
-                          <View style={[styles.Dashbosrd_image]}>
+                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("12%")}]}>
                              <ResponsiveImage source={require('../Image/main/employeeNameIcon3x.png')} initWidth="15" initHeight="23"/>                
                           </View>
                     
-                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("18%")}]}>
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("12%")}]}>
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                         
-                          <View style={[styles.Dashbosrd_image,]}>
+                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("2%")}]}>
                              <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth="23" initHeight="23"/>                
                           </View>
                           
@@ -233,15 +248,15 @@ export default class App extends Component {
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                           
-                          <View style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%"),marginLeft:wp("2%")}]}>
+                          <View style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%"),marginLeft:wp("1%"),marginRight:wp("1%")}]}>
                              <ResponsiveImage source={require('../Image/main/queueCopy3x.png')} initWidth="32" initHeight="23"/>                
                           </View>
                           
-                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginRight:wp("4%")}]}>
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginRight:wp("3%")}]}>
                              <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} initWidth="3" initHeight="23"/>                
                           </View>
                           
-                           <View style={[styles.Dashbosrd_image,{marginRight:wp("7%")}]}>
+                           <View style={[styles.Dashbosrd_image,{marginRight:wp("9%")}]}>
                              <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth="23" initHeight="23"/>                
                           </View>
                           </View>
@@ -257,28 +272,31 @@ export default class App extends Component {
                       renderItem={({item}) => 
                    <View style={[styles.setting_Row,{marginBottom:"5%",height: hp('7%'),}]}>
                                    <View style={{marginTop:"6%",marginLeft:wp("2%")}}>
-                                   <SwitchButton
-                                      onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
-                                      switchWidth = {wp("12%")}                 // optional: switch width --- default 44
-                                      switchHeight = {hp("3%")}                 // optional: switch height --- default 100
-                                      switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
-                                      switchBorderRadius = {40}          // optional: switch border radius --- default oval
-                                      switchSpeedChange = {500}           // optional: button change speed --- default 100
-                                      switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
-                                      switchBackgroundColor = 'rgb(244,244,244)'      // optional: switch background color --- default #fff
-                                      btnBorderColor = 'rgb(255,164,0)'          // optional: button border color --- default #00a4b9
-                                      btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
-                                      fontColor = 'white'               // optional: text font color --- default #b1b1b1
-                                      activeFontColor = '#fff' 
-                                      text1 = '.'                        // optional: first text in switch button --- default ON
-                                      text2 = '.'   
-                                      fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
-                                      activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
-                                  />
+                                   <Switch
+                                          value={switchThreeValue}
+                                          onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
+                                          // activeText={'On'}
+                                          // inactiveText={'Off'}
+                                          fontSize={16}
+                                          switchWidth={48}
+                                          switchHeight={18}
+                                          switchBorderRadius={12}
+                                          switchBorderWidth={0}
+                                          buttonWidth={22}
+                                          buttonHeight={22}
+                                          buttonBorderRadius={20}
+                                          buttonBorderWidth={0}
+                                          animationTime={150}
+                                          // padding={true}
+                                          activeBackgroundColor	="rgb(238,238,238)"
+                                          inactiveBackgroundColor	="rgb(238,238,238)"
+                                          activeButtonBackgroundColor	="rgb(255,164,0)"
+                                          inactiveButtonBackgroundColor={'rgb(153,153,153)'}
+                                    />
                                   </View>
-                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%")}]}>{item.name}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%")}]}>{item.served}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%")}]}>{item.queue}</Text>
+                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%"),marginTop:hp("1%")}]}>{item.name}</Text>
+                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.served}</Text>
+                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.queue}</Text>
                     {/* <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}

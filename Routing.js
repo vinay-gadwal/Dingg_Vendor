@@ -1,7 +1,8 @@
 import React from 'react';
 import {TouchableOpacity,Image,Dimensions,Icon,SafeAreaView,View} from 'react-native';
 import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
-// import { Dropdown } from 'react-native-material-dropdown';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 import sing_in from './Auth_Module/Signin'
 import sing_up from './Auth_Module/Signup'
 import Forget_password from './Auth_Module/Forget_Pass'
@@ -16,7 +17,6 @@ import Share from './Component/Share'
 import Rating from './Component/Star_Rating'
 import Queue from './Component/Queue'
 import Queue_request from './Component/Queue_Request'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import styles from './Component/Style';
 import For_New_Pass from './Auth_Module/Forget_Pass_NewPass'
 import New_User from './Component/New_User'
@@ -37,6 +37,7 @@ import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
 import Alert from './Component/Alert'
 console.disableYellowBox = true;
+
 const AuthStack = createBottomTabNavigator({
   D: {
     screen: DashBoard,
@@ -266,7 +267,7 @@ const RootStack = createStackNavigator({
             title: 'SIGN IN',
             headerBackTitle:null,
             headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
             },
           })
         },
@@ -277,7 +278,7 @@ const RootStack = createStackNavigator({
             headerLeft: null,
             headerBackTitle:null,
             headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
             },
           })
         },
@@ -286,23 +287,29 @@ const RootStack = createStackNavigator({
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
             headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
-            headerLeft:null
-          })
-        },
-  Forget_password: {
-          screen: Forget_password,
-          navigationOptions: ({ navigation }) => ({
-            title:'FORGET PASSWORD',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
+              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
             },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
+            />
+            </TouchableOpacity>)
+          })
+        },
+  Forget_password: {
+          screen: Forget_password,
+          navigationOptions: ({ navigation }) => ({
+            title:'FORGOT PASSWORD',
+            headerTitleStyle: {
+              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
+            },
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
             />
             </TouchableOpacity>)
           })
@@ -312,13 +319,13 @@ const RootStack = createStackNavigator({
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
         headerTitleStyle: {
-          fontFamily:'Muli-Bold',marginBottom:hp("2%")
+          fontFamily:'Muli-Bold',marginBottom:hp("2%") ,fontSize: RF("2.4")
         },
         headerLeft:( 
           <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
         <Image
           source={require('./Image/icon/back_2x.png')}
-          style={styles.back_butt0n} 
+          style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
         />
         </TouchableOpacity>)
       })

@@ -24,7 +24,7 @@ export default class Login extends Component {
         
         <View style={{paddingVertical:hp("8%")}}>
         <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <ResponsiveImage source={require('../Image/icon/illustration3x.png')} initWidth="100" initHeight="100"/>
         
         </View>   
              </View>

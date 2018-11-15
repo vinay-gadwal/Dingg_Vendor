@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
       fontSize: RF(2.2),
       marginTop:"0%",
       textAlign:'left',  
-      fontFamily:'Muli-Bold'
-    },
+      fontFamily:'Muli-Bold',
+      fontWeight:"bold"
+  },
     
     inputSignUp: {
       flex:1,
@@ -191,14 +192,14 @@ const styles = StyleSheet.create({
       fontSize: RF(2.5),
       justifyContent:"flex-start"
       ,marginLeft:"5%",
-      marginTop:"5%",
+      paddingVertical:"2.5%",
       fontFamily:"Muli-Bold"
     },
     
     setting_Image:{
       width: hp("2%"),
       height: hp("2%"),
-      marginTop:hp("3"),
+      marginTop:hp("2.5"),
       marginRight:wp("8%")
     },
     Dashbosrd_image:{
@@ -231,8 +232,8 @@ const styles = StyleSheet.create({
     },
     
     back_butt0n:{
-        marginLeft:wp("5%"),
-        width: wp('7%'),
+        marginLeft:wp("4%"),
+        width: wp('6%'),
         height: hp('2.8%'),
     },
     tab_button:{
@@ -262,7 +263,7 @@ const styles = StyleSheet.create({
         },
 
   Profile_Container:{
-      width:"90%",paddingVertical:"2%",
+      width:"90%",paddingVertical:hp(".5%"),marginVertical:hp("2%"),
       backgroundColor:"white",
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"
@@ -287,6 +288,33 @@ const styles = StyleSheet.create({
       justifyContent:"space-between",
       marginVertical:hp("2%"),
       paddingHorizontal:wp("7%")
+    },
+    Business_hour_main:{
+      marginLeft:"0%",marginRight:"5%"
+    },
+    Business_hour_time:{
+      flexDirection:"row",marginTop:hp(".3%"),marginLeft:wp("5%")
+    },
+    business_hour_image_Arrow:{
+      marginTop:wp("2%"),marginRight:wp("0%")
+    },
+    Business_hour_text:{
+      marginRight:wp("0%"),width:wp("12%"),marginHorizontal:wp("4%"),
+       fontSize: RF(2.2), 
+          color: "rgb(68,68,68)",
+          fontFamily:'Muli-Bold',
+    },
+    business_line:{
+      marginRight:wp("3%"),marginTop:hp("1%")
+    },
+    Business_Arrow_right:{
+      marginLeft:wp("11%"),paddingVertical:hp("1%")
+    },
+    Business_to:{
+      marginHorizontal:wp("2%"),
+      fontSize: RF(2.2), 
+      color: "rgb(68,68,68)",
+      fontFamily:'Muli-Bold',
     }
     
   });

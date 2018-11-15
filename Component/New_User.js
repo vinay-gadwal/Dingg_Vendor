@@ -153,18 +153,17 @@ export default class Login extends Component {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
-        <View style={[styles.box,{marginBottom:"0%",height: hp('58%'),marginTop:hp("5%")}]}>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('62%'),marginVertical:hp("2%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input,{height:hp("7")}]}
             placeholder="First Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
-            //  secureTextEntry
           />
           </TextInputLayout>
           <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -173,7 +172,7 @@ export default class Login extends Component {
             onChangeText={Last_name => this.setState({ Last_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("3")}]}
+            style={[styles.input,{height:hp("7")}]}
             placeholder="Last Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -207,16 +206,19 @@ export default class Login extends Component {
             </View>  */}
              <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
+                          data={data_Stylist} 
+                          itemColor="rgb(255,163,0)"  
+                          selectedItemColor="black"
                           value={'Select Services'}
-                          textColor="red"
+                          baseColor	="rgb(222,222,222)"
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
+                          style={{ 
+                                width: wp('200%'),fontSize: RF(2.5),
+                                marginBottom:"10%",
+                                top: 0,borderColor:"rgb(255,163,0)",
+                                placeholderTextColor:"rgb(222,222,222)"
+                                  }}
                       />
               </View>   
             <View style={{width:wp('70%'),marginVertical:"0%"}}>
@@ -257,7 +259,10 @@ export default class Login extends Component {
          </TextInputLayout>
           </View> 
           <Text></Text>
+          <View style={{flexDirection:"row"}}>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+          <Text style={{color:"white"}}>mdnds,</Text>
+          </View>
          {/* {selectedButton}       */}
          <Text></Text>
       </View>     

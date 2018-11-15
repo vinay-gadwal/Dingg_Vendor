@@ -511,6 +511,7 @@ export default class App extends Component {
                           value={'Customer Type'}
                           onChangeText={() => this.setState({Category:data})}
                           dropdownPosition={0}
+                          textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',

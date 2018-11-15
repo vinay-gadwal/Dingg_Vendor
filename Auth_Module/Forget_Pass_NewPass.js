@@ -52,6 +52,7 @@ export default class Password extends Component {
              secureTextEntry
           />
           </TextInputLayout>
+          <Text></Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
            <TextInput
             value={this.state.new_pass}

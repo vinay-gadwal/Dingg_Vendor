@@ -439,7 +439,7 @@ export default class App extends Component {
                         <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
-                          style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+                          style={[styles.input,{width: wp('56'), height: hp('5%')}]}
                           placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
@@ -463,7 +463,7 @@ export default class App extends Component {
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
-                            style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+                            style={[styles.input,{width: wp('56'), height: hp('5%')}]}
                             placeholderTextColor="rgb(204,204,204)"
                             returnKeyType="done"
                             underlineColorAndroid='transparent'

@@ -39,7 +39,7 @@ export default class Password extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
         
         </View>
-                <View style={[styles.box,{ height: hp('40%'),marginTop:hp("3%")}]}>
+                <View style={[styles.box,{ height: hp('34%'),marginTop:hp("3%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -60,7 +60,7 @@ export default class Password extends Component {
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
-            placeholder="New Password"
+            placeholder="Enter Password"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry

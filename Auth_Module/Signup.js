@@ -260,7 +260,7 @@ export default class example extends Component {
           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"13%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:"11%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>

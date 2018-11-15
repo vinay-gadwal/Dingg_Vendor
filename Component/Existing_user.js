@@ -87,7 +87,7 @@ export default class Login extends Component {
           <TextInput
             value={this.state.Mob_no}
             onChangeText={Mob_no => this.setState({ Mob_no })}
-            style={[styles.input,{width: wp('52')}]}
+            style={[styles.input,{width: wp('52'), height: hp('6%'),}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
@@ -102,7 +102,7 @@ export default class Login extends Component {
           </View>   
           <View style={{width:wp('70%'),height:hp("10%"),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
+                          data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="black"
                           value={'Select Services'}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
@@ -115,11 +115,13 @@ export default class Login extends Component {
                   </View> 
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
+                          data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="black"
                           value={'Select Stylist'}
+                          itemColor="black"
+                          baseColor="rgb(204,204,204)"
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
+                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',color:"black"},
                             width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
                             // position: 'absolute',
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
@@ -127,8 +129,11 @@ export default class Login extends Component {
                       />
                   </View>    
                   <Text></Text>
+                  <View style={{flexDirection:"row"}}>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         {/* {selectedButton}       */}
+          <Text style={{color:"white"}}>mdnds,</Text>
+          </View>       
+            {/* {selectedButton}       */}
          <Text></Text>   
       </View>     
       <View style={{marginBottom:"5%"}}>
