@@ -59,8 +59,9 @@ export default class App extends Component {
                     <ResponsiveImage source={require('../Image/main/completetotalIcon3x.png')} initWidth="55" initHeight="55"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%")}]}>Total</Text>      
+                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Total</Text>
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("2%"),fontSize:RF(2)}]}>Booking</Text>            
                     </View>
         </View>
         <View style={styles.Dashboard_block}>
@@ -69,8 +70,8 @@ export default class App extends Component {
                     <ResponsiveImage source={require('../Image/main/completecustomersHandledCopy3x.png')} initWidth="55" initHeight="55"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%")}]}>Served</Text>      
+                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Served</Text>      
                     </View>
         </View>
         </View>
@@ -82,8 +83,8 @@ export default class App extends Component {
                       <ResponsiveImage source={require('../Image/main/completequeueCopy3x.png')} initWidth="55" initHeight="55"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%")}]}>Queue</Text>      
+                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Queue</Text>      
                     </View>       
        </View>
         <View style={styles.Dashboard_block}>
@@ -96,15 +97,15 @@ export default class App extends Component {
                     <TimerCountdown
                         initialSecondsRemaining={1000*60}
                         allowFontScaling={true}
-                        style={{ fontSize:RF(3.2),marginTop:hp("1%")  }}
+                        style={{ fontSize:RF(3.2),marginTop:hp("2%")  }}
                     />
                     <Text style={{ fontSize: RF(3.2),
                           justifyContent:"flex-start",
-                          fontFamily:"Muli-Bold"}}>m</Text>
+                          fontFamily:"Muli-Bold",marginTop:hp("1%")}}>m</Text>
                     </View>
                     <Text style={{color:"rgb(168,168,168)", fontSize: RF(2.5),
                             justifyContent:"flex-start",
-                            fontFamily:"Muli-Bold"}}>Wait Time</Text>      
+                            fontFamily:"Muli-Bold",fontSize:RF(2)}}>Wait Time</Text>      
                     </View>      
         </View>
         </View>
@@ -278,12 +279,12 @@ export default class App extends Component {
                                           // activeText={'On'}
                                           // inactiveText={'Off'}
                                           fontSize={16}
-                                          switchWidth={48}
-                                          switchHeight={18}
+                                          switchWidth={40}
+                                          switchHeight={12}
                                           switchBorderRadius={12}
                                           switchBorderWidth={0}
-                                          buttonWidth={22}
-                                          buttonHeight={22}
+                                          buttonWidth={18}
+                                          buttonHeight={18}
                                           buttonBorderRadius={20}
                                           buttonBorderWidth={0}
                                           animationTime={150}
@@ -294,9 +295,9 @@ export default class App extends Component {
                                           inactiveButtonBackgroundColor={'rgb(153,153,153)'}
                                     />
                                   </View>
-                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%"),marginTop:hp("1%")}]}>{item.name}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.served}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.queue}</Text>
+                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%"),marginTop:hp("1.5%")}]}>{item.name}</Text>
+                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1.5%")}]}>{item.served}</Text>
+                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1.5%")}]}>{item.queue}</Text>
                     {/* <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}

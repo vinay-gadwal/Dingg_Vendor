@@ -25,6 +25,18 @@ export default class Manage_Users extends Component {
         },
         {
           name: "same flintop",served:"4",queue:"4",wait_time:3
+        },
+         {
+          name: "John Doe",served:"20",queue:"14",wait_time:2
+        },
+        {
+          name: "rohan dell",served:"10",queue:"24",wait_time:5
+        },
+        {
+          name: "john alexer",served:"10",queue:"24",wait_time:10
+        },
+        {
+          name: "same flintop",served:"4",queue:"4",wait_time:3
         }
       ]
    }
@@ -102,9 +114,9 @@ GetItem (flower_name) {
         
         <View style={{ 
           width: wp('90%'),marginLeft:"5%",
-          height: hp('60%'),
+          height: hp('70%'),
           backgroundColor:"white",
-          marginVertical:hp('5%'),
+          paddingTop:hp('3%'),marginVertical:hp("2%"),
           borderRadius:10,}}>
        <FlatList
        
@@ -116,16 +128,16 @@ GetItem (flower_name) {
         
        
                      
-                <View style={{flexDirection:"row",marginVertical:hp("2%"),justifyContent:"space-around"}}>
-                <Text style={[styles.text,{fontSize: RF(3),}]}>{item.name}</Text>
+                <View style={{flexDirection:"row",paddingTop:hp("2%"),justifyContent:"space-around"}}>
+                <Text style={[styles.text,{fontSize: RF(2.2),width:wp("45%")}]}>{item.name}</Text>
                             <Image
                                         source={require('../Image/main/editIcon3x.png')}
-                                        style={{  width: hp("3%"),height: hp("3%"),
+                                        style={{  width: hp("2%"),height: hp("2%"),
                                         marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"}}                                   
                                         />
                             <Image
                                         source={require('../Image/main/deleteIcon3x.png')}
-                                        style={{  width: hp("3%"),height: hp("3%"),
+                                        style={{  width: hp("2%"),height: hp("2%"),
                                         marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"}}
                                     />
                 </View>              

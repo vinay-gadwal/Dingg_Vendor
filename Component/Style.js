@@ -14,11 +14,11 @@ const styles = StyleSheet.create({
     
     copy_rigth:{
       fontSize: RF("2.2"),color:"rgb(153,153,153)",
-      fontFamily:'Muli-Bold'
+      fontWeight: 'bold',
     },
     copy_rigth_image:{
       width: wp("2.9%"),
-      height: hp("1.7%"),marginTop:hp(".8%")
+      height: hp("1.7%"),marginTop:hp(".5%"),
     },    
     input: {
       width: wp('70%'),
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
       marginTop:"0%",
       textAlign:'left',  
       fontFamily:'Muli-Bold',
-      fontWeight:"bold"
-  },
+      // fontWeight: 'bold',
+      },
     
     inputSignUp: {
       flex:1,
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
       borderBottomStartRadius:2,
       alignItems:"flex-start",
       textAlign:'left',
+      fontWeight: 'bold',
     },    
     button: {
         width: wp('40%'),
@@ -59,7 +60,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "white",
         fontWeight: "700",
-        fontFamily:'Muli-Bold',
+        // fontFamily:'Muli-Bold',
+        fontWeight: 'bold',
     },
    
     margin:{
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
           fontSize: RF(2.2), 
           color: "rgb(68,68,68)",
           fontFamily:'Muli-Bold',
+          // fontWeight: 'bold',
         },
    
     countryPicker: {
@@ -117,6 +120,7 @@ const styles = StyleSheet.create({
         fontSize: RF(3),
         borderColor:"rgb(222,222,222)",
         borderBottomWidth:1,
+        fontWeight: 'bold',
     },
    
     wrongNumberText: {
@@ -193,7 +197,8 @@ const styles = StyleSheet.create({
       justifyContent:"flex-start"
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
-      fontFamily:"Muli-Bold"
+      fontFamily:"Muli-Bold",
+      // fontWeight: 'bold',
     },
     
     setting_Image:{
@@ -222,7 +227,7 @@ const styles = StyleSheet.create({
       marginTop:"5%",
       color:"rgb(176,176,176)",
       fontWeight:"bold",
-      fontFamily:"Muli-Bold"
+      // fontFamily:"Muli-Bold"
     },
     
     Logo_style:{
@@ -286,35 +291,48 @@ const styles = StyleSheet.create({
     Business_hour:{
       flexDirection:"row",
       justifyContent:"space-between",
-      marginVertical:hp("2%"),
+      marginVertical:hp("1.5%"),
       paddingHorizontal:wp("7%")
     },
     Business_hour_main:{
-      marginLeft:"0%",marginRight:"5%"
+      marginLeft:"0%",marginLeft:wp("2%"),marginRight:wp("10%"),marginTop:hp(".5%")
     },
     Business_hour_time:{
-      flexDirection:"row",marginTop:hp(".3%"),marginLeft:wp("5%")
+      flexDirection:"row",marginTop:hp(".3%"),marginLeft:wp("2%")
     },
     business_hour_image_Arrow:{
-      marginTop:wp("2%"),marginRight:wp("0%")
+      marginTop:wp("2%"),marginRight:wp("0%"),width:wp("5%")
     },
     Business_hour_text:{
-      marginRight:wp("0%"),width:wp("12%"),marginHorizontal:wp("4%"),
+      marginRight:wp("0%"),width:wp("13%"),marginHorizontal:wp("0%"),
        fontSize: RF(2.2), 
           color: "rgb(68,68,68)",
-          fontFamily:'Muli-Bold',
+          // fontFamily:'Muli-Bold',
+          fontWeight:"bold",
+          marginTop:hp(".5%")
     },
     business_line:{
-      marginRight:wp("3%"),marginTop:hp("1%")
+      marginRight:wp("0%"),marginTop:hp("1%"),width:wp("5%")
     },
     Business_Arrow_right:{
-      marginLeft:wp("11%"),paddingVertical:hp("1%")
+      marginLeft:wp("7%"),marginTop:hp("1.5%")
     },
     Business_to:{
-      marginHorizontal:wp("2%"),
+      marginHorizontal:wp("0%"),
       fontSize: RF(2.2), 
       color: "rgb(68,68,68)",
-      fontFamily:'Muli-Bold',
+      fontWeight:"bold",
+      marginTop:hp(".5%"),
+      fontWeight:"bold"
+    },
+    History_Action:{
+      justifyContent:"flex-start",marginLeft:wp("5%"),marginBottom:hp("1%"),width:wp("65%"),
+      fontSize: RF(2.5),
+      justifyContent:"flex-start"
+      ,marginLeft:"5%",
+      paddingVertical:"2.5%",
+      // fontFamily:"Muli-Bold",
+      fontWeight: 'bold',
     }
     
   });

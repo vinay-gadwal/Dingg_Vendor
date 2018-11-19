@@ -18,6 +18,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
+      <View style={{alignItems:"center"}}>
         <Text></Text>
         <Text></Text>
             <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%"),marginBottom:hp("5%")}]}>
@@ -32,14 +33,14 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                   }
             </View>
-          <Text style={{fontSize: RF(3),fontFamily:"Muli-Bold",justifyContent:"center",alignItems:"center"}}>{GLOBAL.Buss_name}</Text>
+          <Text style={{fontSize: RF(3),fontFamily:"Muli-Bold"}}>{GLOBAL.Buss_name}</Text>
           <Text></Text>
-          <Text style={{fontSize: RF(2),fontFamily:"Muli-Bold",justifyContent:"center",alignItems:"center"}}>{GLOBAL.Master_Ven_ID}</Text>
+          <Text style={{fontSize: RF(2),fontFamily:"Muli-Bold"}}>{GLOBAL.Master_Ven_ID}</Text>
           <Text></Text>
           <View style={[styles.Profile_Container]}>
                   <View style={{height:"1%",justifyContent:"center",alignItems:"center"}}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
-                  <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="90" initHeight="90"/>
+                  <ResponsiveImage source={require('../Image/main/editButtonmain3x.png')}  initWidth="75" initHeight="75"/>
                   </TouchableOpacity>
                   </View>
                     <Text style={styles.profile_Small_text}>Address</Text>
@@ -119,10 +120,10 @@ export default class App extends Component {
                           justifyContent: 'space-between',marginHorizontal:"5%"}}
                           onPress={() => {this.props.navigation.navigate('QR_Code')}}>
                   
-                  <Text style={styles.setting_text}>My Dingg Code</Text>
+                  <Text style={[styles.setting_text,{marginTop:hp("1%"),}]}>My Dingg Code</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image,{marginRight:wp("3%")}]}
+                                style={[styles.setting_Image,{marginRight:wp("3%"),marginTop:hp("3%")}]}
                     />
             </TouchableOpacity>
             <Text></Text>
@@ -175,6 +176,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={ GLOBAL.Image4} />
                   }
             </View>
+        </View>
         </View>
       </ScrollView>
     );

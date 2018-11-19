@@ -18,6 +18,9 @@ export default class Queue_request extends Component {
                         {
                             name:"Hair cut"
                         },
+                        {
+                            name:"Hair cut"
+                        },
                 ], order: 1
        }
      this.index = 0;
@@ -41,24 +44,24 @@ export default class Queue_request extends Component {
 
 render() {
 return (
- <ScrollView>
     
 <View style={{  flex: 1,
       justifyContent: "space-between",
       backgroundColor: "rgb(243,242,242)",
       paddingVertical:"0%"}}>
         
-    <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          height: hp('35%'),
-          backgroundColor:"white",
-          marginVertical:hp('5%'),
-          borderRadius:10,}}>
+  
           
      <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
+                    <View style={{ 
+                        width: wp('90%'),marginLeft:"5%",
+                        height: hp('35%'),
+                        backgroundColor:"white",
+                        marginVertical:hp('2%'),
+                        borderRadius:10,}}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row"}}>
@@ -102,18 +105,18 @@ return (
                                     />
 
                             </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-end",marginRight:wp("3%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(3),marginBottom:hp("1%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)",marginBottom:hp("1%")}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
-                            </View>           
+                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                                 <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Service</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Stylist</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                            </View>  
+                            </View>         
                         </View>   }                       
                     />
            </View>
-  </View>
   <Dialog
                     // title="Choose a Dingg User Type"
                     animationType="fade"
@@ -121,6 +124,7 @@ return (
                         {
                             alignItems: "center",
                             justifyContent: "center",
+                            width:wp("40%")
                         }
                     }
                     onTouchOutside={ () => this.openDialog(false) }
@@ -154,7 +158,6 @@ return (
 
   
  </View>
-</ScrollView>
    );
  }
 }

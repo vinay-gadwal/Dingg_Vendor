@@ -44,14 +44,17 @@ const AuthStack = createBottomTabNavigator({
       headerMode:"none",
 
     navigationOptions: () => ({
-      
       title:'Dashboard',
       tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
         const image = focused 
         ? require('./Image/icon/dashboard_yellow2x.png') 
         : require('./Image/icon/dashboardIcon.png')
         return (
-          <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginLeft:wp("4%")}} initWidth="50" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          </View>
         )
     }
   })
@@ -61,11 +64,15 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       title:"Que",
       tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
         const image = focused 
         ? require('./Image/icon/queueRequest_yellow2x.png') 
         : require('./Image/icon/queueRequestIcon2x.png')
         return (
-          <ResponsiveImage source={image} initWidth="27" initHeight="23"/>
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="25" initHeight="23"/>
+          </View>
         )
     }
     })
@@ -74,11 +81,15 @@ const AuthStack = createBottomTabNavigator({
     screen: Queue,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
         const image = focused 
         ? require('./Image/icon/queueIcon_yellow2x.png') 
         : require('./Image/icon/queueIcon2x.png')
         return (
-          <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          </View>
         )
     }
     })
@@ -87,11 +98,15 @@ const AuthStack = createBottomTabNavigator({
     screen: history,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
         const image = focused 
         ? require('./Image/icon/historyIcon_yellow2x.png') 
         : require('./Image/icon/historyIcon2x.png')
         return (
-          <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          </View>
         )
     }
     })
@@ -100,12 +115,16 @@ const AuthStack = createBottomTabNavigator({
     screen: Setting,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
         const image = focused 
         ? require('./Image/icon/settingsIcon_yellow2x.png') 
         : require('./Image/icon/settingsIcon2x.png')
         return (
-          <ResponsiveImage source={image} initWidth="24" initHeight="26"/>
-        )
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
+          </View>   
+            )
     }
     })
   },
@@ -113,11 +132,15 @@ const AuthStack = createBottomTabNavigator({
     screen: Profile,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
+        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
         const image = focused 
         ? require('./Image/icon/profileIcon_yellow2x.png') 
         : require('./Image/icon/profileIcon2x.png')
         return (
-          <ResponsiveImage source={image} initWidth="21" initHeight="23"/>
+         <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth="50" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
+          </View>
         )
     }
     })
@@ -126,139 +149,27 @@ const AuthStack = createBottomTabNavigator({
 {
   initialRouteName: 'D',
   headerMode:"none",
+  
   tabBarOptions: {
-    showLabel: false, // hide labels
-    showTitle:true,
+    indicatorStyle: {
+      backgroundColor: 'black',
+      height: 10,
+      alignSelf: 'flex-end',
+  },
+      showIcon: true,
+      showLabel: false,
     // activeTintColor: '#F8F8F8', // active icon color
     // inactiveTintColor: '#586589',  // inactive icon color
     style: {
       height: hp("8%"),
       backgroundColor: "white",
-      alignItems:"center"
+      alignItems:"center",
+      indicatorStyle:{
+        backgroundColor:'#de1d3e',
+      },
     },
 }
 });
-
-// const data = [
-//   {
-//     value: '30 min',
-//   },
-//   {
-//     value: '45 min',
-//   },
-//   {
-//     value: '60 min',
-//   }
-// ];
-// const ForgetStack = createDrawerNavigator({
-//   Log_in:AuthStack,
-//   ForgetPass:{
-//     screen:forgetpass
-//   }
-// },{
-//   headerMode:'none'
-// })
-// const HomeStack = createStackNavigator({
-//   SignIn: {
-//     screen: sing_in,
-//     navigationOptions: ({ navigation }) => ({
-//       title: 'Sign In',
-//     })
-//   },
-//   SignUp: {
-//     screen: sing_up,
-//     headerMode:"none",
-//     navigationOptions: ({ navigation }) => ({
-//       title: 'Sign Up',
-//       headerMode:"none"
-//     })
-//   }
-// },
-// {
-//   initialRouteName:"SignIn",
-//   navigationOptions: {
-//         headerStyle: {
-//           backgroundColor: 'white',
-//           // height: "130%",
-//         }, 
-//       },
-
-// });
-
-// const CalendarStack = createStackNavigator({
-//   Calendar: {
-//     screen: CalendarComponent,
-//     navigationOptions: ({navigation}) => ({
-//       title: 'Calendar',
-//       drawerLabel: 'Calendar',
-//       // drawerIcon:
-//       //   <Image
-//       //     source={require('./img/albums/breadcrumb.png')}
-//       //     style={{
-//       //       width: 24,
-//       //       height: 24,
-//       //       paddingLeft: 10,
-//       //     }}
-//       //   />,
-//       headerLeft:
-//       <TouchableOpacity style={{ width: "150%", height: "70%", marginLeft: 20,marginBottom:"20%"}} onPress={() => navigation.dangerouslyGetParent().navigate('home')}>
-//         <Image
-//           source={require('./img/back.png')}
-//           style={{
-//             width: "80%",
-//             height: "80%",
-//             // left: 20
-//           }}
-//         />
-//       </TouchableOpacity>,
-//     })
-//   },
-// },
-// {
-//   navigationOptions: {
-//     headerStyle: {
-//       backgroundColor: 'white',
-//       // height: "130%",
-//     }, 
-//   },
-// });
-// const settingstack = createStackNavigator({
-//   Setting: {
-//     screen: Setting,
-//     navigationOptions: ({navigation}) => ({
-//       title: 'Setting',
-//       drawerLabel: 'Setting',
-//       // drawerIcon:
-//       //   <Image
-//       //     source={require('./img/albums/breadcrumb.png')}
-//       //     style={{
-//       //       width: 24,
-//       //       height: 24,
-//       //       paddingLeft: 10,
-//       //     }}
-//       //   />,
-//       headerLeft:
-//       <TouchableOpacity style={{ width: "150%", height: "70%", marginLeft: 20,marginBottom:"20%"}} onPress={() => navigation.dangerouslyGetParent().navigate('home')}>
-//         <Image
-//           source={require('./img/back.png')}
-//           style={{
-//             width: "80%",
-//             height: "80%",
-//             // left: 20
-//           }}
-//         />
-//       </TouchableOpacity>,
-//     })
-//   },
-// },
-// {
-//   navigationOptions: {
-//     headerStyle: {
-//       backgroundColor: 'white',
-//       // height: "130%",
-//     }, 
-//   },
-// });
 
 const RootStack = createStackNavigator({
   SignIn: {
@@ -266,9 +177,7 @@ const RootStack = createStackNavigator({
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN IN',
             headerBackTitle:null,
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
-            },
+           
           })
         },
   SignUp: {
@@ -277,18 +186,12 @@ const RootStack = createStackNavigator({
             title: 'SIGN UP',
             headerLeft: null,
             headerBackTitle:null,
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
-            },
           })
         },
   Crea_pass: {
           screen: Crea_pass,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -302,9 +205,6 @@ const RootStack = createStackNavigator({
           screen: Forget_password,
           navigationOptions: ({ navigation }) => ({
             title:'FORGOT PASSWORD',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%"),fontSize: RF("2.4")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -318,9 +218,6 @@ const RootStack = createStackNavigator({
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
-        headerTitleStyle: {
-          fontFamily:'Muli-Bold',marginBottom:hp("2%") ,fontSize: RF("2.4")
-        },
         headerLeft:( 
           <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
         <Image
@@ -336,18 +233,12 @@ const RootStack = createStackNavigator({
       title: 'WELCOME',
       headerLeft: null,
       headerBackTitle:null,
-      headerTitleStyle: {
-        fontFamily:'Muli-Bold',marginBottom:hp("2%")
-      },
     })
   },
   AddDetails:{
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS DETAILS',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:null
           })
         },
@@ -372,9 +263,6 @@ const RootStack = createStackNavigator({
             headerMode: null,
             navigationOptions: ({ navigation }) => ({
               title: 'NEW USER',
-              headerTitleStyle: {
-                fontFamily:'Muli-Bold',marginBottom:hp("2%")
-              },
               headerLeft:( 
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
@@ -409,9 +297,6 @@ const RootStack = createStackNavigator({
         headerMode: null,
         navigationOptions: ({ navigation }) => ({
           title: 'VIEW OFFER',
-          headerTitleStyle: {
-            fontFamily:'Muli-Bold',marginBottom:hp("2%")
-          },
           headerLeft:( 
             <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
           <Image
@@ -427,9 +312,6 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD OFFER',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -445,17 +327,15 @@ AddOffer:{
              headerMode:"none",
              navigationOptions: ({ navigation }) => ({
               // header: null,
+              title:null,
               headerLeft: null,
-              headerTitleStyle: {
-                fontFamily:'Muli-Bold',marginBottom:hp("2%")
-              },
               headerRight:( 
                 <TouchableOpacity onPress={() => {navigation.navigate('Alert')}}>
               <Image
                 source={require('./Image/main/notificationIcon3x.png')}
                 style={{marginRight:wp("5%"),
-                width: wp('6%'),
-                height: hp('4%'),}} 
+                width: wp('5%'),
+                height: hp('3.5%'),}} 
               />
               </TouchableOpacity>),
             })
@@ -468,9 +348,8 @@ AddOffer:{
           } ,
   Queue:{
           screen:Queue,
-          headerMode: null,
           navigationOptions: ({ navigation }) => ({
-          headerLeft: null,
+            title: 'SETTINGS',
           })
         },
   Queue_request:{
@@ -516,9 +395,6 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'EDIT PROFILE',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -545,9 +421,6 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'APP SETTING',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -562,10 +435,7 @@ AddOffer:{
           screen:Business_Hour,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
-            title: 'BUSINESS HOUR',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
+            title: 'ADD BUSINESS HOUR',
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -580,10 +450,7 @@ AddOffer:{
           screen:Calendar,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
-            title: 'CALENDAR',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
+            title: 'SETUP HOLIDAYS',
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -598,9 +465,6 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'MANAGE USER',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -614,10 +478,7 @@ AddOffer:{
           screen:Add_user,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
-            title: 'ADD USER',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
+            title: 'ADD NEW USER',
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -632,9 +493,6 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD SERVICES',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -650,9 +508,6 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD STYLIST',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -667,9 +522,6 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'Rating & Review',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -684,9 +536,6 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'Rating & Review',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:( 
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
@@ -708,9 +557,6 @@ Set_up:{
               style={styles.back_butt0n} 
             />
             </TouchableOpacity>),
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
           })
         },
         
@@ -720,9 +566,9 @@ Set_up:{
         initialRouteName:"SignIn",
         // headerMode: "none",
         navigationOptions: {
-              headerStyle: {
-                backgroundColor: 'white',
-              }, 
+          headerTitleStyle: {
+            fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+          },
             },
       
 });

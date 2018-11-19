@@ -214,7 +214,7 @@ export default class Login extends Component {
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
                           style={{ 
-                                width: wp('200%'),fontSize: RF(2.5),
+                                width: wp('200%'),fontSize: RF(2.2),
                                 marginBottom:"10%",
                                 top: 0,borderColor:"rgb(255,163,0)",
                                 placeholderTextColor:"rgb(222,222,222)"
@@ -229,7 +229,7 @@ export default class Login extends Component {
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
+                            width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
                             // position: 'absolute',
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
                         }}
@@ -261,7 +261,7 @@ export default class Login extends Component {
           <Text></Text>
           <View style={{flexDirection:"row"}}>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-          <Text style={{color:"white"}}>mdnds,</Text>
+          {/* <Text style={{color:"white"}}>mdnds,</Text> */}
           </View>
          {/* {selectedButton}       */}
          <Text></Text>

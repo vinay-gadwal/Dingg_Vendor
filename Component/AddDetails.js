@@ -9,6 +9,7 @@ import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import ResponsiveImage from 'react-native-responsive-image'
 
 const homePlace = {
   description: 'Home',
@@ -270,7 +271,7 @@ export default class App extends Component {
                 </View>
           </TouchableOpacity>
         
-          <Text style={{fontSize: RF("18%"),paddingVertical:"5%",paddingHorizontal:wp("36%"),fontFamily:'Muli-Bold'}}>Add Your Logo</Text>
+          <Text style={{fontSize: RF("18%"),paddingVertical:"5%",paddingHorizontal:wp("36%"),fontWeight:"bold"}}>Add Your Logo</Text>
           
           <View style={styles.boxDetails}>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -292,8 +293,8 @@ export default class App extends Component {
                           onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
+                          style={{ itemTextStyle:{ fontWeight:"bold"},
+                            width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
                             // position: 'absolute',
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
                         }}
@@ -327,7 +328,7 @@ export default class App extends Component {
                         }}
                         styles={{
                           description: {
-                            fontFamily:'Muli-Bold'
+                            fontWeight:"bold",marginRight:wp("40%")
                                 },
                           predefinedPlacesDescription: {
                                 color: '#1faadb',
@@ -429,7 +430,7 @@ export default class App extends Component {
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+                  <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
                   <TextInputLayout focusColor="rgb(204,204,204)">
 
                       <Text style={{marginTop:"20%",fontSize: RF(2.2)}}>+91     </Text>
@@ -453,7 +454,7 @@ export default class App extends Component {
                         />
                 </TextInputLayout>
                   </View>
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+                  <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
                       <TextInputLayout focusColor="rgb(204,204,204)">
 
                       <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
@@ -481,7 +482,7 @@ export default class App extends Component {
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
-                          style={[styles.input,{width: wp('70'), height: hp('4%')}]}
+                          style={[styles.input,{width: wp('70'), height: hp('5%'),marginTop:hp("1%")}]}
                           placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
@@ -506,7 +507,7 @@ export default class App extends Component {
                           />
                   </TextInputLayout>
           </View>
-          <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontFamily:'Muli-Bold'}}>Add Images</Text>
+          <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontWeight:"bold"}}>Add Images</Text>
     <View style={{paddingVertical:"2%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
@@ -518,8 +519,16 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
-                    <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
-                  }
+                     <View style={{flexDirection:"column-reverse"}}>
+                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
+                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                   <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  </TouchableOpacity>
+                  </View>
+                   </View>
+                }
+                  
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
@@ -532,8 +541,15 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
+                    <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
-                  }
+                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                 </TouchableOpacity>
+                 </View>
+                  </View>
+                 }
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.selectPhotoTapped4.bind(this)}>
@@ -546,8 +562,15 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
+                    <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
-                  }
+                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                 </TouchableOpacity>
+                 </View>
+                  </View>
+                 }
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.selectPhotoTapped5.bind(this)}>
@@ -560,8 +583,15 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
+                    <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
-                  }
+                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                 </TouchableOpacity>
+                 </View>
+                  </View>
+                 }
             </View>
           </TouchableOpacity>
         </View>

@@ -19,6 +19,9 @@ class Ongoing extends React.Component {
                              {
                                  name:"Hair cut"
                              },
+                             {
+                              name:"Hair cut"
+                          },
                      ],
                     
             }
@@ -76,16 +79,16 @@ class Ongoing extends React.Component {
               backgroundColor: "rgb(243,242,242)",
               paddingVertical:"0%"}}>
                 
-            <View style={{ 
-                  width: wp('90%'),marginLeft:"5%",
-                  height: hp('35%'),
-                  backgroundColor:"white",
-                  marginVertical:hp('5%'),
-                  borderRadius:10,}}> 
              <View style={{flexDirection:"row"}}>
                       <FlatList          
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
+                            <View style={{ 
+                              width: wp('90%'),marginLeft:"5%",
+                              height: hp('35%'),
+                              backgroundColor:"white",
+                              marginVertical:hp('2%'),
+                              borderRadius:10,}}> 
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
@@ -99,7 +102,8 @@ class Ongoing extends React.Component {
                                            <TouchableOpacity onPress={() => {this.increase_time}}>
                                            <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="40" initHeight="40"/>
                                            </TouchableOpacity>
-                                           <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".5%")}]}>{this.state.time+" " + 'M'}</Text>
+                                           <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".5%")}]}>Time</Text>
+                                                                                                      {/* {this.state.time+" " + 'M'} */}
                                            <TouchableOpacity>
                                            <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth="40" initHeight="40"/>
                                            </TouchableOpacity>
@@ -109,18 +113,18 @@ class Ongoing extends React.Component {
                                           <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>Add Services</Text>
                                           </TouchableOpacity>
                                     </View>           
-                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-end",marginRight:wp("3%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(3),marginBottom:hp("1%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
+                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                                         <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
                                     </View>           
-                                </View>   }                       
+                                </View>  
+                                </View> }                       
                             />
                    </View>
-          </View>
           <Dialog
                     animationType="fade"
                     contentStyle={
@@ -144,9 +148,9 @@ class Ongoing extends React.Component {
                   <Text></Text>
 
                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("31%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Hair Oil Massage</Text>
+                        <Text style={styles.History_Action}>Hair Oil Massage</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility }>
-                        <Image source = { ( this.state.Select_unselect ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
+                        <Image source = { ( this.state.Select_unselect ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </TouchableOpacity>
                   </View>
                   <View style={{marginHorizontal:"5%"}}>
@@ -154,9 +158,9 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("47%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Shampoo</Text>
+                        <Text style={styles.History_Action}>Shampoo</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_1 }>
-                        <Image source = { ( this.state.Select_unselect_1 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
+                        <Image source = { ( this.state.Select_unselect_1 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </TouchableOpacity>
                   </View>
                   <View style={{marginHorizontal:"5%"}}>
@@ -164,9 +168,9 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("31%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Regular Hair Cut</Text>
+                        <Text style={styles.History_Action}>Regular Hair Cut</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
-                        <Image source = { ( this.state.Select_unselect_2 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
+                        <Image source = { ( this.state.Select_unselect_2 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </TouchableOpacity>
                   </View>
                   <View style={{marginHorizontal:"5%"}}>
@@ -174,9 +178,9 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("31%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Premium Haircut</Text>
+                        <Text style={styles.History_Action}>Premium Haircut</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_3 }>
-                        <Image source = { ( this.state.Select_unselect_3 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
+                        <Image source = { ( this.state.Select_unselect_3 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </TouchableOpacity>
                   </View>
                   <View style={{marginHorizontal:"5%"}}>
@@ -184,9 +188,9 @@ class Ongoing extends React.Component {
                   </View>
 
                   <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("47%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Blow Dry</Text>
+                        <Text style={styles.History_Action}>Blow Dry</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
-                        <Image source = { ( this.state.Select_unselect_4 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
+                        <Image source = { ( this.state.Select_unselect_4 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </TouchableOpacity>
                   </View>
                   <View style={{marginHorizontal:"5%"}}>
@@ -194,9 +198,9 @@ class Ongoing extends React.Component {
                   </View>
 
                     <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
-                        <Text style={[styles.setting_text,{justifyContent:"flex-start",marginRight:wp("42%"),marginLeft:wp("5%"),marginBottom:hp("2%")}]}>Hair Styling</Text>
+                        <Text style={styles.History_Action}>Hair Styling</Text>
                   <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
-                        <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2.5%")}} />
+                        <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </TouchableOpacity>
                   </View>
                   
@@ -406,18 +410,17 @@ class StarReview extends React.Component {
               justifyContent: "space-between",
               backgroundColor: "rgb(243,242,242)",
               paddingVertical:"0%"}}>
-                
-            <View style={{ 
-                  width: wp('90%'),marginLeft:"5%",
-                  height: hp('40%'),
-                  backgroundColor:"white",
-                  marginVertical:hp('5%'),
-                  borderRadius:10,}}>
                   
              <View style={{flexDirection:"row"}}>
                       <FlatList          
                             data={ this.state.dataSource1 }
                             renderItem={({item}) => 
+                            <View style={{ 
+                              width: wp('90%'),marginLeft:"5%",
+                              height: hp('40%'),
+                              backgroundColor:"white",
+                              marginVertical:hp('2%'),
+                              borderRadius:10,}}>
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
@@ -429,18 +432,18 @@ class StarReview extends React.Component {
                                          </View>
                                          {view}
                                     </View>           
-                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-end",marginRight:wp("3%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(3),marginBottom:hp("1%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),color:"rgb(187,187,187)"}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(3)}]}>{item.name}</Text>
+                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                                         <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
                                     </View>           
-                                </View>   }                       
+                                </View> 
+                                </View>  }                       
                             />
                    </View>
-          </View>
          </View>
         </ScrollView>
     );
@@ -511,7 +514,7 @@ export default createMaterialTopTabNavigator({
       },
       indicatorStyle: {
         borderBottomColor: "rgb(255,164,0)",
-        borderBottomWidth: 6,
+        borderBottomWidth: 2,
       },
       tabStyle: {
         borderRightColor: '#ffffff',

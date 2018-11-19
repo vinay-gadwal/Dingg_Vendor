@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './Style'
 import RadioGroup from 'react-native-radio-buttons-group';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 
 export default class App extends Component {
     state = {
@@ -30,17 +31,17 @@ export default class App extends Component {
         selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
         return (
             <View style={styles.container}>
-            <View style={[styles.box,{marginBottom:"0%",height: hp('38%'),}]}>
-            <Text style={[styles.Text,{fontSize:30}]}>Give a reason to reject</Text>
+            <View style={[styles.box,{paddingVertical:hp("5%"),height: hp('30%'),alignItems:"flex-start",marginVertical:hp("5%")}]}>
+            <Text style={[styles.Text,{fontSize: RF(3),marginLeft:wp("5%")}]}>Give a reason to reject</Text>
                 {/* <Text style={styles.valueText}>
                     Value = {selectedButton}
                 </Text> */}
-                <View style={{marginTop:"5%",justifyContent:"flex-start"}}>
+                <View style={{marginTop:"5%",justifyContent:"flex-start",marginLeft:wp("2%")}}>
                 <RadioGroup radioButtons={this.state.data} onPress={this.onPress} />
                 </View>
                 </View>
                 <View style={{marginBottom:"3%"}}>
-          <TouchableOpacity style={styles.button} >
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("35%")}]} >
           <Text style={styles.buttonText}>Send</Text>
           </TouchableOpacity>
       </View>

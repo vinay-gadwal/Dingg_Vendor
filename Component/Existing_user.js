@@ -107,7 +107,7 @@ export default class Login extends Component {
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
+                            width: wp('200%'),fontSize: RF(2.),marginBottom:"10%",
                             // position: 'absolute',
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
                         }}
@@ -122,7 +122,7 @@ export default class Login extends Component {
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
                           style={{ itemTextStyle:{ fontFamily:'Muli-Bold',color:"black"},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
+                            width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
                             // position: 'absolute',
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
                         }}

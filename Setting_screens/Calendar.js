@@ -54,10 +54,10 @@ export default class Calendar extends Component {
               enableSwipe="true"
             />
         </View>
-        <View>
+        {/* <View>
           <Text style={styles.text}>SELECTED START DATE:{ startDate }</Text>
           <Text style={styles.text}>SELECTED END DATE:{ endDate }</Text>
-        </View>
+        </View> */}
         <View style={{marginBottom:"5%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Save</Text>

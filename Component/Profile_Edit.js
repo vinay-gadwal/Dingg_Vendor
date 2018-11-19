@@ -266,45 +266,33 @@ export default class App extends Component {
                 </View>
                 <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("18%")}}>
                   <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="70" initHeight="70"/>
+                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="60" initHeight="60"/>
                   </TouchableOpacity>
                   </View>
           </TouchableOpacity>
                       <Text></Text>
                       <Text></Text>
-          <View style={styles.boxDetails}>
+          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%")}]}>
+          <Text style={[styles.text,{marginTop:hp("1%"),color: "rgb(205,205,205)",}]}>Salon Name</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Add_Bus_Details}
                         onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"0%"}]}
-                        placeholder="Salon Name"
+                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}
+                        // placeholder="Salon Name"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
-                  {/* <View style={{width:wp('70%'),marginVertical:"0%"}}>
-                      <Dropdown
-                          data={data} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
-                          value={'Select Category'}
-                          onChangeText={() => this.setState({Category:data})}
-                          dropdownPosition={0}
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
-                      />
-                  </View> */}
+                  <Text style={[styles.text,{marginTop:hp("1%"),color: "rgb(205,205,205)"}]}>Address</Text>
                   <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
-                  <Text style={{color:"white"}}>bjjaaa</Text>
                   <GooglePlacesAutocomplete
                          value={this.state.Address}
                          onChangeText={Address => this.setState({ Address })}
-                        placeholder="Address"
+                        placeholder=""
                         minLength={2} // minimum length of text to search
                         autoFocus={false}
                         returnKeyType={'next'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
@@ -364,81 +352,86 @@ export default class App extends Component {
                 />
                 <Text style={{color:"white"}}>bjjase</Text>
                 </View>
+                <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Locality</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Locality}
                         onChangeText={Locality => this.setState({ Locality })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={styles.input}
-                        placeholder="Locality"
+                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="Locality"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>City</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.City}
                         onChangeText={City => this.setState({ City })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={styles.input}
-                        placeholder="City"
+                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="City"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
+          </View>
+          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Website</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Website_url}
                         onChangeText={Website_url => this.setState({ Website_url })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={styles.input}
-                        placeholder="Website Url"
+                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="Website Url"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
                         keyboardType="email-address"
                       />
                   </TextInputLayout>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Email</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Email}
                           onChangeText={Email => this.setState({ Email })}
                           ref={input => (this.passwordCInput = input)}
                           // onSubmitEditing={() => this.passwordInput.focus()}
-                          style={styles.input}
-                          placeholder="Email Id"
+                          style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                          // placeholder="Email Id"
                           placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="next"
                           keyboardType="email-address"
                         />
                   </TextInputLayout>
+          </View>
+          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Contact Name</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Contact_Name}
                             onChangeText={Contact_Name => this.setState({ Contact_Name })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={styles.input}
-                            placeholder="Contact name"
+                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Contact name"
                             placeholderTextColor="rgb(204,204,204)"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Primary Number</Text>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                   <TextInputLayout focusColor="rgb(255,164,0)">
 
-                      <Text style={{marginTop:"20%",fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{marginTop:"18%",fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
-                          style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+                          style={[styles.input,{width: wp('55'), height: hp('2%'),marginBottom:"3%"}]}
                           placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
@@ -447,11 +440,12 @@ export default class App extends Component {
                           keyboardType="numeric"
                           autoCapitalize="none"
                           autoCorrect={false}
-                          placeholder="Primary Number"
+                          // placeholder="Primary Number"
                           fontFamily='Muli-Bold'
                         />
                 </TextInputLayout>
                   </View>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Secondry Number</Text>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                       <TextInputLayout focusColor="rgb(255,164,0)">
 
@@ -462,7 +456,7 @@ export default class App extends Component {
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
-                            style={[styles.input,{width: wp('52'), height: hp('4%')}]}
+                            style={[styles.input,{width: wp('55'), height: hp('2%'),marginBottom:"3%"}]}
                             placeholderTextColor="rgb(204,204,204)"
                             returnKeyType="done"
                             underlineColorAndroid='transparent'
@@ -471,17 +465,16 @@ export default class App extends Component {
                             keyboardType="numeric"
                             autoCapitalize="none"
                             autoCorrect={false}
-                            placeholder="Secondary Number"
+                            // placeholder="Secondary Number"
                           />
                 </TextInputLayout>
                   </View>
-                
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Landline Number</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
-                          style={[styles.input,{width: wp('70'), height: hp('4%')}]}
-                          placeholderTextColor="rgb(204,204,204)"
+                          style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                          placeholderTextColor="rgb(204,204,204)"
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -489,26 +482,51 @@ export default class App extends Component {
                           keyboardType="numeric"
                           autoCapitalize="none"
                           autoCorrect={false}
-                          placeholder="Landline Number"
+                          // placeholder="Landline Number"
                         />
                 </TextInputLayout>
+          </View>
+          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
+                <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>User ID</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={styles.input}
-                            placeholder="Master vendor id"
+                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Master vendor id"
                             placeholderTextColor="rgb(204,204,204)"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  
-                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Category</Text>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                          <TextInput
+                            value={this.state.Master_Ven_ID}
+                            onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
+                            ref={input => (this.passwordCInput = input)}
+                            // onSubmitEditing={() => this.passwordInput.focus()}
+                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Master vendor id"
+                            placeholderTextColor="rgb(204,204,204)"
+                            returnKeyType="next"
+                          />
+                  </TextInputLayout>
+                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Service Type</Text>
+                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                          <TextInput
+                            value={this.state.Master_Ven_ID}
+                            onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
+                            ref={input => (this.passwordCInput = input)}
+                            // onSubmitEditing={() => this.passwordInput.focus()}
+                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Master vendor id"
+                            placeholderTextColor="rgb(204,204,204)"
+                            returnKeyType="next"
+                          />
+                  </TextInputLayout>
+                   {/* <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
                           data={data} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
-                          value={'Customer Type'}
+                          value={'Service Type'}
                           onChangeText={() => this.setState({Category:data})}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
@@ -518,7 +536,7 @@ export default class App extends Component {
                             top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
                         }}
                       />
-                  </View>
+                  </View> */}
           </View>
           <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontFamily:'Muli-Bold'}}>Add Images</Text>
     <View style={{paddingVertical:"2%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
@@ -533,14 +551,14 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
-                  // <View style={{flexDirection:"column-reverse"}}>
+                  <View style={{flexDirection:"column-reverse"}}>
                   <Image style={[styles.avatarMultiple,]} source={this.state.Image_Source_2_1} />
-                    // <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                    // <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-                    // <ResponsiveImage source={require('../Image/main/deleteImage3x.png')}  initWidth="40" initHeight="40"/>
-                    // </TouchableOpacity>
-                    // </View>
-                    // </View>
+                  <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+               </TouchableOpacity>
+               </View>
+                </View>
                   }
             </View>
           </TouchableOpacity>
@@ -554,7 +572,14 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
+                    <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
+                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                 </TouchableOpacity>
+                 </View>
+                  </View>
                   }
             </View>
           </TouchableOpacity>
@@ -568,7 +593,14 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
+                    <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
+                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                 </TouchableOpacity>
+                 </View>
+                  </View>
                   }
             </View>
           </TouchableOpacity>
@@ -582,13 +614,20 @@ export default class App extends Component {
                                         // left: 20
                   }}
                   /> :
+                    <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
+                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                 </TouchableOpacity>
+                 </View>
+                  </View>
                   }
             </View>
           </TouchableOpacity>
         </View>
         <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>
-                  <Text style={styles.buttonText}>Submit</Text>
+                  <Text style={styles.buttonText}>Save Changes</Text>
               </TouchableOpacity>
         </View>
       </ScrollView>

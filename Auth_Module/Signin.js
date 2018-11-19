@@ -28,7 +28,8 @@ export default class Login extends Component {
         {
             label: 'Mobile Number',
             value:this.phone(),
-            color: 'rgb(255,164,0)'
+            color: 'rgb(255,164,0)',
+            fontWeight:"bold"
         },
         {
             label: 'Email ID',
@@ -40,7 +41,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AddDetails')
+    // this.props.navigation.navigate('AuthStack')
   }
   phone(){
     return(
@@ -125,14 +126,17 @@ export default class Login extends Component {
         
         </View>
         <View style={[styles.box,{marginTop:"2%",height: hp('39%'),}]}>
-        <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("40%")}]}>Sign In Using</Text>
+        <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42%")}]}>Sign In Using</Text>
          <Text></Text>
-         <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         <View style={{flexDirection:"row"}}>
+         <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         <Text style={{color:"white"}}>hhi</Text>
+         </View>
          {selectedButton}
           <View style = { styles.textBoxBtnHolder } > 
                   <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
                       <TextInput 
-                      // secureTextEntry = { this.state.hidePassword }
+                      secureTextEntry = { this.state.hidePassword }
                         placeholder="Enter Password"
                         underlineColorAndroid = "transparent"
                          style = { styles.input }/>
@@ -143,7 +147,7 @@ export default class Login extends Component {
           </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginBottom:hp("2%"),fontFamily:'Muli-Bold'}}>Forgot Password?</Text>
+          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"}}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
