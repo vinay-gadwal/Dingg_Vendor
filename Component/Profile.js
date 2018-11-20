@@ -128,7 +128,7 @@ export default class App extends Component {
             </TouchableOpacity>
             <Text></Text>
             <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",marginHorizontal:"5%"}}>
-            <View style={[styles.avatarMultiple, styles.avatarContainer]}>
+            <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("2%")}]}>
                   { GLOBAL.Image1 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
@@ -140,7 +140,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image1} />
                   }
             </View>
-            <View style={[styles.avatarMultiple, styles.avatarContainer]}>
+            <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("2%")}]}>
                   {GLOBAL.Image2 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
@@ -152,7 +152,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image2} />
                   }
             </View>
-            <View style={[styles.avatarMultiple, styles.avatarContainer]}>
+            <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("2%")}]}>
                   { GLOBAL.Image3 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{
@@ -164,7 +164,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image3} />
                   }
             </View>
-            <View style={[styles.avatarMultiple, styles.avatarContainer]}>
+            <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("2%")}]}>
                   {  GLOBAL.Image4 === null ? <Image
                                       source={require('../Image/icon/plus.png')}
                                       style={{

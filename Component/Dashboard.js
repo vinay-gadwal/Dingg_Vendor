@@ -61,7 +61,7 @@ export default class App extends Component {
                     <View style={{flexDirection:"column"}}>
                     <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
                     <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Total</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("2%"),fontSize:RF(2)}]}>Booking</Text>            
+                    {/* <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("2%"),fontSize:RF(2)}]}>Booking</Text>             */}
                     </View>
         </View>
         <View style={styles.Dashboard_block}>
@@ -113,7 +113,7 @@ export default class App extends Component {
         <View style={[styles.Profile_Container,{paddingBottom:"3%"}]}>
         
         <View style={[styles.setting_Row,{paddingVertical:hp("2%")}]}>
-                    <Text style={styles.setting_text}>Ready to Accept booking</Text>
+                    <Text style={styles.setting_text}>Ready to Accept Booking</Text>
                     <View style={{marginRight:wp("7%"),marginTop:hp("2%")}}>
                     <Switch
                           value={switchThreeValue}

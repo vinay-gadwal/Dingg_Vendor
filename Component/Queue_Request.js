@@ -74,7 +74,7 @@ return (
                                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Reject')}}>
                                     <ResponsiveImage source={require('../Image/main/rejectIcon3x.png')} initWidth="30" initHeight="30"/>
                                     </TouchableOpacity>
-                     </View>
+                                 </View>
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
                                  <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>

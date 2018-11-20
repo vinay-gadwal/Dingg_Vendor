@@ -71,7 +71,7 @@ const AuthStack = createBottomTabNavigator({
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
           <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="25" initHeight="23"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="27" initHeight="23"/>
           </View>
         )
     }
@@ -239,7 +239,13 @@ const RootStack = createStackNavigator({
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS DETAILS',
-            headerLeft:null
+            headerLeft:( 
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
+            />
+            </TouchableOpacity>)
           })
         },
 
@@ -361,9 +367,7 @@ AddOffer:{
         },
   history:{
           screen:history,
-          headerMode: null,
           navigationOptions: ({ navigation }) => ({
-          headerLeft: null,
           })
         },
   Profile:{

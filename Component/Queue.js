@@ -65,7 +65,7 @@ return (
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="25" initHeight="25"/>
+                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                  </View>
                                  <View style={{marginVertical:hp("2%")}}>

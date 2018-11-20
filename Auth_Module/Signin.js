@@ -136,14 +136,15 @@ export default class Login extends Component {
           <View style = { styles.textBoxBtnHolder } > 
                   <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
                       <TextInput 
-                      secureTextEntry = { this.state.hidePassword }
+                      // secureTextEntry = { this.state.hidePassword }
                         placeholder="Enter Password"
                         underlineColorAndroid = "transparent"
+                        secureTextEntry="true"
                          style = { styles.input }/>
                   </TextInputLayout>
-                  <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                  {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
           </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
