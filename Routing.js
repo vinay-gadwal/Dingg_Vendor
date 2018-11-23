@@ -1,4 +1,5 @@
 import React from 'react';
+import codePush from "react-native-code-push";
 import {TouchableOpacity,Image,Dimensions,Icon,SafeAreaView,View} from 'react-native';
 import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -47,8 +48,8 @@ const AuthStack = createBottomTabNavigator({
       title:'Dashboard',
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
-        const image = focused 
-        ? require('./Image/icon/dashboard_yellow2x.png') 
+        const image = focused
+        ? require('./Image/icon/dashboard_yellow2x.png')
         : require('./Image/icon/dashboardIcon.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
@@ -65,8 +66,8 @@ const AuthStack = createBottomTabNavigator({
       title:"Que",
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
-        const image = focused 
-        ? require('./Image/icon/queueRequest_yellow2x.png') 
+        const image = focused
+        ? require('./Image/icon/queueRequest_yellow2x.png')
         : require('./Image/icon/queueRequestIcon2x.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
@@ -82,8 +83,8 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
-        const image = focused 
-        ? require('./Image/icon/queueIcon_yellow2x.png') 
+        const image = focused
+        ? require('./Image/icon/queueIcon_yellow2x.png')
         : require('./Image/icon/queueIcon2x.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
@@ -99,8 +100,8 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
-        const image = focused 
-        ? require('./Image/icon/historyIcon_yellow2x.png') 
+        const image = focused
+        ? require('./Image/icon/historyIcon_yellow2x.png')
         : require('./Image/icon/historyIcon2x.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
@@ -116,14 +117,14 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
-        const image = focused 
-        ? require('./Image/icon/settingsIcon_yellow2x.png') 
+        const image = focused
+        ? require('./Image/icon/settingsIcon_yellow2x.png')
         : require('./Image/icon/settingsIcon2x.png')
         return (
           <View style={{flexDirection:"column",alignItems:"center"}}>
           <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
           <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
-          </View>   
+          </View>
             )
     }
     })
@@ -133,8 +134,8 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
-        const image = focused 
-        ? require('./Image/icon/profileIcon_yellow2x.png') 
+        const image = focused
+        ? require('./Image/icon/profileIcon_yellow2x.png')
         : require('./Image/icon/profileIcon2x.png')
         return (
          <View style={{flexDirection:"column",alignItems:"center"}}>
@@ -149,7 +150,7 @@ const AuthStack = createBottomTabNavigator({
 {
   initialRouteName: 'D',
   headerMode:"none",
-  
+
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: 'black',
@@ -177,7 +178,7 @@ const RootStack = createStackNavigator({
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN IN',
             headerBackTitle:null,
-           
+
           })
         },
   SignUp: {
@@ -192,11 +193,11 @@ const RootStack = createStackNavigator({
           screen: Crea_pass,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
           })
@@ -205,11 +206,11 @@ const RootStack = createStackNavigator({
           screen: Forget_password,
           navigationOptions: ({ navigation }) => ({
             title:'FORGOT PASSWORD',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
           })
@@ -218,11 +219,11 @@ const RootStack = createStackNavigator({
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
-        headerLeft:( 
+        headerLeft:(
           <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
         <Image
           source={require('./Image/icon/back_2x.png')}
-          style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
+          style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
         />
         </TouchableOpacity>)
       })
@@ -239,23 +240,23 @@ const RootStack = createStackNavigator({
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS DETAILS',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]} 
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
           })
         },
 
   D: {
-          screen: DashBoard,      
-          navigationOptions: () => ({     
+          screen: DashBoard,
+          navigationOptions: () => ({
             title:'Dashboard',
             tabBarIcon: ({ focused }) => {
-              const image = focused 
-              ? require('./Image/icon/dashboard_yellow2x.png') 
+              const image = focused
+              ? require('./Image/icon/dashboard_yellow2x.png')
               : require('./Image/icon/dashboardIcon.png')
               return (
                 <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
@@ -269,11 +270,11 @@ const RootStack = createStackNavigator({
             headerMode: null,
             navigationOptions: ({ navigation }) => ({
               title: 'NEW USER',
-              headerLeft:( 
+              headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
                 source={require('./Image/icon/back_2x.png')}
-                style={styles.back_butt0n} 
+                style={styles.back_butt0n}
               />
               </TouchableOpacity>)
             })
@@ -287,15 +288,15 @@ const RootStack = createStackNavigator({
               headerTitleStyle: {
                 fontFamily:'Muli-Bold',marginBottom:hp("2%")
               },
-              headerLeft:( 
+              headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
                 source={require('./Image/icon/back_2x.png')}
-                style={styles.back_butt0n} 
+                style={styles.back_butt0n}
               />
               </TouchableOpacity>)
             })
-          },   
+          },
 
 
  ViewOffer:{
@@ -303,30 +304,30 @@ const RootStack = createStackNavigator({
         headerMode: null,
         navigationOptions: ({ navigation }) => ({
           title: 'VIEW OFFER',
-          headerLeft:( 
+          headerLeft:(
             <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
           <Image
             source={require('./Image/icon/back_2x.png')}
-            style={styles.back_butt0n} 
+            style={styles.back_butt0n}
           />
           </TouchableOpacity>)
         })
-},   
+},
 
 AddOffer:{
           screen:AddOffer,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD OFFER',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
-},   
+},
 
   AuthStack:{
              screen:AuthStack,
@@ -335,13 +336,13 @@ AddOffer:{
               // header: null,
               title:null,
               headerLeft: null,
-              headerRight:( 
+              headerRight:(
                 <TouchableOpacity onPress={() => {navigation.navigate('Alert')}}>
               <Image
                 source={require('./Image/main/notificationIcon3x.png')}
                 style={{marginRight:wp("5%"),
                 width: wp('5%'),
-                height: hp('3.5%'),}} 
+                height: hp('3.5%'),}}
               />
               </TouchableOpacity>),
             })
@@ -376,7 +377,7 @@ AddOffer:{
           navigationOptions: ({ navigation }) => ({
           headerLeft: null,
           })
-        },  
+        },
  QR_Code:{
           screen:QR_Code,
           headerMode: null,
@@ -385,11 +386,11 @@ AddOffer:{
             headerTitleStyle: {
               fontFamily:'Muli-Bold',marginBottom:hp("2%")
             },
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -399,11 +400,11 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'EDIT PROFILE',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -413,67 +414,67 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
           })
-        },  
+        },
   Rating:{
           screen:Rating,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
           })
-        },  
+        },
   App_setting:{
           screen:App_setting,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'APP SETTING',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
-        },  
-  
+        },
+
   Business_Hour:{
           screen:Business_Hour,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD BUSINESS HOUR',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
-        }, 
+        },
 
   Calendar:{
           screen:Calendar,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'SETUP HOLIDAYS',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
-        },   
+        },
  Manage_user:{
           screen:Manage_user,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'MANAGE USER',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -483,11 +484,11 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD NEW USER',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -497,11 +498,11 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD SERVICES',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -512,11 +513,11 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ADD STYLIST',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -526,11 +527,11 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'Rating & Review',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -540,11 +541,11 @@ Set_up:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'Rating & Review',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
@@ -554,18 +555,18 @@ Set_up:{
           // headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'ALERTS',
-            headerLeft:( 
+            headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.navigate('D') }}>
             <Image
               source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n} 
+              style={styles.back_butt0n}
             />
             </TouchableOpacity>),
           })
         },
-        
+
       },
- 
+
       {
         initialRouteName:"SignIn",
         // headerMode: "none",
@@ -574,15 +575,15 @@ Set_up:{
             fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
           },
             },
-      
+
 });
 
 
-export default class StackNavigator extends React.Component {
+class DinggApp extends React.Component {
   constructor(){
-    super(); 
+    super();
   }
-  
+
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}  forceInset={{top: 'always'}}>
@@ -591,3 +592,5 @@ export default class StackNavigator extends React.Component {
     );
   }
 }
+
+export default DinggApp = codePush(DinggApp);
