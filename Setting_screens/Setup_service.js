@@ -1,218 +1,157 @@
 import React, { Component } from 'react';
- import styles from '../Component/Style'
-import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, TextInput, Alert, YellowBox } from 'react-native';
+import { TouchableOpacity,StyleSheet, ScrollView, View, Animated, FlatList, Text, TextInput, Alert, YellowBox } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
-
+import styles from '../Component/Style'
 export default class Stylist extends Component {
  
  constructor(props) {
    super(props);
+   this.array = [{
+    title: 'Blow Dry',
+    time:"20"
+  },
+  {
+    title: 'Hair Styling for Short Hair',
+    time:"30"
+  },
+  {
+    title: 'Blow Dry',
+    time:"40"
+  },
+  {
+    title: 'Hair Styling for Short HAir',
+    time:"50"
+  },
+  
+  ],
+  this.array_name = [{
+    name: 'Hair'
+  },
+  {
+    name: 'Make Up'
+  },
+  
+  ],
    this.state = {
-                valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
-                isLoading: true,MakeUp_data:"",makeup_data_time:"",
-                    dataSource : [ 
-                        {
-                            Ser_name:"Hair cut"
-                        },
-                        {
-                            name: "hair dry",
-                        },
-                        {
-                        name: "Design in short hair",
-                        },  
-                ],
+                arrayHolder: [],arrayHolder_name:[],
+                textInput_Holder: '',textInput_HolderName:'',textInput_HolderTime:''
        }
      this.index = 0;
      this.animatedValue = new Animated.Value(0);
  }
  
+ componentDidMount() {
+
+    this.setState({ arrayHolder: [...this.array] })
+    this.setState({ arrayHolder_name: [...this.array_name] })
+  }
+
+
+  joinData = () => {
+    this.array.push({name : this.state.textInput_HolderName});
+
+    this.setState({ arrayHolder_name: [...this.array_name] })
+
+    this.array.push({title : this.state.textInput_Holder,time:this.state.textInput_HolderTime});
+
+    this.setState({ arrayHolder: [...this.array] })
+
+  }
+  
  FlatListItemSeparator = () => {
    return (
-     <View
-       style={{
-         height: .5,
-         width: "100%",
-         backgroundColor: "#000",
-       }}
-     />
+    <View
+        style={{
+          height: 1,
+          width: "100%",
+          backgroundColor: "rgb(179,179,179)",
+        }}
+      />
    );
  }
- componentDidMount(){
-    this.addMore();
- }
- 
-      addMore = () =>
-      {
-          this.animatedValue.setValue(0);
-  
-          let newlyAddedValue = { index: this.index }
-  
-          this.setState({ disabled: true, valueArray: [ ...this.state.valueArray, newlyAddedValue ] }, () =>
-          {
-              Animated.timing(
-                  this.animatedValue,
-                  {
-                      toValue: 1,
-                      duration: 500,
-                      useNativeDriver: true
-                  }
-              ).start(() =>
-              {
-                  this.index = this.index + 1;
-                  this.setState({ disabled: false });
-              }); 
-          });              
-      }
+ GetItem(item) {
+
+    Alert.alert(item);
+
+  }
   
  render() {
-  const animationValue = this.animatedValue.interpolate(
-    {
-        inputRange: [ 0, 1 ],
-        outputRange: [ -59, 0 ]
-    });
-
-    let newArray = this.state.valueArray.map(( item, key ) =>
-    {
-        if(( key ) == this.index)
-        {
-            return(
-                <View key = { key } style = {[ styles.viewHolder,]}>
-                    <TextInput
-                        value={this.state.hair_data}
-                        onChangeText={hair_data => this.setState({ hair_data })}
-                        ref={input => (this.passwordCInput = input)}
-                        // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input]}
-                        placeholder="Add More"
-                        placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="next"
-                        //  secureTextEntry
-                    />
-                </View>
-            );
-        }
-        else
-        {
-            return(
-                <View key = { key } style = { styles.viewHolder }>
-                   <TextInput
-                    value={this.state.hair_data_time}
-                    onChangeText={hair_data_time => this.setState({ hair_data_time })}
-                    ref={input => (this.passwordCInput = input)}
-                    // onSubmitEditing={() => this.passwordInput.focus()}
-                    style={[styles.input]}
-                    placeholder="Add More"
-                    placeholderTextColor="rgb(204,204,204)"
-                    returnKeyType="next"
-                    //  secureTextEntry
-                  />
-                </View>
-            );
-        }
-    });
 return (
- <ScrollView>
-<View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
-        
+    <ScrollView>
+    <View style={{  flex: 1,
+        justifyContent: "space-between",
+        backgroundColor: "rgb(243,242,242)",}}>
+ <FlatList          
+                    data={ this.state.arrayHolder_name }
+                    // keyExtractor={(index) => index.toString()}
+                    renderItem={({item}) => 
     <View style={{ 
           width: wp('90%'),marginLeft:"5%",
-          height: hp('45%'),
           backgroundColor:"white",
-          marginVertical:hp('5%'),
+          marginVertical:hp('2%'),
           borderRadius:10,}}>
-          
-     <View style={{flexDirection:"row"}}>
-              <FlatList          
-                    data={ this.state.dataSource }
-                    renderItem={({item}) => 
-                    <ScrollView> 
-                        <Text style={[styles.text,{fontSize:28,marginLeft:wp("3%")}]}>{item.Ser_name}</Text> 
-                        <View style={{flexDirection:"row"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
-                                <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>                                         
-                                 <View style={{marginHorizontal:"5%"}}>
-                                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="250" initHeight="2"/>
-                                 </View>
-                            </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
-                                <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>10</Text>                                         
-                                 <View style={{marginHorizontal:"5%"}}>
-                                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="60" initHeight="2"/>
-                                 </View>
-                            </View>           
-                        </View> 
-                    </ScrollView>   }                       
+          <Text style={[styles.text,{fontSize:RF(3),marginLeft:wp("5%"),marginVertical:hp("2%")}]}> {item.name}</Text>
+        <FlatList
+
+        data={this.state.arrayHolder}
+
+        // width='70%'
+        marginHorizontal="5%"
+        extraData={this.state.arrayHolder}
+
+        keyExtractor={(index) => index.toString()}
+
+        // ItemSeparatorComponent={this.FlatListItemSeparator}
+
+        renderItem={({ item }) =>  
+                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+                 <View style={{flexDirection:"column"}}>
+                <Text style={[styles.item,{}]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>
+                <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="250" initHeight="2"/>
+                </View>
+                <View style={{flexDirection:"column"}}>
+                <Text style={styles.item} onPress={this.GetItem.bind(this, item.time)} > {item.time}m</Text>
+                <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
+               </View>
+                </View>}
+        />
+        <View style={{flexDirection:"row",marginVertical:hp("2%")}}> 
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="15" initHeight="15"/>
+        <TextInput
+        placeholder="Add More "
+        onChangeText={data => this.setState({ textInput_Holder: data })}
+        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("40%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        underlineColorAndroid='transparent'
+        />
+          <TextInput
+        placeholder="Add Time "
+        onChangeText={data => this.setState({ textInput_HolderTime: data })}
+        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("20%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        underlineColorAndroid='transparent'
+        />
+        </View>
+</View>
+
+                    }
                     />
-           </View>
-            <View style={[styles.text,{marginHorizontal:wp("5%")}]}>
-                                <View style = {{ flex: 1, padding: 4 }}>
-                                {
-                                    newArray
-                                }
-                                </View>
-            </View>
-</View>
-        
-{/* <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          height: hp('45%'),
-          backgroundColor:"white",
-          marginBottom:hp('5%'),
-          borderRadius:10,}}>
-       
-       <View style={{flexDirection:"row"}}>
-              <FlatList          
-                    data={ this.state.dataSource }
-                    renderItem={({item}) => 
-                    <ScrollView>
-                                        <Text style={[styles.text,{fontSize:28}]}>{item.Ser_name}</Text>                            
-                                        <View style={{flexDirection:"row"}}> 
-                                        <View style={{flexDirection:"column",marginVertical:hp("2%")}}>
-                                        <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.name}</Text>
-                                        
-                                        <View style={{marginHorizontal:"5%"}}>
-                                        <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-                                        </View>
-                                        </View>          
-                            </View>   
-                    </ScrollView>     }                       
-            />
-           </View>
-            <View style={[styles.text,{marginHorizontal:wp("5%")}]}>
-                                <View style = {{ flex: 1, padding: 4 }}>
-                                {
-                                    newArray
-                                }
-                                </View>
-            </View>
-</View> */}
-<View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          height: hp('10%'),
-          backgroundColor:"white",
-          marginBottom:hp('5%'),
-          borderRadius:10,}}>
-            <View style={[styles.text,{marginHorizontal:wp("5%")}]}>
-                                <View style = {{ flex: 1, padding: 4 }}>
-                                {
-                                    newArray
-                                }
-                                </View>
-            </View>
-</View>
-        <TouchableOpacity >
-        <View style={[styles.button,{marginBottom:hp("3%"),marginHorizontal:wp("30%")}]} >
-        <Text style={styles.buttonText}>Save</Text>
-       </View>
-       </TouchableOpacity>
-     </View>
-</ScrollView>
+ <View style={[styles.box_SignUp,{height:hp("8%"),flexDirection:"row",marginHorizontal:wp("5%")}]}> 
+        <ResponsiveImage style={{marginBottom:hp(".7%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="12" initHeight="12"/>
+        <TextInput
+        placeholder="Add More Category"
+        onChangeText={data => this.setState({ textInput_HolderName: data })}
+        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        underlineColorAndroid='transparent'
+        />
+        </View>
+<TouchableOpacity onPress={this.joinData}  activeOpacity={0.7} style={[styles.button,{marginVertical:hp("2%"),marginHorizontal:wp("30%")}]} >
+
+<Text  style={styles.buttonText}>Save</Text>
+
+</TouchableOpacity>
+  </View>
+  </ScrollView>
    );
  }
 }
- 

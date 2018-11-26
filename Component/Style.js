@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
         fontSize: RF(3),
         borderColor:"rgb(222,222,222)",
         borderBottomWidth:1,
-        fontWeight: 'bold',
-    },
+        fontFamily:"Muli-Bold",
+          },
    
     wrongNumberText: {
       margin: 10,
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     profile_Small_text:{
       fontSize: RF(2),
       justifyContent:"flex-start",
-      marginLeft:"5%",
+      marginLeft:"10%",
       marginTop:"5%",
       color:"rgb(176,176,176)",
       fontWeight:"bold",
@@ -333,7 +333,13 @@ const styles = StyleSheet.create({
       paddingVertical:"2.5%",
       // fontFamily:"Muli-Bold",
       fontWeight: 'bold',
-    }
+    },
+    item: {
+      fontSize: RF(2.5),
+            paddingVertical:hp("1%"),
+            fontFamily:"Muli-Bold",
+            color:"rgb(116,116,116)"
+          },
     
   });
   

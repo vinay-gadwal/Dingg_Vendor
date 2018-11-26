@@ -8,8 +8,10 @@ import styles from './Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
-
-export default class App extends Component {
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import Alert_top from './Alert'
+import Profile_edit from './Profile_Edit'
+class App extends Component {
   
     state = {
         
@@ -44,52 +46,52 @@ export default class App extends Component {
                   </TouchableOpacity>
                   </View>
                     <Text style={styles.profile_Small_text}>Address</Text>
-                    <Text style={styles.setting_text}>{GLOBAL.Address}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>{GLOBAL.Address}</Text>
                     <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
 
                     <Text style={styles.profile_Small_text}>Locality</Text>
-                    <Text style={styles.setting_text}>{GLOBAL.Locality}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>{GLOBAL.Locality}</Text>
                     <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
                   
                     <Text style={styles.profile_Small_text}>City</Text>
-                    <Text style={styles.setting_text}>{GLOBAL.City}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>{GLOBAL.City}</Text>
 
             </View>
             <Text></Text>
             <View style={styles.Profile_Container}>
             
                     <Text style={styles.profile_Small_text}>Website</Text>
-                    <Text style={styles.setting_text}>{GLOBAL.Website_url}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>{GLOBAL.Website_url}</Text>
                     <View style={{marginHorizontal:"5%"}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
                   
                     <Text style={styles.profile_Small_text}>Email</Text>
-                    <Text style={styles.setting_text}>{GLOBAL.Email}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>{GLOBAL.Email}</Text>
 
             </View>
             <Text></Text>
             <View style={styles.Profile_Container}>
             
                     <Text style={styles.profile_Small_text}>Conatct Name</Text>
-                    <Text style={styles.setting_text}>{GLOBAL.Contact_Name}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>{GLOBAL.Contact_Name}</Text>
                     <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
                   
                     <Text style={styles.profile_Small_text}>Primary Number</Text>
-                    <Text style={styles.setting_text}>+91-{GLOBAL.Primary_No}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>+91-{GLOBAL.Primary_No}</Text>
                     <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
 
                    <View style={{justifyContent:"center"}}>
                     <Text style={styles.profile_Small_text}>Secondry Number</Text>
-                    <Text style={styles.setting_text}>+91-{GLOBAL.Secondry_no}</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"10%"}]}>+91-{GLOBAL.Secondry_no}</Text>
                     <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
@@ -97,7 +99,7 @@ export default class App extends Component {
                   
                   <View style={{justifyContent:"center"}}>
                   <Text style={styles.profile_Small_text}>Landline Number</Text>
-                  <Text style={styles.setting_text}>+91-{GLOBAL.Landline_No}</Text>
+                  <Text style={[styles.setting_text,{marginLeft:"10%"}]}>+91-{GLOBAL.Landline_No}</Text>
                 </View>
 
             </View>
@@ -110,7 +112,7 @@ export default class App extends Component {
                    </View>
 
                   <Text style={styles.profile_Small_text}>Service Type</Text>
-                  <Text style={styles.setting_text}>Unisex</Text>
+                  <Text style={[styles.setting_text,{marginLeft:"10%"}]}>Unisex</Text>
                   
             </View>
             <Text></Text>
@@ -183,3 +185,43 @@ export default class App extends Component {
   }
 }
 
+export default createStackNavigator({
+  App:{
+    screen:App,
+    navigationOptions: ({ navigation }) => ({
+      title: 'PROFILE',
+     
+      headerRight:(
+        <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+         <Image
+          source={require('../Image/icon/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+        </TouchableOpacity>)
+      })
+  },
+ Alert_top:{
+          screen:Alert_top,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ALERTS',
+            headerLeft:null,
+            headerRight:(
+            <Image
+              source={require('../Image/icon/notificationIconYellow3x2.png')}
+              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            />)
+          })
+        },    
+},
+
+
+{
+  initialRouteName:"App",
+  // headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    },
+      },
+
+});

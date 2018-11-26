@@ -5,7 +5,9 @@ import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, Image, Al
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
-export default class Queue_request extends Component {
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import Alert_top from './Alert'
+ class Queue_request extends Component {
  
  constructor(props) {
    super(props);
@@ -39,7 +41,7 @@ export default class Queue_request extends Component {
  
 render() {
 return (
- <ScrollView>
+ <ScrollView style={{flex:1}}>
    
 <View style={{  flex: 1,
       justifyContent: "space-between",
@@ -54,9 +56,8 @@ return (
                     renderItem={({item}) => 
                     <View style={{ 
                       width: wp('90%'),marginLeft:"5%",
-                      height: hp('33Fgive F%'),
                       backgroundColor:"white",
-                      marginVertical:hp('2%'),
+                      marginVertical:hp('3%'),
                       borderRadius:10,}}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
@@ -69,20 +70,20 @@ return (
                                  </View>
                                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                                  <TouchableOpacity>
-                                    <ResponsiveImage source={require('../Image/main/acceptIcon3x.png')} initWidth="30" initHeight="30"/>
+                                    <ResponsiveImage source={require('../Image/main/acceptIcon3x.png')} initWidth="25" initHeight="25"/>
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Reject')}}>
-                                    <ResponsiveImage source={require('../Image/main/rejectIcon3x.png')} initWidth="30" initHeight="30"/>
+                                    <ResponsiveImage source={require('../Image/main/rejectIcon3x.png')} initWidth="25" initHeight="25"/>
                                     </TouchableOpacity>
                                  </View>
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                             </View>           
                         </View>
                         </View>   }                       
@@ -93,3 +94,42 @@ return (
    );
  }
 }
+export default createStackNavigator({
+  Queue_request:{
+    screen:Queue_request,
+    navigationOptions: ({ navigation }) => ({
+      title: 'QUEUE REQUEST',
+     
+      headerRight:(
+        <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+         <Image
+          source={require('../Image/icon/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+        </TouchableOpacity>)
+      })
+  },
+ Alert_top:{
+          screen:Alert_top,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ALERTS',
+            headerLeft:null,
+            headerRight:(
+            <Image
+              source={require('../Image/icon/notificationIconYellow3x2.png')}
+              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            />)
+          })
+        },
+},
+
+{
+  initialRouteName:"Queue_request",
+  // headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    },
+      },
+
+});

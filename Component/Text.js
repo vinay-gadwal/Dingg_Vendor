@@ -1,142 +1,155 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View,Image,
-  ScrollView,TextInput,TouchableOpacity,FlatList
-} from 'react-native';
-import styles from './Style'
-import ToggleSwitch from 'toggle-switch-react-native'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import RF from "react-native-responsive-fontsize"
-import { Dialog } from "react-native-simple-dialogs";
-import CountDown from 'react-native-countdown-component';
-import TimerCountdown from 'react-native-timer-countdown';
-import ResponsiveImage from 'react-native-responsive-image'
-import SwitchButton from 'switch-button-react-native';
-import Switch from 'react-native-customisable-switch';
 
-export default class App extends Component {
-    state = {
-        avatarSource: null,avatarSource1:null,
-        videoSource: null,isOnDefaultToggleSwitch: false,
-        isOnLargeToggleSwitch_user: true,
-        isOnBlueToggleSwitch: false,switchThreeValue: true,
-        Mon_time_on_hour:3,Mon_time_on_min:0, mon_zero_hour:0,mon_zero_min:0,mon_zero_hour_left:"",mon_zero_min_left:0,
-        Mon_time_off_hour:10,Mon_time_off_min:0,
-        mon :false,tue:false,
-        dataSource : [
-          {
-            Mon_time_on_hour:9,mon_zero_hour:0,Mon_time_off_hour:19,mon_zero_min:0,switchMonValue:"mon"
-          },
-        ]
-      };
-      time_Increase_mon=()=>{
-              if(this.state.dataSource.Mon_time_on_min <= 30)
-              {
-                this.setState({
-                  Mon_time_on_min : (this.state.dataSource.Mon_time_on_min)+15,
-                })
-              }
-              else {
-                this.setState({
-                  Mon_time_on_hour : (this.state.dataSource.Mon_time_on_hour)+1 , Mon_time_on_min : 0
-                })
-              }
-        }
+import { StyleSheet, FlatList, Text, View, Alert, TouchableOpacity, TextInput } from 'react-native';
 
+export default class Myproject extends Component {
 
-    openDialog = (show) => {
-        this.setState({ showDialog: show });
-    }
-
-    onToggle(isOn){
-      // alert('Changed to ' + isOn)
-    }
+  constructor(props) {
     
-  render() {
-    
-    const {
-      switchThreeValue,
-    } = this.state;
+    super(props);
+
+    this.array = [{
+      title: 'ONE'
+    },
+    {
+      title: 'TWO'
+    },
+    {
+      title: 'THREE'
+    },
+    {
+      title: 'FOUR'
+    },
+    {
+      title: 'FIVE'
+    }
+    ],
+
+      this.state = {
+
+        arrayHolder: [],
+
+        textInput_Holder: ''
+
+      }
+
+  }
+
+  componentDidMount() {
+
+    this.setState({ arrayHolder: [...this.array] })
+
+  }
+
+
+  joinData = () => {
+
+    this.array.push({title : this.state.textInput_Holder});
+
+    this.setState({ arrayHolder: [...this.array] })
+
+  }
+
+  FlatListItemSeparator = () => {
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-              
-        <View style={{paddingVertical:"5%"}}>
-          <View style={styles.Profile_Container}>
-            
-                   <FlatList
-       
-                      data={ this.state.dataSource }
-                      
-                      // ItemSeparatorComponent = {this.FlatListItemSeparator}
+      <View
+        style={{
+          height: 1,
+          width: "100%",
+          backgroundColor: "#607D8B",
+        }}
+      />
+    );
+  }
 
-                      renderItem={({item}) => 
-                   <View style={[styles.setting_Row,{marginBottom:"5%",height: hp('7%'),}]}>
-                                   <View style={{marginTop:"6%",marginLeft:wp("2%")}}>
-                          <Switch
-                          value={item.switchMonValue}
-        
-                          // onChangeValue={(value) => this.ShowAlert(value)}
-                          
-                          fontSize={10}
-                          switchWidth={50}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-                                  </View>
-              <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{item.mon_zero_hour}{item.Mon_time_on_hour}:{item.mon_zero_hour}</Text>
-            <TouchableOpacity onPress={() => {this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-              
-            <Text>to</Text>  
-            
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity  style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{item.Mon_time_off_hour}:{item.mon_zero_hour}</Text>
-            <TouchableOpacity style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>        
-               
-                  </View>
-                      }
-                   />
-            
-             </View>
-          <Text></Text>
-        </View>
-      </ScrollView>
+  GetItem(item) {
+
+    Alert.alert(item);
+
+  }
+
+
+  render() {
+    return (
+
+      <View style={styles.MainContainer}>
+
+        <TextInput
+          placeholder="Enter Value Here"
+          onChangeText={data => this.setState({ textInput_Holder: data })}
+          style={styles.textInputStyle}
+          underlineColorAndroid='transparent'
+        />
+
+        <TouchableOpacity onPress={this.joinData} activeOpacity={0.7} style={styles.button} >
+
+          <Text style={styles.buttonText}> Add Values To FlatList </Text>
+
+        </TouchableOpacity>
+
+        <FlatList
+
+          data={this.state.arrayHolder}
+
+          width='100%'
+
+          extraData={this.state.arrayHolder}
+
+          keyExtractor={(index) => index.toString()}
+
+          ItemSeparatorComponent={this.FlatListItemSeparator}
+
+          renderItem={({ item }) => <Text style={styles.item} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
+        />
+
+
+      </View>
+
     );
   }
 }
 
+const styles = StyleSheet.create({
+
+  MainContainer: {
+
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    margin: 2
+
+  },
+
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+
+  textInputStyle: {
+
+    textAlign: 'center',
+    height: 40,
+    width: '90%',
+    borderWidth: 1,
+    borderColor: '#4CAF50',
+    borderRadius: 7,
+    marginTop: 12
+  },
+
+  button: {
+
+    width: '90%',
+    height: 40,
+    padding: 10,
+    backgroundColor: '#4CAF50',
+    borderRadius: 8,
+    marginTop: 10
+  },
+
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+  },
+
+});

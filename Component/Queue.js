@@ -6,8 +6,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import ResponsiveImage from 'react-native-responsive-image'
 import { Dialog } from "react-native-simple-dialogs";
 import PopoverTooltip from 'react-native-popover-tooltip';
-
-export default class Queue_request extends Component {
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import Alert_top from './Alert'
+class Queue extends Component {
  
  constructor(props) {
    super(props);
@@ -58,9 +59,8 @@ return (
                     renderItem={({item}) => 
                     <View style={{ 
                         width: wp('90%'),marginLeft:"5%",
-                        height: hp('35%'),
                         backgroundColor:"white",
-                        marginVertical:hp('2%'),
+                        marginVertical:hp('3%'),
                         borderRadius:10,}}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
@@ -75,7 +75,7 @@ return (
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,{height:hp("7%"),width:wp("25%"),marginVertical:hp("2%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
+                                                    <View style={[styles.button,{height:hp("7%"),width:wp("25%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
                                                     <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>
                                                         Action
                                                     </Text>
@@ -105,13 +105,13 @@ return (
                                     />
 
                             </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                              <View style={{flexDirection:"column",marginVertical:hp("1%"),alignItems:"flex-start",width:wp("45%")}}>
+                                 <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                             </View>  
                             </View>         
                         </View>   }                       
@@ -161,3 +161,42 @@ return (
    );
  }
 }
+export default createStackNavigator({
+    Queue:{
+      screen:Queue,
+      navigationOptions: ({ navigation }) => ({
+        title: 'QUEUE',
+       
+        headerRight:(
+          <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+           <Image
+          source={require('../Image/icon/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+          </TouchableOpacity>)
+        })
+    },
+   Alert_top:{
+            screen:Alert_top,
+            navigationOptions: ({ navigation }) => ({
+              title: 'ALERTS',
+              headerLeft:null,
+              headerRight:(
+              <Image
+                source={require('../Image/icon/notificationIconYellow3x2.png')}
+                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+              />)
+            })
+          },
+  },
+  
+  {
+    initialRouteName:"Queue",
+    // headerMode: "none",
+    navigationOptions: {
+      headerTitleStyle: {
+        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+      },
+        },
+  
+  });

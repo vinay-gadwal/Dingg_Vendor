@@ -5,6 +5,9 @@ import {
   ScrollView,TextInput,TouchableOpacity,FlatList
 } from 'react-native';
 import styles from './Style'
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import Alert_top from './Alert'
+
 import ToggleSwitch from 'toggle-switch-react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RF from "react-native-responsive-fontsize"
@@ -14,8 +17,7 @@ import TimerCountdown from 'react-native-timer-countdown';
 import ResponsiveImage from 'react-native-responsive-image'
 import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
-
-export default class App extends Component {
+class App extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
         videoSource: null,isOnDefaultToggleSwitch: false,
@@ -295,9 +297,9 @@ export default class App extends Component {
                                           inactiveButtonBackgroundColor={'rgb(153,153,153)'}
                                     />
                                   </View>
-                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%"),marginTop:hp("1.5%")}]}>{item.name}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1.5%")}]}>{item.served}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1.5%")}]}>{item.queue}</Text>
+                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%"),marginTop:hp("1%")}]}>{item.name}</Text>
+                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.served}</Text>
+                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.queue}</Text>
                     {/* <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
@@ -332,3 +334,42 @@ export default class App extends Component {
   }
 }
 
+export default createStackNavigator({
+  App:{
+    screen:App,
+    navigationOptions: ({ navigation }) => ({
+      title: 'DASHBOARD',
+     
+      headerRight:(
+          <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+        <Image
+          source={require('../Image/icon/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+        </TouchableOpacity>)
+      })
+  },
+ Alert_top:{
+          screen:Alert_top,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ALERTS',
+            headerLeft:null,
+            headerRight:(
+            <Image
+              source={require('../Image/icon/notificationIconYellow3x2.png')}
+              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            />)
+          })
+        },
+},
+
+{
+  initialRouteName:"App",
+  // headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    },
+      },
+
+});

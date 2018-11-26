@@ -7,7 +7,8 @@ import ResponsiveImage from 'react-native-responsive-image'
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import PropTypes from 'prop-types'
 import { Dialog } from "react-native-simple-dialogs";
-
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import Alert_top from './Alert'
 class Ongoing extends React.Component {
     
         state = {
@@ -84,9 +85,7 @@ class Ongoing extends React.Component {
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
                             <View style={{ 
-                              width: wp('90%'),marginLeft:"5%",
-                              height: hp('35%'),
-                              backgroundColor:"white",
+                              width: wp('90%'),marginLeft:"5%",                              backgroundColor:"white",
                               marginVertical:hp('2%'),
                               borderRadius:10,}}> 
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
@@ -114,12 +113,13 @@ class Ongoing extends React.Component {
                                           </TouchableOpacity>
                                     </View>           
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                      <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%"),color:"rgb(255,164,0)"}]}>Mark as Done</Text>
+                                         <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                     </View>           
                                 </View>  
                                 </View> }                       
@@ -417,7 +417,7 @@ class StarReview extends React.Component {
                             renderItem={({item}) => 
                             <View style={{ 
                               width: wp('90%'),marginLeft:"5%",
-                              height: hp('40%'),
+                            
                               backgroundColor:"white",
                               marginVertical:hp('2%'),
                               borderRadius:10,}}>
@@ -433,12 +433,12 @@ class StarReview extends React.Component {
                                          {view}
                                     </View>           
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.7),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.7)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
                                     </View>           
                                 </View> 
                                 </View>  }                       
@@ -477,20 +477,49 @@ StarReview.defaultProps = {
   count: 5,
   rating: 0,
   default: 0,
-  starSize: 20,
+  starSize: 12,
   update: () => {},
   backingColor: 'white',
   opacity: false,
   half: false,
-  spacing: 0
+  spacing: 7
 }
 
-export default createMaterialTopTabNavigator({
-  Ongoing: Ongoing,
-  Completed: StarReview,
-  
+const AuthStack = createMaterialTopTabNavigator ({
+  Ongoingjob: { screen :Ongoing,
+    navigationOptions: () => ({
+      title:"Ongoing Job",
+      tabBarIcon: ({ focused }) => {
+        const line = focused ? require('../Image/main/highlight3x.png') : require('../Image/main/line-transparent-vertical-2.png')
+        const image = focused
+        ? require('../Image/icon/queueRequest_yellow2x.png')
+        : require('../Image/icon/queueRequestIcon2x.png')
+        return (
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="27" initHeight="23"/>
+          </View>
+        )
+    }
+    })},
+  Completed: {screen:StarReview,
+    navigationOptions: () => ({
+      title:"Completed",
+      tabBarIcon: ({ focused }) => {
+        const line = focused ? require('../Image/main/highlight3x.png') : require('../Image/main/line-transparent-vertical-2.png')
+        const image = focused
+        ? require('../Image/icon/queueRequest_yellow2x.png')
+        : require('../Image/icon/queueRequestIcon2x.png')
+        return (
+          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="27" initHeight="23"/>
+          </View>
+        )
+    }
+    })}
 } ,{
-    initialRouteName: 'Ongoing',
+    initialRouteName: 'Ongoingjob',
     navigationOptions: {
       headerStyle: {
         backgroundColor: "rgb(255,164,0)",
@@ -501,10 +530,11 @@ export default createMaterialTopTabNavigator({
       width: Dimensions.get('window').width,
     },
     optimizationsEnabled: true,
-    tabBarOptions: {
-      labelStyles:{ fontSize:30 } ,
+    tabBarOptions: 
+     {
+      labelStyles:{ fontSize:RF(3)
+       } ,
       upperCaseLabel: false,
-      // backgroundColor: 'transparent',
       style: {
         height: hp("8%"),
         marginTop:hp("3%"),
@@ -515,13 +545,61 @@ export default createMaterialTopTabNavigator({
       indicatorStyle: {
         borderBottomColor: "rgb(255,164,0)",
         borderBottomWidth: 2,
+        opacity: 0
       },
       tabStyle: {
         borderRightColor: '#ffffff',
         borderRightWidth: 1,
+        fontSize:RF(3)
+      },
+      labelStyle: {
+        fontSize: RF(2.5),
+        fontFamily:"Muli-Bold"
       },
       activeTintColor: 'black',
       inactiveTintColor: 'black',
     },
   }
   );
+  
+  export default createStackNavigator({
+    AuthStack:{
+      screen:AuthStack,
+      navigationOptions: ({ navigation }) => ({
+        title: 'HISTORY',
+       
+        headerRight:(
+          <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+          <Image
+          source={require('../Image/icon/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+          </TouchableOpacity>)
+        })
+    },
+   Alert_top:{
+            screen:Alert_top,
+            navigationOptions: ({ navigation }) => ({
+              title: 'ALERTS',
+              headerLeft:null,
+              headerRight:(
+              <Image
+                source={require('../Image/icon/notificationIconYellow3x2.png')}
+                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+              />)
+            })
+          },
+        
+  },
+  
+  
+  {
+    initialRouteName:"AuthStack",
+    // headerMode: "none",
+    navigationOptions: {
+      headerTitleStyle: {
+        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+      },
+        },
+  
+  });

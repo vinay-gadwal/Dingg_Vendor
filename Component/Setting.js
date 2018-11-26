@@ -11,8 +11,9 @@ import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
-
-export default class App extends Component {
+import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import Alert_top from './Alert'
+ class Setting extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
         videoSource: null,
@@ -178,7 +179,7 @@ export default class App extends Component {
              </TouchableOpacity>
           </View>
          
-        <TouchableOpacity style={[styles.button,{marginTop:hp("5"),marginHorizontal:wp("30%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
+        <TouchableOpacity style={[styles.button,{marginTop:hp("3"),marginHorizontal:wp("30%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
                   <Text style={styles.buttonText}>Log Out</Text>
         </TouchableOpacity>
         </View>
@@ -186,4 +187,44 @@ export default class App extends Component {
     );
   }
 }
+export default createStackNavigator({
+  Setting:{
+    screen:Setting,
+    navigationOptions: ({ navigation }) => ({
+      title: 'SETTINGS',
+     
+      headerRight:(
+        <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
+        <Image
+          source={require('../Image/icon/notificationIcon3x.png')}
+          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        />
+        </TouchableOpacity>)
+      })
+  },
+ Alert_top:{
+          screen:Alert_top,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ALERTS',
+            headerLeft:null,
+            headerRight:(
+            <Image
+              source={require('../Image/icon/notificationIconYellow3x2.png')}
+              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            />)
+          })
+        },
+      
+},
 
+
+{
+  initialRouteName:"Setting",
+  // headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: {
+      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    },
+      },
+
+});

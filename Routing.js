@@ -36,7 +36,7 @@ import Add_stylist from './Setting_screens/Add_stylist'
 import Star_Rating from './Setting_screens/Review_rating'
 import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
-import Alert from './Component/Alert'
+// import Alert from './Component/Alert'
 console.disableYellowBox = true;
 
 const AuthStack = createBottomTabNavigator({
@@ -333,7 +333,7 @@ AddOffer:{
              screen:AuthStack,
              headerMode:"none",
              navigationOptions: ({ navigation }) => ({
-              // header: null,
+              header: null,
               title:null,
               headerLeft: null,
               headerRight:(
@@ -550,20 +550,20 @@ Set_up:{
             </TouchableOpacity>)
           })
         },
-  Alert:{
-          screen:Alert,
-          // headerMode: null,
-          navigationOptions: ({ navigation }) => ({
-            title: 'ALERTS',
-            headerLeft:(
-              <TouchableOpacity  onPress={ () => { navigation.navigate('D') }}>
-            <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={styles.back_butt0n}
-            />
-            </TouchableOpacity>),
-          })
-        },
+  // Alert:{
+  //         screen:Alert,
+  //         // headerMode: null,
+  //         navigationOptions: ({ navigation }) => ({
+  //           title: 'ALERTS',
+  //           headerLeft:(
+  //             <TouchableOpacity  onPress={ () => { navigation.navigate('D') }}>
+  //           <Image
+  //             source={require('./Image/icon/back_2x.png')}
+  //             style={styles.back_butt0n}
+  //           />
+  //           </TouchableOpacity>),
+  //         })
+  //       },
 
       },
 
@@ -579,7 +579,7 @@ Set_up:{
 });
 
 
-class DinggApp extends React.Component {
+export default class DinggApp extends React.Component {
   constructor(){
     super();
   }
@@ -593,4 +593,4 @@ class DinggApp extends React.Component {
   }
 }
 
-export default DinggApp = codePush(DinggApp);
+// export default DinggApp = codePush(DinggApp);

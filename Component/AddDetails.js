@@ -346,7 +346,7 @@ export default class App extends Component {
                                 fontSize:hp('2.2%')
                               },
                         }}
-                        currentLocation={false} // Will add a 'Current location' button at the top of the predefined places list
+                        currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
                         currentLocationLabel="Current location"
                         nearbyPlacesAPI="GooglePlacesSearch" // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
                         GoogleReverseGeocodingQuery={{
@@ -433,7 +433,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
                   <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:"20%",fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -457,7 +457,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
                       <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2)}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
