@@ -225,7 +225,7 @@ export default class example extends Component {
   keyboardShouldPersistTaps='handled'
 >      
 <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>
         <View style={[styles.box_SignUp,{height: hp('17.3%'),marginTop:hp("3%")}]}>
@@ -260,7 +260,7 @@ export default class example extends Component {
           <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"11%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:hp("1%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -281,13 +281,11 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <View style={{marginBottom:"20%",marginTop:hp("3%")}} >
-        <TouchableOpacity style={[styles.button,{width: wp('40'),}]} onPress={() => {this.props.navigation.navigate('Crea_pass')}}>
+        <TouchableOpacity style={[styles.button,{width: wp('40'),marginVertical:hp("3%")}]} onPress={() => {this.props.navigation.navigate('Crea_pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>
 
           {/* {this._renderFooter()} */}
-          </View>
         <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={{flexDirection:"column"}}>
@@ -297,7 +295,7 @@ export default class example extends Component {
           source={require('../Image/icon/Line/rectangle1.png')}
           style={{
             width: wp('12.5%'),
-            height: hp('.3%'),marginBottom:"5%",marginTop:"4%"
+            height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp(".5%")
             // left: 20
           }}
         />

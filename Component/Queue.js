@@ -60,22 +60,22 @@ return (
                     <View style={{ 
                         width: wp('90%'),marginLeft:"5%",
                         backgroundColor:"white",
-                        marginVertical:hp('3%'),
+                        marginTop:hp('2%'),
                         borderRadius:10,}}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                             <View style={{flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
+                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} style={{marginTop:hp(".5%")}} initWidth="20" initHeight="20"/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                  </View>
-                                 <View style={{marginVertical:hp("2%")}}>
+                                 <View >
                                  <Image style={styles.avatarMultiple} source={GLOBAL.Image} />                                 
                                  </View>
                                 <PopoverTooltip 
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,{height:hp("7%"),width:wp("25%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
+                                                    <View style={[styles.button,{height:hp("5%"),width:wp("25%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
                                                     <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>
                                                         Action
                                                     </Text>
@@ -106,12 +106,12 @@ return (
 
                             </View>           
                               <View style={{flexDirection:"column",marginVertical:hp("1%"),alignItems:"flex-start",width:wp("45%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1.5%")}]}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("0%")}]}>Service</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("0%")}]}>Stylist</Text>
+                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                             </View>  
                             </View>         
                         </View>   }                       

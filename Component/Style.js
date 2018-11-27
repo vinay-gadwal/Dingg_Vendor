@@ -13,22 +13,19 @@ const styles = StyleSheet.create({
     },
     
     copy_rigth:{
-      fontSize: RF("2.2"),color:"rgb(153,153,153)",
+      fontSize: RF(1.8),color:"rgb(153,153,153)",
       fontWeight: 'bold',
     },
     copy_rigth_image:{
-      width: wp("2.9%"),
-      height: hp("1.7%"),marginTop:hp(".5%"),
+      width: wp("2.5%"),
+      height: hp("1.2%"),marginTop:hp(".5%"),
     },    
     input: {
       width: wp('70%'),
       height: hp('6%'),
-      marginBottom: hp('0%'),
       fontSize: RF(2.2),
-      marginTop:"0%",
       textAlign:'left',  
       fontFamily:'Muli-Bold',
-      // fontWeight: 'bold',
       },
     
     inputSignUp: {
@@ -204,8 +201,8 @@ const styles = StyleSheet.create({
     setting_Image:{
       width: hp("2%"),
       height: hp("2%"),
-      marginTop:hp("2.5"),
-      marginRight:wp("8%")
+      marginTop:hp("2"),
+      marginRight:wp("6%")
     },
     Dashbosrd_image:{
       width: hp("2%"),
@@ -221,7 +218,7 @@ const styles = StyleSheet.create({
       marginRight:wp("8%")
     },
     profile_Small_text:{
-      fontSize: RF(2),
+      fontSize: RF(1.8),
       justifyContent:"flex-start",
       marginLeft:"10%",
       marginTop:"5%",
@@ -237,9 +234,9 @@ const styles = StyleSheet.create({
     },
     
     back_butt0n:{
-        marginLeft:wp("4%"),
-        width: wp('6%'),
-        height: hp('2.8%'),
+        marginLeft:wp("6%"),
+        width: wp('7%'),
+        height: hp('2.5%'),
     },
     tab_button:{
       marginLeft:wp("5%"),
@@ -284,7 +281,7 @@ const styles = StyleSheet.create({
     Dashboard_block:{
       width:wp("40%"),flexDirection:"row",
       backgroundColor:"white",
-      height:hp("13%"),
+      // height:hp("13%"),
       borderRadius:10
     },
 

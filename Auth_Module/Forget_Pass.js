@@ -224,7 +224,7 @@ export default class example extends Component {
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
       <TextInputLayout focusColor="rgb(255,164,0)">
 
-      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -290,7 +290,7 @@ export default class example extends Component {
       keyboardShouldPersistTaps='handled'
     >        
  <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>      
          <View style={[styles.box_SignUp,{height: hp('20%'),marginTop:hp("3%")}]}>
@@ -352,7 +352,7 @@ export default class example extends Component {
            <View style={{flexDirection:"row",justifyContent:"space-between"}}>
       <TextInputLayout focusColor="rgb(255,164,0)">
 
-      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -373,7 +373,7 @@ export default class example extends Component {
       </TextInputLayout>
       </View>
         </View>
-        <View style={{marginBottom:"30%",marginTop:hp("5%")}}>
+        <View style={{marginBottom:hp("10%"),marginTop:hp("5%")}}>
         <TouchableOpacity style={[styles.button,{width: wp('50'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('For_New_Pass')}}>
             <Text style={styles.buttonText}>{ buttonText }</Text>
           </TouchableOpacity>

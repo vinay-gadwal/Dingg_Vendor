@@ -123,7 +123,7 @@ GetItem (flower_name) {
         
         <View style={{ 
           width: wp('90%'),marginLeft:"5%",
-          height: hp('30%'),
+          height: hp('27%'),
           backgroundColor:"white",
           marginVertical:hp('5%'),
           borderRadius:10,}}>
@@ -142,7 +142,7 @@ GetItem (flower_name) {
                 <View style={{flexDirection:"row"}}>
                             <Image
                                         source={require('../Image/icon/serviceIcon3x.png')}
-                                        style={[styles.setting_Image,{marginLeft:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
+                                        style={[styles.setting_Image,{marginLeft:wp("5%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
                                     />
                             <Text onPress={this.GetItem.bind(this, Offer_name)} style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.offer_per}</Text>
 
@@ -150,12 +150,12 @@ GetItem (flower_name) {
                 <View style={{flexDirection:"row"}}>
                             <Image
                                         source={require('../Image/icon/calenderIcon2x.png')}
-                                        style={[styles.setting_Image,{marginLeft:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
+                                        style={[styles.setting_Image,{marginLeft:wp("5%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
                                     />
                             <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.Start_date}</Text>
                             <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.End_date}</Text>
                 </View>
-                <View style={[styles.button,{borderRadius:40,height:hp("5%"),width:wp("30%"),marginHorizontal:wp("5%")}]} >
+                <View style={[styles.button,{borderRadius:40,height:hp("4%"),width:wp("30%"),marginHorizontal:wp("5%")}]} >
                             <Text style={styles.buttonText}>{item.offer_per}% Off</Text>
                 </View>
             </View>

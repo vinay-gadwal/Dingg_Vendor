@@ -34,28 +34,26 @@ export default class App extends Component {
     super()
   
     this.state = {
-        avatarSource: null,avatarSource1:null,
-        Image_Source:null,Image_Source1:null,
-        Image_Source_1:null,Image_Source_1_1:null,
-        Image_Source_2:null,Image_Source_2_1:null,Image_Source_3:null,Image_Source_3_1:null,
+        avatarSource: null,Image_Source1:null,Image_Source_1_1:null,
+        Image_Source_2_1:null,Image_Source_3_1:null,
         Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
         Landline_No:"",Master_Ven_ID:"",Category:"",
       }
     }
     Fun_Phot_save(){
-        GLOBAL.Category=this.state.Category
-        GLOBAL.Buss_name=this.state.Add_Bus_Details;
-        GLOBAL.Address=this.state.Address;
-        GLOBAL.Locality=this.state.Locality;
-        GLOBAL.City=this.state.City;
-        GLOBAL.Website_url=this.state.Website_url;
-        GLOBAL.Email=this.state.Email;
-        GLOBAL.Contact_Name=this.state.Contact_Name;
-        GLOBAL.Primary_No=this.state.Primary_No;
-        GLOBAL.Secondry_no=this.state.Secondry_no;
-        GLOBAL.Landline_No=this.state.Landline_No;
-        GLOBAL.Master_Ven_ID=this.state.Master_Ven_ID
+        // GLOBAL.Category=this.state.Category
+        // GLOBAL.Buss_name=this.state.Add_Bus_Details;
+        // GLOBAL.Address=this.state.Address;
+        // GLOBAL.Locality=this.state.Locality;
+        // GLOBAL.City=this.state.City;
+        // GLOBAL.Website_url=this.state.Website_url;
+        // GLOBAL.Email=this.state.Email;
+        // GLOBAL.Contact_Name=this.state.Contact_Name;
+        // GLOBAL.Primary_No=this.state.Primary_No;
+        // GLOBAL.Secondry_no=this.state.Secondry_no;
+        // GLOBAL.Landline_No=this.state.Landline_No;
+        // GLOBAL.Master_Ven_ID=this.state.Master_Ven_ID
     }
     
       selectPhotoTapped1() 
@@ -85,7 +83,6 @@ export default class App extends Component {
             let source = { uri: response.uri };
               GLOBAL.Image=source;
               this.setState({ avatarSource: source });
-              this.setState({ avatarSource1:source });
           }
         });
       }
@@ -115,7 +112,6 @@ export default class App extends Component {
           else {
             let source = { uri: response.uri };
              GLOBAL.Image1=source;
-            this.setState({ Image_Source_2: source });
             this.setState({ Image_Source_2_1:source})
           }
         });
@@ -184,9 +180,6 @@ export default class App extends Component {
           else {
             let source = { uri: response.uri };
             GLOBAL.Image3=source;
-             this.setState({
-              Image_Source_1: source
-            });
             this.setState({
               Image_Source_1_1:source
             })
@@ -219,9 +212,6 @@ export default class App extends Component {
           else {
             let source = { uri: response.uri };
             GLOBAL.Image4=source;
-             this.setState({
-              Image_Source_3: source
-            });
             this.setState({
               Image_Source_3_1:source
             })
@@ -230,18 +220,15 @@ export default class App extends Component {
       }
 
       delete_photo_1(){
-        this.setState({avatarSource1:null})
+        this.setState({Image_Source_2_1:null})
       }
       delete_photo_2(){
-        this.setState({Image_Source:null})
+        this.setState({Image_Source1:null})
       }
       delete_photo_3(){
         this.setState({Image_Source_1_1:null})
       }
       delete_photo_4(){
-        this.setState({Image_Source_2_1:null})
-      }
-      delete_photo_5(){
         this.setState({Image_Source_3_1:null})
       }
     
@@ -265,7 +252,7 @@ export default class App extends Component {
                       }
                 </View>
                 <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("18%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity>
                   <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="60" initHeight="60"/>
                   </TouchableOpacity>
                   </View>
@@ -273,7 +260,7 @@ export default class App extends Component {
                       <Text></Text>
                       <Text></Text>
           <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%")}]}>
-          <Text style={[styles.text,{marginTop:hp("1%"),color: "rgb(205,205,205)",}]}>Salon Name</Text>
+          <Text style={[styles.text,{marginTop:hp("1%"),fontSize:RF(1.8),color: "rgb(205,205,205)",}]}>Salon Name</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Add_Bus_Details}
@@ -287,7 +274,7 @@ export default class App extends Component {
                         
                       />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("1%"),color: "rgb(205,205,205)"}]}>Address</Text>
+                  <Text style={[styles.text,{marginTop:hp("1%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Address</Text>
                   <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
                   <GooglePlacesAutocomplete
                          value={this.state.Address}
@@ -352,7 +339,7 @@ export default class App extends Component {
                 />
                 <Text style={{color:"white"}}>bjjase</Text>
                 </View>
-                <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Locality</Text>
+                <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Locality</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Locality}
@@ -365,7 +352,7 @@ export default class App extends Component {
                         
                       />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>City</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>City</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.City}
@@ -380,7 +367,7 @@ export default class App extends Component {
                   </TextInputLayout>
           </View>
           <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Website</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Website</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Website_url}
@@ -393,7 +380,7 @@ export default class App extends Component {
                         keyboardType="email-address"
                       />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Email</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Email</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Email}
@@ -408,7 +395,7 @@ export default class App extends Component {
                   </TextInputLayout>
           </View>
           <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Contact Name</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Contact Name</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Contact_Name}
@@ -424,7 +411,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                   <TextInputLayout focusColor="rgb(255,164,0)">
 
-                      <Text style={{marginTop:"18%",fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -445,11 +432,11 @@ export default class App extends Component {
                         />
                 </TextInputLayout>
                   </View>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Secondry Number</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Secondry Number</Text>
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                       <TextInputLayout focusColor="rgb(255,164,0)">
 
-                      <Text style={{marginTop:"17%",fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{fontSize: RF(2.2)}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -469,7 +456,7 @@ export default class App extends Component {
                           />
                 </TextInputLayout>
                   </View>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Landline Number</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Landline Number</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Landline_No}
@@ -487,7 +474,7 @@ export default class App extends Component {
                 </TextInputLayout>
           </View>
           <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
-                <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>User ID</Text>
+                <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>User ID</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
@@ -499,7 +486,7 @@ export default class App extends Component {
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Category</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Category</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
@@ -511,7 +498,7 @@ export default class App extends Component {
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Service Type</Text>
+                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Service Type</Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
@@ -554,7 +541,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"column-reverse"}}>
                   <Image style={[styles.avatarMultiple,]} source={this.state.Image_Source_2_1} />
                   <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                <TouchableOpacity onPress={this.delete_photo_1.bind(this)}>
                 <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                </TouchableOpacity>
                </View>
@@ -575,7 +562,7 @@ export default class App extends Component {
                     <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity onPress={this.delete_photo_2.bind(this)}>
                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                  </TouchableOpacity>
                  </View>
@@ -596,7 +583,7 @@ export default class App extends Component {
                     <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity onPress={this.delete_photo_3.bind(this)}>
                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                  </TouchableOpacity>
                  </View>
@@ -617,7 +604,7 @@ export default class App extends Component {
                     <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity onPress={this.delete_photo_4.bind(this)}>
                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                  </TouchableOpacity>
                  </View>

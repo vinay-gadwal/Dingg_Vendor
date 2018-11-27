@@ -77,21 +77,21 @@ export default class Login extends Component {
     return (
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'>            
-        <View style={[styles.box,{marginBottom:"0%",height: hp('55%'),marginTop:hp("5%")}]}>
+        <View style={[styles.box,{marginBottom:"0%",height: hp('50%'),marginTop:hp("5%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_name}
             onChangeText={Offer_name => this.setState({ Offer_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("5")}]}
+            style={[styles.input,{height:hp("5"),width:wp("75%")}]}
             placeholder="Offer Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
           />
           </TextInputLayout>
           
-          <View style={{width:wp('70%'),height:hp("10%"),marginVertical:"0%"}}>
+          <View style={{width:wp('75%'),height:hp("10%"),marginVertical:"0%"}}>
                       <Dropdown
                           data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Service Name'}
@@ -140,7 +140,7 @@ export default class Login extends Component {
             value={this.state.Offer_percenatge}
             onChangeText={Offer_percenatge => this.setState({ Offer_percenatge })}
             ref={input => (this.passwordCInput = input)}
-            style={[styles.input,{height:hp("5")}]}
+            style={[styles.input,{height:hp("5"),width:wp("75%")}]}
             placeholder="Offer Percentage"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"

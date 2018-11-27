@@ -18,7 +18,8 @@ export default class App extends Component {
             },
             {
                 label: 'Another Appointment',
-                color: 'rgb(255,164,0)'
+                color: 'rgb(255,164,0)',
+                fontSize:RF(2)
             },
         ],
     };
@@ -36,8 +37,9 @@ export default class App extends Component {
                 {/* <Text style={styles.valueText}>
                     Value = {selectedButton}
                 </Text> */}
-                <View style={{marginTop:"5%",justifyContent:"flex-start",marginLeft:wp("2%")}}>
-                <RadioGroup radioButtons={this.state.data} onPress={this.onPress} />
+                <View style={{marginTop:"5%",justifyContent:"flex-start",marginLeft:wp("2%"),paddingVertical:hp("2%")}}>
+                <RadioGroup  buttonSize={40}
+              labelStyle={{fontSize: 20, color: '#2ecc71'}} buttonOuterSize={80} radioButtons={this.state.data} onPress={this.onPress} />
                 </View>
                 </View>
                 <View style={{marginBottom:"3%"}}>

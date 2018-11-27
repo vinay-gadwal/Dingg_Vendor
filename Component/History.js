@@ -84,42 +84,40 @@ class Ongoing extends React.Component {
                       <FlatList          
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
-                            <View style={{ 
-                              width: wp('90%'),marginLeft:"5%",                              backgroundColor:"white",
-                              marginVertical:hp('2%'),
-                              borderRadius:10,}}> 
+                            <View style={{width: wp('90%'),marginLeft:"5%",backgroundColor:"white",
+                                    marginTop:hp('2%'),borderRadius:10,}}> 
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                                     <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                                     <View style={{flexDirection:"column",marginVertical:hp(".5%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
-                                            <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                                            <ResponsiveImage style={{marginTop:hp("3%")}} source={require('../Image/main/serveTimeIcon3x.png')} initWidth="18" initHeight="18"/>
+                                            <Text style={[styles.text,{marginLeft:wp("3%"),marginTop:hp("2.4%"),color:"rgb(187,187,187)"}]}>{item.name}</Text>
                                          </View>
-                                         <View style={{marginVertical:hp("2%")}}>
+                                         <View style={{marginVertical:hp(".5%")}}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
                                          <View style={{flexDirection:"row"}}>
                                            <TouchableOpacity onPress={() => {this.increase_time}}>
-                                           <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="40" initHeight="40"/>
+                                           <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="30" initHeight="30"/>
                                            </TouchableOpacity>
-                                           <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".5%")}]}>Time</Text>
+                                           <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".2%"),fontSize:RF(1.8)}]}>Time</Text>
                                                                                                       {/* {this.state.time+" " + 'M'} */}
                                            <TouchableOpacity>
-                                           <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth="40" initHeight="40"/>
+                                           <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth="30" initHeight="30"/>
                                            </TouchableOpacity>
                                           </View>
-                                         <TouchableOpacity style={[styles.button,{height:hp("5%"),width:wp("30%"),marginVertical:hp("1%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}
+                                         <TouchableOpacity style={[styles.button,{height:hp("4%"),width:wp("25%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}
                                            onPress={ () => this.openDialog(true) }>
-                                          <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>Add Services</Text>
+                                          <Text style={[styles.buttonText,{color:"rgb(255,164,0)",fontSize:RF(1.5)}]}>Add Services</Text>
                                           </TouchableOpacity>
                                     </View>           
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                      <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%"),color:"rgb(255,164,0)"}]}>Mark as Done</Text>
-                                         <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
+                                      <Text style={[styles.text,{fontSize:RF(2.2),marginLeft:wp("2.5%"),color:"rgb(255,164,0)"}]}>Mark as Done</Text>
+                                         <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                                     </View>           
                                 </View>  
                                 </View> }                       
@@ -424,21 +422,21 @@ class StarReview extends React.Component {
                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
-                                            <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} initWidth="20" initHeight="20"/>
-                                            <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                                            <ResponsiveImage style={{marginTop:hp(".8%")}} source={require('../Image/main/calenderIcon3x.png')} initWidth="18" initHeight="18"/>
+                                            <Text style={[styles.text,{marginLeft:wp("3%"),color:"rgb(187,187,187)"}]}>{item.name}</Text>
                                          </View>
-                                         <View style={{marginVertical:hp("2%")}}>
+                                         <View>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
                                          {view}
                                     </View>           
                                       <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
-                                         <Text style={[styles.text,{fontSize:RF(2.5),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.5)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)"}]}>Service</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)"}]}>Stylist</Text>
+                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                                     </View>           
                                 </View> 
                                 </View>  }                       

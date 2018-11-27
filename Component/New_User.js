@@ -153,14 +153,14 @@ export default class Login extends Component {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
-        <View style={[styles.box,{marginBottom:"0%",height: hp('62%'),marginVertical:hp("2%")}]}>
+        <View style={[styles.box,{height: hp('55%'),marginVertical:hp("1%"),paddingVertical:hp('1'),}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("7")}]}
+            style={[styles.input,{height:hp("7"),width: wp('75%')}]}
             placeholder="First Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -172,7 +172,7 @@ export default class Login extends Component {
             onChangeText={Last_name => this.setState({ Last_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("7")}]}
+            style={[styles.input,{height:hp("7"),width: wp('75%')}]}
             placeholder="Last Name"
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
@@ -204,7 +204,7 @@ export default class Login extends Component {
                       submitButtonText="Submit"
                     />
             </View>  */}
-             <View style={{width:wp('70%'),marginVertical:"0%"}}>
+             <View style={{width:wp('75%'),marginVertical:"0%"}}>
                       <Dropdown
                           data={data_Stylist} 
                           itemColor="rgb(255,163,0)"  
@@ -221,7 +221,7 @@ export default class Login extends Component {
                                   }}
                       />
               </View>   
-            <View style={{width:wp('70%'),marginVertical:"0%"}}>
+            <View style={{width:wp('75%'),marginVertical:"0%"}}>
                       <Dropdown
                           data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
                           value={'Select Stylist'}
@@ -238,14 +238,14 @@ export default class Login extends Component {
               <View style={{flexDirection:"row",justifyContent:"space-between"}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.mob_no}
             onChangeText={mob_no => this.setState({ mob_no })}
-            style={[styles.input,{width: wp('52')}]}
+            style={[styles.input,{width: wp('57')}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
@@ -259,7 +259,7 @@ export default class Login extends Component {
          </TextInputLayout>
           </View> 
           <Text></Text>
-          <View style={{flexDirection:"row"}}>
+          <View style={{flexDirection:"row",marginRight:wp("17%")}}>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
           {/* <Text style={{color:"white"}}>mdnds,</Text> */}
           </View>

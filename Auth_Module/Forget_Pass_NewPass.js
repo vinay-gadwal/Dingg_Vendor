@@ -35,10 +35,10 @@ export default class Password extends Component {
   keyboardShouldPersistTaps='handled'
 >
 <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>
-                <View style={[styles.box,{ height: hp('30%'),marginTop:"3%"}]}>
+                <View style={[styles.box,{ height: hp('27%'),marginTop:hp("3%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
@@ -67,7 +67,7 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-    <View style={{marginBottom:"15%",marginTop:hp("5%")}}> 
+    <View style={{marginBottom:hp("3%"),marginTop:hp("5%")}}> 
         <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>

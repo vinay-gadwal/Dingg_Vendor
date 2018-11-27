@@ -41,13 +41,13 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack')
+    this.props.navigation.navigate('AuthStack');
   }
   phone(){
     return(
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
       <TextInputLayout focusColor="rgb(255,164,0)">
-      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -122,15 +122,14 @@ export default class Login extends Component {
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>
                  <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>
-        <View style={[styles.box,{marginTop:"2%",height: hp('39%'),}]}>
+        <View style={[styles.box,{marginTop:hp("2%"),height: hp('35%'),}]}>
         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42%")}]}>Sign In Using</Text>
          <Text></Text>
-         <View style={{flexDirection:"row"}}>
+         <View style={{flexDirection:"row",marginRight:wp("7%")}}>
          <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         <Text style={{color:"white"}}>hhi</Text>
          </View>
          {selectedButton}
           <View style = { styles.textBoxBtnHolder } > 

@@ -540,7 +540,7 @@ Set_up:{
           screen:Reject,
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
-            title: 'Rating & Review',
+            title: 'REJECTION REASON',
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image

@@ -55,44 +55,44 @@ class App extends Component {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
       
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"5%",marginVertical:hp("3%")}}>
+         <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:wp("8%"),marginTop:hp("3%")}}>
          <View style={styles.Dashboard_block}>
                     <View style={styles.Dashbosrd_image_top}>
-                    <ResponsiveImage source={require('../Image/main/completetotalIcon3x.png')} initWidth="55" initHeight="55"/>                
+                    <ResponsiveImage source={require('../Image/main/completetotalIcon3x.png')} initWidth="60" initHeight="60"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
                     <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Total</Text>
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("8%"),fontSize:RF(1.7),marginBottom:hp("2%")}]}>Total</Text>
                     {/* <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("2%"),fontSize:RF(2)}]}>Booking</Text>             */}
                     </View>
         </View>
         <View style={styles.Dashboard_block}>
                     
                     <View style={styles.Dashbosrd_image_top}>
-                    <ResponsiveImage source={require('../Image/main/completecustomersHandledCopy3x.png')} initWidth="55" initHeight="55"/>                
+                    <ResponsiveImage source={require('../Image/main/completecustomersHandledCopy3x.png')} initWidth="60" initHeight="60"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
                     <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Served</Text>      
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("6%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Served</Text>      
                     </View>
         </View>
         </View>
         <Text></Text>
-        <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"5%",marginBottom:wp("3%")}}>
+        <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:wp("8%"),marginBottom:wp("2%")}}>
          <View style={styles.Dashboard_block}>
              
                     <View style={styles.Dashbosrd_image_top}>
-                      <ResponsiveImage source={require('../Image/main/completequeueCopy3x.png')} initWidth="55" initHeight="55"/>                
+                      <ResponsiveImage source={require('../Image/main/completequeueCopy3x.png')} initWidth="60" initHeight="60"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
                     <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("4%"),fontSize:RF(2)}]}>Queue</Text>      
+                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("7%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Queue</Text>      
                     </View>       
        </View>
         <View style={styles.Dashboard_block}>
                     
                     <View style={styles.Dashbosrd_image_top}>
-                      <ResponsiveImage source={require('../Image/main/completewaitTimeIcon3x.png')} initWidth="55" initHeight="55"/>                
+                      <ResponsiveImage source={require('../Image/main/completewaitTimeIcon3x.png')} initWidth="60" initHeight="60"/>                
                     </View>
                     <View style={{flexDirection:"column"}}>
                     <View style={{flexDirection:"row",fontSize: RF(3.2),marginRight:wp("2%")}}>
@@ -103,20 +103,20 @@ class App extends Component {
                     />
                     <Text style={{ fontSize: RF(3.2),
                           justifyContent:"flex-start",
-                          fontFamily:"Muli-Bold",marginTop:hp("1%")}}>m</Text>
+                          fontFamily:"Muli-Bold",marginTop:hp("1.3%")}}>m</Text>
                     </View>
                     <Text style={{color:"rgb(168,168,168)", fontSize: RF(2.5),
                             justifyContent:"flex-start",
-                            fontFamily:"Muli-Bold",fontSize:RF(2)}}>Wait Time</Text>      
+                            fontFamily:"Muli-Bold",fontSize:RF(1.7),marginLeft:wp("2%"),fontFamily:"Muli-ExtraBold"}}>Wait Time</Text>      
                     </View>      
         </View>
         </View>
         <Text></Text>
-        <View style={[styles.Profile_Container,{paddingBottom:"3%"}]}>
+        <View style={[styles.Profile_Container,{paddingBottom:hp(".5%")}]}>
         
-        <View style={[styles.setting_Row,{paddingVertical:hp("2%")}]}>
+        <View style={[styles.setting_Row,{paddingVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Ready to Accept Booking</Text>
-                    <View style={{marginRight:wp("7%"),marginTop:hp("2%")}}>
+                    <View style={{marginRight:wp("5%"),marginTop:hp("2%")}}>
                     <Switch
                           value={switchThreeValue}
                           onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
@@ -157,23 +157,23 @@ class App extends Component {
                                       activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
                                   /> */}
                     </View>
-                   </View>
-                  <View style={{marginHorizontal:"5%"}}>
+            </View>
+            <View style={{marginHorizontal:wp("5%")}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-              </View>
+            </View>
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>
-                <View style={[styles.setting_Row,{paddingVertical:hp("2%")}]}>
+            <View style={[styles.setting_Row,{paddingVertical:hp("1%")}]}>
                     <Text style={styles.setting_text}>Add Customer</Text>
                     <TouchableOpacity onPress={ () => this.openDialog(true) }>
                       <Image
                                   source={require('../Image/icon/arrow_right.png')}
-                                  style={[styles.setting_Image,{marginRight:wp("8%")}]}
+                                  style={[styles.setting_Image,{marginRight:wp("6%")}]}
                       />
                     </TouchableOpacity>
-                  </View>
-                  <View style={{marginHorizontal:"5%"}}>
+            </View>
+            <View style={{marginHorizontal:wp("5%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
-                   </View>
+            </View>
                 </TouchableOpacity>              
                 <Dialog
                     // title="Choose a Dingg User Type"
@@ -206,25 +206,24 @@ class App extends Component {
                       </TouchableOpacity>
                       <Text></Text>
               </Dialog>
-                    <View style={{paddingVertical:hp("2%")}}>
+            <View style={{paddingVertical:hp("1%")}}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                   <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>View Offers</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image,{marginRight:wp("8%")}]}
+                                style={[styles.setting_Image,{marginRight:wp("6%")}]}
                     />
                     </TouchableOpacity>
                   </View>
                   </TouchableOpacity>
-                  </View>
+            </View>
         </View>
         
-        <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
               
-              <View style={[styles.setting_Row,{marginVertical:hp("3%")}]}>
+              <View style={[styles.setting_Row,{marginVertical:hp("2%")}]}>
                           
                           <View style={[styles.Dashbosrd_image,{marginLeft:wp("5%")}]}>
                              <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth="23" initHeight="23"/>                
@@ -264,7 +263,7 @@ class App extends Component {
                           </View>
                           </View>
                           <View style={{marginHorizontal:"5%"}}>
-                          <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                          <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="1"/>
                           </View>  
                    <FlatList
        
@@ -273,8 +272,8 @@ class App extends Component {
                       // ItemSeparatorComponent = {this.FlatListItemSeparator}
 
                       renderItem={({item}) => 
-                   <View style={[styles.setting_Row,{marginBottom:"5%",height: hp('7%'),}]}>
-                                   <View style={{marginTop:"6%",marginLeft:wp("2%")}}>
+                   <View style={[styles.setting_Row,{marginBottom:hp("2%"),height: hp('7%'),}]}>
+                                   <View style={{marginTop:hp("3%"),marginLeft:wp("2%")}}>
                                    <Switch
                                           value={switchThreeValue}
                                           onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
@@ -297,28 +296,24 @@ class App extends Component {
                                           inactiveButtonBackgroundColor={'rgb(153,153,153)'}
                                     />
                                   </View>
-                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("0%"),marginTop:hp("1%")}]}>{item.name}</Text>
+                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("3%"),marginTop:hp("1%")}]}>{item.name}</Text>
                    <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.served}</Text>
                    <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.queue}</Text>
-                    {/* <CountDown
+                 <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
+                    <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
                         size={18}
                         digitBgColor="false"
-                        label="M"
-                        style={marginTop=hp("2%")}
+                        style={{marginTop:hp("1.5%"),marginLeft:wp("2%")}}
                         marginTop="2%"
-                    />  */}
-                    <View style={{marginRight:wp("2%"),flexDirection:"row"}}>
-                    <TimerCountdown
-                        initialSecondsRemaining={1000*item.wait_time}
-                        allowFontScaling={true}
-                        style={{ fontSize:RF(2.2),marginTop:hp("3%"),}}
-                    />
-                    <Text style={{ fontSize: RF(2.5),
-                          justifyContent:"flex-start",marginTop:hp("2%"),
+                        label="false"
+                        timeTxtColor="white"
+                    /> 
+                     <Text style={{ fontSize: RF(2.5),marginRight:wp("2%"),
+                          justifyContent:"flex-start",marginTop:hp("2.1%"),
                           fontFamily:"Muli-Bold"}}> m</Text>
-                    </View>
+                  </View>
                   </View>
                    }
 
@@ -328,7 +323,6 @@ class App extends Component {
             
              </View>
           <Text></Text>
-        </View>
       </ScrollView>
     );
   }

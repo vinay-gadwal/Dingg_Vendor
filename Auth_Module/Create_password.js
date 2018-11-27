@@ -36,7 +36,7 @@ export default class Password extends Component {
   keyboardShouldPersistTaps='handled'
 >
 <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="130" initHeight="90"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>
                 <View style={[styles.box,{ height: hp('34%'),marginTop:hp("3%")}]}>

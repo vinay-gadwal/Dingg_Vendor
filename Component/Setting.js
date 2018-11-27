@@ -115,7 +115,7 @@ import Alert_top from './Alert'
 
               <View style={styles.setting_Row}>
                     <Text style={styles.setting_text}>Auto Accept</Text>
-                    <View style={{marginRight:wp("7%"),paddingVertical:hp("2%")}}>
+                    <View style={{marginRight:wp("6%"),paddingVertical:hp("2%")}}>
                     {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
                       width={"1%"}
