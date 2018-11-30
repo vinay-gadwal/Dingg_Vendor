@@ -15,7 +15,6 @@
 		00E356F31AD99517003FC87E /* DinggTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DinggTests.m */; };
 		044C39FA21771B0500FE662D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044C39F921771B0400FE662D /* Social.framework */; };
 		044C39FC21771B1A00FE662D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044C39FB21771B1A00FE662D /* MessageUI.framework */; };
-		04AAA5D621B004C300043D1E /* RNCamera.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = 04AAA5D521B004C300043D1E /* RNCamera.xcodeproj */; };
 		04E34222218716FB00C68E2C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E34221218716FB00C68E2C /* Launch Screen.storyboard */; };
 		0F06169762704D38880801CC /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 327EFF3672D348838DF98281 /* Muli-SemiBold.ttf */; };
 		0F4CD2883824493CAA4E4D8E /* Muli-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2A81F6604164212BDE5E33F /* Muli-ExtraLightItalic.ttf */; };
@@ -466,7 +465,6 @@
 		00E356F21AD99517003FC87E /* DinggTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DinggTests.m; sourceTree = "<group>"; };
 		044C39F921771B0400FE662D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		044C39FB21771B1A00FE662D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		04AAA5D521B004C300043D1E /* RNCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNCamera.xcodeproj; sourceTree = "<group>"; };
 		04E34221218716FB00C68E2C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04E4AA4D580E4947BDDFDBF2 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		06DAA5C5FFDD4FACADFC5DD7 /* Muli Light Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli Light Italic.ttf"; path = "../assets/fonts/Muli Light Italic.ttf"; sourceTree = "<group>"; };
@@ -892,7 +890,6 @@
 				3A14CA9260704BC98600D02B /* AppCenterReactNative.xcodeproj */,
 				BF25E60B4C804B4FB73038E9 /* AppCenterReactNativeAnalytics.xcodeproj */,
 				8DD5C0744FF14FEFBADB1C32 /* AppCenterReactNativeCrashes.xcodeproj */,
-				04AAA5D521B004C300043D1E /* RNCamera.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1582,7 +1579,6 @@
 				746A5C5A0737425C8026AF51 /* Feather.ttf in Resources */,
 				46412F0D3E7848C4813B9EFA /* FontAwesome.ttf in Resources */,
 				75F88F36ED8D40AD8AA0316A /* FontAwesome5_Brands.ttf in Resources */,
-				04AAA5D621B004C300043D1E /* RNCamera.xcodeproj in Resources */,
 				382437807F5E4A55A29FF914 /* FontAwesome5_Regular.ttf in Resources */,
 				2836AD5AB3A84AE3AF9466A7 /* FontAwesome5_Solid.ttf in Resources */,
 				43597E88BE1241D1B7BD083F /* Foundation.ttf in Resources */,

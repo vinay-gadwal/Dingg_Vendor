@@ -18,10 +18,12 @@ class Ongoing extends React.Component {
                      Select_unselect_3:"true",Select_unselect_4:"true",Select_unselect_5:"true",
                          dataSource : [ 
                              {
-                                 name:"Hair cut"
+                                 name:"Hair cut",
+                                //  time:"50"
                              },
                              {
-                              name:"Hair cut"
+                              name:"Hair cut",
+                              // time:"50"
                           },
                      ],
                     
@@ -68,9 +70,9 @@ class Ongoing extends React.Component {
           />
         );
       }
-      increase_time = () => {
+      increase_time(){
         // var Increase_time = 10;
-        this.setState({time : this.state.Increase_time})
+        this.setState({time : 10})
       }
   render() {
     return (
@@ -88,13 +90,13 @@ class Ongoing extends React.Component {
                                      <View style={{flexDirection:"column",marginVertical:hp(".5%"),marginLeft:wp("5%")}}>
                                         <View style={{flexDirection:"row"}}>
                                             <ResponsiveImage style={{marginTop:hp("3%")}} source={require('../Image/main/serveTimeIcon3x.png')} initWidth="18" initHeight="18"/>
-                                            <Text style={[styles.text,{marginLeft:wp("3%"),marginTop:hp("2.4%"),color:"rgb(187,187,187)"}]}>{item.name}</Text>
+                                            <Text style={[styles.text,{marginLeft:wp("2%"),marginTop:hp("2.8%"),color:"rgb(187,187,187)"}]}>{this.state.time}m</Text>
                                          </View>
                                          <View style={{marginVertical:hp(".5%")}}>
                                          <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                          </View>
                                          <View style={{flexDirection:"row"}}>
-                                           <TouchableOpacity onPress={() => {this.increase_time}}>
+                                           <TouchableOpacity onPress={this.increase_time()}>
                                            <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="30" initHeight="30"/>
                                            </TouchableOpacity>
                                            <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".2%"),fontSize:RF(1.8)}]}>Time</Text>
@@ -143,62 +145,62 @@ class Ongoing extends React.Component {
                   <Text style={[styles.text,{fontSize: RF(3),}]}>Add Services</Text>
                   <Text></Text>
 
-                 <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
+                 <TouchableOpacity onPress = { this.managePasswordVisibility} style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
                         <Text style={styles.History_Action}>Hair Oil Massage</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility }>
+                  <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.Select_unselect ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
                   </View>
+                  </TouchableOpacity>
                   <View style={{marginHorizontal:"5%"}}>
                         <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
                   </View>
 
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
+                  <TouchableOpacity onPress = { this.managePasswordVisibility_1 } style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
                         <Text style={styles.History_Action}>Shampoo</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_1 }>
+                  <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_1 }>
                         <Image source = { ( this.state.Select_unselect_1 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
                   </View>
+                  </TouchableOpacity>
                   <View style={{marginHorizontal:"5%"}}>
                         <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
                   </View>
 
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
+                  <TouchableOpacity onPress = { this.managePasswordVisibility_2 } style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
                         <Text style={styles.History_Action}>Regular Hair Cut</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
+                  <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
                         <Image source = { ( this.state.Select_unselect_2 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
                   </View>
+                  </TouchableOpacity>
                   <View style={{marginHorizontal:"5%"}}>
                         <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
                   </View>
 
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
+                  <TouchableOpacity onPress = { this.managePasswordVisibility_3 } style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
                         <Text style={styles.History_Action}>Premium Haircut</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_3 }>
+                  <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_3 }>
                         <Image source = { ( this.state.Select_unselect_3 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
                   </View>
+                  </TouchableOpacity>
                   <View style={{marginHorizontal:"5%"}}>
                         <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
                   </View>
 
-                  <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
+                  <TouchableOpacity onPress = { this.managePasswordVisibility_4 } style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
                         <Text style={styles.History_Action}>Blow Dry</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
+                  <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
                         <Image source = { ( this.state.Select_unselect_4 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
                   </View>
+                  </TouchableOpacity>
                   <View style={{marginHorizontal:"5%"}}>
                         <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="320" initHeight="2"/>
                   </View>
 
-                    <View style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
+                    <TouchableOpacity onPress = { this.managePasswordVisibility_5 } style={[styles.setting_Row,{marginBottom:hp("0%"),justifyContent:"space-between"}]}>
                         <Text style={styles.History_Action}>Hair Styling</Text>
-                  <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
+                  <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
                         <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
-                  </TouchableOpacity>
                   </View>
+                  </TouchableOpacity>
                   
    </Dialog>
 
@@ -480,16 +482,12 @@ StarReview.defaultProps = {
 const AuthStack = createMaterialTopTabNavigator ({
   Ongoingjob: { screen :Ongoing,
     navigationOptions: () => ({
-      title:"Ongoing Job",
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('../Image/main/highlight3x.png') : require('../Image/main/line-transparent-vertical-2.png')
-        const image = focused
-        ? require('../Image/icon/queueRequest_yellow2x.png')
-        : require('../Image/icon/queueRequestIcon2x.png')
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="27" initHeight="23"/>
+          <View style={{flexDirection:"column",}}>
+          <Text style={[styles.text,{width:wp("30%"),marginLeft:wp("4%"),marginTop:hp(".5%")}]}>Ongoing Job</Text>
+          <ResponsiveImage source={line} style={{marginTop:hp("2%"),marginLeft:wp("2%")}} initWidth="110" initHeight="5"/>
           </View>
         )
     }
@@ -499,13 +497,11 @@ const AuthStack = createMaterialTopTabNavigator ({
       title:"Completed",
       tabBarIcon: ({ focused }) => {
         const line = focused ? require('../Image/main/highlight3x.png') : require('../Image/main/line-transparent-vertical-2.png')
-        const image = focused
-        ? require('../Image/icon/queueRequest_yellow2x.png')
-        : require('../Image/icon/queueRequestIcon2x.png')
+       
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="27" initHeight="23"/>
+          <View style={{flexDirection:"column"}}>
+         <Text style={[styles.text,{width:wp("30%"),marginLeft:wp("4%"),marginTop:hp(".5%")}]}>Completed</Text>
+          <ResponsiveImage source={line} style={{marginTop:hp("2%"),marginLeft:wp("2%")}} initWidth="110" initHeight="5"/>
           </View>
         )
     }
@@ -516,7 +512,9 @@ const AuthStack = createMaterialTopTabNavigator ({
       headerStyle: {
         backgroundColor: "rgb(255,164,0)",
       },
+      
     },
+    
     initialLayout: {
       height: 0,
       width: Dimensions.get('window').width,
@@ -524,7 +522,8 @@ const AuthStack = createMaterialTopTabNavigator ({
     optimizationsEnabled: true,
     tabBarOptions: 
      {
-      labelStyles:{ fontSize:RF(3)
+      labelStyles:{ fontSize:RF(3),
+        
        } ,
       upperCaseLabel: false,
       style: {
@@ -533,21 +532,21 @@ const AuthStack = createMaterialTopTabNavigator ({
         backgroundColor: "white",
         borderRadius:10,
         marginHorizontal:wp("5%"),
+        justifyContent:"flex-end"
       },
       indicatorStyle: {
         borderBottomColor: "rgb(255,164,0)",
         borderBottomWidth: 2,
-        opacity: 0
+        opacity: 0,
+        height: 1
       },
       tabStyle: {
         borderRightColor: '#ffffff',
         borderRightWidth: 1,
         fontSize:RF(3)
       },
-      labelStyle: {
-        fontSize: RF(2.5),
-        fontFamily:"Muli-Bold"
-      },
+      showIcon: true,
+      showLabel: false,
       activeTintColor: 'black',
       inactiveTintColor: 'black',
     },
