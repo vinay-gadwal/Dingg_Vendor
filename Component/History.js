@@ -74,11 +74,9 @@ class Ongoing extends React.Component {
       }
   render() {
     return (
-        <ScrollView>
         <View style={{  flex: 1,
               justifyContent: "space-between",
-              backgroundColor: "rgb(243,242,242)",
-              paddingVertical:"0%"}}>
+              backgroundColor: "rgb(243,242,242)",}}>
                 
              <View style={{flexDirection:"row"}}>
                       <FlatList          
@@ -205,7 +203,6 @@ class Ongoing extends React.Component {
    </Dialog>
 
          </View>
-        </ScrollView>
     );
   }
 }
@@ -403,11 +400,9 @@ class StarReview extends React.Component {
     :
     this.displayMode()
     return (
-        <ScrollView>
         <View style={{  flex: 1,
               justifyContent: "space-between",
-              backgroundColor: "rgb(243,242,242)",
-              paddingVertical:"0%"}}>
+              backgroundColor: "rgb(243,242,242)",}}>
                   
              <View style={{flexDirection:"row"}}>
                       <FlatList          
@@ -443,7 +438,6 @@ class StarReview extends React.Component {
                             />
                    </View>
          </View>
-        </ScrollView>
     );
   }
 }

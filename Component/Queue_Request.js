@@ -20,7 +20,13 @@ import Alert_top from './Alert'
                         },
                         {
                           name:"Hair cut" 
-                        }
+                        },
+                        {
+                          name:"Hair cut"
+                      },
+                      {
+                        name:"Hair cut" 
+                      }
                 ],
        }
      this.index = 0;
@@ -41,7 +47,6 @@ import Alert_top from './Alert'
  
 render() {
 return (
- <ScrollView style={{flex:1}}>
    
 <View style={{  flex: 1,
       justifyContent: "space-between",
@@ -57,10 +62,10 @@ return (
                     <View style={{ 
                       width: wp('90%'),marginLeft:"5%",
                       backgroundColor:"white",
-                      marginVertical:hp('3%'),
+                      marginTop:hp('2%'),
                       borderRadius:10,}}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                             <View style={{flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row",marginTop:hp("1%")}}>
                                     <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
@@ -90,7 +95,6 @@ return (
                     />
            </View>
  </View>
-</ScrollView>
    );
  }
 }

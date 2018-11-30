@@ -46,7 +46,7 @@ class Queue extends Component {
 render() {
 return (
     
-<View style={{  flex: 1,
+<View style={{  flex: 1,height:hp("100%"),
       justifyContent: "space-between",
       backgroundColor: "rgb(243,242,242)",
       paddingVertical:"0%"}}>

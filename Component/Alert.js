@@ -37,7 +37,6 @@ export default class Queue_request extends Component {
  
 render() {
 return (
- <ScrollView>
 <View style={{  flex: 1,
       justifyContent: "space-between",
       backgroundColor: "rgb(243,242,242)",
@@ -85,7 +84,6 @@ return (
            </View>
   </View>
  </View>
-</ScrollView>
    );
  }
 }

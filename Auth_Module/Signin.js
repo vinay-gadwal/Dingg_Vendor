@@ -138,7 +138,7 @@ export default class Login extends Component {
                       // secureTextEntry = { this.state.hidePassword }
                         placeholder="Enter Password"
                         underlineColorAndroid = "transparent"
-                        secureTextEntry="true"
+                        secureTextEntry
                          style = { styles.input }/>
                   </TextInputLayout>
                   {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>

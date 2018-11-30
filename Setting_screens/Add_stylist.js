@@ -82,6 +82,8 @@ return (
  <FlatList          
                     data={ this.state.arrayHolder_name }
                     // keyExtractor={(index) => index.toString()}
+                    extraData={this.state.arrayHolder_name}
+                    
                     renderItem={({item}) => 
     <View style={{ 
           width: wp('90%'),marginLeft:"5%",
@@ -101,7 +103,8 @@ return (
 
         ItemSeparatorComponent={this.FlatListItemSeparator}
 
-        renderItem={({ item }) => <Text style={styles.item} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
+        renderItem={({ item }) => 
+        <Text style={styles.item} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
         />
         <View style={{flexDirection:"row",marginVertical:hp("2%")}}> 
         <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="15" initHeight="15"/>
@@ -114,8 +117,8 @@ return (
         </View>
 </View>
 
-                    }
-                    />
+    }/>
+
  <View style={[styles.box_SignUp,{height:hp("8%"),flexDirection:"row",marginHorizontal:wp("5%")}]}> 
         <ResponsiveImage style={{marginBottom:hp(".7%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="12" initHeight="12"/>
         <TextInput

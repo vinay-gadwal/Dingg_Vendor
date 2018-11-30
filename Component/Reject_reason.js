@@ -38,8 +38,7 @@ export default class App extends Component {
                     Value = {selectedButton}
                 </Text> */}
                 <View style={{marginTop:"5%",justifyContent:"flex-start",marginLeft:wp("2%"),paddingVertical:hp("2%")}}>
-                <RadioGroup  buttonSize={40}
-              labelStyle={{fontSize: 20, color: '#2ecc71'}} buttonOuterSize={80} radioButtons={this.state.data} onPress={this.onPress} />
+                <RadioGroup  radioButtons={this.state.data} onPress={this.onPress} />
                 </View>
                 </View>
                 <View style={{marginBottom:"3%"}}>

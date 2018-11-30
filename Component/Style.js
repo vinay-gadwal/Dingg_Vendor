@@ -260,8 +260,8 @@ const styles = StyleSheet.create({
 
   btnImage:{
           resizeMode: 'contain',
-          height: hp('2%'),
-          width: wp('2%'),marginTop:hp("6%"),paddingLeft:wp("14%")
+          height: hp('1.5%'),
+          width: wp('1.5%'),marginTop:hp("5.3%"),paddingLeft:wp("14%")
         },
 
   Profile_Container:{
