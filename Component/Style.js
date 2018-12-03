@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     box:{
         alignItems:"center",
         width: wp('90%'),
-        height: hp('20%'),
+        // height: hp('20%'),
         backgroundColor:"white",
         paddingVertical:hp('3%'),
         borderRadius:10,
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     box_SignUp:{
           alignItems:"center",
           width: wp('90%'),
-          height: hp('20%'),
           backgroundColor:"white",
           paddingVertical:hp('3%'),
           borderRadius:10,

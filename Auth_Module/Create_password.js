@@ -39,7 +39,7 @@ export default class Password extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>
-                <View style={[styles.box,{ height: hp('34%'),marginTop:hp("3%")}]}>
+                <View style={[styles.box,{marginTop:hp("3%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}

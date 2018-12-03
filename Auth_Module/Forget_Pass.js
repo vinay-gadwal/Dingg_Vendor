@@ -293,7 +293,7 @@ export default class example extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>      
-         <View style={[styles.box_SignUp,{height: hp('20%'),marginTop:hp("3%")}]}>
+         <View style={[styles.box_SignUp,{marginTop:hp("3%")}]}>
          <Text style={styles.text}>Enter the registered mobile number</Text>
        
          {/* <Form ref={'form'} style={styles.form}>

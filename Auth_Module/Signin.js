@@ -41,7 +41,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack');
+    // this.props.navigation.navigate('AuthStack');
   }
   phone(){
     return(
@@ -125,7 +125,7 @@ export default class Login extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         
         </View>
-        <View style={[styles.box,{marginTop:hp("2%"),height: hp('35%'),}]}>
+        <View style={[styles.box,{marginTop:hp("2%")}]}>
         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42%")}]}>Sign In Using</Text>
          <Text></Text>
          <View style={{flexDirection:"row",marginRight:wp("7%")}}>

@@ -2,45 +2,26 @@ import React, { Component } from 'react';
 
 import {
   AppRegistry,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Platform,
   Image,ScrollView,Alert
 } from 'react-native';
 import styles from '../Component/Style'
-import Frisbee from 'frisbee';
-import Spinner from 'react-native-loading-spinner-overlay';
-import Form from 'react-native-form';
-import CountryPicker from 'react-native-country-picker-modal';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-
-
-
-const MAX_LENGTH_CODE = 4;
-const MAX_LENGTH_NUMBER = 10;
-
-// your brand's theme primary color
-const brandColor = 'rgb(255,163,0)';
-
+import CodeInput from 'react-native-confirmation-code-input';
 
 export default class example extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      usermobile: "",
-      spinner: false,
-      country: {
-        cca2: 'US',
-        callingCode: '1'
-      }
+      code: ''
     };
   }
   handlePress = async () => {
@@ -50,7 +31,7 @@ export default class example extends Component {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          mobile:this.state.usermobile
+            OTP:this.state.OTP
         })
   })
       .then((response) => response.json())
@@ -72,29 +53,20 @@ export default class example extends Component {
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
         <View style={[styles.box_SignUp,{marginTop:hp("3%")}]}>
-          <Text style={styles.text}>Enter the registered mobile number</Text>
-          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-              <TextInputLayout focusColor="rgb(255,164,0)">
-
-              <Text style={{marginTop:hp("1%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
-              </TextInputLayout>
-              <Text>   </Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-          <TextInput
-            value={this.state.usermobile}
-            onChangeText={usermobile => this.setState({ usermobile })}
-            style={[styles.input,{width: wp('52'), height: hp('5%')}]}
-            placeholderTextColor="rgb(204,204,204)"
-            returnKeyType="done"
-            underlineColorAndroid='transparent'
-            ref={input => (this.emailInput = input)}
-            // onSubmitEditing={() => this.passwordCInput.focus()}
-            keyboardType="numeric"
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Enter Mobile Number"
-          />
-         </TextInputLayout>
+          <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
+          <View style={{alignItems:"center"}}>
+            <CodeInput
+              ref="codeInputRef1"
+              secureTextEntry
+              className={'border-b'}
+              space={10}
+              size={30}
+              inputPosition='left'
+              onFulfill={(code) => this._onFulfill(code)}
+              codeLength={4}
+              activeColor="rgb(255,164,0)"
+              inactiveColor="black"
+            />
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
