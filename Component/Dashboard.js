@@ -22,7 +22,7 @@ class App extends Component {
         avatarSource: null,avatarSource1:null,
         videoSource: null,isOnDefaultToggleSwitch: false,
         isOnLargeToggleSwitch_user: true,
-        isOnBlueToggleSwitch: false,switchThreeValue: true,
+        isOnBlueToggleSwitch: false,switchThreeValue: true,switchvalue:true,
         dataSource : [
           {
             name: "John Doe",served:"20",queue:"14",wait_time:120
@@ -50,7 +50,7 @@ class App extends Component {
     
   render() {
     const {
-      switchThreeValue,
+      switchThreeValue,switchvalue
     } = this.state;
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
@@ -107,7 +107,7 @@ class App extends Component {
                     </View>
                     <Text style={{color:"rgb(168,168,168)", fontSize: RF(2.5),
                             justifyContent:"flex-start",
-                            fontFamily:"Muli-Bold",fontSize:RF(1.7),marginLeft:wp("2%"),fontFamily:"Muli-ExtraBold"}}>Wait Time</Text>      
+                            fontFamily:"Muli-Bold",fontSize:RF(1.7),marginLeft:wp("2%"),fontFamily:"Muli-ExtraBold",marginTop:hp("%")}}>Wait Time</Text>      
                     </View>      
         </View>
         </View>
@@ -275,8 +275,8 @@ class App extends Component {
                    <View style={[styles.setting_Row,{marginBottom:hp("2%"),height: hp('7%'),}]}>
                                    <View style={{marginTop:hp("3%"),marginLeft:wp("2%")}}>
                                    <Switch
-                                          value={switchThreeValue}
-                                          onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
+                                          value={switchvalue}
+                                          onChangeValue={() => this.setState({ switchvalue: !switchvalue })}
                                           // activeText={'On'}
                                           // inactiveText={'Off'}
                                           fontSize={16}
@@ -305,7 +305,7 @@ class App extends Component {
                         timeToShow	={['M']}
                         size={18}
                         digitBgColor="false"
-                        style={{marginTop:hp("1.5%"),marginLeft:wp("2%")}}
+                        style={{marginTop:hp("1.8%"),marginLeft:wp("2%")}}
                         marginTop="2%"
                         label="false"
                         timeTxtColor="white"

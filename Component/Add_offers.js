@@ -40,7 +40,7 @@ export default class Login extends Component {
       services:"",
       Offer_percenatge: '',
       Start_date:"2017-05-15",
-      end_date: "2017-05-15",
+      end_date: "2017-05-15", isDateTimePickerVisible: false,time:"",
       data: [ 
         {
             label: 'New',
@@ -63,6 +63,15 @@ export default class Login extends Component {
           ],
     };  
   }
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+  _handleDatePicked = (date) => {
+    console.log('A date has been picked: ', date);
+    this._hideDateTimePicker();
+  };
+
   phone(){
 
   }
@@ -135,6 +144,16 @@ export default class Login extends Component {
                         onDateChange={(end_date) => {this.setState({end_date: end_date})}}
             />
             </View>
+            {/* <View >
+        <TouchableOpacity onPress={this._showDateTimePicker}>
+          <Text>Show DatePicker</Text>
+        </TouchableOpacity>
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={this._handleDatePicked}
+          onCancel={this._hideDateTimePicker}
+        />
+      </View> */}
             <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_percenatge}
