@@ -1,5 +1,4 @@
 import React from 'react';
-import codePush from "react-native-code-push";
 import {TouchableOpacity,Image,Dimensions,Icon,SafeAreaView,View} from 'react-native';
 import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -592,5 +591,3 @@ export default class DinggApp extends React.Component {
     );
   }
 }
-
-// export default DinggApp = codePush(DinggApp);

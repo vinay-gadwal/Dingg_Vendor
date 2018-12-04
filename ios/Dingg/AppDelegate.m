@@ -6,10 +6,6 @@
  */
 
 #import "AppDelegate.h"
-//#import <AppCenterReactNative/AppCenterReactNative.h>
-//#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
-//#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
-//#import <CodePush/CodePush.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -26,7 +22,7 @@
 //
 //  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
 
-  
+
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"Dingg"
