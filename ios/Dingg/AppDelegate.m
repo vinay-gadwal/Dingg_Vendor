@@ -6,10 +6,10 @@
  */
 
 #import "AppDelegate.h"
-#import <AppCenterReactNative/AppCenterReactNative.h>
-#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
-#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
-#import <CodePush/CodePush.h>
+//#import <AppCenterReactNative/AppCenterReactNative.h>
+//#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
+//#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
+//#import <CodePush/CodePush.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -20,19 +20,14 @@
 {
   NSURL *jsCodeLocation;
 
-  [AppCenterReactNative register];  // Initialize AppCenter 
-
-  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
-
-  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
+//  [AppCenterReactNative register];  // Initialize AppCenter
+//
+//  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
+//
+//  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
 
   
-    #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-    #else
-        jsCodeLocation = [CodePush bundleURL];
-    #endif
-
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"Dingg"
                                                initialProperties:nil
