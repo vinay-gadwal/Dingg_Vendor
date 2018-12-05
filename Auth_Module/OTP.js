@@ -15,96 +15,134 @@ import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import CodeInput from 'react-native-confirmation-code-input';
+import TimerCountdown from 'react-native-timer-countdown';
 
 export default class example extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      code: ''
+      code: '',switchThreeValue: true,time:500
     };
   }
-  handlePress = async () => {
-    fetch('http://18.217.123.119:3000/api/vendor_signup', {
+  handlePress(code) {
+    if(code == ""){
+      return null;
+    }
+    else{
+    fetch('http://18.217.123.119:3000/api/vendor_verify_account', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "1d546500-20bd-02d9-403c-68dab1907fbb"
         },
         body: JSON.stringify({
-            OTP:this.state.OTP
+          "mobile":GLOBAL.Mobile,
+          "OTP" : code,
+          "device_type":"ios",
+          "device_token":"fiodfpisdfposidfpoisdfposdifsodfiskdfpsdfiosdfpdskfposdi"
         })
   })
       .then((response) => response.json())
       .then((responseJson) => {
-   Alert.alert("Author name at 0th index:  ");
+   this.props.navigation.navigate('Crea_pass');
+   GLOBAL.token = responseJson.token;
+   console.log(GLOBAL.token)
+   console.log(GLOBAL.Mobile)
       })
       .catch((error) => {
         console.error(error);
+        Alert.alert(error)
       });
+    }
   }
- 
-  render() {
+_resend_OTP = async () =>{
+  fetch('http://18.217.123.119:3000/api/vendor_verify_account', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      "mobile":GLOBAL.Mobile
+    })
+})
+  .then((response) => response.json())
+  .then((responseJson) => {
+   console.log(GLOBAL.Mobile)
+   this.setState({ time : 500 })
+  })
+  .catch((error) => {
+    console.error(error);
+    Alert.alert(error)
+  });
+}
+ _onFulfill(code) {
+  // TODO: call API to check code here
+  // If code does not match, clear input with: this.refs.codeInputRef1.clear()
+  // if (code == "1234") {
+  //   Alert.alert(
+  //     'Confirmation Code',
+  //     'Successful!',
+  //     [{text: 'OK'}],
+  //     { cancelable: false }
+  //   );
+  // } else {
+  //   Alert.alert(
+  //     'Confirmation Code',
+  //     'Code not match!',
+  //     [{text: 'OK'}],
+  //     { cancelable: false }
+  //   );
     
+  //   this.refs.codeInputRef1.clear();
+  // }
+}
+  render() {
+    const {
+      switchThreeValue
+    } = this.state;
     return (
-<KeyboardAwareScrollView  contentContainerStyle={styles.container}
-  keyboardShouldPersistTaps='handled'
->      
-<View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
-        </View>
-        <View style={[styles.box_SignUp,{marginTop:hp("3%")}]}>
+    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
+      keyboardShouldPersistTaps='handled'
+    >      
+        <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("35%")}]}>Verify to continue</Text>
+        <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
-          <View style={{alignItems:"center"}}>
+          <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
+          <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
             <CodeInput
               ref="codeInputRef1"
-              secureTextEntry
+              // secureTextEntry
               className={'border-b'}
               space={10}
               size={30}
               inputPosition='left'
               onFulfill={(code) => this._onFulfill(code)}
+              onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
               activeColor="rgb(255,164,0)"
-              inactiveColor="black"
+              inactiveColor="rgb(176,176,176)"
             />
+            </View>
+            <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>
+            <TimerCountdown
+                        initialSecondsRemaining={(this.state.time)*60}
+                        allowFontScaling={true}
+                        style={{ fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)"}}
+                    />
+                  <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
+                  <Text style={[styles.text,{color:"rgb(255,164,0)",fontSize:RF(1.9)}]}>Resend OTP</Text>
+                  </TouchableOpacity>
+              </View>
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginVertical:hp("3%")}]}>
-            <Text style={styles.buttonText}>Submit for OTP</Text>
+        <View style={{marginBottom:hp("25%")}}>
+          <TouchableOpacity style={styles.button} onPress={this.handlePress(this.state.code)}>
+          <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
-
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
-        <Text style={styles.text}>Already have an account? </Text>
-        <View style={{flexDirection:"column"}}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
-        <Text style={styles.text}>Sign In </Text>
-        <Image
-          source={require('../Image/icon/Line/rectangle1.png')}
-          style={{
-            width: wp('12.5%'),
-            height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp(".5%")
-            // left: 20
-          }}
-        />
-        </TouchableOpacity>
-        </View>
-        <Text style={styles.text}>here</Text>
-        </View>
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
-        <Image
-          source={require('../Image/icon/copyright.png')}
-          style={styles.copy_rigth_image}
-        />
-        <Text style={styles.copy_rigth}> All copyright reserved to </Text>
-          </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
-
-        {/* <Spinner
-          visible={this.state.spinner}
-          textContent={'One moment...'}
-          textStyle={{ color: '#fff' }} /> */}
-
+      </View>
 </KeyboardAwareScrollView>    );
   }
 }

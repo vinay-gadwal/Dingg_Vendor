@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {
   AppRegistry,
   StyleSheet,
@@ -11,7 +10,7 @@ import {
   Image,ScrollView,Alert
 } from 'react-native';
 import styles from '../Component/Style'
-import Frisbee from 'frisbee';
+import apis from '../apis/index';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';
 import CountryPicker from 'react-native-country-picker-modal';
@@ -36,7 +35,7 @@ export default class example extends Component {
     super(props);
     this.state = {
       usermobile: "",
-      spinner: false,
+      spinner: false,processing: false,
       country: {
         cca2: 'US',
         callingCode: '1'
@@ -44,10 +43,20 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
+    if(this.state.usermobile.length == 0)
+    {
+      Alert.alert("Enter Mobile Number")
+    }
+    else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
+        Alert.alert("Size of Mobile Number Should be 10")
+    }
+    else{
     fetch('http://18.217.123.119:3000/api/vendor_signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "d33aa7ef-ef52-fab3-79a3-5fad9bae840f"
         },
         body: JSON.stringify({
           mobile:this.state.usermobile
@@ -55,11 +64,13 @@ export default class example extends Component {
   })
       .then((response) => response.json())
       .then((responseJson) => {
-   Alert.alert("Author name at 0th index:  ");
+   GLOBAL.Mobile =this.state.usermobile
+   this.props.navigation.navigate('OTP');
       })
       .catch((error) => {
         console.error(error);
       });
+    }
   }
  
   render() {
@@ -102,7 +113,7 @@ export default class example extends Component {
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
+        <View style={{flexDirection:"row",marginTop:hp("15%")}}>
         <Text style={styles.text}>Already have an account? </Text>
         <View style={{flexDirection:"column"}}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
@@ -119,14 +130,14 @@ export default class example extends Component {
         </View>
         <Text style={styles.text}>here</Text>
         </View>
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
+        <View style={{flexDirection:"row",marginTop:hp("10%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
-          <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          <Text style={[styles.copy_rigth,{marginBottom:hp("5%")}]}> Vrienden Tech Private Limited 2018 </Text>
 
         {/* <Spinner
           visible={this.state.spinner}

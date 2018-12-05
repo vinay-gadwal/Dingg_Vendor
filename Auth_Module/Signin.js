@@ -6,7 +6,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,KeyboardAvoidingView,Keyboard,ScrollView
+  TouchableOpacity,Alert,Keyboard,ScrollView
 } from "react-native";
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
@@ -41,7 +41,34 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AuthStack');
+    // this.props.navigation.navigate('Crea_pass');
+  }
+  handlePress(){  
+    fetch('http://18.217.123.119:3000/api/vendor_login', {
+        method: 'POST',
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "06d1929c-addc-cf20-1705-edd409674d62"
+        },
+        body: JSON.stringify({
+          mobile   : this.state.username,
+          password : this.state.password
+        })
+  })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        if(responseJson.success === false){
+         Alert.alert(responseJson.message)
+        }
+      else
+      {
+            this.props.navigation.navigate('AuthStack');
+      }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
   phone(){
     return(
@@ -126,9 +153,9 @@ export default class Login extends Component {
         
         </View>
         <View style={[styles.box,{marginTop:hp("2%")}]}>
-        <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("42%")}]}>Sign In Using</Text>
+        <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("44%")}]}>Sign In Using</Text>
          <Text></Text>
-         <View style={{flexDirection:"row",marginRight:wp("7%")}}>
+         <View style={{flexDirection:"row",marginRight:wp("11%")}}>
          <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          </View>
          {selectedButton}
@@ -137,6 +164,7 @@ export default class Login extends Component {
                       <TextInput 
                       // secureTextEntry = { this.state.hidePassword }
                         placeholder="Enter Password"
+                        onChangeText={password => this.setState({ password })}
                         underlineColorAndroid = "transparent"
                         secureTextEntry
                          style = { styles.input }/>
@@ -152,7 +180,7 @@ export default class Login extends Component {
       </View>
       
       <View style={{marginTop:hp("3%")}}>
-          <TouchableOpacity style={styles.button} >
+          <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)}>
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       </View>

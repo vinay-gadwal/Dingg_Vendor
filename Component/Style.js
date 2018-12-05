@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
       height: hp('6%'),
       fontSize: RF(2.2),
       textAlign:'left',  
-      fontFamily:'Muli-Bold',
+      fontFamily:"Muli-Bold",
       },
     
     inputSignUp: {

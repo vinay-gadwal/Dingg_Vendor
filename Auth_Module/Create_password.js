@@ -4,7 +4,7 @@ import {
   Image,
   Text,
   View,
-  TextInput,
+  TextInput,Alert,
   TouchableOpacity,KeyboardAvoidingView,ScrollView
 } from "react-native";
 import styles from '../Component/Style'
@@ -18,16 +18,54 @@ export default class Password extends Component {
     super(props);
     this.state = {
       Uid:"",
-      conf_pass:"",
       password: "",
-      hidePassword:"true"
+      conf_pass:"",
+      // hidePassword:"true"
     };
     
   }
 
-  managePasswordVisibility = () =>
+  handlePress(){  
+    fetch('http://18.217.123.119:3000/api/vendor_save_password', {
+        method: 'POST',
+        headers: {
+           "content-type": "application/json",
+          "authorization": GLOBAL.token,
+          "cache-control": "no-cache",
+          "postman-token": "d8d5eeac-2172-38f3-2441-1b3f2d8d715e"
+        },
+        body: JSON.stringify({
+          password : this.state.password, 
+          vendor_unique_id:this.state.Uid
+        })
+  })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson)
+        if(responseJson.success === true){
+          this.props.navigation.navigate('AddDetails');
+        }
+        else{
+          Alert.alert(responseJson.message)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+  
+  Password_Validate = () =>
   {
-    this.setState({ hidePassword: !this.state.hidePassword });
+    if(this.state.Uid == ""){
+      Alert.alert("Enter User ID")
+    }
+    else if(this.state.conf_pass === this.state.password){
+        {this.handlePress()}
+      }
+      else{
+        this.setState({conf_pass:""})
+        Alert.alert("Confirm Password is Different")
+      }
   }
 
   render() {
@@ -82,7 +120,7 @@ export default class Password extends Component {
          
     </View>
     <View style={{marginBottom:"10%",marginTop:hp("3%")}}>
-        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AddDetails')}}>
+        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={this.Password_Validate}>
         <Text style={styles.buttonText}>Complete Signup</Text>
         </TouchableOpacity>
         </View>

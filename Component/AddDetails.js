@@ -288,35 +288,48 @@ export default class App extends Component {
                   </TextInputLayout>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
+                          data={data} itemColor="rgb(255,163,0)"  
+                          selectedItemColor="grey"
                           value={'Select Category'}
-                          onChangeText={() => this.setState({Category:data.indexOf[0]})}
+                          // onChangeText={() => this.setState({Category:data.indexOf[0]})}
+                          // onChangeText={(value) => {
+                          //   console.log(value); // gives new value OK
+                          //   setTimeout(() => {
+                          //     let me = this.refs['picker'];
+                          //     console.log('selected item', me.selectedItem(), me.selectedIndex()); // gives previous item & index
+                          //   }, 100);
+                        //  }}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontWeight:"bold"},
-                            width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
+                          selectedItemColor="black"
+                          // textColor="black"
+                          itemColor="red"
+                          // baseColor="blue"
+                          fontFamily="Muli-Bold"
+                          marginLeft={2}
+                        //   style={{ itemTextStyle:{ fontWeight:"bold"},
+                        //     width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
+                        //     // position: 'absolute',
+                        //     top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
+                        // }}
                       />
                   </View>
-        {/* <Text>{this.state.Category}</Text> */}
                   <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
                   <Text style={{color:"white"}}>bjjaaa</Text>
                   <GooglePlacesAutocomplete
-                         value={this.state.Address}
-                         onChangeText={Address => this.setState({ Address })}
+                        //  value={this.state.Address}
+                        //  onChangeText={Address => this.setState({ Address })}
                         placeholder="Address"
-                        minLength={2} // minimum length of text to search
+                        minLength={3} // minimum length of text to search
                         autoFocus={false}
                         returnKeyType={'next'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
                         listViewDisplayed={false} // true/false/undefined
                         fetchDetails={true}
                         renderDescription={row => row.description} // custom description render
-                        // onPress={(data = null) => {
-                        //   console.log(data);
-                        //   // console.log(details);
-                        // }}
+                        onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
+                                console.log(data, details);
+                                GLOBAL.Address = data.description;
+                              }}
                         getDefaultValue={() => {
                           return ''; // text input default value
                         }}
@@ -328,7 +341,7 @@ export default class App extends Component {
                         }}
                         styles={{
                           description: {
-                            fontWeight:"bold",marginRight:wp("40%")
+                            fontWeight:"bold",marginRight:wp("50%")
                                 },
                           predefinedPlacesDescription: {
                                 color: '#1faadb',
@@ -342,11 +355,12 @@ export default class App extends Component {
                           textInput: {
                                 marginLeft: 0,
                                 // marginRight: 100,
-                                color: '#5d5d5d',
-                                fontSize:hp('2.2%')
+                                color: 'black',
+                                fontSize:hp('2.2%'),
+                                fontFamily:"Muli-Bold"
                               },
                         }}
-                        currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+                        currentLocation={false} // Will add a 'Current location' button at the top of the predefined places list
                         currentLocationLabel="Current location"
                         nearbyPlacesAPI="GooglePlacesSearch" // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
                         GoogleReverseGeocodingQuery={{
@@ -368,7 +382,7 @@ export default class App extends Component {
                 </View>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                       <TextInput
-                        value={this.state.Locality}
+                        value={this.state.details}
                         onChangeText={Locality => this.setState({ Locality })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}

@@ -36,6 +36,7 @@ import Add_stylist from './Setting_screens/Add_stylist'
 import Star_Rating from './Setting_screens/Review_rating'
 import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
+import OTP from './Auth_Module/OTP'
 // import Alert from './Component/Alert'
 console.disableYellowBox = true;
 
@@ -189,6 +190,22 @@ const RootStack = createStackNavigator({
             headerBackTitle:null,
           })
         },
+
+ OTP: {
+          screen: OTP,
+          navigationOptions: ({ navigation }) => ({
+            title: 'OTP VERIFICATION',
+            headerBackTitle:null,
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+            />
+            </TouchableOpacity>)
+          })
+        },
+
   Crea_pass: {
           screen: Crea_pass,
           navigationOptions: ({ navigation }) => ({
