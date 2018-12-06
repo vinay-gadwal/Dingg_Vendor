@@ -15,6 +15,7 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import apis from '../apis/index'
 
 export default class Login extends Component {
   constructor(props)
@@ -41,35 +42,54 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('Crea_pass');
+    // this.props.navigation.navigate('AddDetails');
   }
-  handlePress(){  
-    fetch('http://18.217.123.119:3000/api/vendor_login', {
-        method: 'POST',
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "06d1929c-addc-cf20-1705-edd409674d62"
-        },
-        body: JSON.stringify({
-          mobile   : this.state.username,
-          password : this.state.password
-        })
-  })
-      .then((response) => response.json())
+  // handlePress(){  
+  //   fetch('http://18.217.123.119:3000/api/vendor_login', {
+  //       method: 'POST',
+  //       headers: {
+  //         "content-type": "application/json",
+  //         "cache-control": "no-cache",
+  //         "postman-token": "06d1929c-addc-cf20-1705-edd409674d62"
+  //       },
+  //       body: JSON.stringify({
+  //         mobile   : this.state.username,
+  //         password : this.state.password
+  //       })
+  // })
+  //     .then((response) => response.json())
+  //     .then((responseJson) => {
+  //       if(responseJson.success === false){
+  //        Alert.alert(responseJson.message)
+  //       }
+  //     else
+  //     {
+  //           this.props.navigation.navigate('AuthStack');
+  //     }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }
+
+
+  handlePress = () => {
+    this.setState({ processing: true });
+    apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
-        if(responseJson.success === false){
-         Alert.alert(responseJson.message)
+        if(responseJson.success === true) {
+          this.props.navigation.navigate('AuthStack');
+          
+        } else {
+          Alert.alert(responseJson.message)
         }
-      else
-      {
-            this.props.navigation.navigate('AuthStack');
-      }
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
   }
+
   phone(){
     return(
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
@@ -180,7 +200,7 @@ export default class Login extends Component {
       </View>
       
       <View style={{marginTop:hp("3%")}}>
-          <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)}>
+          <TouchableOpacity style={styles.button} onPress={this.handlePress}>
           <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       </View>

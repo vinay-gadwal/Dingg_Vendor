@@ -26,22 +26,23 @@ export default class example extends Component {
       code: '',switchThreeValue: true,time:500
     };
   }
-  
+
   handlePress(code) {
     if(code == ""){
       return null;
     }
     else{
-      apis.OTP_SignUP(GLOBAL.mobile,code)
+      apis.OTP_FORGOT(GLOBAL.Mobile1,code)
       .then((responseJson) => {
-        if(responseJson.success === false){
-          Alert.alert(responseJson.message)
+        if(responseJson.success === true){
+            this.props.navigation.navigate('For_New_Pass');
+            GLOBAL.token = responseJson.token;
+            Alert.alert(responseJson.message)
+            console.log(GLOBAL.Mobile1)
+            console.log(responseJson)
         }
         else{
-          this.props.navigation.navigate('Crea_pass');
           Alert.alert(responseJson.message)
-          GLOBAL.token = responseJson.token;
-          console.log(responseJson)
         }
       })
       .catch((error) => {
@@ -52,10 +53,10 @@ export default class example extends Component {
   }
 
 _resend_OTP = async () =>{
-  apis.Resend_OTP(GLOBAL.mobile)
+  apis.Resend_OTP(GLOBAL.Mobile1)
   .then((response) => response.json())
   .then((responseJson) => {
-   console.log(GLOBAL.mobile)
+   console.log(GLOBAL.Mobile1)
    this.setState({ time : 500 })
   })
   .catch((error) => {
@@ -92,7 +93,7 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-        <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("35%")}]}>Verify to continue</Text>
+        <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("10%")}]}>Verify your mobile Number</Text>
         <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
@@ -104,7 +105,7 @@ _resend_OTP = async () =>{
               space={10}
               size={30}
               inputPosition='left'
-              // onFulfill={(code) => this._onFulfill(code)}
+              onFulfill={(code) => this._onFulfill(code)}
               onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
               activeColor="rgb(255,164,0)"
@@ -134,4 +135,3 @@ _resend_OTP = async () =>{
 }
 
 AppRegistry.registerComponent('example', () => example);
-

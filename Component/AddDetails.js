@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Text,View,ScrollView,TextInput,TouchableOpacity,Image,Alert
-        } from 'react-native';
+import { Text,View,ScrollView,TextInput,TouchableOpacity,Image,Alert} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { Dropdown } from 'react-native-material-dropdown';
 import styles from './Style'
@@ -19,20 +18,7 @@ const workPlace = {
   description: 'Work',
   geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
 };
-const data = [
-    {
-      value: 'Salon',
-    },
-    {
-      value: 'Doctor',
-    },
-    {
-      value: 'Food',
-    },
-    {
-      value: 'Plumber',
-    }
-  ];
+var data_1 = [];
 export default class App extends Component {
   constructor(){
     super()
@@ -44,24 +30,85 @@ export default class App extends Component {
         Image_Source_2:null,Image_Source_2_1:null,Image_Source_3:null,Image_Source_3_1:null,
         Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
-        Landline_No:"",Master_Ven_ID:"",Category:"",
+        Landline_No:"",Master_Ven_ID:"",Category:"",service:"",City_Name:[],
+        data : [],service_type:[],dataObject:""
       }
     }
-    Fun_Phot_save(){
-        // GLOBAL.Category=this.state.Category
-        GLOBAL.Buss_name=this.state.Add_Bus_Details;
-        GLOBAL.Address=this.state.Address;
-        GLOBAL.Locality=this.state.Locality;
-        GLOBAL.City=this.state.City;
-        GLOBAL.Website_url=this.state.Website_url;
-        GLOBAL.Email=this.state.Email;
-        GLOBAL.Contact_Name=this.state.Contact_Name;
-        GLOBAL.Primary_No=this.state.Primary_No;
-        GLOBAL.Secondry_no=this.state.Secondry_no;
-        GLOBAL.Landline_No=this.state.Landline_No;
-        GLOBAL.Master_Ven_ID=this.state.Master_Ven_ID
-    }
+    componentDidMount(){
+      this.Get_Category()
+      this.Get_City()
+      this.Get_Service()
+     }
     
+   Get_Category = async () =>{
+      fetch('http://18.217.123.119:3000/api/category', {
+        method: 'GET',
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "0840d926-ef53-710f-e40b-d8a4690cde36"
+        },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+       console.log(responseJson)
+      //  Alert.alert(responseJson.data)
+      this.setState({data:responseJson.data})
+      console.log(this.state.data)
+      })
+      .catch((error) => {
+        console.error(error)
+        Alert.alert(error)
+      });
+    }
+
+  Get_City = async () =>{
+      fetch('http://18.217.123.119:3000/api/city', {
+        method: 'GET',
+        headers: {
+          "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE1NDI2MTI2MTR9.RlWRzLFfJUA7k1_UIBocncGYgrKSznWZ-3bCwGmKWns",
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "a3d8f4a6-b009-2e09-8f80-9055092b360e"
+        },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+       console.log(responseJson)
+      for (let i = 0; i <= responseJson.data.length-1; i++) 
+          {
+            this.setState({City_Name:responseJson.data[i].city})
+            data_1.push(this.state.City_Name);
+            console.log(data_1)
+          }
+      })
+      .catch((error) => {
+        console.error(error);
+        Alert.alert(error)
+      });
+    }
+
+    Get_Service = async () =>{
+      fetch('http://18.217.123.119:3000/api/getsubcategory', {
+        method: 'POST',
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "52d111cc-bc3d-02da-6560-1f1e7a0ab1bf"
+        },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+       console.log(responseJson)
+      //  Alert.alert(responseJson.data)
+      this.setState({service_type:responseJson.data})
+      console.log(this.state.service_type)
+      })
+      .catch((error) => {
+        console.error(error);
+        Alert.alert(error)
+      });
+    }
       selectPhotoTapped1() 
       {
                         const options = 
@@ -233,22 +280,6 @@ export default class App extends Component {
         });
       }
 
-      delete_photo_1(){
-        this.setState({avatarSource1:null})
-      }
-      delete_photo_2(){
-        this.setState({Image_Source:null})
-      }
-      delete_photo_3(){
-        this.setState({Image_Source_1_1:null})
-      }
-      delete_photo_4(){
-        this.setState({Image_Source_2_1:null})
-      }
-      delete_photo_5(){
-        this.setState({Image_Source_3_1:null})
-      }
-
   render() {
     var SampleNameArray = [ "Pankaj", "Rita", "Mohan", "Amit", "Babulal", "Sakshi" ];
 
@@ -288,30 +319,44 @@ export default class App extends Component {
                   </TextInputLayout>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data} itemColor="rgb(255,163,0)"  
-                          selectedItemColor="grey"
+                          data={data_1} 
+                          itemColor="rgb(255,163,0)"  
                           value={'Select Category'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
-                          // onChangeText={(value) => {
-                          //   console.log(value); // gives new value OK
-                          //   setTimeout(() => {
-                          //     let me = this.refs['picker'];
-                          //     console.log('selected item', me.selectedItem(), me.selectedIndex()); // gives previous item & index
-                          //   }, 100);
-                        //  }}
+                          onChangeText={(value) => {
+                            console.log(value); // gives new value OK
+                            this.setState({Category:value})
+                         }}
                           dropdownPosition={0}
-                          textColor="rgb(204,204,204)"
+                          // textColor="rgb(204,204,204)"
+                          textColor="black"
                           selectedItemColor="black"
                           // textColor="black"
-                          itemColor="red"
+                          // itemColor="red"
                           // baseColor="blue"
                           fontFamily="Muli-Bold"
                           marginLeft={2}
-                        //   style={{ itemTextStyle:{ fontWeight:"bold"},
-                        //     width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
-                        //     // position: 'absolute',
-                        //     top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        // }}
+                      />
+                  </View>
+                  <View style={{width:wp('70%'),marginVertical:"0%"}}>
+                      <Dropdown
+                          data={this.state.service_type} 
+                          itemColor="rgb(255,163,0)"  
+                          value={'Select Service Type'}
+                          onChangeText={() => this.setState({Category:data.indexOf[0]})}
+                          onChangeText={(value) => {
+                            console.log(value); // gives new value OK
+                            this.setState({service:value})
+                         }}
+                          dropdownPosition={0}
+                          // textColor="rgb(204,204,204)"
+                          textColor="black"
+                          selectedItemColor="black"
+                          // textColor="black"
+                          // itemColor="red"
+                          // baseColor="blue"
+                          fontFamily="Muli-Bold"
+                          marginLeft={2}
                       />
                   </View>
                   <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
@@ -328,7 +373,9 @@ export default class App extends Component {
                         renderDescription={row => row.description} // custom description render
                         onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
                                 console.log(data, details);
-                                GLOBAL.Address = data.description;
+                                // GLOBAL.Address = data.description;
+                                this.setState({Address:data.description})
+                                console.log(this.state.Address)
                               }}
                         getDefaultValue={() => {
                           return ''; // text input default value
@@ -393,19 +440,26 @@ export default class App extends Component {
                         
                       />
                   </TextInputLayout>
-                  <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
-                      <TextInput
-                        value={this.state.City}
-                        onChangeText={City => this.setState({ City })}
-                        ref={input => (this.passwordCInput = input)}
-                        // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={styles.input}
-                        placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
-                        returnKeyType="next"
-                        
+                  <View style={{width:wp('70%'),marginVertical:"0%"}}>
+                      <Dropdown
+                          data={this.state.service_type} 
+                          itemColor="rgb(255,163,0)"  
+                          value={'City'}
+                          onChangeText={(value) => {
+                            console.log(value); // gives new value OK
+                            this.setState({City:value})
+                         }}
+                          dropdownPosition={0}
+                          // textColor="rgb(204,204,204)"
+                          textColor="black"
+                          selectedItemColor="black"
+                          // textColor="black"
+                          // itemColor="red"
+                          // baseColor="blue"
+                          fontFamily="Muli-Bold"
+                          marginLeft={2}
                       />
-                  </TextInputLayout>
+                  </View>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Website_url}
@@ -609,7 +663,7 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome')}}>
+        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]}>
                   <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
         </View>

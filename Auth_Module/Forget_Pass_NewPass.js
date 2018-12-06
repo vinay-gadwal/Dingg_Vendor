@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,ScrollView
+  TouchableOpacity,ScrollView,Alert
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -27,6 +27,46 @@ export default class Password extends Component {
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
+  }
+
+  handlePress(){  
+    fetch('http://18.217.123.119:3000/api/vendor_reset_password', {
+        method: 'POST',
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "272c8d92-9bf6-b32b-2e0f-c780530790bf"
+        },
+        body: JSON.stringify({
+          mobile : GLOBAL.Mobile1,
+          password : this.state.password
+        })
+  })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson)
+        if(responseJson.success === true){
+          Alert.alert(responseJson.message)
+          this.props.navigation.navigate('SignIn');
+        }
+        else{
+          Alert.alert(responseJson.message)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+  
+  Password_Validate = () =>
+  {
+     if(this.state.password === this.state.new_pass){
+        {this.handlePress()}
+      }
+      else{
+        this.setState({new_pass:""})
+        Alert.alert("Confirm Password is Different")
+      }
   }
 
   render() {
@@ -67,11 +107,12 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-    <View style={{marginBottom:hp("3%"),marginTop:hp("5%")}}> 
-        <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('SignIn')}}>
+    <View style={{marginBottom:hp("13%"),marginTop:hp("2%")}}> 
+        <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={this.Password_Validate}>
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>
+        <View style={{flexDirection:"column",alignItems:"center"}}>
         <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
@@ -80,6 +121,7 @@ export default class Password extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
           <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
+          </View>
 </KeyboardAwareScrollView>
     );
   }

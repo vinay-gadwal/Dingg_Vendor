@@ -36,6 +36,7 @@ import Star_Rating from './Setting_screens/Review_rating'
 import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
 import OTP from './Auth_Module/OTP'
+import OTP_forget from './Auth_Module/OTP_Forget'
 // import Alert from './Component/Alert'
 console.disableYellowBox = true;
 
@@ -231,6 +232,21 @@ const RootStack = createStackNavigator({
             </TouchableOpacity>)
           })
         },
+  OTP_forget: {
+          screen: OTP_forget,
+          navigationOptions: ({ navigation }) => ({
+            title: 'OTP VERIFICATION',
+            headerBackTitle:null,
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={require('./Image/icon/back_2x.png')}
+              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+            />
+            </TouchableOpacity>)
+          })
+        },
+
   For_New_Pass:{
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({

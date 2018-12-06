@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
-  Platform,
-  Image,ScrollView,Alert
+  View,  Image,Alert
 } from 'react-native';
 import styles from '../Component/Style'
 import apis from '../apis/index';
@@ -19,15 +16,6 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-
-
-
-const MAX_LENGTH_CODE = 4;
-const MAX_LENGTH_NUMBER = 10;
-
-// your brand's theme primary color
-const brandColor = 'rgb(255,163,0)';
-
 
 export default class example extends Component {
 
@@ -51,21 +39,17 @@ export default class example extends Component {
         Alert.alert("Size of Mobile Number Should be 10")
     }
     else{
-    fetch('http://18.217.123.119:3000/api/vendor_signup', {
-        method: 'POST',
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "d33aa7ef-ef52-fab3-79a3-5fad9bae840f"
-        },
-        body: JSON.stringify({
-          mobile:this.state.usermobile
-        })
-  })
-      .then((response) => response.json())
+      apis.SIGN_UP(this.state.usermobile)
       .then((responseJson) => {
-   GLOBAL.Mobile =this.state.usermobile
-   this.props.navigation.navigate('OTP');
+        if(responseJson.success === true) {
+          GLOBAL.mobile = this.state.usermobile
+          this.props.navigation.navigate('OTP');
+          Alert.alert(responseJson.message)
+          console.log(responseJson)
+          console.log(GLOBAL.mobile)
+        } else {
+          Alert.alert(responseJson.message)
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -108,7 +92,6 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
         <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginVertical:hp("3%")}]}>
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
@@ -130,6 +113,7 @@ export default class example extends Component {
         </View>
         <Text style={styles.text}>here</Text>
         </View>
+        <View style={{flexDirection:"column",alignItems:"center"}}>
         <View style={{flexDirection:"row",marginTop:hp("10%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
@@ -138,11 +122,11 @@ export default class example extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
           <Text style={[styles.copy_rigth,{marginBottom:hp("5%")}]}> Vrienden Tech Private Limited 2018 </Text>
-
-        {/* <Spinner
+          </View>
+        <Spinner
           visible={this.state.spinner}
           textContent={'One moment...'}
-          textStyle={{ color: '#fff' }} /> */}
+          textStyle={{ color: '#fff' }} />
 
 </KeyboardAwareScrollView>    );
   }

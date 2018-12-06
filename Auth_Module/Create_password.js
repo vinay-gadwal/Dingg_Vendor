@@ -12,6 +12,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import apis from '../apis/index'
 
 export default class Password extends Component {
   constructor(props) {
@@ -26,27 +27,16 @@ export default class Password extends Component {
   }
 
   handlePress(){  
-    fetch('http://18.217.123.119:3000/api/vendor_save_password', {
-        method: 'POST',
-        headers: {
-           "content-type": "application/json",
-          "authorization": GLOBAL.token,
-          "cache-control": "no-cache",
-          "postman-token": "d8d5eeac-2172-38f3-2441-1b3f2d8d715e"
-        },
-        body: JSON.stringify({
-          password : this.state.password, 
-          vendor_unique_id:this.state.Uid
-        })
-  })
-      .then((response) => response.json())
+    apis.Create_Pass(this.state.password, this.state.Uid,GLOBAL.token)
       .then((responseJson) => {
         console.log(responseJson)
         if(responseJson.success === true){
           this.props.navigation.navigate('AddDetails');
+          console.log(responseJson)
         }
         else{
           Alert.alert(responseJson.message)
+          console.log(responseJson)
         }
       })
       .catch((error) => {
@@ -73,11 +63,10 @@ export default class Password extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-<View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
-        
-        </View>
-                <View style={[styles.box,{marginTop:hp("3%")}]}>
+    <View style={{paddingVertical:hp("2%")}}>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/> 
+    </View>
+    <View style={[styles.box,{marginTop:hp("3%"),marginVertical:hp("1%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -124,6 +113,7 @@ export default class Password extends Component {
         <Text style={styles.buttonText}>Complete Signup</Text>
         </TouchableOpacity>
         </View>
+        <View style={{flexDirection:"column",alignItems:"center"}}>
         <View style={{flexDirection:"row",marginTop:hp("5%")}}>
         <Image
           source={require('../Image/icon/copyright.png')}
@@ -132,7 +122,7 @@ export default class Password extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
           <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
-
+          </View>
 </KeyboardAwareScrollView>
     );
   }
