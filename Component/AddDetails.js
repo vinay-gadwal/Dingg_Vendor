@@ -9,6 +9,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ResponsiveImage from 'react-native-responsive-image'
+import apis from '../apis/index'
 
 const homePlace = {
   description: 'Home',
@@ -40,6 +41,67 @@ export default class App extends Component {
       this.Get_Service()
      }
     
+  // handlePress = () => {
+  //     this.setState({ processing: true });
+  //     apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Image_Source)
+  //       .then((responseJson) => {
+  //         if(responseJson.success === true) {
+  //           this.props.navigation.navigate('AuthStack');
+  //           console.log(responseJson)
+  //         } else {
+  //           Alert.alert(responseJson.message)
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         // console.error(error);
+  //         this.setState({ processing: false, loginText: 'Try Again' });
+  //       });
+  //   }
+  handlePress = () =>{
+          const form = new FormData();
+          form.append("business_name", "Zubear Ansari");
+form.append("contact_person", "Ansari");
+form.append("vendor_unique_id", "46789asd");
+form.append("address", "Test");
+form.append("locality", "Palasia");
+form.append("cityId", "1");
+form.append("website", "http://eb.com");
+form.append("mobile", "9584495778");
+form.append("secondary_number", "1234567897");
+form.append("landline_number", "07612650832");
+form.append('file[]', [{ uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' }]);
+form.append('profile_pic', { uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' });
+form.append("notification", "true");
+form.append("email", "z.ansari@ebabu.co");
+form.append("categoryId", "1");
+form.append("subcategory[0][subcategoryId]", "1");
+form.append("subcategory[1][subcategoryId]", "2");
+         
+          fetch('http://18.217.123.119:3000/api/vendor_profile_update', {
+            "method": "POST",
+            "headers": {
+              "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjEsImlhdCI6MTU0NDA3ODA0OX0.o8ij8x6m6UU1gqt9wR4lFJFZ9e08MrHlmpUM2HkGw1c",
+              "cache-control": "no-cache",
+              "postman-token": "a44dd6a0-ca85-f1fc-5793-96d24a13c9aa"
+            },
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+          })
+          .then((response) => response.json())
+          .then((responseJson) => {
+            console.log(responseJson)
+           //  Alert.alert(responseJson.data)
+           this.setState({data:responseJson.data})
+           console.log(this.state.data)
+           })
+           .catch((error) => {
+             console.log(error)
+             Alert.alert(error)
+           });
+  }
+
    Get_Category = async () =>{
       fetch('http://18.217.123.119:3000/api/category', {
         method: 'GET',
@@ -121,16 +183,16 @@ export default class App extends Component {
                                            }
                            };
           ImagePicker.showImagePicker(options, (response) => {
-          console.log('Response = ', response);
+          // console.log('Response = ', response);
     
           if (response.didCancel) {
-            console.log('User cancelled photo picker');
+            // console.log('User cancelled photo picker');
           }
           else if (response.error) {
-            console.log('ImagePicker Error: ', response.error);
+            // console.log('ImagePicker Error: ', response.error);
           }
           else if (response.customButton) {
-            console.log('User tapped custom button: ', response.customButton);
+            // console.log('User tapped custom button: ', response.customButton);
           }
           else {
             let source = { uri: response.uri };
@@ -311,7 +373,7 @@ export default class App extends Component {
                         onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"0%"}]}
+                        style={styles.input}
                         placeholder="Add Business Name"
                         placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"                
@@ -388,7 +450,7 @@ export default class App extends Component {
                         }}
                         styles={{
                           description: {
-                            fontWeight:"bold",marginRight:wp("50%")
+                            fontWeight:"bold",marginRight:wp("55%")
                                 },
                           predefinedPlacesDescription: {
                                 color: '#1faadb',
@@ -425,7 +487,7 @@ export default class App extends Component {
                         // predefinedPlaces={[homePlace, workPlace]}
                         debounce={200}
                 />
-                <Text style={{color:"white"}}>bjjase</Text>
+                <Text style={{color:"white"}}>bssjjase</Text>
                 </View>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                       <TextInput
@@ -663,7 +725,7 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]}>
+        <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]}>
                   <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
         </View>

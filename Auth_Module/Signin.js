@@ -42,7 +42,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AddDetails');
+    this.props.navigation.navigate('AddDetails');
   }
   // handlePress(){  
   //   fetch('http://18.217.123.119:3000/api/vendor_login', {

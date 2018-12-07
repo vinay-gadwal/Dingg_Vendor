@@ -5,7 +5,7 @@ import { AsyncStorage,Alert } from 'react-native';
 const base_url = 'http://18.217.123.119:3000/api/';
 
 const apis = {
-  VENDOR_PROFILE_UPDATE: async () => {
+  VENDOR_PROFILE_UPDATE: async (PicturePath,PicturePath1) => {
     try {
       let data = {
         "a": "A",
@@ -19,9 +19,8 @@ const apis = {
         formData.append(name, data[name]);
       }
 
-      formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('file[]', [{ uri: PicturePath1, name: 'selfie.jpg', type: 'image/jpg' }]);
       formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
-
       const options = {
         method: 'POST',
         body: formData,
