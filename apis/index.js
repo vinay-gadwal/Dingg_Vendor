@@ -5,6 +5,43 @@ import { AsyncStorage,Alert } from 'react-native';
 const base_url = 'http://18.217.123.119:3000/api/';
 
 const apis = {
+  VENDOR_PROFILE_UPDATE: async () => {
+    try {
+      let data = {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      };
+
+      let formData  = new FormData();
+
+      for(let name in data) {
+        formData.append(name, data[name]);
+      }
+
+      formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+
+      const options = {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      };
+
+      delete options.headers['Content-Type'];
+
+
+      fetch(base_url + "vendor_profile_update", options)
+      .then(function (response) {
+         console.log(response);
+      });
+    } catch (error) {
+      Alert.alert(error);
+    }
+  },
+
   LOGIN_API: async (user, pass) => {
     try {
       const response = await fetch(
@@ -28,7 +65,7 @@ const apis = {
       Alert.alert(error)
     }
   },
- 
+
   SIGN_UP: async (usermobile) => {
     try {
       const response = await fetch(
@@ -91,7 +128,7 @@ const apis = {
             "postman-token": "d8d5eeac-2172-38f3-2441-1b3f2d8d715e"
           },
           body: JSON.stringify({
-            password : password, 
+            password : password,
             vendor_unique_id:UID
           }),
         },
