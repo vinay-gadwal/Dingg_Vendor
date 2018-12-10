@@ -46,7 +46,7 @@ export default class example extends Component {
           this.props.navigation.navigate('OTP');
           Alert.alert(responseJson.message)
           console.log(responseJson)
-          console.log(GLOBAL.mobile)
+          // console.log(GLOBAL.mobile)
         } else {
           Alert.alert(responseJson.message)
         }

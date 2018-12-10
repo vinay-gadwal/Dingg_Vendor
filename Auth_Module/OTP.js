@@ -55,7 +55,7 @@ _resend_OTP = async () =>{
   apis.Resend_OTP(GLOBAL.mobile)
   .then((response) => response.json())
   .then((responseJson) => {
-   console.log(GLOBAL.mobile)
+  //  console.log(GLOBAL.mobile)
    this.setState({ time : 500 })
   })
   .catch((error) => {

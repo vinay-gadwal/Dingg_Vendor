@@ -79,9 +79,10 @@ export default class Login extends Component {
       .then((responseJson) => {
         if(responseJson.success === true) {
           this.props.navigation.navigate('AuthStack');
-          
+          console.log(responseJson)
         } else {
           Alert.alert(responseJson.message)
+          console.log(this.state.username)
         }
       })
       .catch((error) => {

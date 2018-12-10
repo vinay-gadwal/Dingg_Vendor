@@ -20,6 +20,8 @@ const workPlace = {
   geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
 };
 var data_1 = [];
+var data_category = [];
+var data_service = [];
 export default class App extends Component {
   constructor(){
     super()
@@ -28,11 +30,13 @@ export default class App extends Component {
         avatarSource: null,avatarSource1:null,
         Image_Source:null,Image_Source1:null,
         Image_Source_1:null,Image_Source_1_1:null,
-        Image_Source_2:null,Image_Source_2_1:null,Image_Source_3:null,Image_Source_3_1:null,
-        Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
+        Image_Source_2:null,Image_Source_2_1:null,
+        Image_Source_3:null,Image_Source_3_1:null,
+        Address:"",Add_Bus_Details:"",Locality:"",City_dropdown:"",
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
-        Landline_No:"",Master_Ven_ID:"",Category:"",service:"",City_Name:[],
-        data : [],service_type:[],dataObject:""
+        Landline_No:"",Master_Ven_ID:"",Category_Dropdown:"",service_dropdown:"",
+        City_Name:[],categoryName:[],service_type:[],
+        service_name:[],data:[],
       }
     }
     componentDidMount(){
@@ -41,82 +45,84 @@ export default class App extends Component {
       this.Get_Service()
      }
     
-  // handlePress = () => {
-  //     this.setState({ processing: true });
-  //     apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Image_Source)
-  //       .then((responseJson) => {
-  //         if(responseJson.success === true) {
-  //           this.props.navigation.navigate('AuthStack');
-  //           console.log(responseJson)
-  //         } else {
-  //           Alert.alert(responseJson.message)
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         // console.error(error);
-  //         this.setState({ processing: false, loginText: 'Try Again' });
-  //       });
-  //   }
-  handlePress = () =>{
-          const form = new FormData();
-          form.append("business_name", "Zubear Ansari");
-form.append("contact_person", "Ansari");
-form.append("vendor_unique_id", "46789asd");
-form.append("address", "Test");
-form.append("locality", "Palasia");
-form.append("cityId", "1");
-form.append("website", "http://eb.com");
-form.append("mobile", "9584495778");
-form.append("secondary_number", "1234567897");
-form.append("landline_number", "07612650832");
-form.append('file[]', [{ uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' }]);
-form.append('profile_pic', { uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' });
-form.append("notification", "true");
-form.append("email", "z.ansari@ebabu.co");
-form.append("categoryId", "1");
-form.append("subcategory[0][subcategoryId]", "1");
-form.append("subcategory[1][subcategoryId]", "2");
-         
-          fetch('http://18.217.123.119:3000/api/vendor_profile_update', {
-            "method": "POST",
-            "headers": {
-              "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjEsImlhdCI6MTU0NDA3ODA0OX0.o8ij8x6m6UU1gqt9wR4lFJFZ9e08MrHlmpUM2HkGw1c",
-              "cache-control": "no-cache",
-              "postman-token": "a44dd6a0-ca85-f1fc-5793-96d24a13c9aa"
-            },
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-          })
-          .then((response) => response.json())
-          .then((responseJson) => {
+  handlePress = () => {
+      this.setState({ processing: true });
+      apis.VENDOR_PROFILE_UPDATE(GLOBAL.Image,this.state.Add_Bus_Details,this.state.ource_2_1,GLOBAL.token)
+        .then((responseJson) => {
+          if(responseJson.success === true) {
+            this.props.navigation.navigate('AuthStack');
             console.log(responseJson)
-           //  Alert.alert(responseJson.data)
-           this.setState({data:responseJson.data})
-           console.log(this.state.data)
-           })
-           .catch((error) => {
-             console.log(error)
-             Alert.alert(error)
-           });
-  }
+          } else {
+            Alert.alert(responseJson.message)
+          }
+        })
+        .catch((error) => {
+          // console.error(error);
+          this.setState({ processing: false, loginText: 'Try Again' });
+        });
+    }
+//   handlePress = () =>{
+//           const form = new FormData();
+// form.append("business_name", "Zubear Ansari");
+// form.append("contact_person", "Ansari");
+// form.append("vendor_unique_id", "46789asd");
+// form.append("address", "Test");
+// form.append("locality", "Palasia");
+// form.append("cityId", "1");
+// form.append("website", "http://eb.com");
+// form.append("mobile", "9584495778");
+// form.append("secondary_number", "1234567897");
+// form.append("landline_number", "07612650832");
+// // form.append('file[]', [{ uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' }]);
+// form.append('profile_pic', { uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' });
+// form.append("notification", "true");
+// form.append("email", "z.ansari@ebabu.co");
+// form.append("categoryId", "1");
+// form.append("subcategory[0][subcategoryId]", "1");
+// form.append("subcategory[1][subcategoryId]", "2");
+// const options = {
+//   method: 'POST',
+//   body: form,
+//   headers: {
+//     'Content-Type': 'multipart/form-data',
+//     'Authorization':GLOBAL.token
+//   }
+// };
 
-   Get_Category = async () =>{
+// delete options.headers['Content-Type'];  
+//           fetch('http://18.217.123.119:3000/api/vendor_profile_update',options)
+//           .then((response) => response.json())
+//           .then((responseJson) => {
+//             console.log(responseJson)
+//            //  Alert.alert(responseJson.data)
+//            this.setState({data:responseJson.data})
+//            console.log(this.state.data)
+//            })
+//            .catch((error) => {
+//              console.log(error)
+//              Alert.alert(error)
+//            });
+//   }
+
+Get_Category = async () =>{
       fetch('http://18.217.123.119:3000/api/category', {
         method: 'GET',
         headers: {
           "content-type": "application/json",
           "cache-control": "no-cache",
           "postman-token": "0840d926-ef53-710f-e40b-d8a4690cde36"
+          
         },
     })
       .then((response) => response.json())
       .then((responseJson) => {
        console.log(responseJson)
-      //  Alert.alert(responseJson.data)
-      this.setState({data:responseJson.data})
-      console.log(this.state.data)
+       for (let i = 0; i <= responseJson.data.length-1; i++) 
+       {
+         this.setState({categoryName:responseJson.data[i].category})
+         data_category.push({value:this.state.categoryName});
+         console.log(data_category)
+       }
       })
       .catch((error) => {
         console.error(error)
@@ -124,11 +130,11 @@ form.append("subcategory[1][subcategoryId]", "2");
       });
     }
 
-  Get_City = async () =>{
+Get_City = async () =>{
       fetch('http://18.217.123.119:3000/api/city', {
         method: 'GET',
         headers: {
-          "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE1NDI2MTI2MTR9.RlWRzLFfJUA7k1_UIBocncGYgrKSznWZ-3bCwGmKWns",
+          "authorization": GLOBAL.token,
           "content-type": "application/json",
           "cache-control": "no-cache",
           "postman-token": "a3d8f4a6-b009-2e09-8f80-9055092b360e"
@@ -140,7 +146,7 @@ form.append("subcategory[1][subcategoryId]", "2");
       for (let i = 0; i <= responseJson.data.length-1; i++) 
           {
             this.setState({City_Name:responseJson.data[i].city})
-            data_1.push(this.state.City_Name);
+            data_1.push({value:this.state.City_Name});
             console.log(data_1)
           }
       })
@@ -150,7 +156,13 @@ form.append("subcategory[1][subcategoryId]", "2");
       });
     }
 
-    Get_Service = async () =>{
+    Get_Category_id (){
+      debugger
+      if(this.state.Category_Dropdown.indexOf === 0){
+        GLOBAL.Service_id = 1
+      }
+    }
+Get_Service = async () =>{
       fetch('http://18.217.123.119:3000/api/getsubcategory', {
         method: 'POST',
         headers: {
@@ -158,20 +170,27 @@ form.append("subcategory[1][subcategoryId]", "2");
           "cache-control": "no-cache",
           "postman-token": "52d111cc-bc3d-02da-6560-1f1e7a0ab1bf"
         },
+        body: JSON.stringify({
+          categoryId : "1"
+        }),
     })
       .then((response) => response.json())
       .then((responseJson) => {
-       console.log(responseJson)
-      //  Alert.alert(responseJson.data)
-      this.setState({service_type:responseJson.data})
-      console.log(this.state.service_type)
+        console.log(responseJson)
+        for (let i = 0; i <= responseJson.data.length-1; i++) 
+            {
+              this.setState({service_name:responseJson.data[i].subcategory})
+              data_service.push({value:this.state.service_name});
+              console.log(data_service)
+            }
       })
       .catch((error) => {
         console.error(error);
         Alert.alert(error)
       });
     }
-      selectPhotoTapped1() 
+
+  selectPhotoTapped1() 
       {
                         const options = 
                         {
@@ -203,7 +222,23 @@ form.append("subcategory[1][subcategoryId]", "2");
         });
       }
     
-      selectPhotoTapped2() 
+delete_photo_1(){
+        this.setState({Image_Source_2_1:null})
+      }
+
+delete_photo_2(){
+        this.setState({Image_Source1:null})
+      }
+
+delete_photo_3(){
+        this.setState({Image_Source_1_1:null})
+      }
+
+delete_photo_4(){
+        this.setState({Image_Source_3_1:null})
+      }
+
+  selectPhotoTapped2() 
       {
                   const options = {
                     quality: 1.0,
@@ -234,7 +269,7 @@ form.append("subcategory[1][subcategoryId]", "2");
         });
       }
 
-      selectPhotoTapped3() 
+selectPhotoTapped3() 
       {
         const options = {
           quality: 1.0,
@@ -272,7 +307,7 @@ form.append("subcategory[1][subcategoryId]", "2");
         });
       }
 
-      selectPhotoTapped4() 
+selectPhotoTapped4() 
       {
         const options = {
           quality: 1.0,
@@ -307,7 +342,7 @@ form.append("subcategory[1][subcategoryId]", "2");
         });
       }
     
-      selectPhotoTapped5() 
+selectPhotoTapped5() 
       {
         const options = {
           quality: 1.0,
@@ -381,17 +416,16 @@ form.append("subcategory[1][subcategoryId]", "2");
                   </TextInputLayout>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={data_1} 
+                          data={data_category} 
                           itemColor="rgb(255,163,0)"  
                           value={'Select Category'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value) => {
                             console.log(value); // gives new value OK
-                            this.setState({Category:value})
+                            this.setState({Category_Dropdown:value})
                          }}
                           dropdownPosition={0}
-                          // textColor="rgb(204,204,204)"
-                          textColor="black"
+                          textColor="rgb(204,204,204)"
                           selectedItemColor="black"
                           // textColor="black"
                           // itemColor="red"
@@ -402,17 +436,16 @@ form.append("subcategory[1][subcategoryId]", "2");
                   </View>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={this.state.service_type} 
+                          data={data_service} 
                           itemColor="rgb(255,163,0)"  
                           value={'Select Service Type'}
-                          onChangeText={() => this.setState({Category:data.indexOf[0]})}
+                          // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value) => {
                             console.log(value); // gives new value OK
-                            this.setState({service:value})
+                            this.setState({service_dropdown:value})
                          }}
                           dropdownPosition={0}
-                          // textColor="rgb(204,204,204)"
-                          textColor="black"
+                          textColor="rgb(204,204,204)"
                           selectedItemColor="black"
                           // textColor="black"
                           // itemColor="red"
@@ -421,7 +454,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                           marginLeft={2}
                       />
                   </View>
-                  <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
+                  {/* <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
                   <Text style={{color:"white"}}>bjjaaa</Text>
                   <GooglePlacesAutocomplete
                         //  value={this.state.Address}
@@ -488,7 +521,19 @@ form.append("subcategory[1][subcategoryId]", "2");
                         debounce={200}
                 />
                 <Text style={{color:"white"}}>bssjjase</Text>
-                </View>
+                </View> */}
+                 <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+                      <TextInput
+                        value={this.state.Address}
+                        onChangeText={Address => this.setState({ Address })}
+                        ref={input => (this.passwordCInput = input)}
+                        // onSubmitEditing={() => this.passwordInput.focus()}
+                        style={styles.input}
+                        placeholder="Address"
+                        placeholderTextColor="rgb(204,204,204)"
+                        returnKeyType="next"
+                      />
+                  </TextInputLayout>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                       <TextInput
                         value={this.state.details}
@@ -504,16 +549,15 @@ form.append("subcategory[1][subcategoryId]", "2");
                   </TextInputLayout>
                   <View style={{width:wp('70%'),marginVertical:"0%"}}>
                       <Dropdown
-                          data={this.state.service_type} 
+                          data={data_1} 
                           itemColor="rgb(255,163,0)"  
                           value={'City'}
                           onChangeText={(value) => {
                             console.log(value); // gives new value OK
-                            this.setState({City:value})
+                            this.setState({City_dropdown:value})
                          }}
                           dropdownPosition={0}
-                          // textColor="rgb(204,204,204)"
-                          textColor="black"
+                          textColor="rgb(204,204,204)"
                           selectedItemColor="black"
                           // textColor="black"
                           // itemColor="red"
@@ -652,7 +696,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                      <View style={{flexDirection:"column-reverse"}}>
                      <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
                      <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                   <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                   <TouchableOpacity onPress={this.delete_photo_1.bind(this)}>
                    <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                   </TouchableOpacity>
                   </View>
@@ -661,6 +705,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                   
             </View>
           </TouchableOpacity>
+         
           <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source1 === null ? <Image
@@ -674,7 +719,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                     <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity onPress={this.delete_photo_2.bind(this)}>
                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                  </TouchableOpacity>
                  </View>
@@ -682,6 +727,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                  }
             </View>
           </TouchableOpacity>
+          
           <TouchableOpacity onPress={this.selectPhotoTapped4.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_1_1 === null ? <Image
@@ -695,7 +741,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                     <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity onPress={this.delete_photo_3.bind(this)}>
                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                  </TouchableOpacity>
                  </View>
@@ -716,7 +762,7 @@ form.append("subcategory[1][subcategoryId]", "2");
                     <View style={{flexDirection:"column-reverse"}}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
                     <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
-                  <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
+                  <TouchableOpacity onPress={this.delete_photo_4.bind(this)}>
                   <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
                  </TouchableOpacity>
                  </View>
