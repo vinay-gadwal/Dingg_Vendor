@@ -57,7 +57,23 @@ export default class Password extends Component {
         console.error(error);
       });
   }
-  
+  // handlePress(){   
+  //   apis.Forgot_new_pass(GLOBAL.Mobile1,this.state.password)
+  //       .then((response) => response.json())
+  //       .then((responseJson) => {
+  //         console.log(responseJson)
+  //         if(responseJson.success === true){
+  //           Alert.alert(responseJson.message)
+  //           this.props.navigation.navigate('SignIn');
+  //         }
+  //         else{
+  //           Alert.alert(responseJson.message)
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }
   Password_Validate = () =>
   {
      if(this.state.password === this.state.new_pass){

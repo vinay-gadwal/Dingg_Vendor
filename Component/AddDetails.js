@@ -607,7 +607,7 @@ selectPhotoTapped5()
                   <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
                   <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{marginTop:hp("1.2%"),fontSize: RF(2.2)}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
@@ -631,7 +631,7 @@ selectPhotoTapped5()
                   <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
                       <TextInputLayout focusColor="rgb(204,204,204)">
 
-                      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{marginTop:hp("1.2%"),fontSize: RF(2.2)}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>

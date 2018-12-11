@@ -17,8 +17,8 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-     <View style={{flexDirection:"column"}}>
-            <Text style={[styles.text,{fontSize:RF(3),alignItems:"center"}]}>Scan this Dingg Code</Text>
+     <View style={{flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+            <Text style={[styles.text,{fontSize:RF(3)}]}>Scan this Dingg Code</Text>
         <Text style={[styles.text,{color:"rgb(176,176,176)"}]}>Add to Bianna beauty saloon queue</Text>
         </View>
           <View style={[styles.Profile_Container,{justifyContent:"center",alignItems:"center",height:hp("45%"),width:wp("80%"),marginHorizontal:wp("10%")}]}>

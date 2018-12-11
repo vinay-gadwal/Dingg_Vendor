@@ -42,36 +42,8 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AddDetails');
+    // this.props.navigation.navigate('AddDetails');
   }
-  // handlePress(){  
-  //   fetch('http://18.217.123.119:3000/api/vendor_login', {
-  //       method: 'POST',
-  //       headers: {
-  //         "content-type": "application/json",
-  //         "cache-control": "no-cache",
-  //         "postman-token": "06d1929c-addc-cf20-1705-edd409674d62"
-  //       },
-  //       body: JSON.stringify({
-  //         mobile   : this.state.username,
-  //         password : this.state.password
-  //       })
-  // })
-  //     .then((response) => response.json())
-  //     .then((responseJson) => {
-  //       if(responseJson.success === false){
-  //        Alert.alert(responseJson.message)
-  //       }
-  //     else
-  //     {
-  //           this.props.navigation.navigate('AuthStack');
-  //     }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }
-
 
   handlePress = () => {
     this.setState({ processing: true });
@@ -95,7 +67,7 @@ export default class Login extends Component {
     return(
       <View style={{flexDirection:"row",justifyContent:"space-between"}}>
       <TextInputLayout focusColor="rgb(255,164,0)">
-      <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <Text style={{marginTop:hp("1.3%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>

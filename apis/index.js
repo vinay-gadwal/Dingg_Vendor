@@ -97,12 +97,10 @@ const apis = {
           method: 'POST',
           headers: {
             "content-type": "application/json",
-            "cache-control": "no-cache",
-            "postman-token": "1d546500-20bd-02d9-403c-68dab1907fbb"
           },
           body: JSON.stringify({
             mobile       :Mobile,
-            OTP          : code,
+            otp          : code,
             device_type  :"ios",
             device_token :"fiodfpisdfposidfpoisdfposdifsodfiskdfpsdfiosdfpdskfposdi"
           }),
@@ -190,12 +188,13 @@ const apis = {
   Resend_OTP: async (Mobile) => {
     try {
       const response = await fetch(
-        base_url + 'vandor_verify_mobile',
+        base_url + 'vendor_resend_otp',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-          },
+            'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjMsImlhdCI6MTU0MzI5NjcwOH0.D_8831a6S3xoFaz_kS_VyeImRmsJx3DJ7Y_GdcnnQwE',
+                   },
           body: JSON.stringify({
             mobile:Mobile
           }),

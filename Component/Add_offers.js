@@ -86,7 +86,7 @@ export default class Login extends Component {
     return (
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'>            
-        <View style={[styles.box,{marginBottom:"0%",height: hp('50%'),marginTop:hp("5%")}]}>
+        <View style={[styles.box,{marginBottom:"0%",marginTop:hp("5%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_name}

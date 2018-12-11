@@ -411,7 +411,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                   <TextInputLayout focusColor="rgb(255,164,0)">
 
-                      <Text style={{fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{fontSize: RF(2.2),marginBottom:hp("1%")}}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -436,7 +436,7 @@ export default class App extends Component {
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                       <TextInputLayout focusColor="rgb(255,164,0)">
 
-                      <Text style={{fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={{fontSize: RF(2.2),marginBottom:hp("1%")}}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>

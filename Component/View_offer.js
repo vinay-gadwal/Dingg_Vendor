@@ -123,9 +123,8 @@ GetItem (flower_name) {
         
         <View style={{ 
           width: wp('90%'),marginLeft:"5%",
-          height: hp('27%'),
           backgroundColor:"white",
-          marginVertical:hp('5%'),
+          marginVertical:hp('5%'),paddingVertical:hp("3%"),
           borderRadius:10,}}>
                <View style={{flexDirection:"row"}}>
 

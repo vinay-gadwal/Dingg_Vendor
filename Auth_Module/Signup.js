@@ -66,12 +66,12 @@ export default class example extends Component {
 <View style={{paddingVertical:hp("2%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
-        <View style={[styles.box_SignUp,{marginTop:hp("3%")}]}>
-          <Text style={styles.text}>Enter the registered mobile number</Text>
-          <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+        <View style={[styles.box_SignUp,{marginTop:hp("3%"),paddingVertical:hp("2%")}]}>
+          {/* <Text style={styles.text}>Enter the registered mobile number</Text> */}
+          <View style={{flexDirection:"row",justifyContent:"space-between",paddingVertical:hp("2%"),marginBottom:hp("3%")}}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:hp("1%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={{marginTop:hp(".8%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -113,8 +113,8 @@ export default class example extends Component {
         </View>
         <Text style={styles.text}>here</Text>
         </View>
-        <View style={{flexDirection:"column",alignItems:"center"}}>
-        <View style={{flexDirection:"row",marginTop:hp("10%")}}>
+        <View style={{flexDirection:"column",alignItems:"center",marginTop:hp("8%")}}>
+        <View style={{flexDirection:"row"}}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}

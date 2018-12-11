@@ -32,7 +32,7 @@ export default class App extends Component {
         selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
         return (
             <View style={styles.container}>
-            <View style={[styles.box,{paddingVertical:hp("5%"),height: hp('30%'),alignItems:"flex-start",marginVertical:hp("5%")}]}>
+            <View style={[styles.box,{paddingVertical:hp("5%"),alignItems:"flex-start",marginVertical:hp("5%")}]}>
             <Text style={[styles.Text,{fontSize: RF(3),marginLeft:wp("5%")}]}>Give a reason to reject</Text>
                 {/* <Text style={styles.valueText}>
                     Value = {selectedButton}

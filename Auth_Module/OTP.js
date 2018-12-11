@@ -23,17 +23,23 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '',switchThreeValue: true,time:500
+      code: '',switchThreeValue: true,time:500,mobile_number:""
     };
+  }
+  componentDidMount(){
+  GLOBAL.mobile
   }
   
   handlePress(code) {
     if(code == ""){
+      console.log(code)
       return null;
     }
     else{
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
+        console.log(responseJson)
+        console.log(code)
         if(responseJson.success === false){
           Alert.alert(responseJson.message)
         }
@@ -52,10 +58,11 @@ export default class example extends Component {
   }
 
 _resend_OTP = async () =>{
+  this.setState({code:""})
   apis.Resend_OTP(GLOBAL.mobile)
-  .then((response) => response.json())
   .then((responseJson) => {
-  //  console.log(GLOBAL.mobile)
+    console.log(responseJson)
+   console.log(GLOBAL.mobile)
    this.setState({ time : 500 })
   })
   .catch((error) => {
@@ -94,7 +101,7 @@ _resend_OTP = async () =>{
     >      
         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("35%")}]}>Verify to continue</Text>
         <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
-          <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
+          <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
           <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
             <CodeInput
@@ -109,6 +116,7 @@ _resend_OTP = async () =>{
               codeLength={4}
               activeColor="rgb(255,164,0)"
               inactiveColor="rgb(176,176,176)"
+              keyboardType="numeric"
             />
             </View>
             <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>
