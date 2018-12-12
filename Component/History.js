@@ -16,17 +16,12 @@ class Ongoing extends React.Component {
                      isLoading: true,MakeUp_data:"",makeup_data_time:"",time:30,Increase_time:10,
                      Select_unselect:"true",Select_unselect_1:"true",Select_unselect_2:"true",
                      Select_unselect_3:"true",Select_unselect_4:"true",Select_unselect_5:"true",
-                         dataSource : [ 
-                             {
+                         dataSource :[{
                                  name:"Hair cut",
-                                //  time:"50"
                              },
                              {
                               name:"Hair cut",
-                              // time:"50"
-                          },
-                     ],
-                    
+                          },],
             }
           index = 0;
           animatedValue = new Animated.Value(0);
@@ -34,11 +29,10 @@ class Ongoing extends React.Component {
             this.setState({ showDialog: show });
         }
 
-   managePasswordVisibility = () =>
+        managePasswordVisibility = () =>
         {
           this.setState({ Select_unselect: !this.state.Select_unselect });
         }
-
         managePasswordVisibility_1 = () =>
         {
           this.setState({ Select_unselect_1: !this.state.Select_unselect_1 });
@@ -71,36 +65,30 @@ class Ongoing extends React.Component {
         );
       }
       increase_time(){
-        // var Increase_time = 10;
         this.setState({time : 10})
       }
   render() {
     return (
-        <View style={{  flex: 1,
-              justifyContent: "space-between",
-              backgroundColor: "rgb(243,242,242)",}}>
+        <View style={styles.container}>
                 
              <View style={{flexDirection:"row"}}>
                       <FlatList          
                             data={ this.state.dataSource }
                             renderItem={({item}) => 
-                            <View style={{width: wp('90%'),marginLeft:"5%",backgroundColor:"white",
-                                    marginTop:hp('2%'),borderRadius:10,}}> 
-                                <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                                     <View style={{flexDirection:"column",marginVertical:hp(".5%"),marginLeft:wp("5%")}}>
+                            <View style={styles.Flat_box}> 
+                                <View style={styles.flat_box_top_row}>                          
+                                     <View style={styles.flat_box_colum}>
                                         <View style={{flexDirection:"row"}}>
                                             <ResponsiveImage style={{marginTop:hp("3%")}} source={require('../Image/main/serveTimeIcon3x.png')} initWidth="18" initHeight="18"/>
                                             <Text style={[styles.text,{marginLeft:wp("2%"),marginTop:hp("2.8%"),color:"rgb(187,187,187)"}]}>{this.state.time}m</Text>
                                          </View>
-                                         <View style={{marginVertical:hp(".5%")}}>
-                                         <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
-                                         </View>
+                                         <Image style={[styles.avatarMultiple,{marginVertical:hp(".5%")}]} source={GLOBAL.Image} />
                                          <View style={{flexDirection:"row"}}>
                                            <TouchableOpacity onPress={this.increase_time()}>
                                            <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth="30" initHeight="30"/>
                                            </TouchableOpacity>
                                            <Text style={[styles.text,{color:"rgb(255,164,0)",marginTop:hp(".2%"),fontSize:RF(1.8)}]}>Time</Text>
-                                                                                                      {/* {this.state.time+" " + 'M'} */}
+                                          {/* {this.state.time+" " + 'M'} */}
                                            <TouchableOpacity>
                                            <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth="30" initHeight="30"/>
                                            </TouchableOpacity>
@@ -110,13 +98,13 @@ class Ongoing extends React.Component {
                                           <Text style={[styles.buttonText,{color:"rgb(255,164,0)",fontSize:RF(1.5)}]}>Add Services</Text>
                                           </TouchableOpacity>
                                     </View>           
-                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                                      <View style={[styles.flat_box_colum,{width:wp("45%")}]}>
                                       <Text style={[styles.text,{fontSize:RF(2.2),marginLeft:wp("2.5%"),color:"rgb(255,164,0)"}]}>Mark as Done</Text>
                                          <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Service</Text>
+                                         <Text style={styles.grey_text}>Service</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("1%")}]}>Stylist</Text>
+                                         <Text style={styles.grey_text}>Stylist</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                                     </View>           
                                 </View>  
@@ -200,14 +188,11 @@ class Ongoing extends React.Component {
                   <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
                         <Image source = { ( this.state.Select_unselect_5 ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/selectedIcon3x.png') } style = {{width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")}} />
                   </View>
-                  </TouchableOpacity>
-                  
-   </Dialog>
-
-         </View>
+                  </TouchableOpacity>            
+         </Dialog>
+</View>
     );
-  }
-}
+  }}
 
 class StarReview extends React.Component {
   constructor(props){
@@ -216,12 +201,9 @@ class StarReview extends React.Component {
                      valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
                      isLoading: true,MakeUp_data:"",makeup_data_time:"",
                      rating: this.defaultRating,
-                         dataSource1 : [ 
-                             {
+                         dataSource1 : [ {
                                  name:"Hair cut"
-                             },
-                     ],
-                    
+                             },],     
             }
             this.displayValue = props.display || props.value
             this.defaultRating = props.default || props.rating
@@ -402,22 +384,15 @@ class StarReview extends React.Component {
     :
     this.displayMode()
     return (
-        <View style={{  flex: 1,
-              justifyContent: "space-between",
-              backgroundColor: "rgb(243,242,242)",}}>
+        <View style={styles.container}>
                   
              <View style={{flexDirection:"row"}}>
                       <FlatList          
                             data={ this.state.dataSource1 }
                             renderItem={({item}) => 
-                            <View style={{ 
-                              width: wp('90%'),marginLeft:"5%",
-                            
-                              backgroundColor:"white",
-                              marginVertical:hp('2%'),
-                              borderRadius:10,}}>
-                                <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                                     <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                            <View style={styles.Flat_box}>
+                                <View style={styles.flat_box_top_row}>                          
+                                     <View style={styles.flat_box_colum}>
                                         <View style={{flexDirection:"row"}}>
                                             <ResponsiveImage style={{marginTop:hp(".8%")}} source={require('../Image/main/calenderIcon3x.png')} initWidth="18" initHeight="18"/>
                                             <Text style={[styles.text,{marginLeft:wp("3%"),color:"rgb(187,187,187)"}]}>{item.name}</Text>
@@ -427,12 +402,12 @@ class StarReview extends React.Component {
                                          </View>
                                          {view}
                                     </View>           
-                                      <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("45%")}}>
+                                      <View style={[styles.flat_box_colum,{width:wp("45%")}]}>
                                          <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)"}]}>Service</Text>
+                                         <Text style={styles.grey_text}>Service</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
-                                         <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)"}]}>Stylist</Text>
+                                         <Text style={styles.grey_text}>Stylist</Text>
                                          <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                                     </View>           
                                 </View> 

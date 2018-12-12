@@ -12,6 +12,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import apis from '../apis/index'
 
 export default class Password extends Component {
   constructor(props) {
@@ -29,51 +30,22 @@ export default class Password extends Component {
     this.setState({ hidePassword: !this.state.hidePassword });
   }
 
-  handlePress(){  
-    fetch('http://18.217.123.119:3000/api/vendor_reset_password', {
-        method: 'POST',
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "272c8d92-9bf6-b32b-2e0f-c780530790bf"
-        },
-        body: JSON.stringify({
-          mobile : GLOBAL.Mobile1,
-          password : this.state.password
+  handlePress(){   
+    apis.Reset_pass(GLOBAL.Mobile1,this.state.password)
+        .then((responseJson) => {
+          console.log(responseJson)
+          if(responseJson.success === true){
+            Alert.alert(responseJson.message)
+            this.props.navigation.navigate('SignIn');
+          }
+          else{
+            Alert.alert(responseJson.message)
+          }
         })
-  })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson)
-        if(responseJson.success === true){
-          Alert.alert(responseJson.message)
-          this.props.navigation.navigate('SignIn');
-        }
-        else{
-          Alert.alert(responseJson.message)
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-  // handlePress(){   
-  //   apis.Forgot_new_pass(GLOBAL.Mobile1,this.state.password)
-  //       .then((response) => response.json())
-  //       .then((responseJson) => {
-  //         console.log(responseJson)
-  //         if(responseJson.success === true){
-  //           Alert.alert(responseJson.message)
-  //           this.props.navigation.navigate('SignIn');
-  //         }
-  //         else{
-  //           Alert.alert(responseJson.message)
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   }
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   Password_Validate = () =>
   {
      if(this.state.password === this.state.new_pass){

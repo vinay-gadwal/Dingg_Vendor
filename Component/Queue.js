@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import styles from '../Component/Style'
-import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
+import { TouchableOpacity, View, Animated, FlatList, Text, Image,} from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
 import { Dialog } from "react-native-simple-dialogs";
 import PopoverTooltip from 'react-native-popover-tooltip';
-import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import {createStackNavigator,} from 'react-navigation';
 import Alert_top from './Alert'
+
 class Queue extends Component {
- 
- constructor(props) {
+   constructor(props) {
    super(props);
    this.state = {
                 valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
@@ -42,26 +42,14 @@ class Queue extends Component {
  openDialog = (show) => {
   this.setState({ showDialog: show });
 }
-
 render() {
-return (
-    
-<View style={{  flex: 1,height:hp("100%"),
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
-        
-  
-          
-     <View style={{flexDirection:"row"}}>
+return ( 
+<View style={styles.container}>
+  <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                    <View style={{ 
-                        width: wp('90%'),marginLeft:"5%",
-                        backgroundColor:"white",
-                        marginTop:hp('2%'),
-                        borderRadius:10,}}>
+                    <View style={styles.Flat_box}>
                         <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
                              <View style={{flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")}}>
                                 <View style={{flexDirection:"row"}}>
@@ -75,7 +63,7 @@ return (
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,{height:hp("5%"),width:wp("25%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
+                                                    <View style={[styles.button,{height:hp("5%"),width:wp("20%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
                                                     <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>
                                                         Action
                                                     </Text>
@@ -100,66 +88,56 @@ return (
                                                     onPress: () => {}
                                                     }
                                                 ]}
-                                                // animationType='timing'
-                                                // using the default timing animation
                                     />
-
                             </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("1%"),alignItems:"flex-start",width:wp("45%")}}>
+                              <View style={styles.Flat_box_row}>
                                  <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("0%")}]}>Service</Text>
+                                 <Text style={styles.grey_text}>Service</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("0%")}]}>Stylist</Text>
+                                 <Text style={styles.grey_text}>Stylist</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                             </View>  
                             </View>         
                         </View>   }                       
                     />
            </View>
-  <Dialog
-                    // title="Choose a Dingg User Type"
-                    animationType="fade"
-                    contentStyle={
-                        {
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width:wp("40%")
-                        }
-                    }
-                    onTouchOutside={ () => this.openDialog(false) }
-                    onTouchInside={ () => this.openDialog(false) }
-                    visible={ this.state.showDialog }
-                >   
-                 <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
-                 <TouchableOpacity onPress={ () => this.openDialog1(true) }>
-                    <Text style={styles.setting_text}>Start Serving</Text>
+          <Dialog animationType="fade"
+                  contentStyle={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    width:wp("40%")
+                                }}
+                            onTouchOutside={ () => this.openDialog(false) }
+                            onTouchInside={ () => this.openDialog(false) }
+                            visible={ this.state.showDialog } 
+          >   
+                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                    <TouchableOpacity onPress={ () => this.openDialog1(true) }>
+                      <Text style={styles.setting_text}>Start Serving</Text>
                     </TouchableOpacity>
-                   </View>
-                   <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                </View>
+                <View style={{marginHorizontal:"5%"}}>
+                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
+                </View>
+                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Move Down</Text>
-                   </View>
-                   <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                </View>
+              <View style={{marginHorizontal:"5%"}}>
+                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
+                </View>
+                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Drop</Text>
-                   </View>
-                   <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
-              </View>
-              <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                </View>
+                <View style={{marginHorizontal:"5%"}}>
+                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
+                </View>
+                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Alert</Text>
-                   </View>
-   </Dialog>
-
-  
+                </View>
+        </Dialog>
  </View>
-   );
- }
+   );}
 }
 export default createStackNavigator({
     Queue:{
@@ -187,9 +165,7 @@ export default createStackNavigator({
                 style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
               />)
             })
-          },
-  },
-  
+          },},
   {
     initialRouteName:"Queue",
     // headerMode: "none",
@@ -198,5 +174,4 @@ export default createStackNavigator({
         fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
       },
         },
-  
   });

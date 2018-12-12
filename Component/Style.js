@@ -9,9 +9,23 @@ const styles = StyleSheet.create({
       justifyContent: "space-between",
       alignItems: "center",
       backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"5%"
+      // paddingVertical:"5%"
     },
-    
+    Flat_box:{
+      width: wp('90%'),marginLeft:"5%",
+      backgroundColor:"white",
+      marginTop:hp('2%'),
+      borderRadius:10,
+    },
+    Flat_box_row:{
+      flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")
+    },
+    flat_box_top_row:{
+      flexDirection:"row",justifyContent:"space-between"
+    },
+    flat_box_colum:{
+      flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")
+    },
     copy_rigth:{
       fontSize: RF(1.8),color:"rgb(153,153,153)",
       fontWeight: 'bold',
@@ -40,7 +54,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },    
     button: {
-        width: wp('40%'),
+        width: wp('35%'),
         height: hp('7.2%'),
         backgroundColor: "rgb(255,164,0)",
         justifyContent: "center",
@@ -94,6 +108,16 @@ const styles = StyleSheet.create({
           fontSize: RF(2.2), 
           color: "rgb(68,68,68)",
           fontFamily:'Muli-Bold',
+          // fontWeight: 'bold',
+        },
+        grey_text:{
+          fontSize: RF(2.2), 
+          color: "rgb(68,68,68)",
+          fontFamily:'Muli-Bold',
+          marginLeft:wp("3%"),
+          fontSize:RF(1.8),
+          color:"rgb(187,187,187)",
+          marginTop:hp("0%")
           // fontWeight: 'bold',
         },
    
@@ -185,36 +209,46 @@ const styles = StyleSheet.create({
     setting_Row:{
         flexDirection:"row",
         justifyContent:"space-between",
-        
         },
-    
     setting_text:{
       fontSize: RF(2.5),
-      justifyContent:"flex-start"
-      ,marginLeft:"5%",
+      // ,marginLeft:"5%",
       paddingVertical:"2.5%",
       fontFamily:"Muli-Bold",
-      // fontWeight: 'bold',
     },
-    
     setting_Image:{
       width: hp("2%"),
       height: hp("2%"),
       marginTop:hp("2"),
       marginRight:wp("6%")
     },
-    Dashbosrd_image:{
+    ƒ:{
       width: hp("2%"),
       height: hp("2.5%"),
-      // marginVertical:hp("1"),
-      // marginRight:wp("8%")
     },
     Dashbosrd_image_top:{
-      height:hp("4%"),
-      width:wp("7.5%"),
+      height:hp("9%"),
+      width:wp("15%"),
       marginLeft:wp("2%"),
-      marginVertical:wp("5%"),
-      marginRight:wp("8%")
+      marginVertical:wp("2%"),
+      fontFamily:"Muli-ExtraBold"
+    },
+    Dashboard_text:{
+        fontSize: RF(2.2), 
+        color: "rgb(68,68,68)",
+        fontFamily:'Muli-Bold',
+        marginLeft:wp("5%"),
+    },
+    Dashboard_block_box:{
+      flexDirection:"row",
+      justifyContent:"space-between",
+      marginHorizontal:wp("8%"),
+      marginTop:hp("3%")
+    },
+    Dashboard_block:{
+      width:wp("40%"),flexDirection:"row",
+      backgroundColor:"white",
+      borderRadius:10
     },
     profile_Small_text:{
       fontSize: RF(1.8),
@@ -223,7 +257,6 @@ const styles = StyleSheet.create({
       marginTop:"5%",
       color:"rgb(176,176,176)",
       fontWeight:"bold",
-      // fontFamily:"Muli-Bold"
     },
     
     Logo_style:{
@@ -264,26 +297,11 @@ const styles = StyleSheet.create({
         },
 
   Profile_Container:{
-      width:"90%",paddingVertical:hp(".5%"),marginVertical:hp("2%"),
+      width:"90%",marginVertical:hp("1%"),
       backgroundColor:"white",
       borderRadius:10,
       justifyContent: 'space-between',marginHorizontal:"5%"
     },
-    Header:{
-      justifyContent:"center",
-      fontSize: RF(2.5),
-      color:"black",
-      paddingHorizontal:wp("34%"),
-      paddingVertical:hp("3%"),
-      backgroundColor:"white"
-    },
-    Dashboard_block:{
-      width:wp("40%"),flexDirection:"row",
-      backgroundColor:"white",
-      // height:hp("13%"),
-      borderRadius:10
-    },
-
     Business_hour:{
       flexDirection:"row",
       justifyContent:"space-between",

@@ -48,24 +48,14 @@ import Alert_top from './Alert'
 render() {
 return (
    
-<View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
-        
-   
-          
-     <View style={{flexDirection:"row"}}>
+<View style={styles.container}>
+    <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                    <View style={{ 
-                      width: wp('90%'),marginLeft:"5%",
-                      backgroundColor:"white",
-                      marginTop:hp('2%'),
-                      borderRadius:10,}}>
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")}}>
+                    <View style={styles.Flat_box}>
+                        <View style={styles.setting_Row}>                          
+                             <View style={styles.flat_box_colum}>
                                 <View style={{flexDirection:"row",marginTop:hp("1%")}}>
                                     <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
@@ -73,7 +63,7 @@ return (
                                  <View style={{marginVertical:hp("1%")}}>
                                  <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                                  </View>
-                                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+                                 <View style={styles.flat_box_top_row}>
                                  <TouchableOpacity>
                                     <ResponsiveImage source={require('../Image/main/acceptIcon3x.png')} initWidth="30" initHeight="30"/>
                                     </TouchableOpacity>
@@ -82,12 +72,12 @@ return (
                                     </TouchableOpacity>
                                  </View>
                             </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")}}>
+                              <View style={styles.Flat_box_row}>
                                  <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("0%")}]}>Service</Text>
+                                 <Text style={styles.grey_text}>Service</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(1.8),color:"rgb(187,187,187)",marginTop:hp("0%")}]}>Stylist</Text>
+                                 <Text style={styles.grey_text}>Stylist</Text>
                                  <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
                             </View>           
                         </View>

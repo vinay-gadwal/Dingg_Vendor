@@ -207,5 +207,29 @@ const apis = {
     }
   },
 
+  Reset_pass: async (Mobile,Password) => {
+    try {
+      const response = await fetch(
+        base_url + 'vendor_reset_password',
+        {
+          method: 'POST',
+          headers: {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "272c8d92-9bf6-b32b-2e0f-c780530790bf"
+                   },
+          body: JSON.stringify({
+             mobile : Mobile,
+             password : Password
+          }),
+        },
+      );
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
 }
 export default apis;

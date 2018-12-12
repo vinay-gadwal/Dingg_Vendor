@@ -28,21 +28,18 @@ import Alert_top from './Alert'
     onToggle(isOn){
       // alert('Changed to ' + isOn)
     }
-    
   render() {
     const {
       switchThreeValue,
     } = this.state;
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
-      {/* <Text style={styles.Header}>SETTINGS</Text> */}
-
         <View style={{paddingVertical:"4%"}}>
           <View style={styles.Profile_Container}>
             <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('App_setting')}}>
              <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>App Setting</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>App Setting</Text>
                     <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('App_setting')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -58,7 +55,7 @@ import Alert_top from './Alert'
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Business_Hour')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
 
-                    <Text style={styles.setting_text}>Business Hour Setting</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Business Hour Setting</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Business_Hour')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -72,7 +69,7 @@ import Alert_top from './Alert'
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Set Up Services</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Set Up Services</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -86,7 +83,7 @@ import Alert_top from './Alert'
              </TouchableOpacity>
              <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Review & Rating</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Review & Rating</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -100,7 +97,7 @@ import Alert_top from './Alert'
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Add Stylist</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Add Stylist</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -114,7 +111,7 @@ import Alert_top from './Alert'
               </TouchableOpacity>
 
               <View style={styles.setting_Row}>
-                    <Text style={styles.setting_text}>Auto Accept</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Auto Accept</Text>
                     <View style={{marginRight:wp("6%"),paddingVertical:hp("2%")}}>
                     {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
@@ -154,7 +151,7 @@ import Alert_top from './Alert'
               </View>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Manage_user')}}>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                  <Text style={styles.setting_text}>Manage Users</Text>
+                  <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Manage Users</Text>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('Manage_user')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -168,7 +165,7 @@ import Alert_top from './Alert'
               </TouchableOpacity>
               <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Set Queue Limit</Text>
+                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Set Queue Limit</Text>
                     <TouchableOpacity>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}

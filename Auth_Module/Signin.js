@@ -42,7 +42,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AddDetails');
+    this.props.navigation.navigate('AuthStack');
   }
 
   handlePress = () => {

@@ -14,7 +14,6 @@ import Profile_edit from './Profile_Edit'
 class App extends Component {
   
     state = {
-        
       };
     
   render() {
@@ -106,7 +105,7 @@ class App extends Component {
             <Text></Text>
             <View style={styles.Profile_Container}>
                   <Text style={styles.profile_Small_text}>Category</Text>
-                  {/* <Text style={styles.setting_text}>{GLOBAL.Category}</Text> */}
+                  <Text style={styles.setting_text}>{GLOBAL.Category}</Text>
                   <View style={{marginHorizontal:wp("5%"),marginVertical:hp("2%")}}>
                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
                    </View>
@@ -116,13 +115,10 @@ class App extends Component {
                   
             </View>
             <Text></Text>
-            <TouchableOpacity style={{  width:"90%",height:"4%",flexDirection:"row",
-                          backgroundColor:"white",marginVertical:hp("2%"),
-                          borderRadius:10,
-                          justifyContent: 'space-between',marginHorizontal:"5%"}}
+            <TouchableOpacity style={[styles.Profile_Container,{flexDirection:"row"}]}
                           onPress={() => {this.props.navigation.navigate('QR_Code')}}>
                   
-                  <Text style={[styles.setting_text,{marginTop:hp("1%"),}]}>My Dingg Code</Text>
+                  <Text style={[styles.setting_text,{marginTop:hp("1%"),marginLeft:wp("5%")}]}>My Dingg Code</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image,{marginRight:wp("3%"),marginTop:hp("3%")}]}

@@ -21,20 +21,20 @@ class App extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
         videoSource: null,isOnDefaultToggleSwitch: false,
-        isOnLargeToggleSwitch_user: true,
+        isOnLargeToggleSwitch_user: true,activeSwitch:1,activeSwitch1:1,
         isOnBlueToggleSwitch: false,switchThreeValue: true,switchvalue:true,
         dataSource : [
           {
-            name: "John Doe",served:"20",queue:"14",wait_time:120
+            name: "John Doe",served:"20",queue:"14",wait_time:2
           },
           {
-            name: "rohan dell",served:"10",queue:"24",wait_time:300
+            name: "rohan dell",served:"10",queue:"24",wait_time:30
           },
           {
             name: "john alexer",served:"10",queue:"24",wait_time:600
           },
           {
-            name: "same flint",served:"4",queue:"4",wait_time:180
+            name: "same flint",served:"44",queue:"44",wait_time:180
           }
         ]
     
@@ -55,59 +55,45 @@ class App extends Component {
     return (
       <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
       
-         <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:wp("8%"),marginTop:hp("3%")}}>
+         <View style={styles.Dashboard_block_box}>
          <View style={styles.Dashboard_block}>
-                    <View style={styles.Dashbosrd_image_top}>
-                    <ResponsiveImage source={require('../Image/main/completetotalIcon3x.png')} initWidth="60" initHeight="60"/>                
-                    </View>
-                    <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("8%"),fontSize:RF(1.7),marginBottom:hp("2%")}]}>Total</Text>
-                    {/* <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("2%"),fontSize:RF(2)}]}>Booking</Text>             */}
+                    <ResponsiveImage source={require('../Image/main/completetotalIcon3x.png')} style={styles.Dashbosrd_image_top}/>                
+                    <View style={{flexDirection:"column",width:wp("18%"),alignItems:"flex-end"}}>
+                    <Text style={[styles.Dashboard_text,{fontSize: RF(3.2),marginTop:hp("2%")}]}>100</Text>
+                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),width:wp("15%")}]}>Total Booking</Text>
+                    {/* <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),marginBottom:hp("2%")}]}>Booking</Text>             */}
                     </View>
         </View>
         <View style={styles.Dashboard_block}>
-                    
-                    <View style={styles.Dashbosrd_image_top}>
-                    <ResponsiveImage source={require('../Image/main/completecustomersHandledCopy3x.png')} initWidth="60" initHeight="60"/>                
-                    </View>
-                    <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("6%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Served</Text>      
+                    <ResponsiveImage source={require('../Image/main/completecustomersHandledCopy3x.png')} style={styles.Dashbosrd_image_top} />                
+                    <View style={{flexDirection:"column",width:wp("18%"),alignItems:"flex-end"}}>
+                    <Text style={[styles.Dashboard_text,{fontSize: RF(3.2),marginTop:hp("2%")}]}>100</Text>
+                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",marginLeft:wp("6%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Served</Text>      
                     </View>
         </View>
         </View>
-        <Text></Text>
-        <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:wp("8%"),marginBottom:wp("2%")}}>
+        <View style={styles.Dashboard_block_box}>
          <View style={styles.Dashboard_block}>
-             
-                    <View style={styles.Dashbosrd_image_top}>
-                      <ResponsiveImage source={require('../Image/main/completequeueCopy3x.png')} initWidth="60" initHeight="60"/>                
-                    </View>
-                    <View style={{flexDirection:"column"}}>
-                    <Text style={[styles.text,{fontSize: RF(3.2),marginLeft:wp("5%"),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.setting_text,{color:"rgb(168,168,168)",marginLeft:wp("7%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Queue</Text>      
+                    <ResponsiveImage source={require('../Image/main/completequeueCopy3x.png')} style={styles.Dashbosrd_image_top}/>                
+                    <View style={{flexDirection:"column",width:wp("18%"),alignItems:"flex-end"}}>
+                    <Text style={[styles.Dashboard_text,{fontSize: RF(3.2),marginTop:hp("2%")}]}>100</Text>
+                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",marginLeft:wp("7%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Queue</Text>      
                     </View>       
        </View>
         <View style={styles.Dashboard_block}>
-                    
-                    <View style={styles.Dashbosrd_image_top}>
-                      <ResponsiveImage source={require('../Image/main/completewaitTimeIcon3x.png')} initWidth="60" initHeight="60"/>                
-                    </View>
-                    <View style={{flexDirection:"column"}}>
-                    <View style={{flexDirection:"row",fontSize: RF(3.2),marginRight:wp("2%")}}>
+                    <ResponsiveImage source={require('../Image/main/completewaitTimeIcon3x.png')} style={styles.Dashbosrd_image_top}/>                
+                    <View style={{flexDirection:"column",width:wp("23%"),alignItems:"flex-end"}}>
+                    <View style={{flexDirection:"row",fontSize: RF(3),marginRight:wp("2%")}}>
                     <TimerCountdown
                         initialSecondsRemaining={1000*60}
                         allowFontScaling={true}
-                        style={{ fontSize:RF(3.2),marginTop:hp("2%")  }}
+                        style={{ fontSize:RF(3.1),marginTop:hp("2%")  }}
                     />
                     <Text style={{ fontSize: RF(3.2),
                           justifyContent:"flex-start",
-                          fontFamily:"Muli-Bold",marginTop:hp("1.3%")}}>m</Text>
+                          fontFamily:"Muli-Bold",marginTop:hp("1.1%")}}>m</Text>
                     </View>
-                    <Text style={{color:"rgb(168,168,168)", fontSize: RF(2.5),
-                            justifyContent:"flex-start",
-                            fontFamily:"Muli-Bold",fontSize:RF(1.7),marginLeft:wp("2%"),fontFamily:"Muli-ExtraBold",marginTop:hp("%")}}>Wait Time</Text>      
+                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",marginRight:wp("2%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Wait Time</Text>      
                     </View>      
         </View>
         </View>
@@ -115,11 +101,13 @@ class App extends Component {
         <View style={[styles.Profile_Container,{paddingBottom:hp(".5%")}]}>
         
         <View style={[styles.setting_Row,{paddingVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Ready to Accept Booking</Text>
-                    <View style={{marginRight:wp("5%"),marginTop:hp("2%")}}>
-                    <Switch
+                    <Text style={[styles.setting_text,{marginLeft:"5%",}]}>Ready to Accept Booking</Text>
+                    <TouchableOpacity style={{marginRight:wp("5%"),marginTop:hp("2%")}}>
+                    {/* <Switch
                           value={switchThreeValue}
-                          onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
+                          onChangeValue={(value) => {
+                                        console.log(value);
+                                      }}                          
                           // activeText={'On'}
                           // inactiveText={'Off'}
                           fontSize={16}
@@ -137,13 +125,13 @@ class App extends Component {
                           inactiveBackgroundColor	="rgb(238,238,238)"
                           activeButtonBackgroundColor	="rgb(255,164,0)"
                           inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-                     {/* <SwitchButton
+                        /> */}
+                     <SwitchButton
                                       onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                                       switchWidth = {wp("12%")}                 // optional: switch width --- default 44
                                       switchHeight = {hp("3%")}                 // optional: switch height --- default 100
                                       switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
-                                      switchBorderRadius = {40}          // optional: switch border radius --- default oval
+                                      switchBorderRadius = {20}          // optional: switch border radius --- default oval
                                       switchSpeedChange = {500}           // optional: button change speed --- default 100
                                       switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
                                       switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
@@ -155,15 +143,17 @@ class App extends Component {
                                       text2 = '.'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
-                                  /> */}
-                    </View>
+                                  />
+                      { this.state.activeSwitch === 1 ? console.log('view1') : console.log('view2') }
+
+                    </TouchableOpacity>
             </View>
             <View style={{marginHorizontal:wp("5%")}}>
               <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
             </View>
                 <TouchableOpacity onPress={ () => this.openDialog(true) }>
             <View style={[styles.setting_Row,{paddingVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Add Customer</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"5%",}]}>Add Customer</Text>
                     <TouchableOpacity onPress={ () => this.openDialog(true) }>
                       <Image
                                   source={require('../Image/icon/arrow_right.png')}
@@ -196,7 +186,7 @@ class App extends Component {
                     </TouchableOpacity>
                       <Text style={[styles.text,{fontSize: RF(2.5),}]}>Choose a Dinng User Type</Text>
                       <Text></Text>
-                      <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
+                      <TouchableOpacity style={[styles.button,{width:wp("30%")}]} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
                       <Text style={styles.buttonText}>New User</Text>
                       </TouchableOpacity>
                       <Text></Text>
@@ -209,7 +199,7 @@ class App extends Component {
             <View style={{paddingVertical:hp("1%")}}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                   <View style={styles.setting_Row}>
-                    <Text style={styles.setting_text}>View Offers</Text>
+                    <Text style={[styles.setting_text,{marginLeft:"5%",}]}>View Offers</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
@@ -274,45 +264,43 @@ class App extends Component {
                       renderItem={({item}) => 
                    <View style={[styles.setting_Row,{marginBottom:hp("2%"),height: hp('7%'),}]}>
                                    <View style={{marginTop:hp("3%"),marginLeft:wp("2%")}}>
-                                   <Switch
-                                          value={switchvalue}
-                                          onChangeValue={() => this.setState({ switchvalue: !switchvalue })}
-                                          // activeText={'On'}
-                                          // inactiveText={'Off'}
-                                          fontSize={16}
-                                          switchWidth={40}
-                                          switchHeight={12}
-                                          switchBorderRadius={12}
-                                          switchBorderWidth={0}
-                                          buttonWidth={18}
-                                          buttonHeight={18}
-                                          buttonBorderRadius={20}
-                                          buttonBorderWidth={0}
-                                          animationTime={150}
-                                          // padding={true}
-                                          activeBackgroundColor	="rgb(238,238,238)"
-                                          inactiveBackgroundColor	="rgb(238,238,238)"
-                                          activeButtonBackgroundColor	="rgb(255,164,0)"
-                                          inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                                    />
+                                   <SwitchButton
+                                      onValueChange={(val) => this.setState({ activeSwitch1: val })}      // this is necessary for this component
+                                      switchWidth = {wp("10%")}                 // optional: switch width --- default 44
+                                      switchHeight = {hp("3%")}                 // optional: switch height --- default 100
+                                      switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
+                                      switchBorderRadius = {20}          // optional: switch border radius --- default oval
+                                      switchSpeedChange = {500}           // optional: button change speed --- default 100
+                                      switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
+                                      switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
+                                      btnBorderColor = 'rgb(255,164,0)'          // optional: button border color --- default #00a4b9
+                                      btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
+                                      fontColor = 'white'               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = '#fff' 
+                                      text1 = '.'                        // optional: first text in switch button --- default ON
+                                      text2 = '.'   
+                                      fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
+                                  />
+                                   { this.state.activeSwitch1 === 1 ? console.log('view1') : console.log('view2') }
                                   </View>
-                    <Text style={[styles.setting_text,{marginRight:"5%",marginLeft:wp("3%"),marginTop:hp("1%")}]}>{item.name}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.served}</Text>
-                   <Text style={[styles.setting_text,{marginRight:wp("0%"),marginLeft:wp("5%"),marginTop:hp("1%")}]}>{item.queue}</Text>
-                 <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
+                    <Text style={[styles.setting_text,{width:wp("28%"),marginTop:hp("1%"),alignItems:"flex-start"}]}>{item.name}</Text>
+                   <Text style={[styles.setting_text,{width:wp("10%"),marginTop:hp("1%"),alignItems:"center"}]}>{item.served}</Text>
+                   <Text style={[styles.setting_text,{width:wp("8"),marginTop:hp("1%"),justifyContent:"flex-end"}]}>{item.queue}</Text>
+                 <View style={{flexDirection:"row",justifyContent:"space-evenly",width:wp("10%"),marginRight:wp("5%")}}>
                     <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
                         size={18}
                         digitBgColor="false"
-                        style={{marginTop:hp("1.8%"),marginLeft:wp("2%")}}
+                        style={{marginTop:hp("2%"),marginLeft:wp("2%")}}
                         marginTop="2%"
                         label="false"
                         timeTxtColor="white"
                     /> 
                      <Text style={{ fontSize: RF(2.5),marginRight:wp("2%"),
-                          justifyContent:"flex-start",marginTop:hp("2.1%"),
-                          fontFamily:"Muli-Bold"}}> m</Text>
+                          justifyContent:"flex-start",marginTop:hp("2.2%"),
+                          fontFamily:"Muli-Bold"}}>  m</Text>
                   </View>
                   </View>
                    }
