@@ -3,7 +3,6 @@ import DatePicker from 'react-native-datepicker'
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
   AppRegistry,
-  ScrollView,
   Text,
   View,
   TextInput,
@@ -85,7 +84,7 @@ export default class Login extends Component {
   render() {
     return (
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps='handled'>            
+               keyboardShouldPersistTaps='handled'>            
         <View style={[styles.box,{marginBottom:"0%",marginTop:hp("5%")}]}>
         <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
         <TextInput
@@ -177,8 +176,5 @@ export default class Login extends Component {
             </TouchableOpacity>
         </View>    
 </KeyboardAwareScrollView>
-    );
-  }
-}
-
+    );}}
 AppRegistry.registerComponent("Login", () => Login);

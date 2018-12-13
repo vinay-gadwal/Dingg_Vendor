@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
  import styles from '../Component/Style'
- import PropTypes from 'prop-types'
-import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, Image,} from 'react-native';
+import { TouchableOpacity, View, Animated, FlatList, Text, Image,} from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
@@ -34,14 +33,14 @@ export default class Queue_request extends Component {
  
 render() {
 return (
-<View style={styles.container}>       
-    <View style={styles.Flat_box}>     
+<View style={styles.container}>                
      <View style={{flexDirection:"row"}}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
+                    <View style={styles.Flat_box}>
+                        <View style={styles.flat_box_top_row}>                          
+                             <View style={styles.flat_box_colum}>
                                  <Image style={{height:hp("10%"),width:wp("10%"),marginVertical:hp("2%")}} source={GLOBAL.Image} />
                                  <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} style={{marginVertical:hp("1%")}} initWidth="18" initHeight="18"/>
                                  <ResponsiveImage source={require('../Image/main/calenderIcon3x.png')} style={{marginVertical:hp("1%")}} initWidth="18" initHeight="18"/>
@@ -56,11 +55,11 @@ return (
                                         >
                                           <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>Send Alert</Text>
                                 </TouchableOpacity>
-                            </View>           
+                            </View> 
+                            </View>          
                         </View>   }                       
                     />
            </View>
-  </View>
  </View>
    );
  }
