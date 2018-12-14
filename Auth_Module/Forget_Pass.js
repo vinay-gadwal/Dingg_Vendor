@@ -19,7 +19,8 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-
+const _width = 110;
+const _height = 77;
 export default class example extends Component {
 
   constructor(props) {
@@ -61,7 +62,7 @@ export default class example extends Component {
   keyboardShouldPersistTaps='handled'
 >      
          <View style={{marginTop:hp("5%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth={_width} initHeight={_height}/>
         </View>
         <View style={[styles.box,{marginBottom:hp("5%")}]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>

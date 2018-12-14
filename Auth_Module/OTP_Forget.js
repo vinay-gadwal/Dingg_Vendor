@@ -113,5 +113,3 @@ _resend_OTP = async () =>{
 </KeyboardAwareScrollView>    );
   }
 }
-
-AppRegistry.registerComponent('example', () => example);

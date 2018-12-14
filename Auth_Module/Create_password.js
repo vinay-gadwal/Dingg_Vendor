@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import {
-  AppRegistry,
   Image,
   Text,
   View,
   TextInput,Alert,
-  TouchableOpacity,KeyboardAvoidingView,ScrollView
+  TouchableOpacity,
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -13,7 +12,8 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
-
+const _width = 110;
+const _height = 77;
 export default class Password extends Component {
   constructor(props) {
     super(props);
@@ -21,10 +21,8 @@ export default class Password extends Component {
       Uid:"",
       password: "",
       conf_pass:"",
-    };
-    
+    }; 
   }
-
   handlePress(){  
     apis.Create_Pass(this.state.password, this.state.Uid,GLOBAL.token)
       .then((responseJson) => {
@@ -63,9 +61,9 @@ export default class Password extends Component {
   keyboardShouldPersistTaps='handled'
 >
       <View style={{marginTop:hp("5%")}}>
-      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth={_width} initHeight={_height}/>
       </View>
-      <View style={[styles.box,{paddingBottom:hp("4%")}]}>
+      <View style={styles.box}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -107,11 +105,9 @@ export default class Password extends Component {
           </TextInputLayout>
          
     </View>
-    <View style={{marginBottom:"12%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={this.Password_Validate}>
         <Text style={styles.buttonText}>Complete Signup</Text>
         </TouchableOpacity>
-    </View>
     <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
         <Image

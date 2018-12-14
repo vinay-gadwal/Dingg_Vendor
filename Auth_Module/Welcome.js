@@ -15,17 +15,12 @@ export default class Login extends Component {
    {
     super(props);
   }
-
-
-
-  render() {
+render() {
     return (
-    <View  style={styles.container}>
-        
+    <View  style={styles.container}>   
         <View style={{paddingVertical:hp("5%")}}>
         <ResponsiveImage source={require('../Image/icon/illustration3x.png')} initWidth="100" initHeight="100"/>
-        </View>
-       
+        </View>    
        <Text style={[styles.text,{marginHorizontal:hp("8%"),justifyContent:"center"}]}>Thank you for submitting the</Text>
        <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center"}]}>information.</Text>
        <Text style={[styles.text,{marginHorizontal:hp("5%"),alignItems:"flex-end"}]}>You are now all set to explore </Text>
@@ -34,13 +29,8 @@ export default class Login extends Component {
           <TouchableOpacity style={[styles.button,{width:wp("30%")}]} onPress={() =>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={styles.buttonText}>Let's Go</Text>
           </TouchableOpacity>
-      </View>
-      
-     
-  
+      </View>  
 </View>
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

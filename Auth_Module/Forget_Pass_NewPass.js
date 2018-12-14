@@ -13,7 +13,8 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
-
+const _width = 110;
+const _height = 77;
 export default class Password extends Component {
   constructor(props) {
     super(props);
@@ -63,7 +64,7 @@ export default class Password extends Component {
         keyboardShouldPersistTaps='handled'
       >
        <View style={{marginTop:hp("5%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth={_width} initHeight={_height}/>
         </View>
         <View style={[styles.box,{paddingBottom:hp("4%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
@@ -113,5 +114,3 @@ export default class Password extends Component {
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

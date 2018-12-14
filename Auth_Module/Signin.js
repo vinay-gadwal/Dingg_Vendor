@@ -17,6 +17,8 @@ import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
 const ccolor_focus = "rgb(255,164,0)" ;
+const _width = 110;
+const _height = 77;
 export default class Login extends Component {
   constructor(props)
    {
@@ -42,7 +44,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('Forget_password');
+    this.props.navigation.navigate('Crea_pass');
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -122,7 +124,7 @@ export default class Login extends Component {
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                             keyboardShouldPersistTaps='handled'>
       <View style={{marginTop:hp("5%")}}>
-      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth={_width} initHeight={_height}/>
       </View>
       <View style={styles.box}>
          <Text style={[styles.text,{marginRight:wp("44%")}]}>Sign In Using</Text>
