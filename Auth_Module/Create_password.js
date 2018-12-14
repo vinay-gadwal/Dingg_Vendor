@@ -62,7 +62,7 @@ export default class Password extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-      <View style={{marginVertical:hp("4%")}}>
+      <View style={{marginTop:hp("5%")}}>
       <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
       </View>
       <View style={[styles.box,{paddingBottom:hp("4%")}]}>

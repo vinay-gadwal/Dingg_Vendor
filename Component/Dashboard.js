@@ -59,25 +59,25 @@ class App extends Component {
          <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={require('../Image/main/completetotalIcon3x.png')} style={styles.Dashbosrd_image_top}/>                
                     <View style={{flexDirection:"column",width:wp("18%"),alignItems:"flex-end"}}>
-                    <Text style={[styles.Dashboard_text,{fontSize: RF(3.2),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),width:wp("15%")}]}>Total Booking</Text>
+                    <Text style={styles.Dashboard_big_text}>100</Text>
+                    <Text style={styles.Dashboard_text}>Total</Text>
                     {/* <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),marginBottom:hp("2%")}]}>Booking</Text>             */}
                     </View>
         </View>
         <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={require('../Image/main/completecustomersHandledCopy3x.png')} style={styles.Dashbosrd_image_top} />                
                     <View style={{flexDirection:"column",width:wp("18%"),alignItems:"flex-end"}}>
-                    <Text style={[styles.Dashboard_text,{fontSize: RF(3.2),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",marginLeft:wp("6%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Served</Text>      
+                    <Text style={styles.Dashboard_big_text}>100</Text>
+                    <Text style={styles.Dashboard_text}>Served</Text>      
                     </View>
         </View>
         </View>
-        <View style={styles.Dashboard_block_box}>
+        <View style={[styles.Dashboard_block_box,{marginTop:hp("3%"),}]}>
          <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={require('../Image/main/completequeueCopy3x.png')} style={styles.Dashbosrd_image_top}/>                
                     <View style={{flexDirection:"column",width:wp("18%"),alignItems:"flex-end"}}>
-                    <Text style={[styles.Dashboard_text,{fontSize: RF(3.2),marginTop:hp("2%")}]}>100</Text>
-                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",marginLeft:wp("7%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Queue</Text>      
+                    <Text style={styles.Dashboard_big_text}>100</Text>
+                    <Text style={styles.Dashboard_text}>Queue</Text>      
                     </View>       
        </View>
         <View style={styles.Dashboard_block}>
@@ -87,13 +87,13 @@ class App extends Component {
                     <TimerCountdown
                         initialSecondsRemaining={1000*60}
                         allowFontScaling={true}
-                        style={{ fontSize:RF(3.1),marginTop:hp("2%")  }}
+                        style={{ fontSize:RF(2.8),marginTop:hp("2%")  }}
                     />
                     <Text style={{ fontSize: RF(3.2),
                           justifyContent:"flex-start",
-                          fontFamily:"Muli-Bold",marginTop:hp("1.1%")}}>m</Text>
+                          fontFamily:"Muli-Bold",marginTop:hp("1.2%")}}>m</Text>
                     </View>
-                    <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",marginRight:wp("2%"),fontSize:RF(1.7),marginBottom:hp("2%"),fontFamily:"Muli-ExtraBold"}]}>Wait Time</Text>      
+                    <Text style={[styles.Dashboard_text,{width:wp("20%")}]}>Wait Time</Text>      
                     </View>      
         </View>
         </View>

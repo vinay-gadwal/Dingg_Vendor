@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-  
+// Black: 444444
+// Gray: 999999
+// Orange: ffa400
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -9,11 +11,62 @@ const styles = StyleSheet.create({
       alignItems: "center",
       backgroundColor: "rgb(243,242,242)",
     },
+////Sign in////
+    Row_divider:{
+        flexDirection:"row",justifyContent:"space-between"
+    },
+    Mobile_number_divider:{
+        marginTop:hp("1.3%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',
+    },
+    Radio_button:{
+        marginRight:wp("7%")
+    },
+    Forget_pass_text:{
+        color:"#ffa400",
+        marginLeft:wp('40%'),
+        fontSize: RF(2),
+        marginVertical:hp("1%"),
+        fontWeight:"bold"
+    },
+    ////Logo Style///
+    Logo_style:{
+        marginTop:hp("5%")
+    },
+    ///OTP///
+    Otp_text:{
+        fontSize:RF(3.5),
+        fontFamily:'Muli-ExtraBold',
+        marginVertical:hp("8%"),
+        marginRight:wp("35%"),
+          color: "rgb(68,68,68)",
+          justifyContent:"flex-start"
+    },
+    otp_box:{
+        alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"
+    },
+    otp:{
+        marginHorizontal:wp("15%"),marginTop:hp("2%")  
+    },
+    timer:{
+        marginRight:wp("15%"),marginTop:hp("2%")  
+    },
+    timer_text:{
+        color:"rgb(255,164,0)",fontSize:RF(1.9),
+        fontFamily:'Muli-Bold',
+        justifyContent:"flex-start"
+    },
+    timer_countdown:{
+        fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)"
+    },
     Flat_box:{
       width: wp('90%'),marginLeft:"5%",
       backgroundColor:"white",
       marginTop:hp('2%'),
       borderRadius:10,
+      shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
     },
     Flat_box_row:{
       flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")
@@ -95,6 +148,10 @@ const styles = StyleSheet.create({
         backgroundColor:"white",
         paddingVertical:hp('3%'),
         borderRadius:10,
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
     },
     Sign_up_context:{
         flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
@@ -103,6 +160,7 @@ const styles = StyleSheet.create({
           fontSize: RF(2.2), 
           color: "rgb(68,68,68)",
           fontFamily:'Muli-Bold',
+          justifyContent:"flex-start"
         },
     grey_text:{
           fontSize: RF(2.2), 
@@ -157,12 +215,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:"white",
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
          },
     avatarMultiple: {
         borderRadius: wp("2"),
         width: wp('20%'),
         height: hp('11%'),
-        marginHorizontal:wp("1.5%")
+        marginHorizontal:wp("1.5%"),
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
          },
     boxDetails:{
         alignItems:"center",
@@ -171,7 +237,11 @@ const styles = StyleSheet.create({
         borderRadius:10,
         justifyContent: 'space-between',
         marginHorizontal:"5%",
-        paddingVertical:hp('3%')
+        paddingVertical:hp('3%'),
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
         }, 
     Setting_lineSetting:{
         width: "90%",
@@ -206,28 +276,45 @@ const styles = StyleSheet.create({
         height: hp("2.5%"),
          },
     Dashbosrd_image_top:{
-        height:hp("9%"),
+        height:hp("8%"),
         width:wp("15%"),
         marginLeft:wp("2%"),
         marginVertical:wp("2%"),
         fontFamily:"Muli-ExtraBold"
          },
     Dashboard_text:{
-        fontSize: RF(2.2), 
-        color: "rgb(68,68,68)",
         fontFamily:'Muli-Bold',
-        marginLeft:wp("5%"),
+        color:"#999999",
+        fontSize:RF(1.7),
+        fontFamily:"Muli-ExtraBold",
+        width:wp("11%"),
+        alignItems:"flex-end",
+         },
+    Dashboard_big_text:{
+            fontSize: RF(3.2),marginTop:hp("2%"),
+            fontFamily:'Muli-Bold',
+            marginLeft:wp("5%"),
+            color:"rgb(68,68,68)",
+            fontFamily:"Muli-ExtraBold",
          },
     Dashboard_block_box:{
         flexDirection:"row",
         justifyContent:"space-between",
-        marginHorizontal:wp("8%"),
-        marginTop:hp("3%")
+        marginHorizontal:wp("6%"),
+        marginTop:hp("4%"),
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
          },
     Dashboard_block:{
         width:wp("40%"),flexDirection:"row",
         backgroundColor:"white",
-        borderRadius:10
+        borderRadius:10,
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
         },
     profile_Small_text:{
         fontSize: RF(1.8),
@@ -262,10 +349,14 @@ const styles = StyleSheet.create({
           width: wp('1.5%'),marginTop:hp("5.3%"),paddingLeft:wp("14%")
         },
   Profile_Container:{
-        width:"90%",marginVertical:hp("1%"),
+        width:"90%",marginVertical:hp("1.5%"),
         backgroundColor:"white",
         borderRadius:10,
-        justifyContent: 'space-between',marginHorizontal:"5%"
+        justifyContent: 'space-between',marginHorizontal:"5%",
+        shadowColor: 'rgb(220,220,220)',
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
         },
   Business_hour:{
       flexDirection:"row",

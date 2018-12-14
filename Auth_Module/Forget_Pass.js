@@ -60,10 +60,10 @@ export default class example extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >      
-         <View style={{marginVertical:hp("4%")}}>
+         <View style={{marginTop:hp("5%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
-        <View style={[styles.box,{marginBottom:hp("2%")}]}>
+        <View style={[styles.box,{marginBottom:hp("5%")}]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>
           <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor="rgb(255,164,0)">
@@ -90,7 +90,7 @@ export default class example extends Component {
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginBottom:hp("15%")}]}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginBottom:hp("20%")}]}>
             <Text style={styles.buttonText}>Submit for OTP</Text>
         </TouchableOpacity>
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>

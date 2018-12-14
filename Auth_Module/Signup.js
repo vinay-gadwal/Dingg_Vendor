@@ -44,9 +44,7 @@ export default class example extends Component {
         if(responseJson.success === true) {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('OTP');
-          // Alert.alert(responseJson.message)
           console.log(responseJson)
-          // console.log(GLOBAL.mobile)
         } else {
           Alert.alert(responseJson.message)
         }
@@ -58,12 +56,11 @@ export default class example extends Component {
   }
  
   render() {
-    
     return (
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
         keyboardShouldPersistTaps='handled'
       >      
-       <View style={{marginVertical:hp("4%")}}>
+       <View style={{marginTop:hp("5%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
         <View style={[styles.box,{marginBottom:hp("2%")}]}>
@@ -78,7 +75,7 @@ export default class example extends Component {
           <TextInput
             value={this.state.usermobile}
             onChangeText={usermobile => this.setState({ usermobile })}
-            style={[styles.input,{width: wp('52'), height: hp('5%')}]}
+            style={[styles.input,{width: wp('52'),}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
@@ -117,7 +114,7 @@ export default class example extends Component {
                 />
                 <Text style={styles.copy_rigth}> All copyright reserved to </Text>
               </View>
-                <Text style={[styles.copy_rigth,]}> Vrienden Tech Private Limited 2018 </Text>
+                <Text style={styles.copy_rigth}> Vrienden Tech Private Limited 2018 </Text>
           </View>
 
 </KeyboardAwareScrollView>    );

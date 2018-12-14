@@ -93,8 +93,8 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-        <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("10%")}]}>Verify your mobile Number</Text>
-        <View style={[styles.box,{marginVertical:hp("2%"),height:hp("20%")}]}>
+         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("8%"),marginRight:wp("35%")}]}>Verify to continue</Text>
+        <View style={[styles.box,{height:hp("20%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
           <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
@@ -110,6 +110,7 @@ _resend_OTP = async () =>{
               codeLength={4}
               activeColor="rgb(255,164,0)"
               inactiveColor="rgb(176,176,176)"
+              keyboardType="numeric"
             />
             </View>
             <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>
@@ -125,7 +126,7 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <View style={{marginBottom:hp("25%")}}>
+        <View style={{marginBottom:hp("35%")}}>
           <TouchableOpacity style={styles.button} onPress={this.handlePress(this.state.code)}>
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>

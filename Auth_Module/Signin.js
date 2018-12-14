@@ -16,7 +16,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
-
+const ccolor_focus = "rgb(255,164,0)" ;
 export default class Login extends Component {
   constructor(props)
    {
@@ -30,7 +30,7 @@ export default class Login extends Component {
             label: 'Mobile Number',
             value:this.phone(),
             color: 'rgb(255,164,0)',
-            fontWeight:"bold"
+            fontFamily:"Muli-ExtraBold"
         },
         {
             label: 'Email ID',
@@ -42,9 +42,8 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AddDetails');
+    this.props.navigation.navigate('OTP');
   }
-
   handlePress = () => {
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
@@ -62,20 +61,19 @@ export default class Login extends Component {
         this.setState({ processing: false, loginText: 'Try Again' });
       });
   }
-
   phone(){
     return(
-      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+      <View style={styles.Row_divider}>
       <TextInputLayout focusColor="rgb(255,164,0)">
-      <Text style={{marginTop:hp("1.3%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <Text style={styles.Mobile_number_divider}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
        <TextInput
-        //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
          style={[styles.input,{width: wp('52')}]}
          placeholderTextColor="rgb(204,204,204)"
+         placeholderStyle={{fontFamily:"Muli-ExtraBold"}}
          returnKeyType='done'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -109,27 +107,9 @@ export default class Login extends Component {
       </TextInputLayout>
     )
   }
-  uid(){
-    return(
-      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
-      <TextInput
-       //  value={this.state.username}
-        onChangeText={username => this.setState({ username })}
-        style={[styles.input,{width: wp('70')}]}
-        placeholderTextColor="rgb(204,204,204)"
-        returnKeyType='next'
-        underlineColorAndroid='transparent'
-        ref={input => (this.emailInput = input)}
-        // onSubmitEditing={() => this.passwordCInput.focus()}
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
-        placeholder="User ID"
-      />
-     </TextInputLayout>
-    )
-  }
+
   onPress = data => this.setState({ data });
+  
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
@@ -141,14 +121,14 @@ export default class Login extends Component {
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                             keyboardShouldPersistTaps='handled'>
-      <View style={{marginVertical:hp("4%")}}>
+      <View style={{marginTop:hp("5%")}}>
       <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
       </View>
-      <View style={[styles.box]}>
-         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("44%")}]}>Sign In Using</Text>
+      <View style={styles.box}>
+         <Text style={[styles.text,{marginRight:wp("44%")}]}>Sign In Using</Text>
          <Text></Text>
-         <View style={{flexDirection:"row",marginRight:wp("11%")}}>
-           <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+         <View style={styles.Radio_button}>
+           <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          </View>
          {selectedButton}
          <View style = { styles.textBoxBtnHolder } > 
@@ -161,21 +141,19 @@ export default class Login extends Component {
                         secureTextEntry
                          style = { styles.input }/>
                   </TextInputLayout>
-                  {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                  <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-                  </TouchableOpacity> */}
+                  </TouchableOpacity>
           </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-              <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"}}>Forgot Password?</Text>
+              <Text style={styles.Forget_pass_text}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
-      <View style={{marginTop:hp("2%")}}>
           <TouchableOpacity style={styles.button} onPress={this.handlePress}>
              <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
-      </View>
       
       <View style={styles.Row_margin}>
         <Text style={styles.text}>Don't have an account? </Text>
@@ -198,10 +176,7 @@ export default class Login extends Component {
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
       </View>
-      
 </KeyboardAwareScrollView>
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);
