@@ -42,7 +42,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('OTP');
+    this.props.navigation.navigate('Forget_password');
   }
   handlePress = () => {
     this.setState({ processing: true });

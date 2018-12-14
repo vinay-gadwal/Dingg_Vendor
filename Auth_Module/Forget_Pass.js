@@ -68,14 +68,14 @@ export default class example extends Component {
           <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
-              <Text style={{marginTop:hp("1%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={styles._91_style}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
           <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.usermobile}
             onChangeText={usermobile => this.setState({ usermobile })}
-            style={[styles.input,{width: wp('52'), height: hp('5%')}]}
+            style={[styles.input,{width: wp('52'),}]}
             placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
@@ -107,5 +107,3 @@ export default class example extends Component {
 </KeyboardAwareScrollView>    );
   }
 }
-
-AppRegistry.registerComponent('example', () => example);

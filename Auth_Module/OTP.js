@@ -76,27 +76,6 @@ _resend_OTP = async () =>{
     Alert.alert(error)
   });
 }
- _onFulfill(code) {
-  // TODO: call API to check code here
-  // If code does not match, clear input with: this.refs.codeInputRef1.clear()
-  // if (code == "1234") {
-  //   Alert.alert(
-  //     'Confirmation Code',
-  //     'Successful!',
-  //     [{text: 'OK'}],
-  //     { cancelable: false }
-  //   );
-  // } else {
-  //   Alert.alert(
-  //     'Confirmation Code',
-  //     'Code not match!',
-  //     [{text: 'OK'}],
-  //     { cancelable: false }
-  //   );
-    
-  //   this.refs.codeInputRef1.clear();
-  // }
-}
   render() {
     const {
       switchThreeValue
@@ -118,7 +97,6 @@ _resend_OTP = async () =>{
               size={30}
               inputPosition='left'
               // onFulfill={(code) => this._onFulfill(code)}
-              onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
               activeColor="rgb(255,164,0)"
               inactiveColor="rgb(176,176,176)"

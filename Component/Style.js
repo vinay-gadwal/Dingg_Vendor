@@ -28,6 +28,12 @@ const styles = StyleSheet.create({
         marginVertical:hp("1%"),
         fontWeight:"bold"
     },
+    _91_style:{
+        marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold'
+    },
+    Sign_up_context:{
+        flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
+    },
     ////Logo Style///
     Logo_style:{
         marginTop:hp("5%")
@@ -153,9 +159,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 4,
     },
-    Sign_up_context:{
-        flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
-    },
+  
     text:{
           fontSize: RF(2.2), 
           color: "rgb(68,68,68)",

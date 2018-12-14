@@ -64,27 +64,7 @@ _resend_OTP = async () =>{
     Alert.alert(error)
   });
 }
- _onFulfill(code) {
-  // TODO: call API to check code here
-  // If code does not match, clear input with: this.refs.codeInputRef1.clear()
-  // if (code == "1234") {
-  //   Alert.alert(
-  //     'Confirmation Code',
-  //     'Successful!',
-  //     [{text: 'OK'}],
-  //     { cancelable: false }
-  //   );
-  // } else {
-  //   Alert.alert(
-  //     'Confirmation Code',
-  //     'Code not match!',
-  //     [{text: 'OK'}],
-  //     { cancelable: false }
-  //   );
-    
-  //   this.refs.codeInputRef1.clear();
-  // }
-}
+ 
   render() {
     const {
       switchThreeValue
@@ -93,11 +73,11 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("8%"),marginRight:wp("35%")}]}>Verify to continue</Text>
-        <View style={[styles.box,{height:hp("20%")}]}>
+         <Text style={styles.Otp_text}>Verify to continue</Text>
+        <View style={[styles.box]}>
           <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
-          <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
-          <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
+          <View style={styles.otp_box}>
+          <View style={styles.otp}> 
             <CodeInput
               ref="codeInputRef1"
               // secureTextEntry
@@ -105,7 +85,6 @@ _resend_OTP = async () =>{
               space={10}
               size={30}
               inputPosition='left'
-              onFulfill={(code) => this._onFulfill(code)}
               onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
               activeColor="rgb(255,164,0)"
@@ -113,20 +92,20 @@ _resend_OTP = async () =>{
               keyboardType="numeric"
             />
             </View>
-            <View style={{marginRight:wp("15%"),marginTop:hp("2%")}}>
+            <View style={styles.timer}>
             <TimerCountdown
                         initialSecondsRemaining={(this.state.time)*60}
                         allowFontScaling={true}
-                        style={{ fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)"}}
+                        style={styles.timer}
                     />
                   <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
-                  <Text style={[styles.text,{color:"rgb(255,164,0)",fontSize:RF(1.9)}]}>Resend OTP</Text>
+                  <Text style={styles.timer_text}>Resend OTP</Text>
                   </TouchableOpacity>
               </View>
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <View style={{marginBottom:hp("35%")}}>
+        <View style={{marginBottom:hp("30%")}}>
           <TouchableOpacity style={styles.button} onPress={this.handlePress(this.state.code)}>
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
