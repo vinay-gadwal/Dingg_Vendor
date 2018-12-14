@@ -59,14 +59,13 @@ export default class Password extends Component {
 
   render() {
     return (
-<KeyboardAwareScrollView  contentContainerStyle={styles.container}
-  keyboardShouldPersistTaps='handled'
->
-<View style={{paddingVertical:hp("2%")}}>
+      <KeyboardAwareScrollView  contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps='handled'
+      >
+       <View style={{paddingVertical:hp("4%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
-        
         </View>
-                <View style={[styles.box,{ marginTop:hp("3%")}]}>
+        <View style={[styles.box,{paddingBottom:hp("4%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
@@ -100,8 +99,8 @@ export default class Password extends Component {
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         </View>
-        <View style={{flexDirection:"column",alignItems:"center"}}>
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
+        <View style={styles.Colom_margin}>
+        <View style={styles.Row_margin}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}

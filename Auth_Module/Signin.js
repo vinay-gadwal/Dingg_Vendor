@@ -42,7 +42,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('AuthStack');
+    // this.props.navigation.navigate('AddDetails');
   }
 
   handlePress = () => {
@@ -140,19 +140,18 @@ export default class Login extends Component {
         selectedButton = selectedButton ? selectedButton.value : this.phone()
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
-                 keyboardShouldPersistTaps='handled'>
-                 <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
-        
-        </View>
-        <View style={[styles.box,{marginTop:hp("2%")}]}>
-        <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("44%")}]}>Sign In Using</Text>
+                            keyboardShouldPersistTaps='handled'>
+      <View style={{marginVertical:hp("4%")}}>
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+      </View>
+      <View style={[styles.box]}>
+         <Text style={[styles.text,{alignItems:"flex-start",marginRight:wp("44%")}]}>Sign In Using</Text>
          <Text></Text>
          <View style={{flexDirection:"row",marginRight:wp("11%")}}>
-         <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+           <RadioGroup style={{fontWeight:"bold"}} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          </View>
          {selectedButton}
-          <View style = { styles.textBoxBtnHolder } > 
+         <View style = { styles.textBoxBtnHolder } > 
                   <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
                       <TextInput 
                       // secureTextEntry = { this.state.hidePassword }
@@ -168,35 +167,31 @@ export default class Login extends Component {
           </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-          <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"}}>Forgot Password?</Text>
+              <Text style={{color:"rgb(255,163,0)",marginLeft:wp('40%'),fontSize: RF(2),marginVertical:hp("1%"),fontWeight:"bold"}}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
-      <View style={{marginTop:hp("3%")}}>
+      <View style={{marginTop:hp("2%")}}>
           <TouchableOpacity style={styles.button} onPress={this.handlePress}>
-          <Text style={styles.buttonText}>Sign In</Text>
+             <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       </View>
       
-      <View style={{flexDirection:"row",marginTop:hp("2%")}}>
+      <View style={styles.Row_margin}>
         <Text style={styles.text}>Don't have an account? </Text>
         <View style={{flexDirection:"column"}}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
             <Text style={styles.text}>Sign Up </Text>
             <Image
               source={require('../Image/icon/Line/rectangle1.png')}
-              style={{
-                width: wp('13.5'),
-                height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp("0.5%")
-                // left: 20
-              }}
+              style={[styles.orange_line,{width: wp('16%')}]}
             />
             </TouchableOpacity>
         </View>
         <Text style={styles.text}>here</Text>
       </View>
       
-      <View style={{flexDirection:"row"}}>
+      <View style={[styles.Row_margin,{marginBottom:hp("2%")}]}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}

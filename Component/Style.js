@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
     },    
     button: {
         width: wp('35%'),
-        height: hp('7.2%'),
+        height: hp('6.5%'),
         backgroundColor: "rgb(255,164,0)",
         justifyContent: "center",
         paddingVertical: hp('1%'),
-        borderRadius:10,
+        borderRadius:7,
         shadowColor: 'rgb(255,164,0)',
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
@@ -78,6 +78,16 @@ const styles = StyleSheet.create({
           marginBottom:30,
           marginLeft:10
     }, 
+    Row_margin:{
+        flexDirection:"row",marginTop:hp("2%")
+    },
+    Colom_margin:{
+        flexDirection:"column",alignItems:"center",marginVertical:hp("2%")
+    },
+    orange_line:{
+        width: wp('14%'),
+        height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp(".5%")
+    },
     box:{
         alignItems:"center",
         width: wp('90%'),
@@ -86,12 +96,8 @@ const styles = StyleSheet.create({
         paddingVertical:hp('3%'),
         borderRadius:10,
     },
-    box_SignUp:{
-          alignItems:"center",
-          width: wp('90%'),
-          backgroundColor:"white",
-          paddingVertical:hp('3%'),
-          borderRadius:10,
+    Sign_up_context:{
+        flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
     },
     text:{
           fontSize: RF(2.2), 
@@ -156,7 +162,7 @@ const styles = StyleSheet.create({
         borderRadius: wp("2"),
         width: wp('20%'),
         height: hp('11%'),
-        paddingHorizontal:"1%"
+        marginHorizontal:wp("1.5%")
          },
     boxDetails:{
         alignItems:"center",

@@ -5,43 +5,6 @@ import { AsyncStorage,Alert } from 'react-native';
 const base_url = 'http://18.217.123.119:3000/api/';
 
 const apis = {
-  VENDOR_PROFILE_UPDATE: async (PicturePath,token) => {
-    try {
-      let data = {
-        "a": "A",
-        "b": "B",
-        "c": "C"
-      };
-
-      let formData  = new FormData();
-
-      // for(let name in data) {
-      //   formData.append(name, data[name]);
-      // }
-      // formData.append("business_name", "helllooooo");
-      // formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
-      const options = {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'Authorization':token
-        }
-      };
-
-      delete options.headers['Content-Type'];
-
-
-      fetch(base_url + "vendor_profile_update", options)
-      .then(function (response) {
-         console.log(response);
-      });
-    } catch (error) {
-      Alert.alert(error);
-    }
-  },
-
   LOGIN_API: async (user, pass) => {
     try {
       const response = await fetch(
@@ -123,11 +86,11 @@ const apis = {
             "content-type": "application/json",
             "authorization": token,
             "cache-control": "no-cache",
-            "postman-token": "d8d5eeac-2172-38f3-2441-1b3f2d8d715e"
+            "postman-token": "7ec33088-88f2-bbb2-cb8d-3e5bf5e8acd5"
           },
           body: JSON.stringify({
-            password : password,
-            vendor_unique_id:UID
+            "password" : password, 
+            "vendor_unique_id": UID
           }),
         },
       );
@@ -230,6 +193,104 @@ const apis = {
       console.error(error);
     }
   },
+  //////Add Details Apis///////
+  GET_Cetegory: async () =>{
+    try {
+      const response = await fetch(
+        base_url + 'category',
+        {
+          method: 'GET',
+          headers: {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "cb14e44b-cc78-29e4-d4b8-0c3f2ca2ba1b"
+                   },
+        },);
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  Get_city: async (token) =>{
+    try {
+      const response = await fetch(
+        base_url + 'city',
+        {
+          method: 'GET',
+          headers: {
+            "authorization": token,
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "a3d8f4a6-b009-2e09-8f80-9055092b360e"
+                   },
+        },);
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  Get_service: async () =>{
+    try {
+      const response = await fetch(
+        base_url + 'getsubcategory',
+        {
+          method: 'POST',
+          headers: {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "52d111cc-bc3d-02da-6560-1f1e7a0ab1bf"
+                   },
+          body: JSON.stringify({
+            categoryId : "1"
+          }),
+        },
+      );
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  VENDOR_PROFILE_UPDATE: async (PicturePath,token) => {
+    try {
+      let data = {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      };
+
+      let formData  = new FormData();
+
+      // for(let name in data) {
+      //   formData.append(name, data[name]);
+      // }
+      // formData.append("business_name", "helllooooo");
+      // formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      const options = {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization':token
+        }
+      };
+
+      delete options.headers['Content-Type'];
+
+
+      fetch(base_url + "vendor_profile_update", options)
+      .then(function (response) {
+         console.log(response);
+      });
+    } catch (error) {
+      Alert.alert(error);
+    }
+  },
+
 
 }
 export default apis;

@@ -44,7 +44,7 @@ export default class example extends Component {
         if(responseJson.success === true) {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('OTP');
-          Alert.alert(responseJson.message)
+          // Alert.alert(responseJson.message)
           console.log(responseJson)
           // console.log(GLOBAL.mobile)
         } else {
@@ -60,15 +60,15 @@ export default class example extends Component {
   render() {
     
     return (
-<KeyboardAwareScrollView  contentContainerStyle={styles.container}
-  keyboardShouldPersistTaps='handled'
->      
-<View style={{paddingVertical:hp("2%")}}>
+      <KeyboardAwareScrollView  contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps='handled'
+      >      
+       <View style={{marginVertical:hp("4%")}}>
         <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
         </View>
-        <View style={[styles.box_SignUp,{marginTop:hp("3%"),paddingVertical:hp("2%")}]}>
+        <View style={[styles.box,{marginBottom:hp("2%")}]}>
           {/* <Text style={styles.text}>Enter the registered mobile number</Text> */}
-          <View style={{flexDirection:"row",justifyContent:"space-between",paddingVertical:hp("2%"),marginBottom:hp("3%")}}>
+          <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor="rgb(255,164,0)">
 
               <Text style={{marginTop:hp(".8%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
@@ -92,41 +92,33 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginVertical:hp("3%")}]}>
+        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginBottom:hp("10%")}]}>
             <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
 
-        <View style={{flexDirection:"row",marginTop:hp("15%")}}>
-        <Text style={styles.text}>Already have an account? </Text>
-        <View style={{flexDirection:"column"}}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
-        <Text style={styles.text}>Sign In </Text>
-        <Image
-          source={require('../Image/icon/Line/rectangle1.png')}
-          style={{
-            width: wp('12.5%'),
-            height: hp('.3%'),marginBottom:hp("1%"),marginTop:hp(".5%")
-            // left: 20
-          }}
-        />
-        </TouchableOpacity>
+        <View style={[styles.Row_margin,{marginTop:hp("5%")}]}>
+            <Text style={styles.text}>Already have an account? </Text>
+            <View style={{flexDirection:"column"}}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
+                <Text style={styles.text}>Sign In </Text>
+                <Image
+                  source={require('../Image/icon/Line/rectangle1.png')}
+                  style={styles.orange_line}
+                />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.text}>here</Text>
         </View>
-        <Text style={styles.text}>here</Text>
-        </View>
-        <View style={{flexDirection:"column",alignItems:"center",marginTop:hp("8%")}}>
-        <View style={{flexDirection:"row"}}>
-        <Image
-          source={require('../Image/icon/copyright.png')}
-          style={styles.copy_rigth_image}
-        />
-        <Text style={styles.copy_rigth}> All copyright reserved to </Text>
+        <View style={styles.Colom_margin}>
+            <View style={{flexDirection:"row"}}>
+                <Image
+                  source={require('../Image/icon/copyright.png')}
+                  style={styles.copy_rigth_image}
+                />
+                <Text style={styles.copy_rigth}> All copyright reserved to </Text>
+              </View>
+                <Text style={[styles.copy_rigth,]}> Vrienden Tech Private Limited 2018 </Text>
           </View>
-          <Text style={[styles.copy_rigth,{marginBottom:hp("5%")}]}> Vrienden Tech Private Limited 2018 </Text>
-          </View>
-        <Spinner
-          visible={this.state.spinner}
-          textContent={'One moment...'}
-          textStyle={{ color: '#fff' }} />
 
 </KeyboardAwareScrollView>    );
   }

@@ -38,14 +38,20 @@ export default class example extends Component {
     else{
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
-        console.log(responseJson)
-        console.log(code)
         if(responseJson.success === false){
-          Alert.alert(responseJson.message)
-        }
-        else{
+          // GLOBAL.token = responseJson.token;
+          console.log(responseJson)
+          GLOBAL.token = responseJson.data[0].auth_tokan
+          console.log(responseJson.data[0].auth_tokan)
+          if(!responseJson.data[0].is_password)
+          {
+            this.props.navigation.navigate('Crea_pass');
+          }else{
+            this.props.navigation.navigate('SignIn');
+            Alert.alert("Mobile Number already registered")
+          }
+        }else{
           this.props.navigation.navigate('Crea_pass');
-          Alert.alert(responseJson.message)
           GLOBAL.token = responseJson.token;
           console.log(responseJson)
         }
@@ -100,7 +106,7 @@ _resend_OTP = async () =>{
       keyboardShouldPersistTaps='handled'
     >      
         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("35%")}]}>Verify to continue</Text>
-        <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
+        <View style={[styles.box,{marginVertical:hp("2%"),height:hp("20%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
           <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 

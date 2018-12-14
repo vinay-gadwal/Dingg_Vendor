@@ -21,7 +21,6 @@ export default class Password extends Component {
       Uid:"",
       password: "",
       conf_pass:"",
-      // hidePassword:"true"
     };
     
   }
@@ -63,10 +62,10 @@ export default class Password extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-    <View style={{paddingVertical:hp("2%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/> 
-    </View>
-    <View style={[styles.box,{marginTop:hp("3%"),marginVertical:hp("1%")}]}>
+      <View style={{marginVertical:hp("4%")}}>
+      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth="110" initHeight="77"/>
+      </View>
+      <View style={[styles.box,{paddingBottom:hp("4%")}]}>
         <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -108,13 +107,13 @@ export default class Password extends Component {
           </TextInputLayout>
          
     </View>
-    <View style={{marginBottom:"10%",marginTop:hp("3%")}}>
+    <View style={{marginBottom:"12%"}}>
         <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={this.Password_Validate}>
         <Text style={styles.buttonText}>Complete Signup</Text>
         </TouchableOpacity>
-        </View>
-        <View style={{flexDirection:"column",alignItems:"center"}}>
-        <View style={{flexDirection:"row",marginTop:hp("5%")}}>
+    </View>
+    <View style={styles.Colom_margin}>
+        <View style={styles.Row_margin}>
         <Image
           source={require('../Image/icon/copyright.png')}
           style={styles.copy_rigth_image}
@@ -122,10 +121,8 @@ export default class Password extends Component {
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>
           <Text style={[styles.copy_rigth]}> Vrienden Tech Private Limited 2018 </Text>
-          </View>
+    </View>
 </KeyboardAwareScrollView>
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

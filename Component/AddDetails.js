@@ -105,16 +105,7 @@ export default class App extends Component {
 //   }
 
 Get_Category = async () =>{
-      fetch('http://18.217.123.119:3000/api/category', {
-        method: 'GET',
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "0840d926-ef53-710f-e40b-d8a4690cde36"
-          
-        },
-    })
-      .then((response) => response.json())
+  apis.GET_Cetegory()
       .then((responseJson) => {
        console.log(responseJson)
        for (let i = 0; i <= responseJson.data.length-1; i++) 
@@ -131,16 +122,7 @@ Get_Category = async () =>{
     }
 
 Get_City = async () =>{
-      fetch('http://18.217.123.119:3000/api/city', {
-        method: 'GET',
-        headers: {
-          "authorization": GLOBAL.token,
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "a3d8f4a6-b009-2e09-8f80-9055092b360e"
-        },
-    })
-      .then((response) => response.json())
+  apis.Get_city()
       .then((responseJson) => {
        console.log(responseJson)
       for (let i = 0; i <= responseJson.data.length-1; i++) 
@@ -155,26 +137,9 @@ Get_City = async () =>{
         Alert.alert(error)
       });
     }
-
-    Get_Category_id (){
-      debugger
-      if(this.state.Category_Dropdown.indexOf === 0){
-        GLOBAL.Service_id = 1
-      }
-    }
+    
 Get_Service = async () =>{
-      fetch('http://18.217.123.119:3000/api/getsubcategory', {
-        method: 'POST',
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-          "postman-token": "52d111cc-bc3d-02da-6560-1f1e7a0ab1bf"
-        },
-        body: JSON.stringify({
-          categoryId : "1"
-        }),
-    })
-      .then((response) => response.json())
+  apis.Get_service(GLOBAL.token)
       .then((responseJson) => {
         console.log(responseJson)
         for (let i = 0; i <= responseJson.data.length-1; i++) 
@@ -378,12 +343,9 @@ selectPhotoTapped5()
       }
 
   render() {
-    var SampleNameArray = [ "Pankaj", "Rita", "Mohan", "Amit", "Babulal", "Sakshi" ];
-
     return (
-      <KeyboardAwareScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-          <View style={{paddingVertical:"5%"}}>
-
+      <KeyboardAwareScrollView style={{backgroundColor:"rgb(243,242,242)",}}>
+          <View style={[styles.container,{marginVertical:hp("2%")}]}>
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
                 <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                       { this.state.avatarSource === null ? <Image
@@ -398,9 +360,7 @@ selectPhotoTapped5()
                       }
                 </View>
           </TouchableOpacity>
-        
-          <Text style={{fontSize: RF("18%"),paddingVertical:"5%",paddingHorizontal:wp("36%"),fontWeight:"bold"}}>Add Your Logo</Text>
-          
+          <Text style={[styles.text,{marginVertical:hp("2%")}]}>Add Your Logo</Text>
           <View style={styles.boxDetails}>
                   <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
                       <TextInput
@@ -424,6 +384,7 @@ selectPhotoTapped5()
                             console.log(value); // gives new value OK
                             this.setState({Category_Dropdown:value})
                          }}
+                         rippleCentered={false}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
                           selectedItemColor="black"
@@ -681,7 +642,7 @@ selectPhotoTapped5()
                           />
                   </TextInputLayout>
           </View>
-          <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontWeight:"bold"}}>Add Images</Text>
+          <Text style={[styles.text,{marginRight:wp("65%"),marginVertical:hp("1%")}]}>Add Images</Text>
     <View style={{paddingVertical:"2%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>

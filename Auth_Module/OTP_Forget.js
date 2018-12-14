@@ -94,7 +94,7 @@ _resend_OTP = async () =>{
       keyboardShouldPersistTaps='handled'
     >      
         <Text style={[styles.text,{fontSize:RF(3.5),fontFamily:'Muli-ExtraBold',marginVertical:hp("5%"),marginRight:wp("10%")}]}>Verify your mobile Number</Text>
-        <View style={[styles.box_SignUp,{marginVertical:hp("2%"),height:hp("20%")}]}>
+        <View style={[styles.box,{marginVertical:hp("2%"),height:hp("20%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
           <View style={{alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"}}>
           <View style={{marginHorizontal:wp("15%"),marginTop:hp("2%")}}> 
