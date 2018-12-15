@@ -16,9 +16,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
-const ccolor_focus = "rgb(255,164,0)" ;
-const _width = 110;
-const _height = 77;
+const GLOBAL = require('../Component/Color');
+
 export default class Login extends Component {
   constructor(props)
    {
@@ -31,20 +30,20 @@ export default class Login extends Component {
         {
             label: 'Mobile Number',
             value:this.phone(),
-            color: 'rgb(255,164,0)',
+            color: GLOBAL.COLOR.ORANGE,
             fontFamily:"Muli-ExtraBold"
         },
         {
             label: 'Email ID',
             value:this.email(),
-            color: 'rgb(255,164,0)'
+            color: GLOBAL.COLOR.ORANGE
         }, 
            
             ],
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('Crea_pass');
+    this.props.navigation.navigate('App_setting');
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -66,16 +65,15 @@ export default class Login extends Component {
   phone(){
     return(
       <View style={styles.Row_divider}>
-      <TextInputLayout focusColor="rgb(255,164,0)">
+      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
       <Text style={styles.Mobile_number_divider}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
-       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
          onChangeText={username => this.setState({ username })}
          style={[styles.input,{width: wp('52')}]}
-         placeholderTextColor="rgb(204,204,204)"
-         placeholderStyle={{fontFamily:"Muli-ExtraBold"}}
+        //  placeholderTextColor={GLOBAL.COLOR.GRAY}
          returnKeyType='done'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -91,12 +89,11 @@ export default class Login extends Component {
   }
   email(){
     return(
-      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
-         style={[styles.input]}
-         placeholderTextColor="rgb(204,204,204)"
+         style={styles.input}
          returnKeyType='next'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -124,7 +121,7 @@ export default class Login extends Component {
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                             keyboardShouldPersistTaps='handled'>
       <View style={{marginTop:hp("5%")}}>
-      <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth={_width} initHeight={_height}/>
+      <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
       </View>
       <View style={styles.box}>
          <Text style={[styles.text,{marginRight:wp("44%")}]}>Sign In Using</Text>
@@ -134,7 +131,7 @@ export default class Login extends Component {
          </View>
          {selectedButton}
          <View style = { styles.textBoxBtnHolder } > 
-                  <TextInputLayout focusColor="rgb(255,164,0)"  labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
                       <TextInput 
                       // secureTextEntry = { this.state.hidePassword }
                         placeholder="Enter Password"

@@ -4,6 +4,8 @@ import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
 import styles from '../Component/Style'
+const GLOBAL = require('../Component/Color');
+
 export default class Stylist extends Component {
  
  constructor(props) {
@@ -37,14 +39,11 @@ export default class Stylist extends Component {
      this.index = 0;
      this.animatedValue = new Animated.Value(0);
  }
- 
  componentDidMount() {
 
     this.setState({ arrayHolder: [...this.array] })
     this.setState({ arrayHolder_name: [...this.array_name] })
   }
-
-
   joinData = () => {
     this.array.push({name : this.state.textInput_HolderName});
 
@@ -68,29 +67,20 @@ export default class Stylist extends Component {
    );
  }
  GetItem(item) {
-
     Alert.alert(item);
-
   }
-  
  render() {
 return (
   <ScrollView>
-    <View style={{  flex: 1,
-        justifyContent: "space-between",
-        backgroundColor: "rgb(243,242,242)",}}>
+    <View style={styles.Component}>
  <FlatList          
                     data={ this.state.arrayHolder_name }
                     // keyExtractor={(index) => index.toString()}
                     extraData={this.state.arrayHolder_name}
                     
                     renderItem={({item}) => 
-    <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          backgroundColor:"white",
-          marginVertical:hp('2%'),
-          borderRadius:10,}}>
-          <Text style={[styles.text,{fontSize:RF(2.7),marginLeft:wp("5%"),marginVertical:hp("2%")}]}> {item.name}</Text>
+    <View style={styles.Flat_box}>
+          <Text style={styles.Big_text}> {item.name}</Text>
         <FlatList
 
         data={this.state.arrayHolder}
@@ -106,12 +96,12 @@ return (
         renderItem={({ item }) => 
         <Text style={styles.item} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
         />
-        <View style={{flexDirection:"row",marginVertical:hp("2%")}}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="15" initHeight="15"/>
+        <View style={styles.Row_divider}> 
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_Holder: data })}
-        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />
         </View>
@@ -119,12 +109,12 @@ return (
 
     }/>
 
- <View style={[styles.box_SignUp,{height:hp("8%"),flexDirection:"row",marginHorizontal:wp("5%")}]}> 
-        <ResponsiveImage style={{marginBottom:hp(".7%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="12" initHeight="12"/>
+  <View style={[styles.Add_sty]}> 
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
-        placeholder="Add More Stylist "
-        onChangeText={data => this.setState({ textInput_HolderName: data })}
-        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        placeholder="Add More Service "
+        onChangeText={data => this.setState({ textInput_Holder: data })}
+        style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />
         </View>

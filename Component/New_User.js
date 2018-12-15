@@ -15,6 +15,7 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
 import MultiSelect from 'react-native-multiple-select';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+const GLOBAL = require('../Component/Color');
 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const data_Services = [
@@ -61,12 +62,12 @@ export default class Login extends Component {
         {
             label: 'Join Now',
             value:this.phone(),
-            color: 'rgb(255,164,0)'
+            color: GLOBAL.COLOR.ORANGE
         },
         {
             label: 'Join Later',
             value:this.email(),
-            color: 'rgb(255,164,0)'
+            color: GLOBAL.COLOR.ORANGE
         }, 
           ],
           selectedItems :[],
@@ -92,18 +93,17 @@ export default class Login extends Component {
 
   phone(){
     return(
-      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-      <TextInputLayout focusColor="rgb(255,164,0)">
+      <View style={styles.Row_divider}>
+      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-      <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+      <Text style={styles.Mobile_number_divider}>+91     </Text>
       </TextInputLayout>
        <Text>   </Text>
-       <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
          style={[styles.input,{width: wp('52')}]}
-         placeholderTextColor="rgb(204,204,204)"
          returnKeyType='done'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -119,12 +119,11 @@ export default class Login extends Component {
   }
   email(){
     return(
-      <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
          onChangeText={username => this.setState({ username })}
          style={[styles.input]}
-         placeholderTextColor="rgb(204,204,204)"
          returnKeyType='next'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -154,7 +153,7 @@ export default class Login extends Component {
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
         <View style={[styles.box,{marginVertical:hp("1%"),paddingVertical:hp('1'),}]}>
-        <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+        <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
@@ -162,11 +161,10 @@ export default class Login extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input,{height:hp("7"),width: wp('75%')}]}
             placeholder="First Name"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.Last_name}
             onChangeText={Last_name => this.setState({ Last_name })}
@@ -174,9 +172,7 @@ export default class Login extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input,{height:hp("7"),width: wp('75%')}]}
             placeholder="Last Name"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
-            //  secureTextEntry
           />
           </TextInputLayout>
           {/* <View style={{width:wp('70%'),height:hp("22%"),marginVertical:"0%"}}>
@@ -204,51 +200,41 @@ export default class Login extends Component {
                       submitButtonText="Submit"
                     />
             </View>  */}
-             <View style={{width:wp('75%'),marginVertical:"0%"}}>
+             <View style={styles.DropDown_view}>
                       <Dropdown
                           data={data_Stylist} 
-                          itemColor="rgb(255,163,0)"  
+                          itemColor={GLOBAL.COLOR.ORANGE}  
                           selectedItemColor="black"
                           value={'Select Services'}
-                          baseColor	="rgb(222,222,222)"
                           dropdownPosition={0}
-                          textColor="rgb(204,204,204)"
-                          style={{ 
-                                width: wp('200%'),fontSize: RF(2.2),
-                                marginBottom:"10%",
-                                top: 0,borderColor:"rgb(255,163,0)",
-                                placeholderTextColor:"rgb(222,222,222)"
-                                  }}
+                          textColor={GLOBAL.COLOR.GRAY}
+                          style={{ itemTextStyle: [styles.DropDownStyle]
+                          }}
                       />
               </View>   
-            <View style={{width:wp('75%'),marginVertical:"0%"}}>
+            <View style={styles.DropDown_view}>
                       <Dropdown
-                          data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
+                          data={data_Stylist} itemColor={GLOBAL.COLOR.ORANGE}  selectedItemColor="grey"
                           value={'Select Stylist'}
                           textColor="red"
                           dropdownPosition={0}
-                          textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
+                          textColor={GLOBAL.COLOR.GRAY}
+                          style={{ itemTextStyle: [styles.DropDownStyle]
                         }}
                       />
               </View>   
-              <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-              <TextInputLayout focusColor="rgb(255,164,0)">
+              <View style={styles.Row_divider}>
+              <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-              <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={styles.Mobile_number_divider}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
           <TextInput
             value={this.state.mob_no}
             onChangeText={mob_no => this.setState({ mob_no })}
             style={[styles.input,{width: wp('57')}]}
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
-            underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
             keyboardType="numeric"
@@ -259,21 +245,17 @@ export default class Login extends Component {
          </TextInputLayout>
           </View> 
           <Text></Text>
-          <View style={{flexDirection:"row",marginRight:wp("17%")}}>
+          <View style={[styles.Row_divider,{marginRight:wp("17%")}]}>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
           {/* <Text style={{color:"white"}}>mdnds,</Text> */}
           </View>
          {/* {selectedButton}       */}
          <Text></Text>
       </View>     
-      <View style={{marginBottom:"5%"}}>
-          <TouchableOpacity style={styles.button} >
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
-      </View>    
       </KeyboardAwareScrollView>   
        );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

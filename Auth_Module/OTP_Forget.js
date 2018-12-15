@@ -17,16 +17,15 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import CodeInput from 'react-native-confirmation-code-input';
 import TimerCountdown from 'react-native-timer-countdown';
 import apis from '../apis/index'
+const GLOBAL = require('../Component/Color');
 
 export default class example extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       code: '',switchThreeValue: true,time:500
     };
   }
-
   handlePress(code) {
     if(code == ""){
       return null;
@@ -66,9 +65,6 @@ _resend_OTP = async () =>{
 }
  
   render() {
-    const {
-      switchThreeValue
-    } = this.state;
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
@@ -80,14 +76,13 @@ _resend_OTP = async () =>{
           <View style={styles.otp}> 
             <CodeInput
               ref="codeInputRef1"
-              // secureTextEntry
               className={'border-b'}
               space={10}
               size={30}
               inputPosition='left'
               onFulfill={(code) => this.handlePress(code)}
               codeLength={4}
-              activeColor="rgb(255,164,0)"
+              activeColor={GLOBAL.COLOR.ORANGE}
               inactiveColor="rgb(176,176,176)"
               keyboardType="numeric"
             />

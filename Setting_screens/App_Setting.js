@@ -10,6 +10,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
 import Switch from 'react-native-customisable-switch';
+const GLOBAL = require('../Component/Color');
 
 export default class App_Setting extends Component {
     state = {
@@ -30,12 +31,12 @@ export default class App_Setting extends Component {
       switchThreeValue,
     } = this.state;
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}} horizontal={false}>
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
 
         <View style={{paddingVertical:"5%"}}>
           <View style={styles.Profile_Container}>
           <View style={[styles.setting_Row]}>
-                    <Text style={styles.setting_text}>Notification</Text>
+                    <Text style={styles.Setting_text_}>Notification</Text>
                     <View style={{marginRight:wp("7%"),paddingVertical:hp("2.5%")}}>
                     <Switch
                           value={switchThreeValue}
@@ -67,7 +68,7 @@ export default class App_Setting extends Component {
             <TouchableOpacity >   
              <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Change Password</Text>
+                    <Text style={styles.Setting_text_}>Change Password</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -82,7 +83,7 @@ export default class App_Setting extends Component {
              <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
 
-                    <Text style={styles.setting_text}>Terms & Conditions</Text>
+                    <Text style={styles.Setting_text_}>Terms & Conditions</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -95,7 +96,7 @@ export default class App_Setting extends Component {
               
               <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>Privacy Policy</Text>
+                    <Text style={styles.Setting_text_}>Privacy Policy</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}
@@ -108,7 +109,7 @@ export default class App_Setting extends Component {
               
               <TouchableOpacity>
               <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={styles.setting_text}>FAQ</Text>
+                    <Text style={styles.Setting_text_}>FAQ</Text>
                     <Image
                                 source={require('../Image/icon/arrow_right.png')}
                                 style={[styles.setting_Image]}

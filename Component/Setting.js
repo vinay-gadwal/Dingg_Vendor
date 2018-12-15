@@ -13,6 +13,9 @@ import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
 import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 import Alert_top from './Alert'
+const GLOBAL = require('../Component/Color');
+const initWidth = 330 
+const initHeight = 2
  class Setting extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
@@ -37,81 +40,79 @@ import Alert_top from './Alert'
         <View style={{paddingVertical:"4%"}}>
           <View style={styles.Profile_Container}>
             <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('App_setting')}}>
-             <View style={{justifyContent:"space-between"}}>
                    <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>App Setting</Text>
+                    <Text style={styles.Setting_text_}>App Setting</Text>
                     <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('App_setting')}}>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                     </View>
-                    <View style={{marginHorizontal:"5%"}}>
-                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                    <View style={styles.AddServices}>
+                   <ResponsiveImage source={GLOBAL.TableDivider} initWidth="330" initHeight="2"/>
                    </View>
-             </View>  
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Business_Hour')}}>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+              <View style={[styles.setting_Row,]}>
 
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Business Hour Setting</Text>
+                    <Text style={styles.Setting_text_}>Business Hour Setting</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Business_Hour')}}>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                     </View>
-                    <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                    <View style={styles.AddServices}>
+              <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
               </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Set Up Services</Text>
+              <View style={[styles.setting_Row,]}>
+                    <Text style={styles.Setting_text_}>Set Up Services</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Set_up')}}>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
-                  <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                  <View style={styles.AddServices}>
+                  <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
               </View>            
              </TouchableOpacity>
              <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Review & Rating</Text>
+              <View style={[styles.setting_Row,]}>
+                    <Text style={styles.Setting_text_}>Review & Rating</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Star_rating')}}>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
-                  <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                  <View style={styles.AddServices}>
+                  <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
               </View> 
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Add Stylist</Text>
+              <View style={[styles.setting_Row,]}>
+                    <Text style={styles.Setting_text_}>Add Stylist</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_stylist')}}>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
-                  <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                  <View style={styles.AddServices}>
+                  <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
               </View>
               </TouchableOpacity>
 
               <View style={styles.setting_Row}>
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Auto Accept</Text>
+                    <Text style={styles.Setting_text_}>Auto Accept</Text>
                     <View style={{marginRight:wp("6%"),paddingVertical:hp("2%")}}>
                     {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
@@ -146,29 +147,29 @@ import Alert_top from './Alert'
                         />
                     </View>
                    </View>
-                  <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                   <View style={styles.AddServices}>
+                  <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
               </View>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Manage_user')}}>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                  <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Manage Users</Text>
+              <View style={[styles.setting_Row,]}>
+                  <Text style={styles.Setting_text_}>Manage Users</Text>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('Manage_user')}}>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                 </View>
-                <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                <View style={styles.AddServices}>
+                <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
               </View>
               </TouchableOpacity>
               <TouchableOpacity>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
-                    <Text style={[styles.setting_text,{marginLeft:wp("5%")}]}>Set Queue Limit</Text>
+              <View style={[styles.setting_Row]}>
+                    <Text style={styles.Setting_text_}>Set Queue Limit</Text>
                     <TouchableOpacity>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
+                                source={GLOBAL.Arrow_image}
                                 style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
@@ -176,7 +177,7 @@ import Alert_top from './Alert'
              </TouchableOpacity>
           </View>
          
-        <TouchableOpacity style={[styles.button,{marginTop:hp("3"),marginHorizontal:wp("30%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
+        <TouchableOpacity style={[styles.button,{marginHorizontal:wp("30%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
                   <Text style={styles.buttonText}>Log Out</Text>
         </TouchableOpacity>
         </View>
@@ -193,8 +194,8 @@ export default createStackNavigator({
       headerRight:(
         <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
         <Image
-          source={require('../Image/icon/notificationIcon3x.png')}
-          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+          source={GLOBAL.Notification}
+          style={styles.back_butt0n_right}     
         />
         </TouchableOpacity>)
       })
@@ -206,8 +207,8 @@ export default createStackNavigator({
             headerLeft:null,
             headerRight:(
             <Image
-              source={require('../Image/icon/notificationIconYellow3x2.png')}
-              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+            source={GLOBAL.Notification_yellow}
+            style={styles.back_butt0n_right}     
             />)
           })
         },

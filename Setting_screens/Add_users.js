@@ -13,6 +13,7 @@ import RF from "react-native-responsive-fontsize"
 import {TextInputLayout} from 'rn-textinputlayout';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+const GLOBAL = require('../Component/Color');
 
 export default class Add_User extends Component {
   constructor(props)
@@ -31,9 +32,9 @@ export default class Add_User extends Component {
   render() {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
-                 keyboardShouldPersistTaps='handled'>      
-        <View style={[styles.box,{marginBottom:"4%",height: hp('70%'),marginTop:hp("0%")}]}>
-        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                 >      
+        <View style={styles.box}>
+        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
@@ -41,12 +42,11 @@ export default class Add_User extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input]}
             placeholder="First Name"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.Last_name}
             onChangeText={Last_name => this.setState({ Last_name })}
@@ -54,12 +54,11 @@ export default class Add_User extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input]}
             placeholder="Last Name"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.User_id}
             onChangeText={User_id => this.setState({ User_id })}
@@ -67,12 +66,11 @@ export default class Add_User extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input]}
             placeholder="User ID"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.Email_id}
             onChangeText={Email_id => this.setState({ Email_id })}
@@ -80,12 +78,11 @@ export default class Add_User extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input]}
             placeholder="Email ID"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -93,12 +90,11 @@ export default class Add_User extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input]}
             placeholder="Password"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.Con_pass}
             onChangeText={Con_pass => this.setState({ Con_pass })}
@@ -106,23 +102,21 @@ export default class Add_User extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={[styles.input]}
             placeholder="Confirm Passwaord"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
             //  secureTextEntry
           />
           </TextInputLayout>
               <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-              <TextInputLayout focusColor="rgb(255,164,0)">
+              <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-              <Text style={{marginTop:"17%",fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={styles.Mobile_number_divider}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.mob_no}
             onChangeText={mob_no => this.setState({ mob_no })}
             style={[styles.input,{width: wp('52')}]}
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
@@ -136,14 +130,10 @@ export default class Add_User extends Component {
           </View> 
          
       </View>     
-      <View style={{marginBottom:"1%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
-      </View>    
       </KeyboardAwareScrollView>   
        );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);

@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import ResponsiveImage from 'react-native-responsive-image';
+const GLOBAL = require('../Component/Color');
+
 // const dataSource = [
 //   {
 //     value: 'Salon',
@@ -18,13 +21,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 //   }
 // ];
 export default class Project extends Component {
- 
  constructor(props) {
-
    super(props);
-
    this.state = {
-
      isLoading: true,dataSource : [
       {
         Offer_name: GLOBAL.Offer_name,Start_date:GLOBAL.Start_date,End_date:GLOBAL.end_date,offer_per:GLOBAL.Offer_percentage
@@ -39,22 +38,18 @@ export default class Project extends Component {
     //       offer_per:GLOBAL.Offer_percentage
     //   }
     ]
-
    }
 
    YellowBox.ignoreWarnings([
     'Warning: componentWillMount is deprecated',
     'Warning: componentWillReceiveProps is deprecated',
   ]);
-
  }
  
 GetItem (flower_name) {
-  
  Alert.alert(flower_name);
- 
  }
- 
+
  FlatListItemSeparator = () => {
    return (
      <View
@@ -66,9 +61,7 @@ GetItem (flower_name) {
      />
    );
  }
-
  webCall=()=>{
-
   // return fetch('https://reactnativecode.000webhostapp.com/FlowersList.php')
   //        .then((response) => response.json())
   //        .then((responseJson) => {
@@ -84,13 +77,9 @@ GetItem (flower_name) {
   //        });
 
  }
-
  componentDidMount(){
-
   this.webCall();
-
  }
- 
  render() {
 
   //  if (this.state.isLoading) {
@@ -105,66 +94,45 @@ GetItem (flower_name) {
   //    );
 
   //  }
- 
    return (
- 
-     <View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
- 
+     <View style={styles.container}>
        <FlatList
-       
-        data={ this.state.dataSource }
-        
-        // ItemSeparatorComponent = {this.FlatListItemSeparator}
-
+        data={ this.state.dataSource } 
+        // ItemSeparatorComponent = {this.FlatListItemSeparator
         renderItem={({item}) => 
-        
-        <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          backgroundColor:"white",
-          marginVertical:hp('5%'),paddingVertical:hp("3%"),
-          borderRadius:10,}}>
-               <View style={{flexDirection:"row"}}>
+        <View style={[styles.Flat_box,{marginRight:wp("5%")}]}>
+               <View style={styles.Row_divider}>
 
                             <Image
-                                    source={require('../Image/icon/editIcon2x.png')}
-                                    style={[styles.setting_Image,{marginLeft:wp("70%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
+                                    source={GLOBAL.Edit_image}
+                                    style={styles.View_offer}
                                 />
                             <Image
-                                    source={require('../Image/icon/deleteIcon2x.png')}
-                                    style={[styles.setting_Image,{marginRight:wp("3%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
+                                    source={GLOBAL.Delete_image}
+                                    style={[styles.View_offer,{marginLeft:wp("3%")}]}
                                 />  
               </View>          
-              <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>{item.Offer_name}</Text>
-                <View style={{flexDirection:"row"}}>
-                            <Image
-                                        source={require('../Image/icon/serviceIcon3x.png')}
-                                        style={[styles.setting_Image,{marginLeft:wp("5%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
+              <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>dakkjkkj</Text>
+                <View style={styles.Row_margin}>
+                            <ResponsiveImage
+                                        source={GLOBAL.SERve_image} style={{marginTop:hp("1.7%"),marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
                                     />
-                            <Text onPress={this.GetItem.bind(this, Offer_name)} style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.offer_per}</Text>
+                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>xxxxxxxx</Text>
 
                 </View>
-                <View style={{flexDirection:"row"}}>
-                            <Image
-                                        source={require('../Image/icon/calenderIcon2x.png')}
-                                        style={[styles.setting_Image,{marginLeft:wp("5%"),marginBottom:hp("2%"),marginTop:hp("2%")}]}
+                <View style={styles.Row_margin}>
+                <ResponsiveImage
+                                        source={GLOBAL.Calender_Icon} style={{marginTop:hp("1.7%"),marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
                                     />
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.Start_date}</Text>
+                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>xxxxxxxx</Text>
                             <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.End_date}</Text>
                 </View>
-                <View style={[styles.button,{borderRadius:40,height:hp("4%"),width:wp("30%"),marginHorizontal:wp("5%")}]} >
+                <View style={[styles.Offer_button]} >
                             <Text style={styles.buttonText}>{item.offer_per}% Off</Text>
                 </View>
-            </View>
-        
+            </View>       
           }
-
-        // keyExtractor={(item, index) => index.toString()}
-        
         />
- 
      </View>
    );
  }

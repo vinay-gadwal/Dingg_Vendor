@@ -8,7 +8,9 @@ import { Dialog } from "react-native-simple-dialogs";
 import PopoverTooltip from 'react-native-popover-tooltip';
 import {createStackNavigator,} from 'react-navigation';
 import Alert_top from './Alert'
-
+const GLOBAL = require('../Component/Color');
+const initWidth= 280 ;
+const initHeight= 2
 class Queue extends Component {
    constructor(props) {
    super(props);
@@ -45,16 +47,16 @@ class Queue extends Component {
 render() {
 return ( 
 <View style={styles.container}>
-  <View style={{flexDirection:"row"}}>
+  <View style={styles.Row_divider}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                     <View style={styles.Flat_box}>
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")}}>
-                                <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} style={{marginTop:hp(".5%")}} initWidth="20" initHeight="20"/>
-                                    <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                        <View style={styles.Row_divider}>                          
+                             <View style={styles.flat_box_colum}>
+                                <View style={styles.Row_divider}>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginTop:hp(".5%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+                                    <Text style={[styles.text]}>{item.name}</Text>
                                  </View>
                                  <View >
                                  <Image style={styles.avatarMultiple} source={GLOBAL.Image} />                                 
@@ -63,8 +65,8 @@ return (
                                                 // setBelow='true'
                                                 ref='tooltip1'
                                                 buttonComponent={
-                                                    <View style={[styles.button,{height:hp("5%"),width:wp("20%"),backgroundColor:"white",shadowColor: 'rgb(217,217,217)',}]}>
-                                                    <Text style={[styles.buttonText,{color:"rgb(255,164,0)"}]}>
+                                                    <View style={[styles.Action_button]}>
+                                                    <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE}]}>
                                                         Action
                                                     </Text>
                                                     </View>
@@ -90,13 +92,13 @@ return (
                                                 ]}
                                     />
                             </View>           
-                              <View style={styles.Flat_box_row}>
-                                 <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
+                              <View style={styles.flat_box_colum_right}>
+                                 <Text style={styles.text}>Token ID : TK102</Text>
+                                 <Text style={styles.text}>{item.name}</Text>
                                  <Text style={styles.grey_text}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                 <Text style={styles.text}>{item.name}</Text>
                                  <Text style={styles.grey_text}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                 <Text style={styles.text}>{item.name}</Text>
                             </View>  
                             </View>         
                         </View>   }                       
@@ -117,20 +119,20 @@ return (
                       <Text style={styles.setting_text}>Start Serving</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{marginHorizontal:"5%"}}>
-                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
+                <View style={styles.AddServices}>
+                    <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
                 </View>
                 <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Move Down</Text>
                 </View>
-              <View style={{marginHorizontal:"5%"}}>
-                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
+                <View style={styles.AddServices}>
+                    <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
                 </View>
                 <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Drop</Text>
                 </View>
-                <View style={{marginHorizontal:"5%"}}>
-                    <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="280" initHeight="2"/>
+                <View style={styles.AddServices}>
+                    <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
                 </View>
                 <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
                     <Text style={styles.setting_text}>Alert</Text>
@@ -148,8 +150,8 @@ export default createStackNavigator({
         headerRight:(
           <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
            <Image
-          source={require('../Image/icon/notificationIcon3x.png')}
-          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+        source={GLOBAL.Notification}
+        style={styles.back_butt0n_right}     
         />
           </TouchableOpacity>)
         })
@@ -161,8 +163,8 @@ export default createStackNavigator({
               headerLeft:null,
               headerRight:(
               <Image
-                source={require('../Image/icon/notificationIconYellow3x2.png')}
-                style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
+              source={GLOBAL.Notification_yellow}
+              style={styles.back_butt0n_right}     
               />)
             })
           },},

@@ -17,6 +17,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import CodeInput from 'react-native-confirmation-code-input';
 import TimerCountdown from 'react-native-timer-countdown';
 import apis from '../apis/index'
+const GLOBAL = require('../Component/Color');
 
 export default class example extends Component {
 
@@ -39,7 +40,6 @@ export default class example extends Component {
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
         if(responseJson.success === false){
-          // GLOBAL.token = responseJson.token;
           console.log(responseJson)
           GLOBAL.token = responseJson.data[0].auth_tokan
           console.log(responseJson.data[0].auth_tokan)
@@ -91,14 +91,12 @@ _resend_OTP = async () =>{
           <View style={styles.otp}> 
             <CodeInput
               ref="codeInputRef1"
-              // secureTextEntry
               className={'border-b'}
               space={10}
               size={30}
               inputPosition='left'
-              // onFulfill={(code) => this._onFulfill(code)}
               codeLength={4}
-              activeColor="rgb(255,164,0)"
+              activeColor={GLOBAL.COLOR.ORANGE}
               inactiveColor="rgb(176,176,176)"
               keyboardType="numeric"
             />

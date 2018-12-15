@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DatePicker from 'react-native-datepicker'
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
-  AppRegistry,
   Text,
   View,
   TextInput,
@@ -15,6 +14,7 @@ import { Dropdown } from 'react-native-material-dropdown';
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+const GLOBAL = require('../Component/Color');
 const data_Services = [
   {
     value: 'Face Cleanup',
@@ -44,19 +44,19 @@ export default class Login extends Component {
         {
             label: 'New',
             value:this.phone(),
-            color: 'rgb(255,164,0)',
+            color: GLOBAL.COLOR.ORANGE,
             fontFamily:"Muli-Bold"
         },
         {
             label: 'Existing',
             value:this.phone(),
-            color: 'rgb(255,164,0)',
+            color: GLOBAL.COLOR.ORANGE,
             fontFamily:"Muli-Bold"
         }, 
         {
           label: 'Frequent',
           value:this.phone(),
-          color: 'rgb(255,164,0)',
+          color: GLOBAL.COLOR.ORANGE,
           fontFamily:"Muli-Bold"
         }
           ],
@@ -85,41 +85,37 @@ export default class Login extends Component {
     return (
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                keyboardShouldPersistTaps='handled'>            
-        <View style={[styles.box,{marginBottom:"0%",marginTop:hp("5%")}]}>
-        <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+        <View style={[styles.box,{marginTop:hp("5%")}]}>
+        <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_name}
             onChangeText={Offer_name => this.setState({ Offer_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("5"),width:wp("75%")}]}
+            style={[styles.input,{width:wp("75%")}]}
             placeholder="Offer Name"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
           />
           </TextInputLayout>
           
-          <View style={{width:wp('75%'),height:hp("10%"),marginVertical:"0%"}}>
+          <View style={styles.DropDown_view}>
                       <Dropdown
-                          data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="grey"
+                          data={data_Services} itemColor={GLOBAL.COLOR.ORANGE}  selectedItemColor="grey"
                           value={'Service Name'}
                           onChangeText={() =>{this.setState({services:data_Services})}}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.5),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
+                          style={{ itemTextStyle: [styles.DropDownStyle]
+                          }}
                       />
             </View> 
-            <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("3%")}}>
+            <View style={styles.Row_divider}>
             <Text style={[styles.text,{marginLeft:wp("3%"),marginRight:wp("15%")}]}>Start Date</Text> 
-            <Text style={[styles.text,{marginLeft:wp("0%"),marginRight:wp("23%")}]}>Valid Till</Text> 
+            <Text style={[styles.text,{marginRight:wp("23%")}]}>Valid Till</Text> 
             </View>
-            <View style={{flexDirection:"row"}}>
+            <View style={styles.Row_divider}>
             <DatePicker
-                        style={{width: 150,marginTop:hp("2%")}}
+                        style={styles.Date_picker}
                         date={this.state.Start_date}
                         mode="date"
                         placeholder="select date"
@@ -131,7 +127,7 @@ export default class Login extends Component {
                         onDateChange={(Start_date) => {this.setState({Start_date: Start_date})}}
             />
            <DatePicker
-                        style={{width: 150,marginTop:hp("2%")}}
+                        style={styles.Date_picker}
                         date={this.state.end_date}
                         mode="date"
                         placeholder="select date"
@@ -153,28 +149,23 @@ export default class Login extends Component {
           onCancel={this._hideDateTimePicker}
         />
       </View> */}
-            <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+            <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_percenatge}
             onChangeText={Offer_percenatge => this.setState({ Offer_percenatge })}
             ref={input => (this.passwordCInput = input)}
             style={[styles.input,{height:hp("5"),width:wp("75%")}]}
             placeholder="Offer Percentage"
-            placeholderTextColor="rgb(204,204,204)"
+            placeholderTextColor={GLOBAL.COLOR.GRAY}
             returnKeyType="done"
             keyboardType="numeric"
           />
           </TextInputLayout>
           <Text></Text>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
-         {/* {selectedButton}       */}
-         <Text></Text>
             </View>     
-        <View style={{marginBottom:"15%"}}>
-            <TouchableOpacity style={styles.button} onPress={() => {this.Function_save_global();this.props.navigation.navigate('ViewOffer')}}>
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} onPress={() => {this.Function_save_global();this.props.navigation.navigate('ViewOffer')}}>
             <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
-        </View>    
 </KeyboardAwareScrollView>
     );}}
-AppRegistry.registerComponent("Login", () => Login);

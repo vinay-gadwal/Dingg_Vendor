@@ -9,6 +9,7 @@ import {
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import ResponsiveImage from 'react-native-responsive-image'
+const GLOBAL = require('../Component/Color');
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default class Login extends Component {
   constructor(props)

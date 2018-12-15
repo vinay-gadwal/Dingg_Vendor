@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
  import styles from '../Component/Style'
- import PropTypes from 'prop-types'
-import { TouchableOpacity, ScrollView, View, Animated, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
+import { TouchableOpacity, View, Animated, FlatList, Text, Image, } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
-import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
+import {createStackNavigator,} from 'react-navigation';
 import Alert_top from './Alert'
+const Init_width = 28;
+const Init_hight = 28;
+const GLOBAL = require('../Component/Color');
+
  class Queue_request extends Component {
- 
  constructor(props) {
    super(props);
    this.state = {
@@ -49,36 +51,34 @@ render() {
 return (
    
 <View style={styles.container}>
-    <View style={{flexDirection:"row"}}>
+    <View style={styles.Row_divider}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                     <View style={styles.Flat_box}>
                         <View style={styles.setting_Row}>                          
                              <View style={styles.flat_box_colum}>
-                                <View style={{flexDirection:"row",marginTop:hp("1%")}}>
-                                    <ResponsiveImage source={require('../Image/main/serveTimeIcon3x.png')} initWidth="20" initHeight="20"/>
+                                <View style={styles.Row_divider}>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
                                  </View>
-                                 <View style={{marginVertical:hp("1%")}}>
                                  <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
-                                 </View>
                                  <View style={styles.flat_box_top_row}>
                                  <TouchableOpacity>
-                                    <ResponsiveImage source={require('../Image/main/acceptIcon3x.png')} initWidth="30" initHeight="30"/>
+                                    <ResponsiveImage source={GLOBAL.Accept} initWidth={Init_width} initHeight={Init_hight}/>
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('Reject')}}>
-                                    <ResponsiveImage source={require('../Image/main/rejectIcon3x.png')} initWidth="30" initHeight="30"/>
+                                    <ResponsiveImage source={GLOBAL.Reject} initWidth={Init_width} initHeight={Init_hight}/>
                                     </TouchableOpacity>
                                  </View>
                             </View>           
-                              <View style={styles.Flat_box_row}>
-                                 <Text style={[styles.text,{fontSize:RF(2.2),marginBottom:hp("1%"),marginLeft:wp("2.5%")}]}>Token ID : TK102</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
+                              <View style={styles.flat_box_colum_right}>
+                                 <Text style={styles.text}>Token ID : TK102</Text>
+                                 <Text style={styles.text}>{item.name}</Text>
                                  <Text style={styles.grey_text}>Service</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2),marginBottom:hp("1%")}]}>{item.name}</Text>
+                                 <Text style={styles.text}>{item.name}</Text>
                                  <Text style={styles.grey_text}>Stylist</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%"),fontSize:RF(2.2)}]}>{item.name}</Text>
+                                 <Text style={styles.text}>{item.name}</Text>
                             </View>           
                         </View>
                         </View>   }                       
@@ -97,9 +97,9 @@ export default createStackNavigator({
       headerRight:(
         <TouchableOpacity onPress={() => {navigation.navigate('Alert_top')}}>
          <Image
-          source={require('../Image/icon/notificationIcon3x.png')}
-          style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
-        />
+          source={GLOBAL.Notification}
+           style={styles.back_butt0n_right}       
+            />
         </TouchableOpacity>)
       })
   },
@@ -110,9 +110,9 @@ export default createStackNavigator({
             headerLeft:null,
             headerRight:(
             <Image
-              source={require('../Image/icon/notificationIconYellow3x2.png')}
-              style={[styles.back_butt0n,{marginRight:wp("3%"),height:hp("3.2%"),width:wp("5%"),marginBottom:hp("1.5%")}]}
-            />)
+              source={GLOBAL.Notification_yellow}
+              style={styles.back_butt0n_right}       
+              />)
           })
         },
 },

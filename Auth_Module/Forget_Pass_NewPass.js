@@ -15,6 +15,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import apis from '../apis/index'
 const _width = 110;
 const _height = 77;
+const GLOBAL = require('../Component/Color');
+
 export default class Password extends Component {
   constructor(props) {
     super(props);
@@ -23,9 +25,7 @@ export default class Password extends Component {
       password: "",
       hidePassword:"true"
     };
-    
   }
-
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
@@ -64,10 +64,10 @@ export default class Password extends Component {
         keyboardShouldPersistTaps='handled'
       >
        <View style={{marginTop:hp("5%")}}>
-        <ResponsiveImage source={require('../Image/icon/logo_3.png')} initWidth={_width} initHeight={_height}/>
+        <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
         <View style={[styles.box,{paddingBottom:hp("4%")}]}>
-        <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -75,13 +75,12 @@ export default class Password extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
             placeholder="Enter New Password"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
           />
           </TextInputLayout>
           <Text></Text>
-          <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
            <TextInput
             value={this.state.new_pass}
             onChangeText={new_pass => this.setState({ new_pass })}
@@ -89,7 +88,6 @@ export default class Password extends Component {
             // onSubmitEditing={() => this.passwordInput.focus()}
             style={styles.input}
             placeholder="Confirm Password"
-            placeholderTextColor="rgb(204,204,204)"
             returnKeyType="next"
              secureTextEntry
           />

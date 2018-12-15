@@ -17,6 +17,8 @@ import RadioGroupS from 'react-native-custom-radio-group';
 // import {radioGroupList} from './radioGroupList.js'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+const GLOBAL = require('../Component/Color');
+
 const radioGroupList = [{
   label: '4 pm',
   value: 'transport_car'
@@ -80,12 +82,12 @@ export default class Login extends Component {
       data: [ 
         {
             label: 'Join Now',
-            color: 'rgb(255,164,0)',
+            color: GLOBAL.COLOR.ORANGE,
             value:this.JoinNow(),
         },
         {
             label: 'Join Later',
-            color: 'rgb(255,164,0)',
+            color: GLOBAL.COLOR.ORANGE,
             value:this.JoinLatter(),
         }, 
           ],
@@ -103,15 +105,15 @@ export default class Login extends Component {
   JoinLatter(){
     return(
      <View style={{height:hp("12%")}}>
-       <Text style={[styles.text,{marginLeft:wp("10%"),color:"rgb(165,165,165)",marginVertical:hp("1%")}]}>Select Time Slot</Text>
+       <Text style={[styles.grey_text]}>Select Time Slot</Text>
      <ScrollView horizontal="true">
       <RadioGroupS radioGroupList={radioGroupList} 
-       buttonContainerActiveStyle = {{backgroundColor: "rgb(255,164,0)"}}
+       buttonContainerActiveStyle = {{backgroundColor:GLOBAL.COLOR.ORANGE}}
        buttonTextActiveStyle = {{color: "white"}}
        buttonContainerInactiveStyle = {{backgroundColor: "white"}}
-       buttonTextInactiveStyle = {{color: "rgb(255,164,0)"}}
-       buttonContainerStyle ={{borderColor:"transparent",height:hp("6%"),marginRight:wp("1%"), shadowColor: 'rgb(222,222,222)',
-       shadowOffset: { width: 0, height: hp("0.5%") },
+       buttonTextInactiveStyle = {{color: GLOBAL.COLOR.ORANGE}}
+       buttonContainerStyle ={{borderColor:"transparent",height:hp("8%"),marginRight:wp("1%"), shadowColor: 'rgb(222,222,222)',
+       shadowOffset: { width: 0, height: hp("0.7%") },
        shadowOpacity: 0.8,
        shadowRadius: 4,}}
      />
@@ -138,23 +140,18 @@ export default class Login extends Component {
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'>
             
-        <View style={{marginTop:hp("5%"),  alignItems:"center",
-                width: wp('90%'),
-                backgroundColor:"white",
-                paddingVertical:hp('3%'),
-                borderRadius:10,}}>
-         <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-              <TextInputLayout focusColor="rgb(204,204,204)">
+        <View style={[styles.box,{marginTop:hp("3%")}]}>
+         <View style={styles.Row_divider}>
+              <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-              <Text style={{marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:'Muli-Bold',}}>+91     </Text>
+              <Text style={styles.Mobile_number_divider}>+91     </Text>
               </TextInputLayout>
               <Text>   </Text>
-          <TextInputLayout focusColor="rgb(204,204,204)" labelFontSize={0.1}>
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.Mob_no}
             onChangeText={Mob_no => this.setState({ Mob_no })}
-            style={[styles.input,{width: wp('57'), height: hp('6%'),}]}
-            placeholderTextColor="rgb(204,204,204)"
+            style={[styles.input,{width: wp('52')}]}
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
@@ -166,36 +163,28 @@ export default class Login extends Component {
           />
          </TextInputLayout>
           </View>   
-          <View style={{width:wp('75%'),height:hp("10%"),marginVertical:"0%"}}>
+          <View style={styles.DropDown_view}>
                       <Dropdown
-                          data={data_Services} itemColor="rgb(255,163,0)"  selectedItemColor="black"
+                          data={data_Services} itemColor={GLOBAL.COLOR.ORANGE} selectedItemColor="black"
                           value={'Select Services'}
                           dropdownPosition={0}
-                          textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',},
-                            width: wp('200%'),fontSize: RF(2.),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
+                          style={{ itemTextStyle: [styles.DropDownStyle]
+                          }}
                       />
                   </View> 
-                  <View style={{width:wp('75%'),marginVertical:"0%"}}>
+            <View style={styles.DropDown_view}>
                       <Dropdown
-                          data={data_Stylist} itemColor="rgb(255,163,0)"  selectedItemColor="black"
+                          data={data_Stylist} itemColor={GLOBAL.COLOR.ORANGE} selectedItemColor="black"
                           value={'Select Stylist'}
                           itemColor="black"
                           baseColor="rgb(204,204,204)"
                           dropdownPosition={0}
-                          textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle:{ fontFamily:'Muli-Bold',color:"black"},
-                            width: wp('200%'),fontSize: RF(2.2),marginBottom:"10%",
-                            // position: 'absolute',
-                            top: 0,borderColor:"rgb(255,163,0)",placeholderTextColor:"rgb(222,222,222)"
-                        }}
+                          style={{ itemTextStyle: [styles.DropDownStyle]
+                          }}
                       />
-                  </View>    
+              </View>    
                   <Text></Text>
-                  <View style={{flexDirection:"row",marginRight:wp("17%")}}>
+          <View style={[styles.Row_divider,{marginRight:wp("20%")}]}>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
           </View>       
           {selectedButton}
@@ -208,5 +197,3 @@ export default class Login extends Component {
     );
   }
 }
-
-AppRegistry.registerComponent("Login", () => Login);
