@@ -82,13 +82,10 @@ return (
     <View style={styles.Flat_box}>
           <Text style={styles.Big_text}> {item.name}</Text>
         <FlatList
-
         data={this.state.arrayHolder}
-
         width='90%'
         marginHorizontal="5%"
         extraData={this.state.arrayHolder}
-
         keyExtractor={(index) => index.toString()}
 
         ItemSeparatorComponent={this.FlatListItemSeparator}

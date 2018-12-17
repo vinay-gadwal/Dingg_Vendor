@@ -118,7 +118,6 @@ export default class example extends Component {
               </View>
                 <Text style={styles.copy_rigth}> Vrienden Tech Private Limited 2018 </Text>
           </View>
-
 </KeyboardAwareScrollView>    );
   }
 }

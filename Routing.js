@@ -37,6 +37,8 @@ import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
 import OTP from './Auth_Module/OTP'
 import OTP_forget from './Auth_Module/OTP_Forget'
+const GLOBAL = require('./Component/Color');
+
 // import Alert from './Component/Alert'
 console.disableYellowBox = true;
 
@@ -48,12 +50,12 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       title:'Dashboard',
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.Yellow_line : GLOBAL.Yullow_off_line
         const image = focused
-        ? require('./Image/icon/dashboard_yellow2x.png')
-        : require('./Image/icon/dashboardIcon.png')
+        ? GLOBAL.Dashboard
+        : GLOBAL.Dashboard_yellow
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
+          <View style={styles.Only_Column}>
           <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginLeft:wp("4%")}} initWidth="50" initHeight="3"/>
           <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
           </View>
@@ -66,14 +68,14 @@ const AuthStack = createBottomTabNavigator({
     navigationOptions: () => ({
       title:"Que",
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.Yellow_line : GLOBAL.Yullow_off_line
         const image = focused
-        ? require('./Image/icon/queueRequest_yellow2x.png')
-        : require('./Image/icon/queueRequestIcon2x.png')
+        ? GLOBAL.Queue_req
+        : GLOBAL.Que_req_white
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="27" initHeight="23"/>
+          <View style={styles.Only_Column}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Size_27} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -83,14 +85,14 @@ const AuthStack = createBottomTabNavigator({
     screen: Queue,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.Yellow_line : GLOBAL.Yullow_off_line
         const image = focused
-        ? require('./Image/icon/queueIcon_yellow2x.png')
-        : require('./Image/icon/queueIcon2x.png')
+        ? GLOBAL.Queue
+        : GLOBAL.Queue_white
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <View style={styles.Only_Column}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -100,14 +102,14 @@ const AuthStack = createBottomTabNavigator({
     screen: history,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.Yellow_line : GLOBAL.Yullow_off_line
         const image = focused
-        ? require('./Image/icon/historyIcon_yellow2x.png')
-        : require('./Image/icon/historyIcon2x.png')
+        ? GLOBAL.History
+        : GLOBAL.History_white
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <View style={styles.Only_Column}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -117,14 +119,14 @@ const AuthStack = createBottomTabNavigator({
     screen: Setting,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.Yellow_line : GLOBAL.Yullow_off_line
         const image = focused
-        ? require('./Image/icon/settingsIcon_yellow2x.png')
-        : require('./Image/icon/settingsIcon2x.png')
+        ? GLOBAL.Setting
+        : GLOBAL.Setting_white
         return (
-          <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth="60" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
+          <View style={styles.Only_Column}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
             )
     }
@@ -134,14 +136,14 @@ const AuthStack = createBottomTabNavigator({
     screen: Profile,
     navigationOptions: () => ({
       tabBarIcon: ({ focused }) => {
-        const line = focused ? require('./Image/main/highlight3x.png') : require('./Image/main/line-transparent-vertical-2.png')
+        const line = focused ? GLOBAL.Yellow_line : GLOBAL.Yullow_off_line
         const image = focused
-        ? require('./Image/icon/profileIcon_yellow2x.png')
-        : require('./Image/icon/profileIcon2x.png')
+        ? GLOBAL.Profile
+        : GLOBAL.Profile_white
         return (
-         <View style={{flexDirection:"column",alignItems:"center"}}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth="50" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="21" initHeight="23"/>
+         <View style={styles.Only_Column}>
+          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth={GLOBAL.Yellow_50} initHeight={GLOBAL.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -151,7 +153,6 @@ const AuthStack = createBottomTabNavigator({
 {
   initialRouteName: 'D',
   headerMode:"none",
-
   tabBarOptions: {
     indicatorStyle: {
       backgroundColor: 'black',
@@ -162,14 +163,6 @@ const AuthStack = createBottomTabNavigator({
       showLabel: false,
     // activeTintColor: '#F8F8F8', // active icon color
     // inactiveTintColor: '#586589',  // inactive icon color
-    style: {
-      height: hp("8%"),
-      backgroundColor: "white",
-      alignItems:"center",
-      indicatorStyle:{
-        backgroundColor:'#de1d3e',
-      },
-    },
 }
 });
 
@@ -199,8 +192,8 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n,]}
             />
             </TouchableOpacity>)
           })
@@ -213,8 +206,8 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n]}
             />
             </TouchableOpacity>)
           })
@@ -226,8 +219,8 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n,]}
             />
             </TouchableOpacity>)
           })
@@ -240,8 +233,8 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n,]}
             />
             </TouchableOpacity>)
           })
@@ -254,8 +247,8 @@ const RootStack = createStackNavigator({
         headerLeft:(
           <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
         <Image
-          source={require('./Image/icon/back_2x.png')}
-          style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n]}
         />
         </TouchableOpacity>)
       })
@@ -275,26 +268,11 @@ const RootStack = createStackNavigator({
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
             />
             </TouchableOpacity>)
           })
-        },
-
-  D: {
-          screen: DashBoard,
-          navigationOptions: () => ({
-            title:'Dashboard',
-            tabBarIcon: ({ focused }) => {
-              const image = focused
-              ? require('./Image/icon/dashboard_yellow2x.png')
-              : require('./Image/icon/dashboardIcon.png')
-              return (
-                <ResponsiveImage source={image} initWidth="23" initHeight="23"/>
-              )
-          }
-        })
         },
 
  New_User:{
@@ -305,8 +283,8 @@ const RootStack = createStackNavigator({
               headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
-                source={require('./Image/icon/back_2x.png')}
-                style={styles.back_butt0n}
+              source={GLOBAL.Back_button}
+              style={styles.back_butt0n}
               />
               </TouchableOpacity>)
             })
@@ -323,8 +301,8 @@ const RootStack = createStackNavigator({
               headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
-                source={require('./Image/icon/back_2x.png')}
-                style={styles.back_butt0n}
+              source={GLOBAL.Back_button}
+              style={styles.back_butt0n}
               />
               </TouchableOpacity>)
             })
@@ -339,8 +317,8 @@ const RootStack = createStackNavigator({
           headerLeft:(
             <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
           <Image
-            source={require('./Image/icon/back_2x.png')}
-            style={styles.back_butt0n}
+              source={GLOBAL.Back_button}
+              style={styles.back_butt0n}
           />
           </TouchableOpacity>)
         })
@@ -354,7 +332,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -371,7 +349,7 @@ AddOffer:{
               headerRight:(
                 <TouchableOpacity onPress={() => {navigation.navigate('Alert')}}>
               <Image
-                source={require('./Image/main/notificationIcon3x.png')}
+                source={GLOBAL.Notification}
                 style={{marginRight:wp("5%"),
                 width: wp('5%'),
                 height: hp('3.5%'),}}
@@ -415,13 +393,10 @@ AddOffer:{
           headerMode: null,
           navigationOptions: ({ navigation }) => ({
             title: 'DINGG CODE',
-            headerTitleStyle: {
-              fontFamily:'Muli-Bold',marginBottom:hp("2%")
-            },
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -435,7 +410,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -461,7 +436,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -476,7 +451,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -491,7 +466,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -505,7 +480,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -519,7 +494,7 @@ AddOffer:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -533,7 +508,7 @@ Set_up:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -548,7 +523,7 @@ Set_up:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -562,7 +537,7 @@ Set_up:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
@@ -576,36 +551,19 @@ Set_up:{
             headerLeft:(
               <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
             <Image
-              source={require('./Image/icon/back_2x.png')}
+              source={GLOBAL.Back_button}
               style={styles.back_butt0n}
             />
             </TouchableOpacity>)
           })
         },
-  // Alert:{
-  //         screen:Alert,
-  //         // headerMode: null,
-  //         navigationOptions: ({ navigation }) => ({
-  //           title: 'ALERTS',
-  //           headerLeft:(
-  //             <TouchableOpacity  onPress={ () => { navigation.navigate('D') }}>
-  //           <Image
-  //             source={require('./Image/icon/back_2x.png')}
-  //             style={styles.back_butt0n}
-  //           />
-  //           </TouchableOpacity>),
-  //         })
-  //       },
-
       },
 
       {
         initialRouteName:"SignIn",
         // headerMode: "none",
         navigationOptions: {
-          headerTitleStyle: {
-            fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-          },
+          headerTitleStyle: GLOBAL.header
             },
 
 });

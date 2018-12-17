@@ -62,7 +62,27 @@ export default class example extends Component {
       });
     }
   }
-
+  _onFulfill(code) {
+    // TODO: call API to check code here
+    // If code does not match, clear input with: this.refs.codeInputRef1.clear()
+    if (code == '1234') {
+      Alert.alert(
+        'Confirmation Code',
+        'Successful!',
+        [{text: 'OK'}],
+        { cancelable: false }
+      );
+    } else {
+      Alert.alert(
+        'Confirmation Code',
+        'Code not match!',
+        [{text: 'OK'}],
+        { cancelable: false }
+      );
+      
+      this.refs.codeInputRef1.clear();
+    }
+  }
 _resend_OTP = async () =>{
   this.setState({code:""})
   apis.Resend_OTP(GLOBAL.mobile)
@@ -99,6 +119,7 @@ _resend_OTP = async () =>{
               activeColor={GLOBAL.COLOR.ORANGE}
               inactiveColor="rgb(176,176,176)"
               keyboardType="numeric"
+              onFulfill={(code) => this.handlePress(code)}
             />
             </View>
             <View style={styles.timer}>

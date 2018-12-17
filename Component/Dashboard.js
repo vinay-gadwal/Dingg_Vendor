@@ -17,8 +17,6 @@ import ResponsiveImage from 'react-native-responsive-image'
 import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
 const GLOBAL = require('../Component/Color');
-const _width = 330;
-const _height = 2;
 const Totol = require('../Image/main/completetotalIcon3x.png')
 const Customer = require('../Image/main/completecustomersHandledCopy3x.png')
 const Queue = require('../Image/main/completequeueCopy3x.png')
@@ -79,7 +77,7 @@ class App extends Component {
                     </View>
         </View>
         </View>
-        <View style={[styles.Dashboard_block_box,{marginTop:hp("3%"),}]}>
+        <View style={[styles.Dashboard_block_box]}>
          <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={Queue} style={styles.Dashbosrd_image_top}/>                
                     <View style={styles.Dashboard_block_colom}>
@@ -90,24 +88,24 @@ class App extends Component {
         <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={Wait_time} style={styles.Dashbosrd_image_top}/>                
                     <View style={[styles.Dashboard_block_colom,{width:wp("23%")}]}>
-                    <View style={{flexDirection:"row",fontSize: RF(3),marginRight:wp("2%")}}>
+                    <View style={styles.Row_divider}>
                     <TimerCountdown
                         initialSecondsRemaining={1000*60}
                         allowFontScaling={true}
                         style={{ fontSize:RF(2.8),marginTop:hp("2%")  }}
                     />
-                    <Text style={[styles.Dashboard_big_text,{ marginLeft:wp("0%"),marginTop:hp("1.5%")}]}>m</Text>
+                    <Text style={[styles.Dashboard_big_text,{ marginTop:hp("1.5%")}]}>m</Text>
                     </View>
                     <Text style={[styles.Dashboard_text,{width:wp("20%")}]}>Wait Time</Text>      
                     </View>      
         </View>
         </View>
         <Text></Text>
-        <View style={[styles.Profile_Container,{paddingBottom:hp(".5%")}]}>
+        <View style={[styles.Profile_Container]}>
         
-        <View style={[styles.setting_Row,{paddingVertical:hp("1%")}]}>
+        <View style={[styles.setting_Row]}>
                     <Text style={[styles.Dashboard_text_bottom]}>Ready to Accept Booking</Text>
-                    <TouchableOpacity style={{marginRight:wp("5%"),marginTop:hp("2%")}}>
+                    <TouchableOpacity style={styles.switch_Style}>
                     {/* <Switch
                           value={switchThreeValue}
                           onChangeValue={(value) => {
@@ -141,8 +139,8 @@ class App extends Component {
                                       switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
                                       switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
                                       btnBorderColor = {GLOBAL.COLOR.ORANGE}          // optional: button border color --- default #00a4b9
-                                      btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
-                                      fontColor = 'white'               // optional: text font color --- default #b1b1b1
+                                      btnBackgroundColor = {GLOBAL.COLOR.ORANGE}     // optional: button background color --- default #00bcd4
+                                      fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = '#fff' 
                                       text1 = '.'                        // optional: first text in switch button --- default ON
                                       text2 = '.'   
@@ -152,21 +150,21 @@ class App extends Component {
                     </TouchableOpacity>
             </View>
             
-            <View style={{marginHorizontal:wp("5%")}}>
+            <View style={styles.AddServices}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
             </View>
                 
           <TouchableOpacity onPress={ () => this.openDialog(true) }>
-            <View style={[styles.setting_Row,{paddingVertical:hp("1%")}]}>
+            <View style={[styles.setting_Row]}>
                     <Text style={[styles.Dashboard_text_bottom]}>Add Customer</Text>
                     <TouchableOpacity onPress={ () => this.openDialog(true) }>
                       <Image
                                   source={GLOBAL.Arrow_image}
-                                  style={[styles.setting_Image,{marginRight:wp("6%")}]}
+                                  style={[styles.setting_Image]}
                       />
                     </TouchableOpacity>
             </View>
-            <View style={{marginHorizontal:wp("5%")}}>
+            <View style={styles.AddServices}>
                    <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
             </View>
           </TouchableOpacity>              
@@ -185,13 +183,13 @@ class App extends Component {
             >   
             <TouchableOpacity onPress={() => this.openDialog(false)}>
                      <Image
-                                source={require('../Image/icon/cancel1.png')}
-                                style={[styles.setting_Image,{marginLeft:wp("75%"),marginBottom:hp("2%"),marginTop:hp("0%")}]}
+                                source={GLOBAL.CancelIcon}
+                                style={[styles.Cancel_buton]}
                     />
             </TouchableOpacity>
                       <Text style={[styles.text,{fontSize: RF(2.5),}]}>Choose a Dinng User Type</Text>
                       <Text></Text>
-                      <TouchableOpacity style={[styles.button,{width:wp("30%")}]} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
+                      <TouchableOpacity style={[styles.button]} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
                       <Text style={styles.buttonText}>New User</Text>
                       </TouchableOpacity>
                       <Text></Text>
@@ -201,63 +199,59 @@ class App extends Component {
                       </TouchableOpacity>
                       <Text></Text>
         </Dialog>
-        <View style={{paddingVertical:hp("1%")}}>
+ 
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                   <View style={styles.setting_Row}>
                     <Text style={[styles.Dashboard_text_bottom]}>View Offers</Text>
                     <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
                     <Image
                                   source={GLOBAL.Arrow_image}
-                                  style={[styles.setting_Image,{marginRight:wp("6%")}]}
+                                  style={[styles.setting_Image]}
                     />
                     </TouchableOpacity>
                   </View>
                   </TouchableOpacity>
         </View>
-        </View>
         
-      <View style={styles.Profile_Container}>
-              
+      <View style={styles.Profile_Container}>        
               <View style={[styles.setting_Row,{marginVertical:hp("2%")}]}>
-                          
                           <View style={[styles.Dashbosrd_image,{marginLeft:wp("5%")}]}>
-                             <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth="23" initHeight="23"/>                
+                             <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
-                      
                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:hp("2%")}]}>
-                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
+                             <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
                           <View style={[styles.Dashbosrd_image,{marginLeft:wp("12%")}]}>
-                             <ResponsiveImage source={require('../Image/main/employeeNameIcon3x.png')} initWidth="15" initHeight="23"/>                
+                             <ResponsiveImage source={require('../Image/main/employeeNameIcon3x.png')} initWidth="15" initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                     
                            <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("12%")}]}>
-                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
+                             <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                         
                           <View style={[styles.Dashbosrd_image,{marginLeft:wp("2%")}]}>
-                             <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth="23" initHeight="23"/>                
+                             <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("4%")}]}>
-                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
+                             <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
                           <View style={[styles.Dashbosrd_image,{width:wp("7%"),height:hp("2.5%"),marginLeft:wp("1%"),marginRight:wp("1%")}]}>
-                             <ResponsiveImage source={require('../Image/main/queueCopy3x.png')} initWidth="32" initHeight="23"/>                
+                             <ResponsiveImage source={require('../Image/main/queueCopy3x.png')} initWidth="32" initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
                            <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("2%")}]}>
-                             <ResponsiveImage source={require('../Image/main/iconDivider3x.png')} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
+                             <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
                            <View style={[styles.Dashbosrd_image,{marginRight:wp("5%"),marginLeft:wp("3%")}]}>
-                             <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth="23" initHeight="23"/>                
+                             <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           </View>
-                          <View style={{marginHorizontal:"5%"}}>
+                          <View style={styles.AddServices}>
                           <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                           </View>  
                    <FlatList
@@ -273,16 +267,16 @@ class App extends Component {
                                       switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                                       switchBorderRadius = {20}          // optional: switch border radius --- default oval
                                       switchSpeedChange = {500}           // optional: button change speed --- default 100
-                                      switchBorderColor = 'white'       // optional: switch border color --- default #d4d4d4
+                                      switchBorderColor = {GLOBAL.COLOR.White_color}       // optional: switch border color --- default #d4d4d4
                                       switchBackgroundColor = 'rgb(243,242,242)'      // optional: switch background color --- default #fff
-                                      btnBorderColor = 'rgb(255,164,0)'          // optional: button border color --- default #00a4b9
-                                      btnBackgroundColor = 'rgb(255,164,0)'      // optional: button background color --- default #00bcd4
-                                      fontColor = 'white'               // optional: text font color --- default #b1b1b1
+                                      btnBorderColor = {GLOBAL.COLOR.ORANGE}          // optional: button border color --- default #00a4b9
+                                      btnBackgroundColor = {GLOBAL.COLOR.ORANGE}      // optional: button background color --- default #00bcd4
+                                      fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = '#fff' 
                                       text1 = '.'                        // optional: first text in switch button --- default ON
                                       text2 = '.'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
-                                      activeFontColor = 'rgb(255,164,0)'          // optional: active font color --- default #fff
+                                      activeFontColor = {GLOBAL.COLOR.ORANGE}         // optional: active font color --- default #fff
                                   />
                                    { this.state.activeSwitch1 === 1 ? console.log('view1') : console.log('view2') }
                                   </View>
@@ -345,9 +339,6 @@ export default createStackNavigator({
   initialRouteName:"App",
   // headerMode: "none",
   navigationOptions: {
-    headerTitleStyle: {
-      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-    },
+    headerTitleStyle:GLOBAL.Header
       },
-
 });

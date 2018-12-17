@@ -63,7 +63,7 @@ return (
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
                                  </View>
                                  <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
-                                 <View style={styles.flat_box_top_row}>
+                                 <View style={styles.Row_divider}>
                                  <TouchableOpacity>
                                     <ResponsiveImage source={GLOBAL.Accept} initWidth={Init_width} initHeight={Init_hight}/>
                                     </TouchableOpacity>
@@ -121,9 +121,7 @@ export default createStackNavigator({
   initialRouteName:"Queue_request",
   // headerMode: "none",
   navigationOptions: {
-    headerTitleStyle: {
-      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-    },
+    headerTitleStyle:GLOBAL.Header
       },
 
 });

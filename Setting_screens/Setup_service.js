@@ -4,6 +4,8 @@ import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
 import styles from '../Component/Style'
+const GLOBAL = require('../Component/Color');
+
 export default class Stylist extends Component {
  
  constructor(props) {
@@ -80,19 +82,13 @@ export default class Stylist extends Component {
  render() {
 return (
     <ScrollView>
-    <View style={{  flex: 1,
-        justifyContent: "space-between",
-        backgroundColor: "rgb(243,242,242)",}}>
+    <View style={styles.container}>
  <FlatList          
                     data={ this.state.arrayHolder_name }
                     // keyExtractor={(index) => index.toString()}
                     renderItem={({item}) => 
-    <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          backgroundColor:"white",
-          marginVertical:hp('2%'),
-          borderRadius:10,}}>
-          <Text style={[styles.text,{fontSize:RF(3),marginLeft:wp("5%"),marginVertical:hp("2%")}]}> {item.name}</Text>
+    <View style={styles.Flat_box}>
+          <Text style={styles.Big_text}> {item.name}</Text>
         <FlatList
 
         data={this.state.arrayHolder}
@@ -106,50 +102,41 @@ return (
         // ItemSeparatorComponent={this.FlatListItemSeparator}
 
         renderItem={({ item }) =>  
-                 <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                 <View style={{flexDirection:"column"}}>
+                 <View style={styles.Row_divider}>
+                 <View style={styles.Only_Column}>
                 <Text style={[styles.item,{}]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>
-                <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="250" initHeight="2"/>
+                <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.Size_250} initHeight={GLOBAL.COLOR._height}/>
                 </View>
-                <View style={{flexDirection:"column"}}>
+                <View style={styles.Only_Column}>
                 <Text style={styles.item} onPress={this.GetItem.bind(this, item.time)} > {item.time}m</Text>
-                <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
+                <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.Yellow_50} initHeight={GLOBAL.COLOR._height}/>
                </View>
                 </View>}
         />
-        <View style={{flexDirection:"row",marginVertical:hp("2%")}}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="15" initHeight="15"/>
+        <View style={styles.Row_divider}> 
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
-        placeholder="Add More "
+        placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_Holder: data })}
-        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("40%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
-        underlineColorAndroid='transparent'
-        />
-          <TextInput
-        placeholder="Add Time "
-        onChangeText={data => this.setState({ textInput_HolderTime: data })}
-        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("20%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />
         </View>
-</View>
-
-                    }
-                    />
- <View style={[styles.box_SignUp,{height:hp("8%"),flexDirection:"row",marginHorizontal:wp("5%")}]}> 
-        <ResponsiveImage style={{marginBottom:hp(".7%"),marginLeft:wp("5%")}} source={require('../Image/main/plusIconbig3x2.png')} initWidth="12" initHeight="12"/>
+   </View>
+             }
+         />
+  <View style={[styles.Add_sty]}> 
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
-        placeholder="Add More Category"
-        onChangeText={data => this.setState({ textInput_HolderName: data })}
-        style={[styles.textInput,{borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginHorizontal:wp("5%"),marginBottom:wp("3%"),fontSize:RF(2.5)}]}
+        placeholder="Add More Service "
+        onChangeText={data => this.setState({ textInput_Holder: data })}
+        style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />
-        </View>
-<TouchableOpacity onPress={this.joinData}  activeOpacity={0.7} style={[styles.button,{marginVertical:hp("2%"),marginHorizontal:wp("30%")}]} >
-
-<Text  style={styles.buttonText}>Save</Text>
-
-</TouchableOpacity>
+  </View>
+   <TouchableOpacity onPress={this.joinData}  activeOpacity={0.7} style={[styles.button,{marginHorizontal:wp("30%")}]} >
+      <Text  style={styles.buttonText}>Save</Text>
+    </TouchableOpacity>
   </View>
   </ScrollView>
    );

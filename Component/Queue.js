@@ -114,7 +114,7 @@ return (
                             onTouchInside={ () => this.openDialog(false) }
                             visible={ this.state.showDialog } 
           >   
-                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                <View style={[styles.setting_Row]}>
                     <TouchableOpacity onPress={ () => this.openDialog1(true) }>
                       <Text style={styles.setting_text}>Start Serving</Text>
                     </TouchableOpacity>
@@ -122,19 +122,19 @@ return (
                 <View style={styles.AddServices}>
                     <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
                 </View>
-                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                <View style={[styles.setting_Row]}>
                     <Text style={styles.setting_text}>Move Down</Text>
                 </View>
                 <View style={styles.AddServices}>
                     <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
                 </View>
-                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                <View style={[styles.setting_Row]}>
                     <Text style={styles.setting_text}>Drop</Text>
                 </View>
                 <View style={styles.AddServices}>
                     <ResponsiveImage source={GLOBAL.TableDivider} initWidth={initWidth} initHeight={initHeight}/>
                 </View>
-                <View style={[styles.setting_Row,{marginBottom:hp("3%")}]}>
+                <View style={[styles.setting_Row]}>
                     <Text style={styles.setting_text}>Alert</Text>
                 </View>
         </Dialog>
@@ -172,8 +172,6 @@ export default createStackNavigator({
     initialRouteName:"Queue",
     // headerMode: "none",
     navigationOptions: {
-      headerTitleStyle: {
-        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-      },
+        headerTitleStyle:GLOBAL.Header
         },
   });

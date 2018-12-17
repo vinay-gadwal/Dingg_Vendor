@@ -140,7 +140,7 @@ export default class Login extends Component {
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'>
             
-        <View style={[styles.box,{marginTop:hp("3%")}]}>
+        <View style={styles.box}>
          <View style={styles.Row_divider}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
@@ -190,7 +190,7 @@ export default class Login extends Component {
           {selectedButton}
          <Text></Text>   
       </View>     
-          <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} >
+          <TouchableOpacity style={[styles.button]} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
 </KeyboardAwareScrollView>

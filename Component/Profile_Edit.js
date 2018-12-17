@@ -9,6 +9,7 @@ import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextInputLayout} from 'rn-textinputlayout';
 import ResponsiveImage from 'react-native-responsive-image'
+const GLOBAL = require('../Component/Color');
 
 const homePlace = {
   description: 'Home',
@@ -235,47 +236,44 @@ export default class App extends Component {
      
   render() {
     return (
-      <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}>
-          <View style={{paddingVertical:"5%"}}>
+      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
 
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
                 <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                       { this.state.avatarSource === null ? <Image
-                                          source={require('../Image/icon/plus.png')}
+                                          source={GLOBAL.Plus_icon}
                                           style={{
-                                            width: wp('3%'),
-                                            height: hp('2%'),
+                                            width: GLOBAL.COLOR.Size_15,
+                                            height: GLOBAL.COLOR.Size_15,
                                             // left: 20
                       }}
                       /> :
                         <Image style={styles.avatarMultiple} source={this.state.avatarSource} />
                       }
                 </View>
-                <View style={{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("18%")}}>
+                <View style={styles.Camera_style}>
                   <TouchableOpacity>
-                  <ResponsiveImage source={require('../Image/main/editButton3x.png')}  initWidth="60" initHeight="60"/>
+                  <ResponsiveImage source={GLOBAL.Edit_Camera}  initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Size_60}/>
                   </TouchableOpacity>
                   </View>
           </TouchableOpacity>
                       <Text></Text>
                       <Text></Text>
-          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%")}]}>
-          <Text style={[styles.text,{marginTop:hp("1%"),fontSize:RF(1.8),color: "rgb(205,205,205)",}]}>Salon Name</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <View style={[styles.boxDetails]}>
+          <Text style={styles.grey_text}>Salon Name</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Add_Bus_Details}
                         onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}
+                        style={[styles.input,]}
                         // placeholder="Salon Name"
-                        placeholderTextColor="rgb(204,204,204)"
                         returnKeyType="next"
-                        
                       />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("1%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Address</Text>
-                  <View style={{flexDirection:"row",marginTop:hp("1.5%")}}>
+                  <Text style={styles.grey_text}>Address</Text>
+                  <View style={styles.Row_margin}>
                   <GooglePlacesAutocomplete
                          value={this.state.Address}
                          onChangeText={Address => this.setState({ Address })}
@@ -304,7 +302,7 @@ export default class App extends Component {
                             fontFamily:'Muli-Bold'
                                 },
                           predefinedPlacesDescription: {
-                                color: '#1faadb',
+                                color: GLOBAL.COLOR.GRAY,
                               },
                           textInputContainer: {
                                 backgroundColor: 'rgba(0,0,0,0)',
@@ -315,7 +313,7 @@ export default class App extends Component {
                           textInput: {
                                 marginLeft: 0,
                                 // marginRight: 100,
-                                color: '#5d5d5d',
+                                color: GLOBAL.COLOR.GRAY,
                                 fontSize:hp('2.2%')
                               },
                         }}
@@ -339,87 +337,81 @@ export default class App extends Component {
                 />
                 <Text style={{color:"white"}}>bjjase</Text>
                 </View>
-                <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Locality</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                <Text style={styles.grey_text}>Locality</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Locality}
                         onChangeText={Locality => this.setState({ Locality })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="Locality"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={[styles.input,]}                        // placeholder="Locality"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>City</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={styles.grey_text}>City</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.City}
                         onChangeText={City => this.setState({ City })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="City"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={[styles.input,]}                        // placeholder="City"
                         returnKeyType="next"
                         
                       />
                   </TextInputLayout>
           </View>
-          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Website</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <View style={[styles.boxDetails]}>
+                  <Text style={styles.grey_text}>Website</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Website_url}
                         onChangeText={Website_url => this.setState({ Website_url })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                        // placeholder="Website Url"
-                        placeholderTextColor="rgb(204,204,204)"
+                        style={[styles.input]}                        // placeholder="Website Url"
                         returnKeyType="next"
                         keyboardType="email-address"
                       />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Email</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={styles.grey_text}>Email</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Email}
                           onChangeText={Email => this.setState({ Email })}
                           ref={input => (this.passwordCInput = input)}
                           // onSubmitEditing={() => this.passwordInput.focus()}
-                          style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                          // placeholder="Email Id"
-                          placeholderTextColor="rgb(204,204,204)"
+                          style={[styles.input]}                          // placeholder="Email Id"
                           returnKeyType="next"
                           keyboardType="email-address"
                         />
                   </TextInputLayout>
           </View>
-          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Contact Name</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <View style={[styles.boxDetails,]}>
+                  <Text style={styles.grey_text}>Contact Name</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Contact_Name}
                             onChangeText={Contact_Name => this.setState({ Contact_Name })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Contact name"
-                            placeholderTextColor="rgb(204,204,204)"
+                            style={[styles.input]}                            // placeholder="Contact name"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),color: "rgb(205,205,205)"}]}>Primary Number</Text>
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                  <TextInputLayout focusColor="rgb(255,164,0)">
+                  <Text style={styles.grey_text}>Primary Number</Text>
+                  <View style={styles.Row_divider}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-                      <Text style={{fontSize: RF(2.2),marginBottom:hp("1%")}}>+91     </Text>
+                      <Text style={styles.Mobile_number_divider}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
-                          style={[styles.input,{width: wp('55'), height: hp('2%'),marginBottom:"3%"}]}
-                          placeholderTextColor="rgb(204,204,204)"
+                          style={[styles.input,{width: wp('52')}]}
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -432,19 +424,18 @@ export default class App extends Component {
                         />
                 </TextInputLayout>
                   </View>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Secondry Number</Text>
-                  <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-                      <TextInputLayout focusColor="rgb(255,164,0)">
+                  <Text style={styles.grey_text}>Secondry Number</Text>
+                  <View style={styles.Row_divider}>
+                      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-                      <Text style={{fontSize: RF(2.2),marginBottom:hp("1%")}}>+91     </Text>
+                      <Text style={styles.Mobile_number_divider}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
-                            style={[styles.input,{width: wp('55'), height: hp('2%'),marginBottom:"3%"}]}
-                            placeholderTextColor="rgb(204,204,204)"
+                            style={[styles.input,{width: wp('52')}]}
                             returnKeyType="done"
                             underlineColorAndroid='transparent'
                             ref={input => (this.emailInput = input)}
@@ -456,12 +447,12 @@ export default class App extends Component {
                           />
                 </TextInputLayout>
                   </View>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Landline Number</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={styles.grey_text}>Landline Number</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
-                          style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                          placeholderTextColor="rgb(204,204,204)"
+                          style={[styles.input,]}                          
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -473,40 +464,37 @@ export default class App extends Component {
                         />
                 </TextInputLayout>
           </View>
-          <View style={[styles.boxDetails,{alignItems:"flex-start",paddingLeft:wp("10%"),marginTop:hp("3%")}]}>
-                <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>User ID</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+          <View style={[styles.boxDetails]}>
+                <Text style={styles.grey_text}>User ID</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Master vendor id"
-                            placeholderTextColor="rgb(204,204,204)"
+                            style={[styles.input,]}                            // placeholder="Master vendor id"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Category</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={styles.grey_text}>Category</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Master vendor id"
-                            placeholderTextColor="rgb(204,204,204)"
+                            style={[styles.input,]}                            // placeholder="Master vendor id"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <Text style={[styles.text,{marginTop:hp("2%"),fontSize:RF(1.8),color: "rgb(205,205,205)"}]}>Service Type</Text>
-                  <TextInputLayout focusColor="rgb(255,164,0)" labelFontSize={0.1}>
+                  <Text style={styles.grey_text}>Service Type</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,{marginBottom:"3%",height: hp('3%'),}]}                            // placeholder="Master vendor id"
-                            placeholderTextColor="rgb(204,204,204)"
+                            style={[styles.input,]}                            // placeholder="Master vendor id"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
@@ -525,24 +513,24 @@ export default class App extends Component {
                       />
                   </View> */}
           </View>
-          <Text style={{fontSize: RF(2.2),paddingVertical:"3%",paddingHorizontal:"5%",fontFamily:'Muli-Bold'}}>Add Images</Text>
-    <View style={{paddingVertical:"2%",flexDirection:"row",marginHorizontal:"5%",justifyContent:"space-between"}}>
+          <Text style={styles.text}>Add Images</Text>
+    <View style={styles.otp_box}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
     
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_2_1 === null ? <Image
-                                      source={require('../Image/icon/plus.png')}
+                                      source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                  <View style={{flexDirection:"column-reverse"}}>
+                  <View style={styles.Column_reverse}>
                   <Image style={[styles.avatarMultiple,]} source={this.state.Image_Source_2_1} />
-                  <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                  <View style={styles.Profile_Edit_Camer}>
                 <TouchableOpacity onPress={this.delete_photo_1.bind(this)}>
-                <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                </TouchableOpacity>
                </View>
                 </View>
@@ -552,18 +540,18 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source1 === null ? <Image
-                                      source={require('../Image/icon/plus.png')}
+                                      source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                    <View style={{flexDirection:"column-reverse"}}>
+                  <View style={styles.Column_reverse}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
-                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                    <View style={styles.Profile_Edit_Camer}>
                   <TouchableOpacity onPress={this.delete_photo_2.bind(this)}>
-                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -573,18 +561,18 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.selectPhotoTapped4.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_1_1 === null ? <Image
-                                      source={require('../Image/icon/plus.png')}
+                                      source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                    <View style={{flexDirection:"column-reverse"}}>
+                  <View style={styles.Column_reverse}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
-                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                    <View style={styles.Profile_Edit_Camer}>
                   <TouchableOpacity onPress={this.delete_photo_3.bind(this)}>
-                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -594,18 +582,18 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.selectPhotoTapped5.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_3_1 === null ? <Image
-                                      source={require('../Image/icon/plus.png')}
+                                      source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                    <View style={{flexDirection:"column-reverse"}}>
+                  <View style={styles.Column_reverse}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
-                    <View style={{height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")}}>
+                    <View style={styles.Profile_Edit_Camer}>
                   <TouchableOpacity onPress={this.delete_photo_4.bind(this)}>
-                  <ResponsiveImage source={require('../Image/main/deleteImage3x.png')} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -613,10 +601,9 @@ export default class App extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={[styles.button,{marginLeft:wp("30.5%"),marginTop:hp("3%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>
+        <TouchableOpacity style={styles.button} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('Welcome'),this.Fun_Phot_save()}}>
                   <Text style={styles.buttonText}>Save Changes</Text>
               </TouchableOpacity>
-        </View>
       </ScrollView>
     );
   }

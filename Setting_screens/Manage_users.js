@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Platform, View, ActivityIndicator, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+const GLOBAL = require('../Component/Color');
 
 export default class Manage_Users extends Component {
  
@@ -106,50 +107,29 @@ GetItem (flower_name) {
   //  }
  
    return (
- 
-     <View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
-        
-        <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          height: hp('70%'),
-          backgroundColor:"white",
-          paddingTop:hp('3%'),marginVertical:hp("2%"),
-          borderRadius:10,}}>
+     <View style={styles.container}>   
+        <View style={styles.Flat_box}>
        <FlatList
-       
         data={ this.state.dataSource }
-        
         // ItemSeparatorComponent = {this.FlatListItemSeparator}
-
         renderItem={({item}) => 
-        
-       
-                     
-                <View style={{flexDirection:"row",paddingTop:hp("2%"),justifyContent:"space-around"}}>
-                <Text style={[styles.text,{fontSize: RF(2.2),width:wp("45%")}]}>{item.name}</Text>
+        <View style={styles.otp_box}>
+                <Text style={[styles.text,{width:wp("45%")}]}>{item.name}</Text>
                             <Image
-                                        source={require('../Image/main/editIcon3x.png')}
-                                        style={{  width: hp("2%"),height: hp("2%"),
-                                        marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"}}                                   
+                                        source={GLOBAL.Edit_image}
+                                        style={styles.DElete_icon}                                   
                                         />
                             <Image
-                                        source={require('../Image/main/deleteIcon3x.png')}
-                                        style={{  width: hp("2%"),height: hp("2%"),
-                                        marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"}}
+                                        source={GLOBAL.Delete_image}
+                                        style={styles.DElete_icon}
                                     />
-                </View>              
-                
+                </View>                  
         }
-
         // keyExtractor={(item, index) => index.toString()}
-        
         />
         </View>
         <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_user')}}>
-        <View style={[styles.button,{marginBottom:hp("15%"),marginHorizontal:wp("30%")}]} >
+        <View style={[styles.button]} >
         <Text style={styles.buttonText}>Add New User</Text>
        </View>
        </TouchableOpacity>

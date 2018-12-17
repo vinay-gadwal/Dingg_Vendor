@@ -16,8 +16,21 @@ const styles = StyleSheet.create({
     Row_divider:{
         flexDirection:"row",justifyContent:"space-between"
     },
+    Sign_up_context:{
+        flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
+    },
+    otp_box:{
+        alignItems:"flex-start",flexDirection:"row",justifyContent:"space-around"
+    },
+    Row_margin:{
+        flexDirection:"row",marginTop:hp("1%")
+    },
+    DElete_icon:{
+        width: hp("2%"),height: hp("2%"),
+        marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"
+    },
     Add_sty:{
-        backgroundColor:"white",width:wp("90%"),marginHorizontal:wp("5%"),borderRadius:8,marginVertical:hp("2%")
+        backgroundColor:"white",width:wp("90%"),marginHorizontal:wp("5%"),borderRadius:10,marginVertical:hp("2%")
     ,flexDirection:"row",justifyContent:"space-between"
     },
     Add_sty_text:{
@@ -40,13 +53,6 @@ const styles = StyleSheet.create({
     _91_style:{
         marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily
     },
-    Sign_up_context:{
-        flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
-    },
-    ////Logo Style///
-    Logo_style:{
-        marginTop:hp("5%")
-    },
     ///OTP///
     Otp_text:{
         fontSize:RF(3.5),
@@ -55,9 +61,6 @@ const styles = StyleSheet.create({
         marginRight:wp("35%"),
           color: "rgb(68,68,68)",
           justifyContent:"flex-start"
-    },
-    otp_box:{
-        alignItems:"flex-start",flexDirection:"row",justifyContent:"space-between"
     },
     otp:{
         marginHorizontal:wp("15%"),marginTop:hp("2%")  
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
     },
 ///flat_box//
     Flat_box:{
-      width: wp('90%'),marginLeft:"5%",
+      width: wp('90%'),marginHorizontal:"5%",
       backgroundColor:GLOBAL.COLOR.backgroundColor,
       marginTop:hp('2%'),
       borderRadius:10,
@@ -87,9 +90,6 @@ const styles = StyleSheet.create({
     },
     Flat_box_row:{
       flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")
-    },
-    flat_box_top_row:{
-      flexDirection:"row",justifyContent:"space-between"
     },
     flat_box_colum:{
       flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")
@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
       textAlign:'left',  
       fontFamily:GLOBAL.COLOR.fontfamily,
       borderColor:GLOBAL.COLOR.input_color,
-      },
+fontWeight:"bold"
+    },
     inputSignUp: {
       flex:1,
       width: wp('100'),
@@ -127,12 +128,11 @@ const styles = StyleSheet.create({
     Select_unselect_con:{
         width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")
     } ,
-    AddServices:{
-        marginHorizontal:"5%"
-    },
-    Only_Column:{
-flexDirection:"column"
-    },
+    AddServices:{marginHorizontal:"5%"},
+    padding_verticle:{ paddingVertical:"5%"},
+    MARGIN_VERticle:{marginVertical:hp("2%")},
+    Only_Column:{flexDirection:"column",alignItems:"center"},
+    Column_reverse:{flexDirection:"column-reverse"},
     View_offer:{
         marginLeft:wp("70%"),marginBottom:hp("2%"),marginTop:hp("2%"),  width: hp("2%"),
         height: hp("2%"),
@@ -142,7 +142,7 @@ flexDirection:"column"
         width: wp('35%'),
         height: hp('6.5%'),
         backgroundColor:GLOBAL.COLOR.ORANGE,
-        justifyContent: "center",
+        justifyContent: "center",marginHorizontal:wp("33%"),
         paddingVertical: hp('1%'),marginVertical:hp("2%"),
         borderRadius:7,
         shadowColor: GLOBAL.COLOR.ORANGE,
@@ -177,9 +177,6 @@ flexDirection:"column"
         fontWeight: "700",
         fontFamily:GLOBAL.COLOR.FontFamilyBold,
     },
-    margin:{
-          marginBottom:5,color:"white",
-        },
     Custom:{
           width: wp('86%'),
           height: hp('43%'),
@@ -187,9 +184,6 @@ flexDirection:"column"
           marginBottom:30,
           marginLeft:10
     }, 
-    Row_margin:{
-        flexDirection:"row",marginTop:hp("1%")
-    },
     Colom_margin:{
         flexDirection:"column",alignItems:"center",marginVertical:hp("2%")
     },
@@ -208,6 +202,9 @@ marginTop:hp("2%"),
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
         shadowRadius: 4,
+    },
+    switch_Style:{
+        marginRight:wp("7%"),paddingVertical:hp("1.5%")
     },
     Reject_box:{
         alignItems:"flex-start",
@@ -265,7 +262,7 @@ Big_text:{
           marginTop:hp("0%")
         },
     DropDown_view:{
-        width:wp('75%')
+        width:wp('70%')
     },
     DropDownStyle:{
         fontFamily:'Muli-Bold',
@@ -278,10 +275,6 @@ Big_text:{
     },
     countryPicker: {
           alignItems: 'center',justifyContent: 'center',
-        },
-    
-    containerOtp: {
-          flex: 1,backgroundColor:GLOBAL.COLOR.backgroundColor,
         },
     form: {
           margin: 20
@@ -329,20 +322,20 @@ Big_text:{
         borderRadius: wp("2"),
         width: wp('20%'),
         height: hp('11%'),
-        marginHorizontal:wp("1.5%"),
+        marginHorizontal:wp("1.5%"),marginTop:hp("2%"),
         shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
         shadowRadius: 4,
          },
     boxDetails:{
-        alignItems:"center",
+        alignItems:"flex-start",paddingLeft:wp("10%"),
         width: wp('90%'),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
         borderRadius:10,
         justifyContent: 'space-between',
         marginHorizontal:"5%",
-        paddingVertical:hp('3%'),
+        paddingVertical:hp('3%'),marginVertical:hp("2%"),
         shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
@@ -371,7 +364,7 @@ Big_text:{
         paddingVertical:"2.5%",
         fontFamily:GLOBAL.COLOR.fontfamily,
         },
-        Setting_text_:{
+    Setting_text_:{
             fontSize: RF(2.5),
             paddingVertical:"2.5%",
             fontFamily:GLOBAL.COLOR.fontfamily,marginLeft:wp("5%")
@@ -382,10 +375,7 @@ Big_text:{
         marginTop:hp("2"),
         marginRight:wp("6%")
          },
-    ƒ:{
-        width: hp("2%"),
-        height: hp("2.5%"),
-         },
+    Cancel_buton:{marginLeft:wp("75%"),marginBottom:hp("2%"),marginTop:hp("0%"), width: hp("2%"),height: hp("2%"),marginRight:wp("6%")},
     Dashbosrd_image_top:{
         height:hp("8%"),
         width:wp("15%"),
@@ -466,11 +456,11 @@ Big_text:{
         color:"rgb(176,176,176)",
         fontWeight:"bold",
         },
-    Logo_style:{
-        width: wp('23%'),height: hp('9%'),marginVertical:wp("4%")
+        Profile_Edit_Camer:{
+            height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")
         },
     back_butt0n:{
-        marginLeft:wp("6%"),width: wp('7%'),height: hp('2.5%'),
+        marginLeft:wp("6%"),width: wp('7%'),height: hp('2.5%'),marginBottom:hp("1.5%")
         },
     back_butt0n_right:{
             marginLeft:wp("6%"),
@@ -511,33 +501,44 @@ Big_text:{
         shadowOpacity: 0.8,
         shadowRadius: 4,
     },
+    QR_button:{
+        width: wp('35%'),
+        height: hp('6.5%'),
+        backgroundColor:GLOBAL.COLOR.ORANGE,
+        justifyContent: "center",
+        marginVertical:hp("5%"),
+        borderRadius:7,
+        shadowColor: GLOBAL.COLOR.ORANGE,
+        shadowOffset: { width: 0, height: hp("0.5%") },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,marginHorizontal:wp("3%")
+    },
+    Camera_style:{height:"1%",justifyContent:"center",alignItems:"center",marginLeft:wp("18%")},
   Business_hour:{
       flexDirection:"row",
       justifyContent:"space-between",
       marginVertical:hp("1.5%"),
       paddingHorizontal:wp("7%")
         },
-  Business_hour_main:{
-      marginLeft:"0%",marginLeft:wp("2%"),marginRight:wp("10%"),marginTop:hp(".5%")
+  Business_hour_Switch:{
+   marginLeft:wp("2%"),marginRight:wp("8%"),marginTop:hp(".5%")
     },
   Business_hour_time:{
       flexDirection:"row",marginTop:hp(".3%"),marginLeft:wp("2%")
     },
-  business_hour_image_Arrow:{
+business_line_left:{
       marginTop:wp("2%"),marginRight:wp("0%"),width:wp("5%")
     },
   Business_hour_text:{
-      marginRight:wp("0%"),width:wp("13%"),marginHorizontal:wp("0%"),
+     width:wp("13%"),
           fontSize: RF(2.2), 
-          color: "rgb(68,68,68)",
           fontFamily:GLOBAL.COLOR.fontfamily,
-          marginTop:hp(".5%")
       },
-  business_line:{
-      marginRight:wp("0%"),marginTop:hp("1%"),width:wp("5%")
+business_line_right:{
+     marginTop:hp("1%"),width:wp("5%")
     },
   Business_Arrow_right:{
-      marginLeft:wp("7%"),marginTop:hp("1.5%")
+      marginLeft:wp("7%"),marginTop:hp(".7%")
     },
   Business_to:{
       marginHorizontal:wp("0%"),
@@ -546,6 +547,9 @@ Big_text:{
       fontWeight:"bold",
       marginTop:hp(".5%"),
       fontWeight:"bold"
+    },
+    Business_image:{
+        width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")
     },
   History_Action:{
       justifyContent:"flex-start",marginLeft:wp("5%"),marginBottom:hp("1%"),width:wp("65%"),
@@ -563,7 +567,7 @@ Big_text:{
           }, 
 header_style:{
     fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-          }
+          },
   });
   export default styles
   

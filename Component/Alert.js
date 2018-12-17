@@ -40,7 +40,7 @@ return (
           data={ this.state.dataSource }
           renderItem={({item}) => 
           <View style={styles.Flat_box}>
-              <View style={styles.flat_box_top_row}>                          
+              <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
                     <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginVertical:hp("1%")}} initWidth="18" initHeight="18"/>

@@ -33,11 +33,11 @@ export default class App_Setting extends Component {
     return (
       <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
 
-        <View style={{paddingVertical:"5%"}}>
+        <View style={styles.padding_verticle}>
           <View style={styles.Profile_Container}>
-          <View style={[styles.setting_Row]}>
+          <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>Notification</Text>
-                    <View style={{marginRight:wp("7%"),paddingVertical:hp("2.5%")}}>
+                    <View style={styles.switch_Style}>
                     <Switch
                           value={switchThreeValue}
                           onChangeValue={() => this.setState({ switchThreeValue: !switchThreeValue })}
@@ -61,62 +61,59 @@ export default class App_Setting extends Component {
                         />
                     </View>
             </View>
-            <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+            <View style={styles.AddServices}>
+              <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
             </View>
             
             <TouchableOpacity >   
-             <View style={{justifyContent:"space-between"}}>
-                   <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+                   <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>Change Password</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
+                                source={GLOBAL.Arrow_image}
+                                style={styles.setting_Image}
                     />
                     </View>
-                    <View style={{marginHorizontal:"5%"}}>
-                   <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                    <View style={styles.AddServices}>
+                   <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                    </View>
-             </View>  
              </TouchableOpacity>
             
              <TouchableOpacity>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+              <View style={styles.setting_Row}>
 
                     <Text style={styles.Setting_text_}>Terms & Conditions</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
+                                source={GLOBAL.Arrow_image}
+                                style={styles.setting_Image}
                     />
                     </View>
-                    <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                    <View style={styles.AddServices}>
+              <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
               </View>
               </TouchableOpacity>
               
               <TouchableOpacity>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+              <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>Privacy Policy</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
+                                source={GLOBAL.Arrow_image}
+                                style={styles.setting_Image}
                     />
                   </View>
-                  <View style={{marginHorizontal:"5%"}}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="330" initHeight="2"/>
+                  <View style={styles.AddServices}>
+              <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
               </View>            
               </TouchableOpacity>
               
               <TouchableOpacity>
-              <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+              <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>FAQ</Text>
                     <Image
-                                source={require('../Image/icon/arrow_right.png')}
-                                style={[styles.setting_Image]}
+                                source={GLOBAL.Arrow_image}
+                                style={styles.setting_Image}
                     />
                   </View>
-              </TouchableOpacity>
-          
+              </TouchableOpacity>     
           </View>
         </View>
       </ScrollView>

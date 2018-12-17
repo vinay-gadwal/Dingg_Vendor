@@ -100,7 +100,7 @@ GetItem (flower_name) {
         data={ this.state.dataSource } 
         // ItemSeparatorComponent = {this.FlatListItemSeparator
         renderItem={({item}) => 
-        <View style={[styles.Flat_box,{marginRight:wp("5%")}]}>
+        <View style={[styles.Flat_box]}>
                <View style={styles.Row_divider}>
 
                             <Image
@@ -117,15 +117,14 @@ GetItem (flower_name) {
                             <ResponsiveImage
                                         source={GLOBAL.SERve_image} style={{marginTop:hp("1.7%"),marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
                                     />
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>xxxxxxxx</Text>
+                            {/* <Text style={styles.text}>xxxxxxxx</Text> */}
 
                 </View>
                 <View style={styles.Row_margin}>
                 <ResponsiveImage
                                         source={GLOBAL.Calender_Icon} style={{marginTop:hp("1.7%"),marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
                                     />
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>xxxxxxxx</Text>
-                            <Text style={[styles.text,{marginHorizontal:wp("2%"),marginTop:hp("1%"),color:"rgb(173,173,173)"}]}>{item.End_date}</Text>
+                            
                 </View>
                 <View style={[styles.Offer_button]} >
                             <Text style={styles.buttonText}>{item.offer_per}% Off</Text>

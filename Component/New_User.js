@@ -152,14 +152,14 @@ export default class Login extends Component {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
-        <View style={[styles.box,{marginVertical:hp("1%"),paddingVertical:hp('1'),}]}>
+        <View style={styles.box}>
         <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
             onChangeText={First_name => this.setState({ First_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("7"),width: wp('75%')}]}
+            style={[styles.input]}
             placeholder="First Name"
             returnKeyType="next"
           />
@@ -170,7 +170,7 @@ export default class Login extends Component {
             onChangeText={Last_name => this.setState({ Last_name })}
             ref={input => (this.passwordCInput = input)}
             // onSubmitEditing={() => this.passwordInput.focus()}
-            style={[styles.input,{height:hp("7"),width: wp('75%')}]}
+            style={[styles.input]}
             placeholder="Last Name"
             returnKeyType="next"
           />
@@ -233,7 +233,7 @@ export default class Login extends Component {
           <TextInput
             value={this.state.mob_no}
             onChangeText={mob_no => this.setState({ mob_no })}
-            style={[styles.input,{width: wp('57')}]}
+            style={[styles.input,{width: wp('54')}]}
             returnKeyType="done"
             ref={input => (this.emailInput = input)}
             // onSubmitEditing={() => this.passwordCInput.focus()}
@@ -245,14 +245,14 @@ export default class Login extends Component {
          </TextInputLayout>
           </View> 
           <Text></Text>
-          <View style={[styles.Row_divider,{marginRight:wp("17%")}]}>
-          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
+          <View style={[styles.Radio_button]}>
+          <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
           {/* <Text style={{color:"white"}}>mdnds,</Text> */}
           </View>
          {/* {selectedButton}       */}
          <Text></Text>
       </View>     
-          <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} >
+          <TouchableOpacity style={[styles.button]} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
       </KeyboardAwareScrollView>   

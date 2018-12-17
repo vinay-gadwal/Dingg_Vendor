@@ -81,7 +81,7 @@ class Ongoing extends React.Component {
               data={ this.state.dataSource }
               renderItem={({item}) => 
               <View style={styles.Flat_box}> 
-                <View style={styles.flat_box_top_row}>                          
+                <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
                      <View style={styles.Row_divider}>
                        <ResponsiveImage  source={GLOBAL.Serve_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
@@ -302,7 +302,7 @@ class StarReview extends React.Component {
         }
         return (
           <View>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>{stars}</View>
+            <View style={styles.Row_divider}>{stars}</View>
           </View>
         )
       }
@@ -396,7 +396,7 @@ class StarReview extends React.Component {
                             data={ this.state.dataSource1 }
                             renderItem={({item}) => 
                             <View style={styles.Flat_box}>
-                                <View style={styles.flat_box_top_row}>                          
+                                <View style={styles.Row_divider}>                          
                                      <View style={styles.flat_box_colum}>
                                         <View style={styles.Row_divider}>
                                             <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
@@ -559,18 +559,13 @@ const AuthStack = createMaterialTopTabNavigator ({
               style={styles.back_butt0n_right}     
               />)
             })
-          },
-        
-  },
-  
-  
+          },      
+  },  
   {
     initialRouteName:"AuthStack",
     // headerMode: "none",
     navigationOptions: {
-      headerTitleStyle: {
-        fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-      },
+      headerTitleStyle:GLOBAL.Header
         },
   
   });

@@ -7,6 +7,7 @@ import {
 import CalendarPicker from 'react-native-calendar-picker';
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+const GLOBAL = require('../Component/Color');
 
 export default class Calendar extends Component {
   constructor(props) {
@@ -40,14 +41,14 @@ export default class Calendar extends Component {
  
     return (
       <View style={styles.container}>
-        <View style={[styles.box,{marginBottom:"0%",height: hp('45%'),marginTop:hp("5%")}]}>
+        <View style={[styles.box]}>
             <CalendarPicker
               startFromMonday={true}
               allowRangeSelection={true}
               minDate={minDate}
               maxDate={maxDate}
-              todayBackgroundColor="rgb(255,164,0)"
-              selectedDayColor="rgb(255,164,0)"
+              todayBackgroundColor={GLOBAL.COLOR.ORANGE}
+              selectedDayColor={GLOBAL.COLOR.ORANGE}
               selectedDayTextColor="#FFFFFF"
               onDateChange={this.onDateChange}
               width="350"
@@ -58,11 +59,9 @@ export default class Calendar extends Component {
           <Text style={styles.text}>SELECTED START DATE:{ startDate }</Text>
           <Text style={styles.text}>SELECTED END DATE:{ endDate }</Text>
         </View> */}
-        <View style={{marginBottom:"5%"}}>
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
-      </View>   
       </View>
     );
   }

@@ -14,6 +14,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 // import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
 import ResponsiveImage from 'react-native-responsive-image'
+const GLOBAL = require('../Component/Color');
 
 export default class Business extends Component {
   constructor(props)
@@ -354,14 +355,13 @@ left_time_less=()=>{
     } = this.state;
     const { selectedHours, selectedMinutes } = this.state;
     return (
-    <ScrollView style={{backgroundColor:"rgb(243,242,242)"}}> 
+    <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}> 
       <View style={styles.container}>
             
-        <View style={[styles.box,{marginBottom:"0%",height: hp('8%'),marginTop:hp("0%"),height:hp("83%")}]}>     
-        <Text style={[styles.text,{fontSize:RF(3.2),marginRight:wp("34%"),paddingVertical:hp("2%")}]}>Add Day and Time</Text>
-        <View style={{flexDirection:"column"}}>
+        <View style={styles.box}>     
+        <Text style={[styles.Big_text]}>Add Day and Time</Text>
         <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
+        <View style={styles.Business_hour_Switch}>
         <Switch
                           value={switchMonValue}
                           onChangeValue={() => this.setState({ switchMonValue: !switchMonValue })}
@@ -386,423 +386,50 @@ left_time_less=()=>{
                           // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
                         />
             </View>
-            <View style={{flexDirection:"column"}}>
+            <View style={styles.Only_Column}>
             <View style={styles.Business_hour_time}>
-              <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-              <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="10" initHeight="10"/>           
+              <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_line_left}>
+              <ResponsiveImage source={GLOBAL.Left_Yellow_arrow} initWidth={GLOBAL.COLOR.Yellow_10} initHeight={GLOBAL.COLOR.Yellow_10}/>           
               </TouchableOpacity>
             <Text style={[styles.Business_hour_text]}>{this.state.mon_zero_hour}{this.state.Mon_time_on_hour}:{this.state.mon_zero_min}{this.state.Mon_time_on_min}</Text>
-              <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-              <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
+              <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line_right}>
+              <ResponsiveImage source={GLOBAL.Right_yellow_arrow} initWidth={GLOBAL.COLOR.Yellow_10} initHeight={GLOBAL.COLOR.Yellow_10}/>           
               </TouchableOpacity>
             </View>
             <View style={styles.Business_Arrow_right}>
-              <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
+              <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.Yellow_50} initHeight={GLOBAL.COLOR._height}/>
             </View>
             </View>
              
              <Text style={styles.Business_to}>to</Text>
              
-             <View style={{flexDirection:"column"}}>
+             <View style={styles.Only_Column}>
             <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_off();this.left_time_less();this.Hide_zero_hour_off()}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
+            <TouchableOpacity onPress={() => {this.Hide_zero_min_off();this.left_time_less();this.Hide_zero_hour_off()}} style={styles.business_line_left}>
+            <ResponsiveImage source={GLOBAL.Left_Yellow_arrow} initWidth={GLOBAL.COLOR.Yellow_10} initHeight={GLOBAL.COLOR.Yellow_10}/>           
             </TouchableOpacity>
             <Text style={styles.Business_hour_text}>{this.state.mon_zero_hour_left}{this.state.Mon_time_off_hour}:{this.state.mon_zero_min_left}{this.state.Mon_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.left_time_add();this.Hide_zero_hour_off();this.Hide_zero_min_1_off()}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
+            <TouchableOpacity onPress={() => {this.left_time_add();this.Hide_zero_hour_off();this.Hide_zero_min_1_off()}} style={styles.business_line_right}>
+            <ResponsiveImage source={GLOBAL.Right_yellow_arrow} initWidth={GLOBAL.COLOR.Yellow_10} initHeight={GLOBAL.COLOR.Yellow_10}/>           
             </TouchableOpacity>
             </View>
             <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
+            <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.Yellow_50} initHeight={GLOBAL.COLOR._height}/>
             </View>
             </View> 
             <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_mon }>
-                        <Image source = { ( this.state.Select_unselect_mon ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>    
-        </View> 
-
-        <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
-        <Switch
-                          value={switchTueValue}
-                          onChangeValue={() => this.setState({ switchTueValue: !switchTueValue })}
-                          activeText={'Tue'}
-                          inactiveText={'Tue'}
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-            </View>
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.tueOnDecrease()}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Tue_zero_hour}{this.state.Tue_time_on_hour}:{this.state.Tue_zero_min}{this.state.Tue_time_on_min}</Text>
-            <TouchableOpacity onPress={() => {this.tueOnIncrease()}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-             
-             <Text style={styles.Business_to}>to</Text>
-             
-             <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.tueOffDecrease()}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Tue_zero_hour_off}{this.state.Tue_time_off_hour}:{this.state.Tue_zero_min_off}{this.state.Tue_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.tueOffIncrease()}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>  
-            <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_tue }>
-                        <Image source = { ( this.state.Select_unselect_tue ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>         
-        </View> 
-
-      <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
-        <Switch
-                          value={switchWedValue}
-                          onChangeValue={() => this.setState({ switchWedValue: !switchWedValue })}
-                          activeText={'Wed'}
-                          inactiveText={'Wed'}
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-            </View>
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Wed_zero_hour}{this.state.Wed_time_on_hour}:{this.state.Wed_zero_min}{this.state.Wed_time_on_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-             
-             <Text style={styles.Business_to}>to</Text>
-             
-             <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Wed_zero_hour_off}{this.state.Wed_time_off_hour}:{this.state.Wed_time_on_min}{this.state.Wed_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View> 
-            <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_wed }>
-                        <Image source = { ( this.state.Select_unselect_wed ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>         
-        </View> 
-
-      <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
-        <Switch
-                          value={switchThuValue}
-                          onChangeValue={() => this.setState({ switchThuValue: !switchThuValue })}
-                          activeText={'Thu'}
-                          inactiveText={'Thu'}
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-            </View>
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Thu_zero_hour}{this.state.Thu_time_on_hour}:{this.state.Thu_zero_min}{this.state.Thu_time_on_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-             
-             <Text style={styles.Business_to}>to</Text>
-             
-             <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Thu_zero_hour_off}{this.state.Thu_time_off_hour}:{this.state.Thu_zero_min}{this.state.Thu_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>  
-            <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_thu }>
-                        <Image source = { ( this.state.Select_unselect_thu ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>          
-        </View> 
-
- <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
-        <Switch
-                          value={switchFriValue}
-                          onChangeValue={() => this.setState({ switchFriValue: !switchFriValue })}
-                          activeText={'Fri'}
-                          inactiveText={'Fri'}
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-            </View>
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Fri_zero_hour}{this.state.Fri_time_on_hour}:{this.state.Fri_zero_hour}{this.state.Fri_time_on_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-             
-             <Text style={styles.Business_to}>to</Text>
-             
-             <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Fri_zero_hour_off}{this.state.Fri_time_off_hour}:{this.state.Fri_zero_min}{this.state.Fri_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View> 
-            <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_fri }>
-                        <Image source = { ( this.state.Select_unselect_fri ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>          
-        </View> 
-
- <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
-        <Switch
-                          value={switchSatValue}
-                          onChangeValue={() => this.setState({ switchSatValue: !switchSatValue })}
-                          activeText={'Fri'}
-                          inactiveText={'Fri'}
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-            </View>
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Sat_zero_hour}{this.state.Sat_time_on_hour}:{this.state.Sat_zero_min}{this.state.Sat_time_on_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-             
-             <Text style={styles.Business_to}>to</Text>
-             
-             <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Sat_zero_hour_off}{this.state.Sat_time_off_hour}:{this.state.Sat_zero_min}{this.state.Sat_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>     
-            <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_sat }>
-                        <Image source = { ( this.state.Select_unselect_sat ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>        
-        </View> 
-
- <View style={styles.Business_hour}>
-        <View style={styles.Business_hour_main}>
-        <Switch
-                          value={switchSunValue}
-                          onChangeValue={() => this.setState({ switchSunValue: !switchSunValue })}
-                          activeText={'Sun'}
-                          inactiveText={'Sun'}
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
-                          switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
-            </View>
-            <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Sun_zero_hour}{this.state.Sun_time_on_hour}:{this.state.Sun_zero_hour}{this.state.Sun_time_on_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>
-             
-             <Text style={styles.Business_to}>to</Text>
-             
-             <View style={{flexDirection:"column"}}>
-            <View style={styles.Business_hour_time}>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min_left();this.Hide_zero_hour();this.time_decrease_mon();}} style={styles.business_hour_image_Arrow}>
-            <ResponsiveImage source={require('../Image/main/leftArrow3x.png')} initWidth="12" initHeight="10"/>           
-            </TouchableOpacity>
-            <Text style={styles.Business_hour_text}>{this.state.Sun_zero_hour_off}{this.state.Sun_time_off_hour}:{this.state.Sun_zero_min}{this.state.Sun_time_off_min}</Text>
-            <TouchableOpacity onPress={() => {this.Hide_zero_min();this.Hide_zero_hour();this.time_Increase_mon();}} style={styles.business_line}>
-            <ResponsiveImage source={require('../Image/main/rightArrow3x.png')} initWidth="10" initHeight="10"/>           
-            </TouchableOpacity>
-            </View>
-            <View style={styles.Business_Arrow_right}>
-            <ResponsiveImage source={require('../Image/main/tableDivider2x.png')} initWidth="50" initHeight="2"/>
-            </View>
-            </View>   
-            <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_sun }>
-                        <Image source = { ( this.state.Select_unselect_sun ) ? require('../Image/main/unselectedIcon3x.png') : require('../Image/main/addTimeIcon3x.png') } style = {{width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")}} />
-                  </TouchableOpacity>      
-        </View> 
-
-          <TouchableOpacity style={[styles.button,{backgroundColor:"white",shadowColor: 'grey',marginHorizontal:wp("30%")}]} onPress={() => {this.props.navigation.navigate('Calendar')}} >
-          <Text style={[styles.buttonText,{color:"rgb(255,164,0)", shadowColor: 'white',}]}>Setup Holidays</Text>
-          </TouchableOpacity>        
-        </View> 
-        
-      </View>   
-      
-      <View style={{marginTop:"5%"}}>
+                        <Image source = { ( this.state.Select_unselect_mon ) ? GLOBAL.UnSelectIcon : GLOBAL.Plus_yellow_icon } style = {styles.Business_image} />
+           </TouchableOpacity>    
+        </View>
+      <TouchableOpacity style={[styles.button,{backgroundColor:GLOBAL.COLOR.White_color,shadowColor: GLOBAL.COLOR.GRAY}]} onPress={() => {this.props.navigation.navigate('Calendar')}} >
+          <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE, shadowColor:GLOBAL.COLOR.White_color,}]}>Setup Holidays</Text>
+      </TouchableOpacity>        
+    </View> 
+  </View>   
           <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
-      </View>   
-      </View> 
 </ScrollView>
     );
   }
 }
-AppRegistry.registerComponent("Login", () => Login);

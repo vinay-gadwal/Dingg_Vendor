@@ -43,7 +43,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('App_setting');
+    // this.props.navigation.navigate('AuthStack');
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -138,6 +138,7 @@ export default class Login extends Component {
                         onChangeText={password => this.setState({ password })}
                         underlineColorAndroid = "transparent"
                         secureTextEntry
+                        // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
                          style = { styles.input }/>
                   </TextInputLayout>
                   <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>

@@ -17,11 +17,11 @@ export default class App extends Component {
         <View style={styles.QR_Code}>
             <ResponsiveImage source={GLOBAL.QR_Code} initWidth={initWidth} initHeight={initHeight}/>
         </View>
-        <View style={[styles.flat_box_top_row,{marginVertical:hp("5%")}]}>
-            <TouchableOpacity style={[styles.button,{marginHorizontal:wp("3%")}]} >
+        <View style={[styles.Row_divider]}>
+            <TouchableOpacity style={[styles.QR_button]} >
              <Text style={styles.buttonText}>Print QR Code</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.button,{marginHorizontal:wp("3%")}]}>
+            <TouchableOpacity style={[styles.QR_button]}>
               <Text style={styles.buttonText}>Email QR Code</Text>
             </TouchableOpacity>
         </View>

@@ -6,6 +6,8 @@ import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image'
 import starts from '../Component/Star_Rating'
+const GLOBAL = require('../Component/Color');
+
 export default class StarReview extends Component {
  
  constructor(props) {
@@ -90,7 +92,7 @@ export default class StarReview extends Component {
             </ImageBackground>
           :
           <ImageBackground style={starStyle} source={this.props.fullStar}>
-            <View style={{flexDirection: 'row'}}>
+            <View style={styles.Row_margin}>
              <View style={emptyBlockStyle}></View>
              <View style={blockStyle}></View>
             </View>
@@ -137,7 +139,7 @@ export default class StarReview extends Component {
         }
         return (
           <View>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>{stars}</View>
+            <View style={styles.Row_margin}>{stars}</View>
           </View>
         )
       }
@@ -155,7 +157,7 @@ export default class StarReview extends Component {
         return (
           <View key={index} style={{paddingLeft: this.props.spacing/2, paddingRight: this.props.spacing/2}}>
             {starComponent}
-            <View style={{flexDirection: 'row', position: 'absolute'}}>
+            <View style={styles.Row_margin}>
               <TouchableOpacity style={{height: this.props.starSize, width: this.props.starSize/2}} disabled={this.props.disabled} onPress={()=>{
                 this.setState({rating: index - 0.5})
                 this.props.update(index - 0.5)
@@ -226,38 +228,30 @@ render() {
       this.displayMode()
 return (
  <ScrollView>
-<View style={{  flex: 1,
-      justifyContent: "space-between",
-      backgroundColor: "rgb(243,242,242)",
-      paddingVertical:"0%"}}>
+<View style={styles.container}>
         
-    <View style={{ 
-          width: wp('90%'),marginLeft:"5%",
-          height: hp('30%'),
-          backgroundColor:"white",
-          marginVertical:hp('5%'),
-          borderRadius:10,}}>
+    <View style={styles.Flat_box}>
           
-     <View style={{flexDirection:"row"}}>
+     <View style={styles.Row_margin}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
-                        <View style={{flexDirection:"row",justifyContent:"space-between"}}>                          
-                             <View style={{flexDirection:"column",marginVertical:hp("2%"),marginLeft:wp("5%")}}>
-                                <View style={{flexDirection:"row"}}>
-                                    <ResponsiveImage source={require('../Image/icon/calenderIcon2x.png')} initWidth="30" initHeight="30"/>
+                        <View style={styles.Row_divider}>                          
+                             <View style={styles.flat_box_colum}>
+                                <View style={styles.Row_margin}>
+                                    <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                  </View>
-                                 <View style={{marginVertical:hp("2%")}}>
-                                 <ResponsiveImage source={require('../Image/icon/calenderIcon2x.png')} initWidth="100" initHeight="100"/>
-                                    <View style={{marginVertical:hp("3%")}}>
+                                 <View style={styles.MARGIN_VERticle}>
+                                 <Image style={styles.avatarMultiple} source={GLOBAL.Image} />  
+                                    <View style={styles.MARGIN_VERticle}>
                                        {view}
                                     </View>
                                  </View>
                             </View>           
-                              <View style={{flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-end",marginRight:wp("3%")}}>
-                                 <Text style={[styles.text,{fontSize:RF(4)}]}>{item.name}</Text>
-                                 <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
+                              <View style={[styles.flat_box_colum_right,{alignItems:"flex-end",marginRight:wp("4%")}]}>
+                                 <Text style={[styles.text,{fontSize:RF(3)}]}>{item.name}</Text>
+                                 <Text style={[styles.text,]}>{item.name}</Text>
                             </View>           
                         </View>   }                       
                     />

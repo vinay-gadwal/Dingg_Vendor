@@ -42,7 +42,7 @@ export default class App extends Component {
                 <RadioGroup  radioButtons={this.state.data} onPress={this.onPress} />
                 </View>
                 </View>
-          <TouchableOpacity style={[styles.button,{marginBottom:hp("35%")}]} >
+          <TouchableOpacity style={[styles.button]} >
           <Text style={styles.buttonText}>Send</Text>
           </TouchableOpacity>
       </View>

@@ -215,9 +215,7 @@ export default createStackNavigator({
   initialRouteName:"App",
   // headerMode: "none",
   navigationOptions: {
-    headerTitleStyle: {
-      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-    },
+    headerTitleStyle:GLOBAL.Header
       },
 
 });

@@ -40,7 +40,7 @@ const initHeight = 2
         <View style={{paddingVertical:"4%"}}>
           <View style={styles.Profile_Container}>
             <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('App_setting')}}>
-                   <View style={[styles.setting_Row,{marginVertical:hp("1%")}]}>
+                   <View style={[styles.setting_Row,]}>
                     <Text style={styles.Setting_text_}>App Setting</Text>
                     <TouchableOpacity onPress={() => {this._getSubmitAction;this.props.navigation.navigate('App_setting')}}>
                     <Image
@@ -113,7 +113,7 @@ const initHeight = 2
 
               <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>Auto Accept</Text>
-                    <View style={{marginRight:wp("6%"),paddingVertical:hp("2%")}}>
+                    <View style={styles.switch_Style}>
                     {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
                       width={"1%"}
@@ -142,7 +142,7 @@ const initHeight = 2
                           // padding={true}
                           activeBackgroundColor	="rgb(238,238,238)"
                           inactiveBackgroundColor	="rgb(238,238,238)"
-                          activeButtonBackgroundColor	="rgb(255,164,0)"
+                          activeButtonBackgroundColor	={GLOBAL.COLOR.ORANGE}
                           inactiveButtonBackgroundColor={'rgb(153,153,153)'}
                         />
                     </View>
@@ -177,7 +177,7 @@ const initHeight = 2
              </TouchableOpacity>
           </View>
          
-        <TouchableOpacity style={[styles.button,{marginHorizontal:wp("30%")}]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
+        <TouchableOpacity style={[styles.button]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
                   <Text style={styles.buttonText}>Log Out</Text>
         </TouchableOpacity>
         </View>
@@ -220,9 +220,7 @@ export default createStackNavigator({
   initialRouteName:"Setting",
   // headerMode: "none",
   navigationOptions: {
-    headerTitleStyle: {
-      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
-    },
+    headerTitleStyle:GLOBAL.Header
       },
 
 });
