@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
       backgroundColor:"rgb(242,242,242)",
     },
 ////Sign in////
+margin_top:{
+marginTop:hp("5%")
+},
     Row_divider:{
         flexDirection:"row",justifyContent:"space-between"
     },

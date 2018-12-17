@@ -63,7 +63,7 @@ export default class Password extends Component {
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
         keyboardShouldPersistTaps='handled'
       >
-       <View style={{marginTop:hp("5%")}}>
+       <View style={styles.margin_top}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
         <View style={[styles.box,{paddingBottom:hp("4%")}]}>
@@ -93,16 +93,14 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-    <View style={{marginBottom:hp("13%"),marginTop:hp("2%")}}> 
         <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={this.Password_Validate}>
         <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
-        </View>
         <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
         <Image
-          source={require('../Image/icon/copyright.png')}
-          style={styles.copy_rigth_image}
+        source={GLOBAL.Copy_right}
+        style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

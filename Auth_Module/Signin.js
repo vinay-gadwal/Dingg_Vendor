@@ -120,7 +120,7 @@ export default class Login extends Component {
     return (
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                             keyboardShouldPersistTaps='handled'>
-      <View style={{marginTop:hp("5%")}}>
+      <View style={styles.margin_top}>
       <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
       </View>
       <View style={styles.box}>
@@ -157,12 +157,12 @@ export default class Login extends Component {
       
       <View style={styles.Row_margin}>
         <Text style={styles.text}>Don't have an account? </Text>
-        <View style={{flexDirection:"column"}}>
+        <View style={styles.Only_Column}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
             <Text style={styles.text}>Sign Up </Text>
             <Image
-              source={require('../Image/icon/Line/rectangle1.png')}
-              style={[styles.orange_line,{width: wp('16%')}]}
+                source={GLOBAL.rectangle_line}              
+                style={[styles.orange_line,{width: wp('16%')}]}
             />
             </TouchableOpacity>
         </View>
@@ -171,7 +171,7 @@ export default class Login extends Component {
       
       <View style={[styles.Row_margin,{marginBottom:hp("2%")}]}>
         <Image
-          source={require('../Image/icon/copyright.png')}
+          source={GLOBAL.Copy_right}
           style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>

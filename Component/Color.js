@@ -72,4 +72,7 @@ module.exports = {
     Setting_white : require('../Image/icon/settingsIcon2x.png'),
     Profile : require('../Image/icon/profileIcon_yellow2x.png'),
     Profile_white : require('../Image/icon/profileIcon2x.png'),
+    rectangle_line : require('../Image/icon/Line/rectangle1.png'),
+    Copy_right : require('../Image/icon/copyright.png'),
+
   };

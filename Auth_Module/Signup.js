@@ -63,7 +63,7 @@ export default class example extends Component {
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
         keyboardShouldPersistTaps='handled'
       >      
-       <View style={{marginTop:hp("5%")}}>
+       <View style={styles.margin_top}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
         <View style={[styles.box,{marginBottom:hp("2%")}]}>
@@ -97,22 +97,22 @@ export default class example extends Component {
 
         <View style={[styles.Row_margin,{marginTop:hp("5%")}]}>
             <Text style={styles.text}>Already have an account? </Text>
-            <View style={{flexDirection:"column"}}>
+            <View style={styles.Only_Column}>
               <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
                 <Text style={styles.text}>Sign In </Text>
                 <Image
-                  source={require('../Image/icon/Line/rectangle1.png')}
-                  style={styles.orange_line}
+                    source={GLOBAL.rectangle_line}              
+                    style={[styles.orange_line]}
                 />
               </TouchableOpacity>
             </View>
             <Text style={styles.text}>here</Text>
         </View>
         <View style={styles.Colom_margin}>
-            <View style={{flexDirection:"row"}}>
+            <View style={styles.Row_divider}>
                 <Image
-                  source={require('../Image/icon/copyright.png')}
-                  style={styles.copy_rigth_image}
+                source={GLOBAL.Copy_right}
+                style={styles.copy_rigth_image}
                 />
                 <Text style={styles.copy_rigth}> All copyright reserved to </Text>
               </View>

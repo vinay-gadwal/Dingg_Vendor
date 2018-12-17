@@ -62,7 +62,7 @@ export default class Password extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-      <View style={{marginTop:hp("5%")}}>
+      <View style={styles.margin_top}>
       <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
       </View>
       <View style={styles.box}>
@@ -111,8 +111,8 @@ export default class Password extends Component {
     <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
         <Image
-          source={require('../Image/icon/copyright.png')}
-          style={styles.copy_rigth_image}
+         source={GLOBAL.Copy_right}
+         style={styles.copy_rigth_image}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

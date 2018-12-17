@@ -58,7 +58,7 @@ export default class example extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >      
-         <View style={{marginTop:hp("5%")}}>
+         <View style={styles.margin_top}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
         <View style={[styles.box,{marginBottom:hp("5%")}]}>
@@ -91,9 +91,9 @@ export default class example extends Component {
             <Text style={styles.buttonText}>Submit for OTP</Text>
         </TouchableOpacity>
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>
-          <View style={{flexDirection:"row"}}>
+          <View style={styles.Row_divider}>
             <Image
-              source={require('../Image/icon/copyright.png')}
+              source={GLOBAL.Copy_right}
               style={styles.copy_rigth_image}
              />
             <Text style={styles.copy_rigth}> All copyright reserved to </Text>
