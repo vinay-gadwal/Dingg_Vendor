@@ -345,22 +345,22 @@ selectPhotoTapped5()
 
   render() {
     return (
-      <KeyboardAwareScrollView style={{backgroundColor:"rgb(243,242,242)",}}>
-          <View style={[styles.container,{marginVertical:hp("2%")}]}>
+      <KeyboardAwareScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
+          <View style={[styles.container,styles.padding_verticle]}>
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
                 <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
                       { this.state.avatarSource === null ? <Image
                                           source={GLOBAL.Plus_icon}
                                           style={{
-                                            width: wp('3%'),
-                                            height: hp('2%'),
+                                            width: GLOBAL.COLOR.Size_15,
+                                            height: GLOBAL.COLOR.Size_15,
                       }}
                       /> :
                         <Image style={styles.avatarMultiple} source={this.state.avatarSource} />
                       }
                 </View>
           </TouchableOpacity>
-          <Text style={[styles.text,{marginVertical:hp("2%")}]}>Add Your Logo</Text>
+          <Text style={[styles.text,styles.padding_verticle]}>Add Your Logo</Text>
           <View style={styles.boxDetails}>
                   <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
                       <TextInput
@@ -373,7 +373,7 @@ selectPhotoTapped5()
                         returnKeyType="next"                
                       />
                   </TextInputLayout>
-                  <View style={[styles.DropDown_view,{width:wp("70%")}]}>
+                  <View style={[styles.DropDown_view]}>
                       <Dropdown
                           data={data_category} 
                           itemColor={GLOBAL.COLOR.ORANGE}  
@@ -386,12 +386,12 @@ selectPhotoTapped5()
                          rippleCentered={false}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          selectedItemColor="black"
-                          fontFamily="Muli-Bold"
+                          selectedItemColor={GLOBAL.COLOR.GRAY}
+                          fontFamily={GLOBAL.COLOR.FontFamilyBold}
                           marginLeft={2}
                       />
                   </View>
-                  <View style={[styles.DropDown_view,{width:wp("70%")}]}>
+                  <View style={[styles.DropDown_view]}>
                       <Dropdown
                           data={data_service} 
                           itemColor={GLOBAL.COLOR.ORANGE}  
@@ -403,8 +403,8 @@ selectPhotoTapped5()
                          }}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          selectedItemColor="black"
-                          fontFamily="Muli-Bold"
+                          selectedItemColor={GLOBAL.COLOR.GRAY}
+                          fontFamily={GLOBAL.COLOR.FontFamilyBold}
                           marginLeft={2}
                       />
                   </View>
@@ -498,19 +498,20 @@ selectPhotoTapped5()
                         returnKeyType="next"
                       />
                   </TextInputLayout>
-                  <View style={{width:wp('70%'),marginVertical:"0%"}}>
+                  <View style={styles.DropDown_view}>
                       <Dropdown
                           data={data_1} 
-                          itemColor="rgb(255,163,0)"  
+                          itemColor={GLOBAL.COLOR.ORANGE}  
                           value={'City'}
+                          // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value) => {
                             console.log(value); // gives new value OK
-                            this.setState({City_dropdown:value})
+                            this.setState({service_dropdown:value})
                          }}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          selectedItemColor="black"
-                          fontFamily="Muli-Bold"
+                          selectedItemColor={GLOBAL.COLOR.GRAY}
+                          fontFamily={GLOBAL.COLOR.FontFamilyBold}
                           marginLeft={2}
                       />
                   </View>
@@ -549,17 +550,17 @@ selectPhotoTapped5()
                             returnKeyType="next"
                           />
                   </TextInputLayout>
-                  <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
+                  <View style={styles.Row_divider}>
                   <TextInputLayout focusColor={FocusColor}>
 
-                      <Text style={{marginTop:hp("1.2%"),fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={styles.Mobile_number_divider}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
-                          style={[styles.input,{width: wp('56'), height: hp('5%')}]}
+                          style={[styles.Mobile_nput]}
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -572,16 +573,16 @@ selectPhotoTapped5()
                         />
                 </TextInputLayout>
                   </View>
-                  <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:hp("1%")}}>
+                  <View style={styles.Row_divider}>
                       <TextInputLayout focusColor={FocusColor}>
-                      <Text style={{marginTop:hp("1.2%"),fontSize: RF(2.2)}}>+91     </Text>
+                      <Text style={styles.Mobile_number_divider}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
-                            style={[styles.input,{width: wp('56'), height: hp('5%')}]}
+                            style={[styles.Mobile_nput]}
                             returnKeyType="done"
                             underlineColorAndroid='transparent'
                             ref={input => (this.emailInput = input)}
@@ -598,7 +599,7 @@ selectPhotoTapped5()
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
-                          style={[styles.input,{width: wp('70'), height: hp('5%'),marginTop:hp("1%")}]}
+                          style={styles.input}
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -621,23 +622,23 @@ selectPhotoTapped5()
                           />
                   </TextInputLayout>
           </View>
-          <Text style={[styles.text,{marginRight:wp("65%"),marginVertical:hp("1%")}]}>Add Images</Text>
+          <Text style={[styles.text,{marginRight:wp("65%")}]}>Add Images</Text>
     <View style={styles.Row_divider}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_2_1 === null ? <Image
                                       source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                     <View style={{flexDirection:"column-reverse"}}>
-                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
+                  <View style={styles.Column_reverse}>
+                  <Image style={styles.avatarMultiple} source={this.state.Image_Source_2_1} />
                      <View style={styles.Delete_Image}>
                    <TouchableOpacity onPress={this.delete_photo_1.bind(this)}>
-                   <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                   <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                   </TouchableOpacity>
                   </View>
                    </View>
@@ -651,16 +652,16 @@ selectPhotoTapped5()
                   { this.state.Image_Source1 === null ? <Image
                                       source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                    <View style={{flexDirection:"column-reverse"}}>
-                    <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
+                  <View style={styles.Column_reverse}>
+                  <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
                     <View style={styles.Delete_Image}>
                   <TouchableOpacity onPress={this.delete_photo_2.bind(this)}>
-                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -673,16 +674,16 @@ selectPhotoTapped5()
                   { this.state.Image_Source_1_1 === null ? <Image
                                       source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                    <View style={{flexDirection:"column-reverse"}}>
+                    <View style={styles.Column_reverse}>
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
                     <View style={styles.Delete_Image}>
                   <TouchableOpacity onPress={this.delete_photo_3.bind(this)}>
-                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -694,16 +695,16 @@ selectPhotoTapped5()
                   { this.state.Image_Source_3_1 === null ? <Image
                                       source={GLOBAL.Plus_icon}
                                       style={{
-                                        width: 16,
-                                        height: 16,
+                                        width: GLOBAL.COLOR.Size_15,
+                                        height: GLOBAL.COLOR.Size_15,
                                         // left: 20
                   }}
                   /> :
-                    <View style={{flexDirection:"column-reverse"}}>
-                    <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
+                  <View style={styles.Column_reverse}>
+                  <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
                     <View style={styles.Delete_Image}>
                   <TouchableOpacity onPress={this.delete_photo_4.bind(this)}>
-                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth="35" initHeight="35"/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -711,7 +712,7 @@ selectPhotoTapped5()
             </View>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={this.handlePress} style={[styles.button,{marginTop:hp("3%"),justifyContent:"center"}]}>
+        <TouchableOpacity onPress={this.handlePress} style={[styles.button]}>
                   <Text style={styles.buttonText}>Submit</Text>
               </TouchableOpacity>
         </View>

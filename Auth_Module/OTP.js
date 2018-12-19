@@ -41,16 +41,21 @@ export default class example extends Component {
       .then((responseJson) => {
         if(responseJson.success === false){
           console.log(responseJson)
+          if(responseJson.code === 201 || responseJson.code === 422){
           GLOBAL.token = responseJson.data[0].auth_tokan
-          console.log(responseJson.data[0].auth_tokan)
-          if(!responseJson.data[0].is_password)
+          console.log("token" +responseJson.data[0].auth_tokan)
+         if(!responseJson.data[0].is_password)
           {
             this.props.navigation.navigate('Crea_pass');
           }else{
             this.props.navigation.navigate('SignIn');
             Alert.alert("Mobile Number already registered")
           }
-        }else{
+        }
+        else{
+          Alert.alert(responseJson.message)
+        }
+      }else{
           this.props.navigation.navigate('Crea_pass');
           GLOBAL.token = responseJson.token;
           console.log(responseJson)

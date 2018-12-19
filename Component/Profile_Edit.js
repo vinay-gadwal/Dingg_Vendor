@@ -530,7 +530,7 @@ export default class App extends Component {
                   <Image style={[styles.avatarMultiple,]} source={this.state.Image_Source_2_1} />
                   <View style={styles.Profile_Edit_Camer}>
                 <TouchableOpacity onPress={this.delete_photo_1.bind(this)}>
-                <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
+                <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                </TouchableOpacity>
                </View>
                 </View>
@@ -551,7 +551,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source1} />
                     <View style={styles.Profile_Edit_Camer}>
                   <TouchableOpacity onPress={this.delete_photo_2.bind(this)}>
-                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -572,7 +572,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_1_1} />
                     <View style={styles.Profile_Edit_Camer}>
                   <TouchableOpacity onPress={this.delete_photo_3.bind(this)}>
-                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>
@@ -593,7 +593,7 @@ export default class App extends Component {
                     <Image style={styles.avatarMultiple} source={this.state.Image_Source_3_1} />
                     <View style={styles.Profile_Edit_Camer}>
                   <TouchableOpacity onPress={this.delete_photo_4.bind(this)}>
-                  <ResponsiveImage source={GLOBAL.Delete_icon} style={{marginTop:hp("4%")}} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
+                  <ResponsiveImage source={GLOBAL.Delete_icon} style={styles.Adddetails_image} initWidth={GLOBAL.COLOR.Size_35} initHeight={GLOBAL.COLOR.Size_35}/>
                  </TouchableOpacity>
                  </View>
                   </View>

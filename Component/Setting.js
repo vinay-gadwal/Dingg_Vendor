@@ -50,7 +50,7 @@ const initHeight = 2
                     </TouchableOpacity>
                     </View>
                     <View style={styles.AddServices}>
-                   <ResponsiveImage source={GLOBAL.TableDivider} initWidth="330" initHeight="2"/>
+                    <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                    </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate('Business_Hour')}}>

@@ -43,7 +43,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('AuthStack');
+    // this.props.navigation.navigate('Profile');
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -72,7 +72,7 @@ export default class Login extends Component {
        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
          onChangeText={username => this.setState({ username })}
-         style={[styles.input,{width: wp('52')}]}
+         style={[styles.Mobile_nput]}
         //  placeholderTextColor={GLOBAL.COLOR.GRAY}
          returnKeyType='done'
          underlineColorAndroid='transparent'
@@ -141,9 +141,9 @@ export default class Login extends Component {
                         // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
                          style = { styles.input }/>
                   </TextInputLayout>
-                  <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                  {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                         <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
           </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>

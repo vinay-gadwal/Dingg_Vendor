@@ -37,7 +37,7 @@ export default class example extends Component {
       Alert.alert("Enter Mobile Number")
     }
     else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
-        Alert.alert("Size of Mobile Number Should be 10")
+        Alert.alert("Mobile number should contain 10 digits")
     }
     else{
       apis.FORGET_PASS(this.state.usermobile)
@@ -73,7 +73,7 @@ export default class example extends Component {
           <TextInput
             value={this.state.usermobile}
             onChangeText={usermobile => this.setState({ usermobile })}
-            style={[styles.input,{width: wp('52'),}]}
+            style={[styles.Mobile_nput]}
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}

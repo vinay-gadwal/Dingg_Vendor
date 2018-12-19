@@ -38,9 +38,11 @@ export default class Password extends Component {
           if(responseJson.success === true){
             Alert.alert(responseJson.message)
             this.props.navigation.navigate('SignIn');
+            console.log(responseJson)
           }
           else{
             Alert.alert(responseJson.message)
+            console.log(responseJson)
           }
         })
         .catch((error) => {

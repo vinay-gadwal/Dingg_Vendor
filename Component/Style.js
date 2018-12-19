@@ -37,7 +37,7 @@ marginTop:hp("5%")
     ,flexDirection:"row",justifyContent:"space-between"
     },
     Add_sty_text:{
-        borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginBottom:wp("3%"),fontSize:RF(2.5)
+        borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginBottom:wp("2%"),fontSize:RF(2.5)
     , fontFamily:GLOBAL.COLOR.fontfamily,marginRight:wp("20%")
     },
     Mobile_number_divider:{
@@ -73,7 +73,7 @@ marginTop:hp("5%")
         marginRight:wp("15%"),marginTop:hp("2%")  
     },
     timer_text:{
-        color:"rgb(255,164,0)",fontSize:RF(1.9),
+        color:GLOBAL.COLOR.ORANGE,fontSize:RF(1.9),
         fontFamily:GLOBAL.COLOR.fontfamily,
         justifyContent:"flex-start"
     },
@@ -117,6 +117,13 @@ marginTop:hp("5%")
       borderColor:GLOBAL.COLOR.input_color,
 fontWeight:"bold"
     },
+    Mobile_nput:{
+        fontSize: RF(2.2),
+        textAlign:'left',  
+        fontFamily:GLOBAL.COLOR.fontfamily,
+        borderColor:GLOBAL.COLOR.input_color,
+  width: wp('56'), height: hp('6%')
+    },
     inputSignUp: {
       flex:1,
       width: wp('100'),
@@ -136,6 +143,9 @@ fontWeight:"bold"
     MARGIN_VERticle:{marginVertical:hp("2%")},
     Only_Column:{flexDirection:"column",alignItems:"center"},
     Column_reverse:{flexDirection:"column-reverse"},
+    Adddetails_image:{
+        marginTop:hp("4%")
+    },
     View_offer:{
         marginLeft:wp("70%"),marginBottom:hp("2%"),marginTop:hp("2%"),  width: hp("2%"),
         height: hp("2%"),
@@ -233,6 +243,13 @@ marginTop:hp("2%"),
         color:GLOBAL.COLOR.ORANGE,
         marginVertical:hp("1%")
       },
+      profile_text:{
+        fontSize: RF(2.2), 
+        fontFamily:GLOBAL.COLOR.fontfamily,
+        justifyContent:"flex-start",
+        color: GLOBAL.COLOR.Black,
+        marginVertical:hp("1%"),marginLeft:"10%"
+      },
     text:{
           fontSize: RF(2.2), 
           color: "rgb(68,68,68)",
@@ -306,7 +323,7 @@ Big_text:{
           },
     callingCodeText: {
         fontSize: RF(3),
-        color: "black",
+        color: GLOBAL.COLOR.Black,
         fontFamily: 'Helvetica',
         fontWeight: 'bold',
         paddingRight: 10
@@ -455,12 +472,15 @@ Big_text:{
         fontSize: RF(1.8),
         justifyContent:"flex-start",
         marginLeft:"10%",
-        marginTop:"5%",
+        marginTop:"3%",
         color:"rgb(176,176,176)",
         fontWeight:"bold",
         },
         Profile_Edit_Camer:{
             height:"3%",justifyContent:"center",alignItems:"center",marginLeft:wp("12%")
+        },
+        profile_edit:{
+            height:"1%",justifyContent:"center",alignItems:"center"
         },
     back_butt0n:{
         marginLeft:wp("6%"),width: wp('7%'),height: hp('2.5%'),marginBottom:hp("1.5%")

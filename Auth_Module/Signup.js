@@ -39,7 +39,7 @@ export default class example extends Component {
       Alert.alert("Enter Mobile Number")
     }
     else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
-        Alert.alert("Size of Mobile Number Should be 10")
+      Alert.alert("Mobile number should contain 10 digits")
     }
     else{
       apis.SIGN_UP(this.state.usermobile)
@@ -66,7 +66,7 @@ export default class example extends Component {
        <View style={styles.margin_top}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box,{marginBottom:hp("2%")}]}>
+        <View style={[styles.box,{paddingVertical:hp("4%")}]}>
           {/* <Text style={styles.text}>Enter the registered mobile number</Text> */}
           <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
@@ -78,7 +78,7 @@ export default class example extends Component {
           <TextInput
             value={this.state.usermobile}
             onChangeText={usermobile => this.setState({ usermobile })}
-            style={[styles.input,{width: wp('52'),}]}
+            style={[styles.Mobile_nput]}
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}

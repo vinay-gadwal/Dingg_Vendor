@@ -3,6 +3,7 @@ import RF from "react-native-responsive-fontsize"
 
 module.exports = {
     COLOR: {
+      Black: '#444444',
       ORANGE: '#ffa400',
       GRAY: '#999999',
       ShadowColor: 'rgb(220,220,220)',
@@ -25,9 +26,9 @@ module.exports = {
        Size_15:15,
        Size_60:60,
        Size_35:35,
-       Size_100:100,Size_21:21,Size_27:27,
+       Size_100:100,Size_21:21,Size_27:27,size_75:75
     },
-    Header:{      fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
+    Header:{fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
   },
     Logo : require('../Image/icon/logo_3.png'),
     Plus_icon : require('../Image/icon/plus.png'),
@@ -74,5 +75,6 @@ module.exports = {
     Profile_white : require('../Image/icon/profileIcon2x.png'),
     rectangle_line : require('../Image/icon/Line/rectangle1.png'),
     Copy_right : require('../Image/icon/copyright.png'),
+    edit_icon : require('../Image/main/editButtonmain3x.png'),
 
   };
