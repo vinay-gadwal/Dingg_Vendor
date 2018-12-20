@@ -45,10 +45,9 @@ export default class Stylist extends Component {
     this.setState({ arrayHolder_name: [...this.array_name] })
   }
   joinData = () => {
-    this.array.push({name : this.state.textInput_HolderName});
+    this.array_name.push({name : this.state.textInput_HolderName});
 
     this.setState({ arrayHolder_name: [...this.array_name] })
-
     this.array.push({title : this.state.textInput_Holder});
 
     this.setState({ arrayHolder: [...this.array] })
@@ -86,15 +85,15 @@ return (
         width='90%'
         marginHorizontal="5%"
         extraData={this.state.arrayHolder}
-        keyExtractor={(index) => index.toString()}
+        // keyExtractor={(index) => index.toString()}
 
         ItemSeparatorComponent={this.FlatListItemSeparator}
 
         renderItem={({ item }) => 
-        <Text style={styles.item} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
+        <Text style={[styles.item,styles.padding_verticle]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
         />
         <View style={styles.Row_divider}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_Holder: data })}
@@ -107,10 +106,10 @@ return (
     }/>
 
   <View style={[styles.Add_sty]}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
-        onChangeText={data => this.setState({ textInput_Holder: data })}
+        onChangeText={data => this.setState({ textInput_HolderName: data })}
         style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />

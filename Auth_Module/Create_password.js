@@ -29,6 +29,7 @@ export default class Password extends Component {
     apis.Create_Pass(this.state.password, this.state.Uid,GLOBAL.token)
       .then((responseJson) => {
         console.log(responseJson)
+        console.log(GLOBAL.token)
         if(responseJson.success === true){
           this.props.navigation.navigate('AddDetails');
           console.log(responseJson)
@@ -45,7 +46,10 @@ export default class Password extends Component {
   
   Password_Validate = () =>
   {
-    if(this.state.Uid == ""){
+    if(this.state.conf_pass == '' && this.state.password == null ){
+      Alert.alert("Please enter password")
+    }
+   else if(this.state.Uid == ""){
       Alert.alert("Enter User ID")
     }
     else if(this.state.conf_pass === this.state.password){

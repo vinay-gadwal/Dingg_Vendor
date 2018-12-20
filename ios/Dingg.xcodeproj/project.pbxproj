@@ -800,9 +800,9 @@
 				043F84EF2174A8B400ED0C12 /* Recovered References */,
 				90FF15DEA8224C3DAF21D7E8 /* Resources */,
 			);
-			indentWidth = 2;
+			indentWidth = 1;
 			sourceTree = "<group>";
-			tabWidth = 2;
+			tabWidth = 1;
 			usesTabs = 0;
 		};
 		83CBBA001A601CBA00E9B192 /* Products */ = {

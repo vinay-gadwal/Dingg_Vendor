@@ -45,14 +45,26 @@ export default class App extends Component {
       this.Get_City()
       this.Get_Service()
      }
-    
+    ////
   handlePress = () => {
+    if(this.state.Add_Bus_Details == "" || this.state.Address == ""
+           || this.state.Locality == "" || this.state.Contact_Name == "" 
+           || this.state.Master_Ven_ID == "")
+    {
+        Alert.alert("All Fields are required except Optional")
+    }
+    else if (this.state.Secondry_no >= 11 || this.state.Secondry_no <= 9){
+            Alert.alert("Secondary Mobile number should contain 10 digits")
+    }else{
       this.setState({ processing: true });
-      apis.VENDOR_PROFILE_UPDATE(GLOBAL.Image,this.state.Add_Bus_Details,this.state.ource_2_1,GLOBAL.token)
+      apis.VENDOR_PROFILE_UPDATE(this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
+        this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
+        this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
         .then((responseJson) => {
           if(responseJson.success === true) {
             this.props.navigation.navigate('AuthStack');
             console.log(responseJson)
+            console.log(GLOBAL.token)
           } else {
             Alert.alert(responseJson.message)
           }
@@ -61,49 +73,8 @@ export default class App extends Component {
           // console.error(error);
           this.setState({ processing: false, loginText: 'Try Again' });
         });
+      }
     }
-//   handlePress = () =>{
-//           const form = new FormData();
-// form.append("business_name", "Zubear Ansari");
-// form.append("contact_person", "Ansari");
-// form.append("vendor_unique_id", "46789asd");
-// form.append("address", "Test");
-// form.append("locality", "Palasia");
-// form.append("cityId", "1");
-// form.append("website", "http://eb.com");
-// form.append("mobile", "9584495778");
-// form.append("secondary_number", "1234567897");
-// form.append("landline_number", "07612650832");
-// // form.append('file[]', [{ uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' }]);
-// form.append('profile_pic', { uri: this.state.avatarSourcea, name: 'selfie.jpg', type: 'image/jpg' });
-// form.append("notification", "true");
-// form.append("email", "z.ansari@ebabu.co");
-// form.append("categoryId", "1");
-// form.append("subcategory[0][subcategoryId]", "1");
-// form.append("subcategory[1][subcategoryId]", "2");
-// const options = {
-//   method: 'POST',
-//   body: form,
-//   headers: {
-//     'Content-Type': 'multipart/form-data',
-//     'Authorization':GLOBAL.token
-//   }
-// };
-
-// delete options.headers['Content-Type'];  
-//           fetch('http://18.217.123.119:3000/api/vendor_profile_update',options)
-//           .then((response) => response.json())
-//           .then((responseJson) => {
-//             console.log(responseJson)
-//            //  Alert.alert(responseJson.data)
-//            this.setState({data:responseJson.data})
-//            console.log(this.state.data)
-//            })
-//            .catch((error) => {
-//              console.log(error)
-//              Alert.alert(error)
-//            });
-//   }
 
 Get_Category = async () =>{
   apis.GET_Cetegory()
@@ -130,7 +101,6 @@ Get_City = async () =>{
           {
             this.setState({City_Name:responseJson.data[i].city})
             data_1.push({value:this.state.City_Name});
-            console.log(data_1)
           }
       })
       .catch((error) => {
@@ -349,13 +319,18 @@ selectPhotoTapped5()
           <View style={[styles.container,styles.padding_verticle]}>
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
                 <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
-                      { this.state.avatarSource === null ? <Image
-                                          source={GLOBAL.Plus_icon}
+                      { this.state.avatarSource === null ?
+                      <View style={styles.Only_Column}>
+                      <Image
+                                          source={GLOBAL.Plus_icon_stylist}
                                           style={{
                                             width: GLOBAL.COLOR.Size_15,
                                             height: GLOBAL.COLOR.Size_15,
                       }}
-                      /> :
+                      /> 
+                      <Text style={styles.grey_text}>(Optional)</Text>
+                      </View>
+                      :
                         <Image style={styles.avatarMultiple} source={this.state.avatarSource} />
                       }
                 </View>
@@ -505,7 +480,7 @@ selectPhotoTapped5()
                           value={'City'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value) => {
-                            console.log(value); // gives new value OK
+                             console.log(value); // gives new value OK
                             this.setState({service_dropdown:value})
                          }}
                           dropdownPosition={0}
@@ -522,7 +497,7 @@ selectPhotoTapped5()
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
                         style={styles.input}
-                        placeholder="Website URL"
+                        placeholder="Website URL(Optional)"
                         returnKeyType="next"
                         keyboardType="email-address"
                       />
@@ -557,7 +532,7 @@ selectPhotoTapped5()
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
-                        <TextInput
+                        {/* <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
                           style={[styles.Mobile_nput]}
@@ -570,7 +545,8 @@ selectPhotoTapped5()
                           autoCorrect={false}
                           placeholder="Primary Number"
                           fontFamily='Muli-Bold'
-                        />
+                        /> */}
+                      <Text style={[styles.Mobile_number_divider,{width:wp("53%"),paddingBottom:hp("1%")}]}>{GLOBAL.mobile}</Text>
                 </TextInputLayout>
                   </View>
                   <View style={styles.Row_divider}>
@@ -590,7 +566,7 @@ selectPhotoTapped5()
                             keyboardType="numeric"
                             autoCapitalize="none"
                             autoCorrect={false}
-                            placeholder="Secondary Number"
+                            placeholder="Secondary Num..(Optional)"
                           />
                 </TextInputLayout>
                   </View>
@@ -607,7 +583,7 @@ selectPhotoTapped5()
                           keyboardType="numeric"
                           autoCapitalize="none"
                           autoCorrect={false}
-                          placeholder="Landline Number"
+                          placeholder="Landline Number(Optional)"
                         />
                 </TextInputLayout>
                   <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
@@ -617,18 +593,21 @@ selectPhotoTapped5()
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
                             style={styles.input}
-                            placeholder="Master vendor ID"
+                            placeholder="Master vendor ID(Optional)"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
           </View>
-          <Text style={[styles.text,{marginRight:wp("65%")}]}>Add Images</Text>
+          <View style={[styles.Row_divider,styles.MARGIN_VERticle,{marginRight:wp("50%")}]}>
+          <Text style={[styles.text]}>Add Images</Text>
+          <Text style={[styles.grey_text,{marginTop:hp(".5%")}]}>(Optional)</Text>
+          </View>
     <View style={styles.Row_divider}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_2_1 === null ? <Image
-                                      source={GLOBAL.Plus_icon}
-                                      style={{
+                                          source={GLOBAL.Plus_icon_stylist}
+                                          style={{
                                         width: GLOBAL.COLOR.Size_15,
                                         height: GLOBAL.COLOR.Size_15,
                                         // left: 20
@@ -650,8 +629,8 @@ selectPhotoTapped5()
           <TouchableOpacity onPress={this.selectPhotoTapped3.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source1 === null ? <Image
-                                      source={GLOBAL.Plus_icon}
-                                      style={{
+                                          source={GLOBAL.Plus_icon_stylist}
+                                          style={{
                                         width: GLOBAL.COLOR.Size_15,
                                         height: GLOBAL.COLOR.Size_15,
                                         // left: 20
@@ -672,8 +651,8 @@ selectPhotoTapped5()
           <TouchableOpacity onPress={this.selectPhotoTapped4.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_1_1 === null ? <Image
-                                      source={GLOBAL.Plus_icon}
-                                      style={{
+                                          source={GLOBAL.Plus_icon_stylist}
+                                          style={{
                                         width: GLOBAL.COLOR.Size_15,
                                         height: GLOBAL.COLOR.Size_15,
                                         // left: 20
@@ -693,8 +672,8 @@ selectPhotoTapped5()
           <TouchableOpacity onPress={this.selectPhotoTapped5.bind(this)}>
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>
                   { this.state.Image_Source_3_1 === null ? <Image
-                                      source={GLOBAL.Plus_icon}
-                                      style={{
+                                          source={GLOBAL.Plus_icon_stylist}
+                                          style={{
                                         width: GLOBAL.COLOR.Size_15,
                                         height: GLOBAL.COLOR.Size_15,
                                         // left: 20

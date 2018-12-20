@@ -52,13 +52,13 @@ export default class Stylist extends Component {
 
 
   joinData = () => {
-    this.array.push({name : this.state.textInput_HolderName});
+    this.array_name.push({name : this.state.textInput_HolderName});
 
     this.setState({ arrayHolder_name: [...this.array_name] })
 
-    this.array.push({title : this.state.textInput_Holder,time:this.state.textInput_HolderTime});
+    // this.array.push({title : this.state.textInput_Holder,time:this.state.textInput_HolderTime});
 
-    this.setState({ arrayHolder: [...this.array] })
+    // this.setState({ arrayHolder: [...this.array] })
 
   }
   
@@ -85,22 +85,15 @@ return (
     <View style={styles.container}>
  <FlatList          
                     data={ this.state.arrayHolder_name }
-                    // keyExtractor={(index) => index.toString()}
+                    extraData={this.state.arrayHolder_name}
                     renderItem={({item}) => 
     <View style={styles.Flat_box}>
           <Text style={styles.Big_text}> {item.name}</Text>
         <FlatList
-
         data={this.state.arrayHolder}
-
-        // width='70%'
         marginHorizontal="5%"
         extraData={this.state.arrayHolder}
-
         keyExtractor={(index) => index.toString()}
-
-        // ItemSeparatorComponent={this.FlatListItemSeparator}
-
         renderItem={({ item }) =>  
                  <View style={styles.Row_divider}>
                  <View style={styles.Only_Column}>
@@ -114,7 +107,7 @@ return (
                 </View>}
         />
         <View style={styles.Row_divider}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_Holder: data })}
@@ -126,10 +119,10 @@ return (
              }
          />
   <View style={[styles.Add_sty]}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
-        onChangeText={data => this.setState({ textInput_Holder: data })}
+        onChangeText={data => this.setState({ textInput_HolderName: data })}
         style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />

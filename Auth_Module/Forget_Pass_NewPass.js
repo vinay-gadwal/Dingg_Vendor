@@ -51,7 +51,10 @@ export default class Password extends Component {
     }
   Password_Validate = () =>
   {
-     if(this.state.password === this.state.new_pass){
+    if(this.state.password == '' && this.state.new_pass == null ){
+      Alert.alert("Please enter new password")
+    }
+    else if(this.state.password === this.state.new_pass){
         {this.handlePress()}
       }
       else{

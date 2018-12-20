@@ -43,7 +43,7 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    // this.props.navigation.navigate('Profile');
+    this.props.navigation.navigate('Set_up');
   }
   handlePress = () => {
     this.setState({ processing: true });
@@ -64,6 +64,7 @@ export default class Login extends Component {
   }
   phone(){
     return(
+      <View style={styles.Only_Column}>
       <View style={styles.Row_divider}>
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
       <Text style={styles.Mobile_number_divider}>+91     </Text>
@@ -85,10 +86,42 @@ export default class Login extends Component {
        />
       </TextInputLayout>
       </View>
+       <View style = { styles.textBoxBtnHolder } > 
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+           <TextInput 
+           // secureTextEntry = { this.state.hidePassword }
+             placeholder="Enter Password"
+             onChangeText={password => this.setState({ password })}
+             underlineColorAndroid = "transparent"
+             secureTextEntry
+             // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
+              style = { styles.input }/>
+       </TextInputLayout>
+       {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+             <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
+       </TouchableOpacity> */}
+</View>
+</View>
     )
   }
   email(){
     return(
+      <View style={styles.Column_reverse}>
+       <View style = { styles.textBoxBtnHolder } > 
+          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+              <TextInput 
+              // secureTextEntry = { this.state.hidePassword }
+                placeholder="Enter Password"
+                onChangeText={password => this.setState({ password })}
+                underlineColorAndroid = "transparent"
+                secureTextEntry
+                // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
+                 style = { styles.input }/>
+          </TextInputLayout>
+          {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
+          </TouchableOpacity> */}
+  </View>
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
@@ -104,6 +137,7 @@ export default class Login extends Component {
          placeholder="Enter Email ID"
        />
       </TextInputLayout>
+  </View>
     )
   }
 
@@ -130,21 +164,6 @@ export default class Login extends Component {
            <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          </View>
          {selectedButton}
-         <View style = { styles.textBoxBtnHolder } > 
-                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
-                      <TextInput 
-                      // secureTextEntry = { this.state.hidePassword }
-                        placeholder="Enter Password"
-                        onChangeText={password => this.setState({ password })}
-                        underlineColorAndroid = "transparent"
-                        secureTextEntry
-                        // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
-                         style = { styles.input }/>
-                  </TextInputLayout>
-                  {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
-                        <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-                  </TouchableOpacity> */}
-          </View>
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
               <Text style={styles.Forget_pass_text}>Forgot Password?</Text>

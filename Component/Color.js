@@ -32,6 +32,7 @@ module.exports = {
   },
     Logo : require('../Image/icon/logo_3.png'),
     Plus_icon : require('../Image/icon/plus.png'),
+    Plus_icon_stylist : require('../Image/icon/plusIconbig3x2.png'),
     Delete_icon : require('../Image/main/deleteImage3x.png'),
     Serve_Icon: require('../Image/main/serveTimeIcon3x.png'),
     Calender_Icon: require('../Image/main/calenderIcon3x.png'),

@@ -254,22 +254,27 @@ const apis = {
       console.error(error);
     }
   },
-  VENDOR_PROFILE_UPDATE: async (PicturePath,token) => {
+  VENDOR_PROFILE_UPDATE: async (business_name,category,service,address,locality,city,
+          website,email,contact_person,primary_no,secondary_number,landline_number,vendor_id,token) => {
     try {
-      let data = {
-        "a": "A",
-        "b": "B",
-        "c": "C"
-      };
-
       let formData  = new FormData();
-
-      // for(let name in data) {
-      //   formData.append(name, data[name]);
-      // }
-      // formData.append("business_name", "helllooooo");
+      formData.append("business_name", business_name);
+      formData.append("contact_person", contact_person);
+      formData.append("vendor_unique_id", vendor_id);
+      formData.append("address", address);
+      formData.append("locality",locality);
+      formData.append("cityId", "1");
+      formData.append("website", website);
+      // formData.append("mobile", GLOBAL.mobile);
+      formData.append("secondary_number", secondary_number);
+      formData.append("landline_number", landline_number);
       // formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      // formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      formData.append("notification", "true");
+      // formData.append("email", "z.ansari@ebabu.co");
+      formData.append("categoryId", "1");
+      formData.append("subcategory[0][subcategoryId]", "1");
+      formData.append("subcategory[1][subcategoryId]", "2");
       const options = {
         method: 'POST',
         body: formData,

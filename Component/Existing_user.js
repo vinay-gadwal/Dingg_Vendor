@@ -104,18 +104,15 @@ export default class Login extends Component {
   }
   JoinLatter(){
     return(
-     <View style={{height:hp("12%")}}>
-       <Text style={[styles.grey_text]}>Select Time Slot</Text>
+     <View style={{height:hp("17%")}}>
+       <Text style={[styles.text,styles.padding_verticle,{color:GLOBAL.COLOR.GRAY}]}>Select Time Slot</Text>
      <ScrollView horizontal="true">
       <RadioGroupS radioGroupList={radioGroupList} 
        buttonContainerActiveStyle = {{backgroundColor:GLOBAL.COLOR.ORANGE}}
-       buttonTextActiveStyle = {{color: "white"}}
-       buttonContainerInactiveStyle = {{backgroundColor: "white"}}
+       buttonTextActiveStyle = {{color: GLOBAL.COLOR.White_color}}
+       buttonContainerInactiveStyle = {{backgroundColor: GLOBAL.COLOR.White_color}}
        buttonTextInactiveStyle = {{color: GLOBAL.COLOR.ORANGE}}
-       buttonContainerStyle ={{borderColor:"transparent",height:hp("8%"),marginRight:wp("1%"), shadowColor: 'rgb(222,222,222)',
-       shadowOffset: { width: 0, height: hp("0.7%") },
-       shadowOpacity: 0.8,
-       shadowRadius: 4,}}
+       buttonContainerStyle ={styles.Select_time_user}
      />
      </ScrollView>
      </View>
@@ -151,7 +148,7 @@ export default class Login extends Component {
           <TextInput
             value={this.state.Mob_no}
             onChangeText={Mob_no => this.setState({ Mob_no })}
-            style={[styles.input,{width: wp('52')}]}
+            style={[styles.Mobile_nput]}
             returnKeyType="done"
             underlineColorAndroid='transparent'
             ref={input => (this.emailInput = input)}
@@ -184,13 +181,12 @@ export default class Login extends Component {
                       />
               </View>    
                   <Text></Text>
-          <View style={[styles.Row_divider,{marginRight:wp("20%")}]}>
-          <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
+          <View style={[styles.radioButtons]}>
+          <RadioGroup radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
           </View>       
           {selectedButton}
-         <Text></Text>   
       </View>     
-          <TouchableOpacity style={[styles.button]} >
+          <TouchableOpacity style={styles.button} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
 </KeyboardAwareScrollView>

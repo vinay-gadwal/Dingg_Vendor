@@ -56,8 +56,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Dashboard_yellow
         return (
           <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginLeft:wp("4%")}} initWidth="50" initHeight="3"/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth="23" initHeight="23"/>
+          <ResponsiveImage source={line} style={[styles.Tab_style,{marginLeft:wp("4%")}]} initWidth={GLOBAL.COLOR.Yellow_50} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -74,8 +74,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Que_req_white
         return (
           <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Size_27} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={line} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image}style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_27} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -91,8 +91,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Queue_white
         return (
           <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={line} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -108,8 +108,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.History_white
         return (
           <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={line} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -125,8 +125,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Setting_white
         return (
           <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%")}} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={line} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
             )
     }
@@ -142,8 +142,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Profile_white
         return (
          <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={{marginBottom:hp("2%"),marginRight:wp("4%")}} initWidth={GLOBAL.Yellow_50} initHeight={GLOBAL.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={{marginBottom:hp("3%")}} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={line} style={[styles.Tab_style,{marginRight:wp("4%")}]} initWidth={GLOBAL.Yellow_50} initHeight={GLOBAL.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -295,9 +295,6 @@ const RootStack = createStackNavigator({
             headerMode: null,
             navigationOptions: ({ navigation }) => ({
               title: 'EXISTING USER',
-              headerTitleStyle: {
-                fontFamily:'Muli-Bold',marginBottom:hp("2%")
-              },
               headerLeft:(
                 <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
               <Image
@@ -576,7 +573,7 @@ export default class DinggApp extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}  forceInset={{top: 'always'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: GLOBAL.COLOR.White_color}}  forceInset={{top: 'always'}}>
         <RootStack />
       </SafeAreaView>
     );
