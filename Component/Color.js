@@ -25,7 +25,7 @@ module.exports = {
        Size_250 :250,
        Size_15:15,
        Size_60:60,
-       Size_35:35,
+       Size_35:35,Size_8:8,
        Size_100:100,Size_21:21,Size_27:27,size_75:75
     },
     Header:{fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
@@ -77,5 +77,6 @@ module.exports = {
     rectangle_line : require('../Image/icon/Line/rectangle1.png'),
     Copy_right : require('../Image/icon/copyright.png'),
     edit_icon : require('../Image/main/editButtonmain3x.png'),
+    Loader : require('../Image/main/Ellipsis.gif'),
 
   };

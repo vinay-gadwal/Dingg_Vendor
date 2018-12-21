@@ -25,7 +25,7 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: '',
-      hidePassword:"true",
+      hidePassword:"true",processing:false,
       data: [ 
         {
             label: 'Mobile Number',
@@ -43,12 +43,13 @@ export default class Login extends Component {
     };  
   }
   componentDidMount(){
-    this.props.navigation.navigate('Set_up');
+    // this.props.navigation.navigate('AddDetails');
   }
   handlePress = () => {
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
           this.props.navigation.navigate('AuthStack');
           console.log(responseJson)
@@ -166,12 +167,14 @@ export default class Login extends Component {
          {selectedButton}
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-              <Text style={styles.Forget_pass_text}>Forgot Password?</Text>
+              <Text style={[styles.text_orange,{marginLeft:"40%"}]}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
-          <TouchableOpacity style={styles.button} onPress={this.handlePress}>
-             <Text style={styles.buttonText}>Sign In</Text>
+          <TouchableOpacity onPress={this.handlePress}>
+             {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Sign In</Text>
+             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity>
       
       <View style={styles.Row_margin}>
@@ -181,7 +184,7 @@ export default class Login extends Component {
             <Text style={styles.text}>Sign Up </Text>
             <Image
                 source={GLOBAL.rectangle_line}              
-                style={[styles.orange_line,{width: wp('16%')}]}
+                style={[styles.orange_line]}
             />
             </TouchableOpacity>
         </View>

@@ -43,16 +43,16 @@ return (
               <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
                     <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
-                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginVertical:hp("1%")}} initWidth="18" initHeight="18"/>
-                    <ResponsiveImage source={GLOBAL.Calender_Icon} style={{marginVertical:hp("1%")}} initWidth="18" initHeight="18"/>
+                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.padding_verticle} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
+                    <ResponsiveImage source={GLOBAL.Calender_Icon} style={styles._91_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
                   </View>           
                   <View style={[styles.Flat_box_row,{width:wp("60%")}]}>
-                    <Text style={[styles.text,{fontSize:RF(2.2),width:wp("50%")}]}>Rhyan Khan is still in the queue</Text>
+                    <Text style={[styles.text]}>Rhyan Khan is still in the queue</Text>
                         <View style={styles.Row_divider}>
-                          <Text style={[styles.text,{fontSize:RF(2.2),marginTop:hp(".4%")}]}>Token ID : TK102</Text>
-                          <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("20%")}} source={GLOBAL.Arrow_image} initWidth="8" initHeight="10"/>
+                          <Text style={styles.text}>Token ID : TK102</Text>
+                          <ResponsiveImage style={styles.Send_alert} source={GLOBAL.Right_yellow_arrow} initWidth={GLOBAL.COLOR.Size_8} initHeight={GLOBAL.COLOR.Yellow_10}/>
                         </View>
-                        <TouchableOpacity style={styles.Action_button}>
+                        <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("32%"),marginTop:hp("3%")}]}>
                          <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE}]}>Send Alert</Text>
                         </TouchableOpacity>
                   </View> 

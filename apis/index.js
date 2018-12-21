@@ -254,7 +254,8 @@ const apis = {
       console.error(error);
     }
   },
-  VENDOR_PROFILE_UPDATE: async (business_name,category,service,address,locality,city,
+  
+  VENDOR_PROFILE_UPDATE: async (PicturePath,business_name,category,service,address,locality,city,
           website,email,contact_person,primary_no,secondary_number,landline_number,vendor_id,token) => {
     try {
       let formData  = new FormData();
@@ -269,7 +270,7 @@ const apis = {
       formData.append("secondary_number", secondary_number);
       formData.append("landline_number", landline_number);
       // formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
-      // formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
       formData.append("notification", "true");
       // formData.append("email", "z.ansari@ebabu.co");
       formData.append("categoryId", "1");
@@ -283,10 +284,7 @@ const apis = {
           'Authorization':token
         }
       };
-
       delete options.headers['Content-Type'];
-
-
       fetch(base_url + "vendor_profile_update", options)
       .then(function (response) {
          console.log(response);
@@ -295,7 +293,5 @@ const apis = {
       Alert.alert(error);
     }
   },
-
-
 }
 export default apis;

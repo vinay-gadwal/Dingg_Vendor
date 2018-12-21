@@ -16,12 +16,9 @@ Row_divider:{
 Sign_up_context:{
         flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
     },
-otp_box:{
-        alignItems:"flex-start",flexDirection:"row",justifyContent:"space-around"
-    },
-Row_margin:{
-        flexDirection:"row",marginTop:hp("1%")
-    },
+otp_box:{ alignItems:"flex-start",flexDirection:"row",justifyContent:"space-around"},
+Otp_button_margin:{marginBottom:hp("30%")},
+Row_margin:{flexDirection:"row",marginTop:hp("1%")},
 DElete_icon:{
         width: hp("2%"),height: hp("2%"),
         marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"
@@ -88,7 +85,7 @@ copy_rigth:{
       fontSize: RF(1.8),color:"rgb(153,153,153)",fontWeight: 'bold',
     },
 copy_rigth_image:{
-      width: wp("2.5%"),height: hp("1.2%"),marginTop:hp(".5%"),
+      width: wp("2.5%"),height: hp("1.5%"),marginTop:hp(".3%"),
     },  
 input: {
       width: wp('70%'),
@@ -143,14 +140,15 @@ Offer_button:{
     },
 Action_button:{
         height:hp("5%"),
-        width:wp("23%"),
+        width:wp("23%"),borderRadius:8,
         backgroundColor:"white",
         shadowColor: 'rgb(217,217,217)',
         shadowOffset: { width: 0, height: hp("0.5%") },
-        shadowOpacity: 0.8,
+        shadowOpacity: 2,
         shadowRadius: 8,
         paddingVertical: hp('1%'),
     } ,
+Send_alert:{marginTop:hp("1.5%"),marginLeft:wp("18%")},
 buttonText: {
         fontSize: RF(2.2),
         alignSelf: "center",

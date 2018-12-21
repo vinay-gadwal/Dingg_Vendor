@@ -49,17 +49,17 @@ export default class Stylist extends Component {
     this.setState({ arrayHolder: [...this.array] })
     this.setState({ arrayHolder_name: [...this.array_name] })
   }
-
-
+Clean_input = () =>{
+  this.setState({textInput_Holder:''})
+  this.setState({textInput_HolderName:''})
+}
   joinData = () => {
     this.array_name.push({name : this.state.textInput_HolderName});
-
-    this.setState({ arrayHolder_name: [...this.array_name] })
-
-    // this.array.push({title : this.state.textInput_Holder,time:this.state.textInput_HolderTime});
-
-    // this.setState({ arrayHolder: [...this.array] })
-
+    this.setState({ arrayHolder_name: [...this.array_name] ,textInput_HolderName:''})
+    
+    this.array.push({title : this.state.textInput_Holder,time:this.state.textInput_HolderTime});
+    this.setState({ arrayHolder: [...this.array] ,textInput_Holder:''})
+    this.Clean_input;
   }
   
  FlatListItemSeparator = () => {

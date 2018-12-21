@@ -23,7 +23,7 @@ export default class Password extends Component {
     this.state = {
       new_pass:"",
       password: "",
-      hidePassword:"true"
+      hidePassword:"true",processing:false,
     };
   }
   managePasswordVisibility = () =>
@@ -32,8 +32,10 @@ export default class Password extends Component {
   }
 
   handlePress(){   
+    this.setState({ processing: true });
     apis.Reset_pass(GLOBAL.Mobile1,this.state.password)
         .then((responseJson) => {
+          this.setState({ processing: false, loginText: 'Successfull..' });
           console.log(responseJson)
           if(responseJson.success === true){
             Alert.alert(responseJson.message)
@@ -47,6 +49,7 @@ export default class Password extends Component {
         })
         .catch((error) => {
           console.error(error);
+          this.setState({ processing: false, loginText: 'Try Again' });
         });
     }
   Password_Validate = () =>
@@ -98,8 +101,10 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-        <TouchableOpacity style={[styles.button,{width: wp('25%'),}]} onPress={this.Password_Validate}>
-        <Text style={styles.buttonText}>Submit</Text>
+        <TouchableOpacity onPress={this.Password_Validate}>
+        {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Submit</Text>
+             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
         </TouchableOpacity>
         <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
