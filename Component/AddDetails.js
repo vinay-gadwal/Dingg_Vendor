@@ -78,22 +78,23 @@ export default class App extends Component {
     }
     else{
       this.setState({ processing: true });
-      apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
-        this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
-        this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
-        .then((responseJson) => {
-          if(responseJson.success === true) {
-            this.props.navigation.navigate('AuthStack');
-            console.log(responseJson)
-            console.log(GLOBAL.token)
-          } else {
-            Alert.alert(responseJson.message)
-          }
-        })
-        .catch((error) => {
-          // console.error(error);
-          this.setState({ processing: false, loginText: 'Try Again' });
-        });
+      // apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
+      //   this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
+      //   this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
+      //   .then((responseJson) => {
+      //     if(responseJson.success === true) {
+      //       this.props.navigation.navigate('AuthStack');
+      //       console.log(responseJson)
+      //       console.log(GLOBAL.token)
+      //     } else {
+      //       Alert.alert(responseJson.message)
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     // console.error(error);
+      //     this.setState({ processing: false, loginText: 'Try Again' });
+      //   });
+      this.props.navigation.navigate('AuthStack');
       }
     }
 

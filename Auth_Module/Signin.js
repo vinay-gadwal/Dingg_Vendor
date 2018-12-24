@@ -24,7 +24,7 @@ export default class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: '',
+      password: "",Email_password:"",
       hidePassword:"true",processing:false,
       data: [ 
         {
@@ -128,11 +128,12 @@ export default class Login extends Component {
            <TextInput 
            // secureTextEntry = { this.state.hidePassword }
              placeholder="Enter Password"
-             onChangeText={password => this.setState({ password })}
+            //  onChangeText={password => this.setState({ password })}
              underlineColorAndroid = "transparent"
              secureTextEntry
              // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
-              style = { styles.input }/>
+              style = { styles.input }
+              />
        </TextInputLayout>
        {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
              <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
@@ -167,14 +168,17 @@ export default class Login extends Component {
          {selectedButton}
           {/* <Text>{this.state.username}</Text> */}
           <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-              <Text style={[styles.text_orange,{marginLeft:"40%"}]}>Forgot Password?</Text>
+              <Text style={[styles.text_orange,{marginLeft:"44%"}]}>Forgot Password?</Text>
           </TouchableOpacity>
       </View>
       
-          <TouchableOpacity onPress={this.handlePress}>
+          {/* <TouchableOpacity onPress={this.handlePress}>
              {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Sign In</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
+          </TouchableOpacity> */}
+          <TouchableOpacity style={styles.button} onPress={this.handlePress}>
+               <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       
       <View style={styles.Row_margin}>

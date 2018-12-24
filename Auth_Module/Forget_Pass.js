@@ -90,11 +90,14 @@ export default class example extends Component {
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity onPress={this.handlePress.bind(this)}>
+        {/* <TouchableOpacity onPress={this.handlePress.bind(this)}>
         {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Submit for OTP</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+         <TouchableOpacity style={styles.button} onPress={this.handlePress}>
+               <Text style={styles.buttonText}>Submit for OTP</Text>
+          </TouchableOpacity>
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>
           <View style={styles.Row_divider}>
             <Image

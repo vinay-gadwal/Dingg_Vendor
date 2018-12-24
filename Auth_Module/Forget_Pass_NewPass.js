@@ -54,13 +54,13 @@ export default class Password extends Component {
     }
   Password_Validate = () =>
   {
-    if(this.state.password == '' && this.state.new_pass == null ){
+    if(this.state.password === "" || this.state.new_pass === "" ){
       Alert.alert("Please enter new password")
     }
     else if(this.state.password === this.state.new_pass){
         {this.handlePress()}
       }
-      else{
+      else if(this.state.password != this.state.new_pass ){
         this.setState({new_pass:""})
         Alert.alert("Confirm Password is Different")
       }
@@ -104,7 +104,7 @@ export default class Password extends Component {
         <TouchableOpacity onPress={this.Password_Validate}>
         {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Submit</Text>
-             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
+             </View> :  <Text style={styles.buttonText}>Submit</Text>}
         </TouchableOpacity>
         <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>

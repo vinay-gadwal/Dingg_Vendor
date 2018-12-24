@@ -33,31 +33,22 @@ export default class example extends Component {
   
   handlePress(code) {
     if(code == ""){
-      console.log(code)
       return null;
-    }
-    else{
-      this.setState({ processing: true });
+    }else{
       apis.OTP_SignUP(GLOBAL.mobile,code)
       .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successfull..' });
+        this.setState({ processing: false, loginText: 'Successful!' });
         if(responseJson.success === false){
-          console.log(responseJson)
-          if(responseJson.code === 201 || responseJson.code === 422){
           GLOBAL.token = responseJson.data[0].auth_tokan
-          console.log("token" +responseJson.data[0].auth_tokan)
-         if(!responseJson.data[0].is_password)
+          console.log(responseJson.data[0].auth_tokan)
+          if(!responseJson.data[0].is_password)
           {
             this.props.navigation.navigate('Crea_pass');
           }else{
             this.props.navigation.navigate('SignIn');
-            Alert.alert("Mobile Number already registered")
+            Alert.alert("Mobile Number Already Registered")
           }
-        }
-        else{
-          Alert.alert(responseJson.message)
-        }
-      }else{
+        }else{
           this.props.navigation.navigate('Crea_pass');
           GLOBAL.token = responseJson.token;
           console.log(responseJson)
@@ -70,6 +61,41 @@ export default class example extends Component {
       });
     }
   }
+
+  // handlePress(code) {
+  //   if(code == ""){
+  //     console.log(code)
+  //     return null;
+  //   }
+  //   else{
+  //     this.setState({ processing: true });
+  //     apis.OTP_SignUP(GLOBAL.mobile,code)
+  //     .then((responseJson) => {
+  //       this.setState({ processing: false, loginText: 'Successfull..' });
+  //       if(responseJson.success === false){
+  //         console.log(responseJson)
+  //         GLOBAL.token = responseJson.data[0].auth_tokan
+  //         console.log("token" +responseJson.data[0].auth_tokan)
+  //        if(!responseJson.data[0].is_password)
+  //         {
+  //           this.props.navigation.navigate('Crea_pass');
+  //         }else{
+  //           this.props.navigation.navigate('SignIn');
+  //           Alert.alert("Mobile Number already registered")
+  //       }
+  //     }else{
+  //         this.props.navigation.navigate('Crea_pass');
+  //         GLOBAL.token = responseJson.token;
+  //         console.log(responseJson)
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       Alert.alert(error)
+  //       this.setState({ processing: false, loginText: 'Try Again' });
+  //     });
+  //   }
+  // }
   _onFulfill(code) {
     // TODO: call API to check code here
     // If code does not match, clear input with: this.refs.codeInputRef1.clear()
@@ -146,7 +172,7 @@ _resend_OTP = async () =>{
           <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
           {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Next</Text>
-             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
+             </View> :  <Text style={styles.buttonText}>Next</Text>}
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

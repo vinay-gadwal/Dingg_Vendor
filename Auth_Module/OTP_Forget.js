@@ -103,10 +103,15 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
+        {/* <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
           {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Next</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
+          </TouchableOpacity> */}
+            <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
+          {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Next</Text>
+             </View> :  <Text style={styles.buttonText}>Next</Text>}
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

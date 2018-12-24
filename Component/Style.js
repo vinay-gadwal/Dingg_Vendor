@@ -35,7 +35,7 @@ Mobile_number_divider:{
         marginTop:hp("1.3%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily,
     },
 Radio_button:{
-        marginRight:wp("7%")
+        marginRight:wp("9%")
     },
 _91_style:{
         marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily
@@ -85,7 +85,7 @@ copy_rigth:{
       fontSize: RF(1.8),color:"rgb(153,153,153)",fontWeight: 'bold',
     },
 copy_rigth_image:{
-      width: wp("2.5%"),height: hp("1.5%"),marginTop:hp(".3%"),
+      width: wp("2.8%"),height: hp("1.6%"),marginTop:hp(".3%"),
     },  
 input: {
       width: wp('70%'),

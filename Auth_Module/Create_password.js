@@ -49,19 +49,19 @@ export default class Password extends Component {
   
   Password_Validate = () =>
   {
-    if(this.state.conf_pass == '' && this.state.password == null ){
+    if(this.state.Uid == ""){
+      Alert.alert("Enter User ID")
+    }
+    else if(this.state.conf_pass === "" && this.state.password === "" ){
       Alert.alert("Please enter password")
     }
-   else if(this.state.Uid == ""){
-      Alert.alert("Enter User ID")
+    else if( this.state.conf_pass != this.state.password ){
+      Alert.alert("Confirm password should be match with password")
     }
     else if(this.state.conf_pass === this.state.password){
         {this.handlePress()}
       }
-      else{
-        this.setState({conf_pass:""})
-        Alert.alert("Confirm Password is Different")
-      }
+     
   }
 
   render() {
@@ -112,10 +112,15 @@ export default class Password extends Component {
           </TextInputLayout>
          
     </View>
-        <TouchableOpacity onPress={this.Password_Validate}>
+        {/* <TouchableOpacity onPress={this.Password_Validate}>
         {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Complete Signup</Text>
-             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
+             </View> : <Text style={styles.buttonText}>Complete Signup</Text>}
+        </TouchableOpacity> */}
+        <TouchableOpacity onPress={this.Password_Validate}>
+        {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Submit</Text>
+             </View> :  <Text style={styles.buttonText}>Submit</Text>}
         </TouchableOpacity>
     <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>

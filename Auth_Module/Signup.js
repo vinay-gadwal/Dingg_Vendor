@@ -94,10 +94,13 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)}>
+        {/* <TouchableOpacity onPress={this.handlePress.bind(this)}>
              {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Submit for OTP</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
+          </TouchableOpacity> */}
+            <TouchableOpacity style={styles.button} onPress={this.handlePress}>
+               <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
         <View style={[styles.Row_margin,{marginTop:hp("5%")}]}>
             <Text style={styles.text}>Already have an account? </Text>
