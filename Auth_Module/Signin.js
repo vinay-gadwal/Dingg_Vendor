@@ -107,22 +107,7 @@ export default class Login extends Component {
   }
   email(){
     return(
-      <View style={styles.Column_reverse}>
-       <View style = { styles.textBoxBtnHolder } > 
-          <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
-              <TextInput 
-              // secureTextEntry = { this.state.hidePassword }
-                placeholder="Enter Password"
-                onChangeText={password => this.setState({ password })}
-                underlineColorAndroid = "transparent"
-                secureTextEntry
-                // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
-                 style = { styles.input }/>
-          </TextInputLayout>
-          {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
-                <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-          </TouchableOpacity> */}
-  </View>
+      <View style={styles.Only_Column}>
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
@@ -138,6 +123,21 @@ export default class Login extends Component {
          placeholder="Enter Email ID"
        />
       </TextInputLayout>
+      <View style = { styles.textBoxBtnHolder } > 
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+           <TextInput 
+           // secureTextEntry = { this.state.hidePassword }
+             placeholder="Enter Password"
+             onChangeText={password => this.setState({ password })}
+             underlineColorAndroid = "transparent"
+             secureTextEntry
+             // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
+              style = { styles.input }/>
+       </TextInputLayout>
+       {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+             <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
+       </TouchableOpacity> */}
+</View>
   </View>
     )
   }

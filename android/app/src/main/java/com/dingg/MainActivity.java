@@ -1,4 +1,4 @@
-package com.dingg;
+package app.dingg.vendor;
 
 import com.facebook.react.ReactActivity;
 
