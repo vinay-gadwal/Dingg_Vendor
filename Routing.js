@@ -148,7 +148,12 @@ const AuthStack = createBottomTabNavigator({
         )
     }
     })
-  }
+  },
+  login: { screen: sing_in,
+    navigationOptions: ()=>({
+      visible: false
+    }),
+    },
 },
 {
   initialRouteName: 'D',

@@ -13,6 +13,8 @@ import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
 import {createBottomTabNavigator,createStackNavigator,} from 'react-navigation';
 import Alert_top from './Alert'
+import apis from '../apis/index'
+
 const GLOBAL = require('../Component/Color');
 const initWidth = 330 
 const initHeight = 2
@@ -30,6 +32,14 @@ const initHeight = 2
 
     onToggle(isOn){
       // alert('Changed to ' + isOn)
+    }
+    logout=()=>{
+      apis.LOCAL_Delete_DATA('OTPticket').then(() => {
+        this.props.navigation.navigate('login');    
+        })
+          apis.LOCAL_Delete_DATA('ticket').then(() => {
+            this.props.navigation.navigate('login');    
+            })
     }
   render() {
     const {
@@ -177,7 +187,7 @@ const initHeight = 2
              </TouchableOpacity>
           </View>
          
-        <TouchableOpacity style={[styles.button]} onPress={() => {this._getSubmitAction;this.props.navigation.navigate('AuthStack')}}>
+        <TouchableOpacity style={[styles.button]} onPress={this.logout}>
                   <Text style={styles.buttonText}>Log Out</Text>
         </TouchableOpacity>
         </View>

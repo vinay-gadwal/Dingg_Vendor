@@ -40,18 +40,31 @@ export default class example extends Component {
         this.setState({ processing: false, loginText: 'Successful!' });
         if(responseJson.success === false){
           GLOBAL.token = responseJson.data[0].auth_tokan
-          console.log(responseJson.data[0].auth_tokan)
+          // console.log(responseJson.data[0].auth_tokan)
           if(!responseJson.data[0].is_password)
           {
+            // apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.data[0].auth_tokan).then(() => {
+            //   this.props.navigation.navigate('Crea_pass');
+            //   }).catch((error) => {
+            //    Alert.alert(error);
+            //     this.setState({ loginText: 'Try Again' });
+            //   });
             this.props.navigation.navigate('Crea_pass');
           }else{
             this.props.navigation.navigate('SignIn');
             Alert.alert("Mobile Number Already Registered")
           }
         }else{
-          this.props.navigation.navigate('Crea_pass');
-          GLOBAL.token = responseJson.token;
-          console.log(responseJson)
+          apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
+            this.props.navigation.navigate('Crea_pass');
+            console.log(responseJson.token)
+            }).catch((error) => {
+             Alert.alert(error);
+              this.setState({ loginText: 'Try Again' });
+            });
+          // this.props.navigation.navigate('Crea_pass');
+          // GLOBAL.token = responseJson.token;
+          // console.log(responseJson)
         }
       })
       .catch((error) => {

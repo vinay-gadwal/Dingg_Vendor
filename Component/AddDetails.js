@@ -47,37 +47,37 @@ export default class App extends Component {
      }
     ////
   handlePress = () => {
-    if(this.state.Add_Bus_Details === "")
+    if(this.state.Add_Bus_Details.trim() === "")
     {
         Alert.alert("Please Enter Business Name")
     }
-    else if(this.state.Category_Dropdown === ""){
+    else if(this.state.Category_Dropdown.trim() === ""){
       Alert.alert("Please Select Category")
     }
-    else if(this.state.service_dropdown === ""){
+    else if(this.state.service_dropdown.trim() === ""){
       Alert.alert("Please Select Service Type")
     }
-    else if(this.state.Address === "")
+    else if(this.state.Address.trim() === "")
     {
       Alert.alert("Please Enter Address")
     }
-    else if(this.state.Locality === "")
+    else if(this.state.Locality.trim() === "")
     {
       Alert.alert("Please Enter Locality")
     }
-    else if(this.state.City_dropdown === ""){
+    else if(this.state.City_dropdown.trim() === ""){
       Alert.alert("Please Select City")
     }
-    else if(this.state.Contact_Name === "")
+    else if(this.state.Contact_Name.trim() === "")
     {
       Alert.alert("Please Enter Contact Name")
     }
-     else if(this.state.Master_Ven_ID === "")
+     else if(this.state.Master_Ven_ID.trim() === "")
     {
       Alert.alert("Please Enter Vendor ID")
     }
     else{
-      this.setState({ processing: true });
+      // this.setState({ processing: true });
       // apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
       //   this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
       //   this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)

@@ -117,10 +117,10 @@ export default class example extends Component {
         </View>
         <View style={styles.Colom_margin}>
             <View style={styles.Row_divider}>
-                <Image
-                source={GLOBAL.Copy_right}
-                style={styles.copy_rigth_image}
-                />
+            <ResponsiveImage
+          source={GLOBAL.Copy_right}
+          initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}
+        />
                 <Text style={styles.copy_rigth}> All copyright reserved to </Text>
               </View>
                 <Text style={styles.copy_rigth}> Vrienden Tech Private Limited 2018 </Text>

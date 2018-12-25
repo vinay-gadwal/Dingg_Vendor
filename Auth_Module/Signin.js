@@ -42,17 +42,48 @@ export default class Login extends Component {
             ],
     };  
   }
-  componentDidMount(){
-    // this.props.navigation.navigate('AddDetails');
+  componentDidMount() {
+    apis.LOCAL_GET_DATA('ticket').then((value) => {
+      if (value) {
+        this.setState({ processing: true });
+        this.props.navigation.dangerouslyGetParent().navigate('AuthStack');
+      }
+    }).catch((error) => {
+      Alert.alert(error);
+      this.setState({ processing: false });
+    });
+    apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
+      GLOBAL.token = value;
+      console.log(GLOBAL.DetailsToken)
+      if (value!= null) {
+        this.props.navigation.dangerouslyGetParent().navigate('Crea_pass');
+      }
+    }).catch((error) => {
+      Alert.alert(error);
+      this.setState({ processing: false });
+    });
   }
-  handlePress = () => {
+  
+    handlePress = () => {
+      if(this.state.username.trim() === "")
+      {
+          Alert.alert("Please Enter Mobile Number or Username")
+      }
+      else if(this.state.password.trim() === ""){
+        Alert.alert("Please Enter Password")
+      }
+      else{
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
         this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
-          this.props.navigation.navigate('AuthStack');
-          console.log(responseJson)
+          apis.Sign_LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
+            this.props.navigation.navigate('AuthStack');    
+            }).catch((error) => {
+              console.error(error);
+              this.setState({ processing: false });
+            });
         } else {
           Alert.alert(responseJson.message)
           console.log(this.state.username)
@@ -63,6 +94,7 @@ export default class Login extends Component {
         this.setState({ processing: false, loginText: 'Try Again' });
       });
   }
+}
   phone(){
     return(
       <View style={styles.Only_Column}>
@@ -195,10 +227,10 @@ export default class Login extends Component {
         <Text style={styles.text}>here</Text>
       </View>
       
-      <View style={[styles.Row_margin,{marginBottom:hp("2%")}]}>
-        <Image
+      <View style={[styles.Row_margin,{marginBottom:hp("1.5%")}]}>
+        <ResponsiveImage
           source={GLOBAL.Copy_right}
-          style={styles.copy_rigth_image}
+          initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>
       </View>
