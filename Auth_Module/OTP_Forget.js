@@ -23,7 +23,7 @@ export default class example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '',switchThreeValue: true,time:500
+      code: '',switchThreeValue: true,time:500,processing:false,
     };
   }
   handlePress(code) {
@@ -31,8 +31,10 @@ export default class example extends Component {
       return null;
     }
     else{
+      this.setState({ processing: true });
       apis.OTP_FORGOT(GLOBAL.Mobile1,code)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true){
             this.props.navigation.navigate('For_New_Pass');
             GLOBAL.token = responseJson.token;
@@ -45,6 +47,7 @@ export default class example extends Component {
         }
       })
       .catch((error) => {
+        this.setState({ processing: false, loginText: 'Try Again' });
         console.error(error);
         Alert.alert(error)
       });
@@ -100,11 +103,11 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <View style={{marginBottom:hp("30%")}}>
-          <TouchableOpacity style={styles.button} onPress={this.handlePress(this.state.code)}>
-          <Text style={styles.buttonText}>Next</Text>
+        <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
+          {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Next</Text>
+             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity>
-      </View>
 </KeyboardAwareScrollView>    );
   }
 }

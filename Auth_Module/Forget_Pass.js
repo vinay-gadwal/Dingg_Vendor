@@ -34,20 +34,23 @@ export default class example extends Component {
   handlePress = async () => {
     if(this.state.usermobile.length == 0)
     {
-      Alert.alert("Enter Mobile Number")
+      Alert.alert("Enter the registered mobile number")
     }
     else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
         Alert.alert("Mobile number should contain 10 digits")
     }
     else{
+      this.setState({ processing: true });
       apis.FORGET_PASS(this.state.usermobile)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successfull..' });
         console.log(responseJson)
    GLOBAL.Mobile1 =this.state.usermobile
    this.props.navigation.navigate('OTP_forget');
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -87,8 +90,10 @@ export default class example extends Component {
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginBottom:hp("20%")}]}>
-            <Text style={styles.buttonText}>Submit for OTP</Text>
+        <TouchableOpacity onPress={this.handlePress.bind(this)}>
+        {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Submit for OTP</Text>
+             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
         </TouchableOpacity>
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>
           <View style={styles.Row_divider}>

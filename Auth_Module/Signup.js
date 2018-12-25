@@ -42,8 +42,10 @@ export default class example extends Component {
       Alert.alert("Mobile number should contain 10 digits")
     }
     else{
+      this.setState({ processing: true });
       apis.SIGN_UP(this.state.usermobile)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('OTP');
@@ -54,6 +56,7 @@ export default class example extends Component {
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
   }
@@ -91,10 +94,11 @@ export default class example extends Component {
          </TextInputLayout>
           </View>
         </View>
-        <TouchableOpacity onPress={this.handlePress.bind(this)} style={[styles.button,{width: wp('40'),marginBottom:hp("10%")}]}>
-            <Text style={styles.buttonText}>Submit for OTP</Text>
+        <TouchableOpacity onPress={this.handlePress.bind(this)}>
+             {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Submit for OTP</Text>
+             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity>
-
         <View style={[styles.Row_margin,{marginTop:hp("5%")}]}>
             <Text style={styles.text}>Already have an account? </Text>
             <View style={styles.Only_Column}>

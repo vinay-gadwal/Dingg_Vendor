@@ -47,17 +47,38 @@ export default class App extends Component {
      }
     ////
   handlePress = () => {
-    if(this.state.Add_Bus_Details == "" || this.state.Address == ""
-           || this.state.Locality == "" || this.state.Contact_Name == "" 
-           || this.state.Master_Ven_ID == "")
+    if(this.state.Add_Bus_Details === "")
     {
-        Alert.alert("All Fields are required except Optional")
+        Alert.alert("Please Enter Business Name")
     }
-    else if (this.state.Secondry_no >= 11 || this.state.Secondry_no <= 9){
-            Alert.alert("Secondary Mobile number should contain 10 digits")
-    }else{
+    else if(this.state.Category_Dropdown === ""){
+      Alert.alert("Please Select Category")
+    }
+    else if(this.state.service_dropdown === ""){
+      Alert.alert("Please Select Service Type")
+    }
+    else if(this.state.Address === "")
+    {
+      Alert.alert("Please Enter Address")
+    }
+    else if(this.state.Locality === "")
+    {
+      Alert.alert("Please Enter Locality")
+    }
+    else if(this.state.City_dropdown === ""){
+      Alert.alert("Please Select City")
+    }
+    else if(this.state.Contact_Name === "")
+    {
+      Alert.alert("Please Enter Contact Name")
+    }
+     else if(this.state.Master_Ven_ID === "")
+    {
+      Alert.alert("Please Enter Vendor ID")
+    }
+    else{
       this.setState({ processing: true });
-      apis.VENDOR_PROFILE_UPDATE(this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
+      apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
         this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
         this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
         .then((responseJson) => {
@@ -337,7 +358,7 @@ selectPhotoTapped5()
           </TouchableOpacity>
           <Text style={[styles.text,styles.padding_verticle]}>Add Your Logo</Text>
           <View style={styles.boxDetails}>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Add_Bus_Details}
                         onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
@@ -355,8 +376,8 @@ selectPhotoTapped5()
                           value={'Select Category'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value) => {
-                            console.log(value); // gives new value OK
                             this.setState({Category_Dropdown:value})
+                            console.log(this.state.Category_Dropdown)
                          }}
                          rippleCentered={false}
                           dropdownPosition={0}
@@ -451,7 +472,7 @@ selectPhotoTapped5()
                 />
                 <Text style={{color:"white"}}>bssjjase</Text>
                 </View> */}
-                 <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                 <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Address}
                         onChangeText={Address => this.setState({ Address })}
@@ -462,7 +483,7 @@ selectPhotoTapped5()
                         returnKeyType="next"
                       />
                   </TextInputLayout>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.details}
                         onChangeText={Locality => this.setState({ Locality })}
@@ -481,7 +502,7 @@ selectPhotoTapped5()
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value) => {
                              console.log(value); // gives new value OK
-                            this.setState({service_dropdown:value})
+                            this.setState({City_dropdown:value})
                          }}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
@@ -490,7 +511,7 @@ selectPhotoTapped5()
                           marginLeft={2}
                       />
                   </View>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
                         value={this.state.Website_url}
                         onChangeText={Website_url => this.setState({ Website_url })}
@@ -502,7 +523,7 @@ selectPhotoTapped5()
                         keyboardType="email-address"
                       />
                   </TextInputLayout>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Email}
                           onChangeText={Email => this.setState({ Email })}
@@ -514,7 +535,7 @@ selectPhotoTapped5()
                           keyboardType="email-address"
                         />
                   </TextInputLayout>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Contact_Name}
                             onChangeText={Contact_Name => this.setState({ Contact_Name })}
@@ -526,12 +547,12 @@ selectPhotoTapped5()
                           />
                   </TextInputLayout>
                   <View style={styles.Row_divider}>
-                  <TextInputLayout focusColor={FocusColor}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
                       <Text style={styles.Mobile_number_divider}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         {/* <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
@@ -550,11 +571,11 @@ selectPhotoTapped5()
                 </TextInputLayout>
                   </View>
                   <View style={styles.Row_divider}>
-                      <TextInputLayout focusColor={FocusColor}>
+                      <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
                       <Text style={styles.Mobile_number_divider}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
@@ -571,7 +592,7 @@ selectPhotoTapped5()
                 </TextInputLayout>
                   </View>
                 
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
@@ -586,14 +607,14 @@ selectPhotoTapped5()
                           placeholder="Landline Number(Optional)"
                         />
                 </TextInputLayout>
-                  <TextInputLayout focusColor={FocusColor} labelFontSize={0.1}>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Master_Ven_ID}
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
                             style={styles.input}
-                            placeholder="Master vendor ID(Optional)"
+                            placeholder="Master vendor ID"
                             returnKeyType="next"
                           />
                   </TextInputLayout>

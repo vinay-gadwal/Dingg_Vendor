@@ -22,12 +22,14 @@ export default class Password extends Component {
     this.state = {
       Uid:"",
       password: "",
-      conf_pass:"",
+      conf_pass:"",processing:false,
     }; 
   }
   handlePress(){  
+    this.setState({ processing: true });
     apis.Create_Pass(this.state.password, this.state.Uid,GLOBAL.token)
       .then((responseJson) => {
+        this.setState({ processing: false, loginText: 'Successfull..' });
         console.log(responseJson)
         console.log(GLOBAL.token)
         if(responseJson.success === true){
@@ -41,6 +43,7 @@ export default class Password extends Component {
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ processing: false, loginText: 'Try Again' });
       });
   }
   
@@ -109,8 +112,10 @@ export default class Password extends Component {
           </TextInputLayout>
          
     </View>
-        <TouchableOpacity style={[styles.button,{width: wp('50%'),}]} onPress={this.Password_Validate}>
-        <Text style={styles.buttonText}>Complete Signup</Text>
+        <TouchableOpacity onPress={this.Password_Validate}>
+        {!this.state.processing ? <View style={styles.button}>
+               <Text style={styles.buttonText}>Complete Signup</Text>
+             </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
         </TouchableOpacity>
     <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
