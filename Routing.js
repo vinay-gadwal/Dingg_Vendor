@@ -37,6 +37,7 @@ import Reject from './Component/Reject_reason'
 import QR_Code from './Component/QR_Code'
 import OTP from './Auth_Module/OTP'
 import OTP_forget from './Auth_Module/OTP_Forget'
+import AuthLoadingScreen from './Component/AuthLoadingScreen';
 const GLOBAL = require('./Component/Color');
 
 // import Alert from './Component/Alert'
@@ -172,6 +173,7 @@ const AuthStack = createBottomTabNavigator({
 });
 
 const RootStack = createStackNavigator({
+  AuthLoadingScreen: AuthLoadingScreen,
   SignIn: {
           screen: sing_in,
           navigationOptions: ({ navigation }) => ({
@@ -562,7 +564,7 @@ Set_up:{
       },
 
       {
-        initialRouteName:"SignIn",
+        initialRouteName:"AuthLoadingScreen",
         // headerMode: "none",
         navigationOptions: {
           headerTitleStyle: GLOBAL.header
