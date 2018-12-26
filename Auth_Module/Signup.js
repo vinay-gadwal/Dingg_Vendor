@@ -4,7 +4,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,  Image,Alert
+  View,  Image,Alert,NetInfo
 } from 'react-native';
 import styles from '../Component/Style'
 import apis from '../apis/index';
@@ -34,11 +34,13 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
-    if(this.state.usermobile.length == 0)
+    NetInfo.isConnected.fetch().done((isConnected) => {
+if(isConnected){
+  if(this.state.usermobile.trim().length == 0)
     {
       Alert.alert("Enter Mobile Number")
     }
-    else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
+    else if(this.state.usermobile.trim().length >= 11 || this.state.usermobile.trim().length <= 9){
       Alert.alert("Mobile number should contain 10 digits")
     }
     else{
@@ -50,6 +52,7 @@ export default class example extends Component {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('OTP');
           console.log(responseJson)
+          this.setState({ usermobile :""});
         } else {
           Alert.alert(responseJson.message)
         }
@@ -59,6 +62,11 @@ export default class example extends Component {
         this.setState({ processing: false, loginText: 'Try Again' });
       });
     }
+} 
+else{
+  Alert.alert("Please check your internet connection")
+}  
+ });
   }
  
   render() {

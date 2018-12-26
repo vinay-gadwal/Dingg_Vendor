@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,ScrollView,Alert
+  TouchableOpacity,ScrollView,Alert,NetInfo
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -32,35 +32,43 @@ export default class Password extends Component {
   }
 
   handlePress(){   
-    this.setState({ processing: true });
-    apis.Reset_pass(GLOBAL.Mobile1,this.state.password)
-        .then((responseJson) => {
-          this.setState({ processing: false, loginText: 'Successfull..' });
-          console.log(responseJson)
-          if(responseJson.success === true){
-            Alert.alert(responseJson.message)
-            this.props.navigation.navigate('SignIn');
-            console.log(responseJson)
-          }
-          else{
-            Alert.alert(responseJson.message)
-            console.log(responseJson)
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-          this.setState({ processing: false, loginText: 'Try Again' });
-        });
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(isConnected){
+        this.setState({ processing: true });
+        apis.Reset_pass(GLOBAL.Mobile1,this.state.password)
+            .then((responseJson) => {
+              this.setState({ processing: false, loginText: 'Successfull..' });
+              console.log(responseJson)
+              if(responseJson.success === true){
+                Alert.alert(responseJson.message)
+                this.props.navigation.navigate('SignIn');
+                console.log(responseJson)
+                this.setState({ password:"" });
+                this.setState({ new_pass :""});
+              }
+              else{
+                Alert.alert(responseJson.message)
+                console.log(responseJson)
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+              this.setState({ processing: false, loginText: 'Try Again' });
+            });
+      }else{
+        Alert.alert("Please check your internet connection")
+      }
+    });
     }
   Password_Validate = () =>
   {
-    if(this.state.password === "" || this.state.new_pass === "" ){
+    if(this.state.password.trim() === "" || this.state.new_pass.trim() === "" ){
       Alert.alert("Please enter new password")
     }
-    else if(this.state.password === this.state.new_pass){
+    else if(this.state.password.trim() === this.state.new_pass.trim()){
         {this.handlePress()}
       }
-      else if(this.state.password != this.state.new_pass ){
+      else if(this.state.password.trim() != this.state.new_pass.trim() ){
         this.setState({new_pass:""})
         Alert.alert("Confirm Password is Different")
       }

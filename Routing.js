@@ -38,6 +38,7 @@ import QR_Code from './Component/QR_Code'
 import OTP from './Auth_Module/OTP'
 import OTP_forget from './Auth_Module/OTP_Forget'
 import AuthLoadingScreen from './Component/AuthLoadingScreen';
+
 const GLOBAL = require('./Component/Color');
 
 // import Alert from './Component/Alert'
@@ -178,6 +179,7 @@ const RootStack = createStackNavigator({
           screen: sing_in,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN IN',
+            headerLeft: null,
             headerBackTitle:null,
 
           })
@@ -210,13 +212,8 @@ const RootStack = createStackNavigator({
           screen: Crea_pass,
           navigationOptions: ({ navigation }) => ({
             title: 'SIGN UP',
-            headerLeft:(
-              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-            <Image
-              source={GLOBAL.Back_button}
-              style={[styles.back_butt0n]}
-            />
-            </TouchableOpacity>)
+            headerLeft: null,
+            headerBackTitle:null,
           })
         },
   Forget_password: {
@@ -251,13 +248,8 @@ const RootStack = createStackNavigator({
       screen:For_New_Pass,
       navigationOptions: ({ navigation }) => ({
         title:'CREATE NEW PASSWORD',
-        headerLeft:(
-          <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-        <Image
-              source={GLOBAL.Back_button}
-              style={[styles.back_butt0n]}
-        />
-        </TouchableOpacity>)
+        headerLeft: null,
+        headerBackTitle:null,
       })
   },
   Welcome: {
@@ -271,14 +263,8 @@ const RootStack = createStackNavigator({
   AddDetails:{
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
-            title: 'ADD BUSINESS DETAILS',
-            headerLeft:(
-              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
-            <Image
-              source={GLOBAL.Back_button}
-              style={[styles.back_butt0n,{marginBottom:hp("1%")}]}
-            />
-            </TouchableOpacity>)
+            headerLeft: null,
+            headerBackTitle:null,
           })
         },
 

@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image,ScrollView,Alert
+  Image,ScrollView,Alert,NetInfo
 } from 'react-native';
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -27,52 +27,67 @@ export default class example extends Component {
       code: '',switchThreeValue: true,time:500,mobile_number:"",processing: false,
     };
   }
+  otp_verified = () =>{
+    if(this.state.code == ''){
+      Alert.alert("Please Enter OTP")
+    }
+  }
   componentDidMount(){
   GLOBAL.mobile
   }
   
   handlePress(code) {
-    if(code == ""){
-      return null;
-    }else{
-      apis.OTP_SignUP(GLOBAL.mobile,code)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successful!' });
-        if(responseJson.success === false){
-          GLOBAL.token = responseJson.data[0].auth_tokan
-          // console.log(responseJson.data[0].auth_tokan)
-          if(!responseJson.data[0].is_password)
-          {
-            // apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.data[0].auth_tokan).then(() => {
-            //   this.props.navigation.navigate('Crea_pass');
-            //   }).catch((error) => {
-            //    Alert.alert(error);
-            //     this.setState({ loginText: 'Try Again' });
-            //   });
-            this.props.navigation.navigate('Crea_pass');
-          }else{
-            this.props.navigation.navigate('SignIn');
-            Alert.alert("Mobile Number Already Registered")
-          }
+    NetInfo.isConnected.fetch().done((isConnected) => {
+if(isConnected){
+  if(code == ""){
+    Alert.alert("Please Enter OTP")
+  }else{
+    apis.OTP_SignUP(GLOBAL.mobile,code)
+    .then((responseJson) => {
+      this.setState({ processing: false, loginText: 'Successful!' });
+      if(responseJson.success == false && responseJson.code === 409)
+      {
+        Alert.alert(responseJson.message)
+      }
+     else if(responseJson.success === false){
+        GLOBAL.token = responseJson.data[0].auth_tokan
+        // console.log(responseJson.data[0].auth_tokan)
+        if(!responseJson.data[0].is_password)
+        {
+          // apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.data[0].auth_tokan).then(() => {
+          //   this.props.navigation.navigate('Crea_pass');
+          //   }).catch((error) => {
+          //    Alert.alert(error);
+          //     this.setState({ loginText: 'Try Again' });
+          //   });
+          this.props.navigation.navigate('Crea_pass');
         }else{
-          apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
-            this.props.navigation.navigate('Crea_pass');
-            console.log(responseJson.token)
-            }).catch((error) => {
-             Alert.alert(error);
-              this.setState({ loginText: 'Try Again' });
-            });
-          // this.props.navigation.navigate('Crea_pass');
-          // GLOBAL.token = responseJson.token;
-          // console.log(responseJson)
+          this.props.navigation.navigate('SignIn');
+          Alert.alert("Mobile Number Already Registered")
         }
-      })
-      .catch((error) => {
-        console.error(error);
-        Alert.alert(error)
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
-    }
+      }else{
+        apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
+          this.props.navigation.navigate('Crea_pass');
+          GLOBAL.token = responseJson.token
+          console.log(responseJson.token)
+          }).catch((error) => {
+           Alert.alert(error);
+            this.setState({ loginText: 'Try Again' });
+          });
+        // this.props.navigation.navigate('Crea_pass');
+        GLOBAL.token = responseJson.token;
+        // console.log(responseJson)
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      Alert.alert(error)
+      this.setState({ processing: false, loginText: 'Try Again' });
+    });
+  }
+}else{
+  Alert.alert("Please check your internet connection")
+}   });
   }
 
   // handlePress(code) {
@@ -152,7 +167,7 @@ _resend_OTP = async () =>{
       keyboardShouldPersistTaps='handled'
     >      
         <Text style={styles.Otp_text}>Verify to continue</Text>
-        <View style={styles.box}>
+        <View style={[styles.box,{marginBottom:hp("2%"),paddingVertical:hp("6%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={styles.otp_box}>
           <View style={styles.otp}> 
@@ -182,7 +197,7 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-          <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
+          <TouchableOpacity style={styles.Otp_button_margin} onPress={this.otp_verified}>
           {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Next</Text>
              </View> :  <Text style={styles.buttonText}>Next</Text>}

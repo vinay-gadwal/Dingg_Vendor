@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image,ScrollView,Alert
+  Image,ScrollView,Alert,NetInfo
 } from 'react-native';
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -26,32 +26,43 @@ export default class example extends Component {
       code: '',switchThreeValue: true,time:500,processing:false,
     };
   }
+  otp_verified = () =>{
+    if(this.state.code == ''){
+      Alert.alert("Please Enter OTP")
+    }
+  }
   handlePress(code) {
-    if(code == ""){
-      return null;
-    }
-    else{
-      this.setState({ processing: true });
-      apis.OTP_FORGOT(GLOBAL.Mobile1,code)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successfull..' });
-        if(responseJson.success === true){
-            this.props.navigation.navigate('For_New_Pass');
-            GLOBAL.token = responseJson.token;
-            Alert.alert(responseJson.message)
-            console.log(GLOBAL.Mobile1)
-            console.log(responseJson)
-        }
-        else{
+    NetInfo.isConnected.fetch().done((isConnected) => {
+if(isConnected){
+  if(code === "" && code != "1234"){
+    Alert.alert("Please Enter OTP")
+  }
+  else{
+    this.setState({ processing: true });
+    apis.OTP_FORGOT(GLOBAL.Mobile1,code)
+    .then((responseJson) => {
+      this.setState({ processing: false, loginText: 'Successfull..' });
+      if(responseJson.success === true){
+          this.props.navigation.navigate('For_New_Pass');
+          GLOBAL.token = responseJson.token;
           Alert.alert(responseJson.message)
-        }
-      })
-      .catch((error) => {
-        this.setState({ processing: false, loginText: 'Try Again' });
-        console.error(error);
-        Alert.alert(error)
-      });
-    }
+          console.log(GLOBAL.Mobile1)
+          console.log(responseJson)
+      }
+      else{
+        Alert.alert(responseJson.message)
+      }
+    })
+    .catch((error) => {
+      this.setState({ processing: false, loginText: 'Try Again' });
+      console.error(error);
+      Alert.alert(error)
+    });
+  }
+} else{
+  Alert.alert("Please check your internet connection")
+}   });
+
   }
 
 _resend_OTP = async () =>{
@@ -73,7 +84,7 @@ _resend_OTP = async () =>{
       keyboardShouldPersistTaps='handled'
     >      
          <Text style={styles.Otp_text}>Verify to continue</Text>
-        <View style={[styles.box]}>
+        <View style={[styles.box,{marginBottom:hp("2%"),paddingVertical:hp("6%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
           <View style={styles.otp_box}>
           <View style={styles.otp}> 
@@ -108,7 +119,7 @@ _resend_OTP = async () =>{
                <Text style={styles.buttonText}>Next</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity> */}
-            <TouchableOpacity style={styles.Otp_button_margin} onPress={this.handlePress(this.state.code)}>
+            <TouchableOpacity style={styles.Otp_button_margin} onPress={this.otp_verified}>
           {!this.state.processing ? <View style={styles.button}>
                <Text style={styles.buttonText}>Next</Text>
              </View> :  <Text style={styles.buttonText}>Next</Text>}

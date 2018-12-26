@@ -4,7 +4,7 @@ import {
   Text,
   View,
   TextInput,Alert,
-  TouchableOpacity,
+  TouchableOpacity,NetInfo,AsyncStorage
 } from "react-native";
 import styles from '../Component/Style'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -22,43 +22,66 @@ export default class Password extends Component {
     this.state = {
       Uid:"",
       password: "",
-      conf_pass:"",processing:false,
+      conf_pass:"",processing:false,token_otp:"",
     }; 
   }
+  componentDidMount(){
+    this._bootstrapAsync();
+  }
+  _bootstrapAsync = async () => {
+    const userTokenOTP = await AsyncStorage.getItem('OTPticket');
+  this.setState({token_otp:userTokenOTP})
+  GLOBAL.token = this.state.token_otp
+  console.log(GLOBAL.token)
+  };
   handlePress(){  
-    this.setState({ processing: true });
-    apis.Create_Pass(this.state.password, this.state.Uid,GLOBAL.token)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successfull..' });
-        console.log(responseJson)
-        console.log(GLOBAL.token)
-        if(responseJson.success === true){
-          this.props.navigation.navigate('AddDetails');
+    NetInfo.isConnected.fetch().done((isConnected) => {
+     if(isConnected){
+      // GLOBAL.token=this.state.token_otp
+      apis.Create_Pass(this.state.password, this.state.Uid,GLOBAL.token)
+        .then((responseJson) => {
           console.log(responseJson)
-        }
-        else{
-          Alert.alert(responseJson.message)
-          console.log(responseJson)
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
+          this.setState({ processing: false, loginText: 'Successfull..' });
+          console.log(GLOBAL.token)
+          if(responseJson.success === true){
+            this.props.navigation.navigate('AddDetails');
+            console.log(responseJson)
+            this.setState({ Uid :""});
+            this.setState({ password:"" });
+            this.setState({ conf_pass:"" });
+            apis.LOCAL_Delete_DATA('OTPticket');
+
+          }
+          else{
+            Alert.alert(responseJson.message)
+            console.log(responseJson)
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          this.setState({ processing: false, loginText: 'Try Again' });
+        });
+     }else{
+      Alert.alert("Please check your internet connection")
+     }
+    });
   }
   
   Password_Validate = () =>
   {
-    if(this.state.Uid == ""){
+    if(this.state.Uid.trim() == ""){
       Alert.alert("Enter User ID")
     }
-    else if(this.state.conf_pass === "" && this.state.password === "" ){
-      Alert.alert("Please enter password")
+    else if(this.state.password.trim() === "" ){
+      Alert.alert("Please Enter New Password")
     }
-    else if( this.state.conf_pass != this.state.password ){
-      Alert.alert("Confirm password should be match with password")
+    else if( this.state.conf_pass.trim() === "" ){
+      Alert.alert("Please Enter Confirm Password")
     }
-    else if(this.state.conf_pass === this.state.password){
+    else if( this.state.password.trim() != this.state.conf_pass.trim()){
+      Alert.alert("Password and Confirm Password should match")
+    }
+    else if(this.state.conf_pass.trim() === this.state.password.trim()){
         {this.handlePress()}
       }
      

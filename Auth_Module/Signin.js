@@ -5,7 +5,7 @@ import {
   Image,
   Text,
   View,
-  TextInput,
+  TextInput,NetInfo,
   TouchableOpacity,Alert,Keyboard,ScrollView
 } from "react-native";
 import styles from '../Component/Style'
@@ -16,6 +16,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
+
 const GLOBAL = require('../Component/Color');
 
 export default class Login extends Component {
@@ -42,30 +43,43 @@ export default class Login extends Component {
             ],
     };  
   }
+
+
+  // Remove listener when component unmounts
+ 
   componentDidMount() {
-    apis.LOCAL_GET_DATA('ticket').then((value) => {
-      if (value) {
-        this.setState({ processing: true });
-        this.props.navigation.dangerouslyGetParent().navigate('AuthStack');
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(isConnected){
+        apis.LOCAL_GET_DATA('ticket').then((value) => {
+          if (value) {
+            this.setState({ processing: true });
+            this.props.navigation.dangerouslyGetParent().navigate('AuthStack');
+          }
+        }).catch((error) => {
+          Alert.alert(error);
+          this.setState({ processing: false });
+        });
+        // apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
+        //   GLOBAL.token = value;
+        //   console.log(GLOBAL.DetailsToken)
+        //   if (value!= null) {
+        //     this.props.navigation.dangerouslyGetParent().navigate('Crea_pass');
+        //   }
+        // }).catch((error) => {
+        //   Alert.alert(error);
+        //   this.setState({ processing: false });
+        // });
       }
-    }).catch((error) => {
-      Alert.alert(error);
-      this.setState({ processing: false });
-    });
-    apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
-      GLOBAL.token = value;
-      console.log(GLOBAL.DetailsToken)
-      if (value!= null) {
-        this.props.navigation.dangerouslyGetParent().navigate('Crea_pass');
+      else{
+        Alert.alert("Please check your internet connection")
       }
-    }).catch((error) => {
-      Alert.alert(error);
-      this.setState({ processing: false });
     });
   }
   
     handlePress = () => {
-      if(this.state.username.trim() === "")
+      NetInfo.isConnected.fetch().done((isConnected) => {
+if(isConnected){
+  if(this.state.username.trim() === "")
       {
           Alert.alert("Please Enter Mobile Number or Username")
       }
@@ -73,13 +87,16 @@ export default class Login extends Component {
         Alert.alert("Please Enter Password")
       }
       else{
+
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
         this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
           apis.Sign_LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
-            this.props.navigation.navigate('AuthStack');    
+            this.setState({ username:""});
+            this.setState({ password:"" });
+            this.props.navigation.navigate('AuthStack'); 
             }).catch((error) => {
               console.error(error);
               this.setState({ processing: false });
@@ -94,7 +111,13 @@ export default class Login extends Component {
         this.setState({ processing: false, loginText: 'Try Again' });
       });
   }
+} 
+else{
+  Alert.alert("Please check your internet connection")
+}     
+});
 }
+
   phone(){
     return(
       <View style={styles.Only_Column}>

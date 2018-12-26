@@ -4,7 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image,Alert
+  Image,Alert,NetInfo
 } from 'react-native';
 import styles from '../Component/Style'
 import apis from '../apis/index';
@@ -32,27 +32,33 @@ export default class example extends Component {
     };
   }
   handlePress = async () => {
-    if(this.state.usermobile.length == 0)
-    {
-      Alert.alert("Enter the registered mobile number")
-    }
-    else if(this.state.usermobile.length >= 11 || this.state.usermobile.length <= 9){
-        Alert.alert("Mobile number should contain 10 digits")
-    }
-    else{
-      this.setState({ processing: true });
-      apis.FORGET_PASS(this.state.usermobile)
-      .then((responseJson) => {
-        this.setState({ processing: false, loginText: 'Successfull..' });
-        console.log(responseJson)
-   GLOBAL.Mobile1 =this.state.usermobile
-   this.props.navigation.navigate('OTP_forget');
-      })
-      .catch((error) => {
-        console.error(error);
-        this.setState({ processing: false, loginText: 'Try Again' });
-      });
-    }
+    NetInfo.isConnected.fetch().done((isConnected) => {
+if(isConnected){
+  if(this.state.usermobile.trim().length == 0)
+  {
+    Alert.alert("Enter the registered mobile number")
+  }
+  else if(this.state.usermobile.trim().length >= 11 || this.state.usermobile.trim().length <= 9){
+      Alert.alert("Mobile number should contain 10 digits")
+  }
+  else{
+    this.setState({ processing: true });
+    apis.FORGET_PASS(this.state.usermobile)
+    .then((responseJson) => {
+      this.setState({ processing: false, loginText: 'Successfull..' });
+      console.log(responseJson)
+ GLOBAL.Mobile1 =this.state.usermobile
+ this.props.navigation.navigate('OTP_forget');
+ this.setState({ usermobile :""});
+    })
+    .catch((error) => {
+      console.error(error);
+      this.setState({ processing: false, loginText: 'Try Again' });
+    });
+  }
+} else{
+  Alert.alert("Please check your internet connection")
+}   });
   }
  
   render() {

@@ -17,7 +17,7 @@ Sign_up_context:{
         flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
     },
 otp_box:{ alignItems:"flex-start",flexDirection:"row",justifyContent:"space-around"},
-Otp_button_margin:{marginBottom:hp("30%")},
+Otp_button_margin:{marginBottom:hp("50%")},
 Row_margin:{flexDirection:"row",marginTop:hp("1%")},
 DElete_icon:{
         width: hp("2%"),height: hp("2%"),
@@ -43,7 +43,7 @@ _91_style:{
 Otp_text:{
         fontSize:RF(3.5),
         fontFamily:GLOBAL.COLOR.FontFamilyBold,
-        marginVertical:hp("8%"),
+        marginVertical:hp("6%"),
         marginRight:wp("35%"),
           color: "rgb(68,68,68)",
           justifyContent:"flex-start"
@@ -428,7 +428,7 @@ profile_edit:{
             height:"1%",justifyContent:"center",alignItems:"center"
         },
 back_butt0n:{
-        marginLeft:wp("6%"),width: wp('7%'),height: hp('2.5%'),marginBottom:hp("1.5%")
+        marginLeft:wp("7%"),width: wp('7%'),height: hp('2.5%'),marginBottom:hp("1%"),marginTop:hp("1.3%")
         },
 back_butt0n_right:{
             marginLeft:wp("6%"),

@@ -37,7 +37,7 @@ export default class App extends Component {
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
         Landline_No:"",Master_Ven_ID:"",Category_Dropdown:"",service_dropdown:"",
         City_Name:[],categoryName:[],service_type:[],
-        service_name:[],data:[],
+        service_name:[],data:[],validated:"Invalid Email",
       }
     }
     componentDidMount(){
@@ -94,7 +94,8 @@ export default class App extends Component {
       //     // console.error(error);
       //     this.setState({ processing: false, loginText: 'Try Again' });
       //   });
-      this.props.navigation.navigate('AuthStack');
+      {this.go.bind(this)}
+      this.props.navigation.navigate('Welcome');
       }
     }
 
@@ -334,7 +335,15 @@ selectPhotoTapped5()
           }
         });
       }
-
+  go = () => {
+        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (reg.test(this.state.Email) === true){
+            alert( this.state.validated);
+        }
+        else{
+            alert();
+        }
+      }
   render() {
     return (
       <KeyboardAwareScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>

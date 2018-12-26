@@ -1,5 +1,5 @@
 // import { Base64 } from 'js-base64';
-import { AsyncStorage,Alert } from 'react-native';
+import { AsyncStorage,Alert,NetInfo } from 'react-native';
 // import RNFetchBlob from 'rn-fetch-blob'
 
 const base_url = 'http://18.217.123.119:3000/api/';
@@ -97,8 +97,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
-    }
+Alert.alert(error)    }
   },
 
   FORGET_PASS: async (usermobile) => {
