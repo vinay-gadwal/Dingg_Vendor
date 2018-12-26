@@ -143,17 +143,17 @@ const AuthStack = createBottomTabNavigator({
         return (
          <View style={styles.Only_Column}>
           <ResponsiveImage source={line} style={[styles.Tab_style,{marginRight:wp("4%")}]} initWidth={GLOBAL.Yellow_50} initHeight={GLOBAL.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={image} style={[styles.Tab_style,{marginRight:wp("4%")}]} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
     })
   },
   login: { screen: sing_in,
-    navigationOptions: ()=>({
-      visible: false
-    }),
-    },
+    navigationOptions: ({ navigation }) => ({
+      tabBarVisible: false,
+    }), 
+      },
 },
 {
   initialRouteName: 'D',
