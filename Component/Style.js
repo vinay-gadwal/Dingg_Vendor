@@ -43,7 +43,7 @@ _91_style:{
 Otp_text:{
         fontSize:RF(3.5),
         fontFamily:GLOBAL.COLOR.FontFamilyBold,
-        marginVertical:hp("6%"),
+        marginVertical:hp("6%"),marginTop:hp("8%"),
         marginRight:wp("35%"),
           color: "rgb(68,68,68)",
           justifyContent:"flex-start"
@@ -52,7 +52,7 @@ otp:{
         marginHorizontal:wp("15%"),marginTop:hp("2%")  
     },
 timer:{
-        marginRight:wp("15%"),marginTop:hp("2%")  
+        marginRight:wp("15%"),marginTop:hp("3%")  
     },
 timer_text:{
         color:GLOBAL.COLOR.ORANGE,fontSize:RF(1.9),
@@ -60,7 +60,7 @@ timer_text:{
         justifyContent:"flex-start"
     },
 timer_countdown:{
-        fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)"
+        fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)",marginRight:wp("2%")
     },
 Flat_box:{
       width: wp('90%'),marginHorizontal:"5%",

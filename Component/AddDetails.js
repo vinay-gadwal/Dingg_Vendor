@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text,View,ScrollView,TextInput,TouchableOpacity,Image,Alert} from 'react-native';
+import { Text,View,NetInfo,ScrollView,TextInput,TouchableOpacity,Image,Alert,AsyncStorage} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { Dropdown } from 'react-native-material-dropdown';
 import styles from './Style'
@@ -37,15 +37,24 @@ export default class App extends Component {
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
         Landline_No:"",Master_Ven_ID:"",Category_Dropdown:"",service_dropdown:"",
         City_Name:[],categoryName:[],service_type:[],
-        service_name:[],data:[],validated:"Invalid Email",
+        service_name:[],data:[],validated:"Invalid Email",token_otp:""
       }
     }
     componentDidMount(){
       this.Get_Category()
       this.Get_City()
       this.Get_Service()
+      this._bootstrapAsync();
      }
     ////
+    
+    _bootstrapAsync = async () => {
+      const userTokenMobile = await AsyncStorage.getItem('MobileTicket');
+      console.log(userTokenMobile)
+    this.setState({token_otp:userTokenMobile})
+    GLOBAL.mobile = this.state.token_otp
+    console.log(GLOBAL.mobile)
+    };
   handlePress = () => {
     if(this.state.Add_Bus_Details.trim() === "")
     {
@@ -76,26 +85,43 @@ export default class App extends Component {
     {
       Alert.alert("Please Enter Vendor ID")
     }
-    else{
-      // this.setState({ processing: true });
-      // apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
-      //   this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
-      //   this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
-      //   .then((responseJson) => {
-      //     if(responseJson.success === true) {
-      //       this.props.navigation.navigate('AuthStack');
-      //       console.log(responseJson)
-      //       console.log(GLOBAL.token)
-      //     } else {
-      //       Alert.alert(responseJson.message)
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     // console.error(error);
-      //     this.setState({ processing: false, loginText: 'Try Again' });
-      //   });
-      {this.go.bind(this)}
-      this.props.navigation.navigate('Welcome');
+    else if(this.state.Email === "" || this.state.Email != ""){
+{this.go()}
+    }
+    }
+
+  go(){
+      const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (reg.test(this.state.Email) === true){
+        NetInfo.isConnected.fetch().done((isConnected) => {
+          if(isConnected)
+              {  this.setState({ processing: true });
+                apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
+                  this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
+                  this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
+                  .then((responseJson) => {
+                    if(responseJson.success === true) {
+                      this.props.navigation.navigate('AuthStack');
+                      apis.LOCAL_Delete_DATA('MobileTicket').
+                      console.log(responseJson)
+                      console.log(GLOBAL.token)
+                    } else {
+                      Alert.alert(responseJson.message)
+                    }
+                  })
+                  .catch((error) => {
+                    // console.error(error);
+                    this.setState({ processing: false, loginText: 'Try Again' });
+                  });
+                this.props.navigation.navigate('Welcome');
+              }
+              else{
+                Alert.alert("Please check your internet connection")
+              }
+            })
+      }
+      else{
+        Alert.alert("invalid Email Address")
       }
     }
 
@@ -111,7 +137,6 @@ Get_Category = async () =>{
        }
       })
       .catch((error) => {
-        console.error(error)
         Alert.alert(error)
       });
     }
@@ -127,7 +152,6 @@ Get_City = async () =>{
           }
       })
       .catch((error) => {
-        console.error(error);
         Alert.alert(error)
       });
     }
@@ -144,7 +168,6 @@ Get_Service = async () =>{
             }
       })
       .catch((error) => {
-        console.error(error);
         Alert.alert(error)
       });
     }
@@ -334,15 +357,6 @@ selectPhotoTapped5()
             })
           }
         });
-      }
-  go = () => {
-        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (reg.test(this.state.Email) === true){
-            alert( this.state.validated);
-        }
-        else{
-            alert();
-        }
       }
   render() {
     return (

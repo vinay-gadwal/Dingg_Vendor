@@ -80,7 +80,7 @@ GetItem (flower_name) {
   //          });
   //        })
   //        .catch((error) => {
-  //          console.error(error);
+  //               Alert.alert(error);
   //        });
 
  }

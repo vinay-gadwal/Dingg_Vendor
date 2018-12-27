@@ -25,7 +25,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      Alert.alert(error)
+      Alert.alert("Error")
     }
   },
 
@@ -48,7 +48,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 
@@ -72,7 +72,7 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
 
@@ -97,7 +97,8 @@ const apis = {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-Alert.alert(error)    }
+      Alert.alert("Error")
+    }
   },
 
   FORGET_PASS: async (usermobile) => {
@@ -119,7 +120,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 
@@ -143,7 +144,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 
@@ -165,7 +166,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 
@@ -189,7 +190,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
   //////Add Details Apis///////
@@ -208,7 +209,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert(error)
     }
   },
   Get_city: async (token) =>{
@@ -227,7 +228,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 
@@ -250,7 +251,7 @@ Alert.alert(error)    }
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
   
@@ -269,12 +270,12 @@ Alert.alert(error)    }
       formData.append("secondary_number", secondary_number);
       formData.append("landline_number", landline_number);
       // formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
-      formData.append("notification", "true");
+      // formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      // formData.append("notification", "true");
       // formData.append("email", "z.ansari@ebabu.co");
-      formData.append("categoryId", "1");
-      formData.append("subcategory[0][subcategoryId]", "1");
-      formData.append("subcategory[1][subcategoryId]", "2");
+      // formData.append("categoryId", "1");
+      // formData.append("subcategory[0][subcategoryId]", "1");
+      // formData.append("subcategory[1][subcategoryId]", "2");
       const options = {
         method: 'POST',
         body: formData,
@@ -289,14 +290,14 @@ Alert.alert(error)    }
          console.log(response);
       });
     } catch (error) {
-      Alert.alert(error);
+      Alert.alert("Error")
     }
   },
   LOCAL_SET_DATA: async (key, value) => {
     try {
       await AsyncStorage.setItem(key, value);
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 
@@ -310,7 +311,7 @@ Alert.alert(error)    }
       return null;
     } catch (error) {
       // Error retrieving data
-      console.error(error);
+      Alert.alert("Error")
       return null;
     }
   },
@@ -318,7 +319,14 @@ Alert.alert(error)    }
     try {
       await AsyncStorage.setItem(key, value);
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
+    }
+  },
+  Sign_LOCAL_SET_DATA_MOBILE:async (key, value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      Alert.alert("Error")
     }
   },
   OTP_LOCAL_GET_DATA: async (key) => {
@@ -331,7 +339,7 @@ Alert.alert(error)    }
       return null;
     } catch (error) {
       // Error retrieving data
-      console.error(error);
+      Alert.alert("Error")
       return null;
     }
   },
@@ -339,7 +347,7 @@ Alert.alert(error)    }
     try {
       await AsyncStorage.removeItem(key);
     } catch (error) {
-      console.error(error);
+      Alert.alert("Error")
     }
   },
 }

@@ -58,7 +58,7 @@ export default class Password extends Component {
           }
         })
         .catch((error) => {
-          console.error(error);
+          Alert.alert("error")
           this.setState({ processing: false, loginText: 'Try Again' });
         });
      }else{
@@ -140,10 +140,10 @@ export default class Password extends Component {
                <Text style={styles.buttonText}>Complete Signup</Text>
              </View> : <Text style={styles.buttonText}>Complete Signup</Text>}
         </TouchableOpacity> */}
-        <TouchableOpacity onPress={this.Password_Validate}>
-        {!this.state.processing ? <View style={styles.button}>
+        <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{marginBottom:hp("10%")}]}>
+        {/* {!this.state.processing ? <View style={styles.button}> */}
                <Text style={styles.buttonText}>Submit</Text>
-             </View> :  <Text style={styles.buttonText}>Submit</Text>}
+             {/* </View> :  <Text style={styles.buttonText}>Submit</Text>} */}
         </TouchableOpacity>
     <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>

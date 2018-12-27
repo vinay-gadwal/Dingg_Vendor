@@ -41,6 +41,7 @@ if(isConnected){
     this.setState({ processing: true });
     apis.OTP_FORGOT(GLOBAL.Mobile1,code)
     .then((responseJson) => {
+      console.log(responseJson)
       this.setState({ processing: false, loginText: 'Successfull..' });
       if(responseJson.success === true){
           this.props.navigation.navigate('For_New_Pass');
@@ -55,7 +56,6 @@ if(isConnected){
     })
     .catch((error) => {
       this.setState({ processing: false, loginText: 'Try Again' });
-      console.error(error);
       Alert.alert(error)
     });
   }
@@ -73,7 +73,6 @@ _resend_OTP = async () =>{
    this.setState({ time : 500 })
   })
   .catch((error) => {
-    console.error(error);
     Alert.alert(error)
   });
 }
@@ -85,7 +84,7 @@ _resend_OTP = async () =>{
     >      
          <Text style={styles.Otp_text}>Verify to continue</Text>
         <View style={[styles.box,{marginBottom:hp("2%"),paddingVertical:hp("6%")}]}>
-          <Text style={styles.text}>Enter OTP sent to +91-{this.state.user}</Text>
+          <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.Mobile1}</Text>
           <View style={styles.otp_box}>
           <View style={styles.otp}> 
             <CodeInput
@@ -105,9 +104,9 @@ _resend_OTP = async () =>{
             <TimerCountdown
                         initialSecondsRemaining={(this.state.time)*60}
                         allowFontScaling={true}
-                        style={styles.timer}
+                        style={styles.timer_countdown}
                     />
-                  <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
+                  <TouchableOpacity >
                   <Text style={styles.timer_text}>Resend OTP</Text>
                   </TouchableOpacity>
               </View>
@@ -119,10 +118,10 @@ _resend_OTP = async () =>{
                <Text style={styles.buttonText}>Next</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity> */}
-            <TouchableOpacity style={styles.Otp_button_margin} onPress={this.otp_verified}>
-          {!this.state.processing ? <View style={styles.button}>
+            <TouchableOpacity style={[styles.Otp_button_margin,styles.button]} onPress={this.otp_verified}>
+          {/* {!this.state.processing ? <View style={styles.button}> */}
                <Text style={styles.buttonText}>Next</Text>
-             </View> :  <Text style={styles.buttonText}>Next</Text>}
+             {/* </View> :  <Text style={styles.buttonText}>Next</Text>} */}
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

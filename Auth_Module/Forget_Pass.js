@@ -45,14 +45,19 @@ if(isConnected){
     this.setState({ processing: true });
     apis.FORGET_PASS(this.state.usermobile)
     .then((responseJson) => {
-      this.setState({ processing: false, loginText: 'Successfull..' });
+      // this.setState({ processing: false, loginText: 'Successfull..' });
       console.log(responseJson)
+      if(responseJson.success == false){
+        Alert.alert(responseJson.message)
+      }
+      else{
  GLOBAL.Mobile1 =this.state.usermobile
  this.props.navigation.navigate('OTP_forget');
  this.setState({ usermobile :""});
+      }
     })
     .catch((error) => {
-      console.error(error);
+      Alert.alert("error")
       this.setState({ processing: false, loginText: 'Try Again' });
     });
   }
@@ -70,7 +75,7 @@ if(isConnected){
          <View style={styles.margin_top}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box,{marginBottom:hp("5%")}]}>
+        <View style={[styles.box]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>
           <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
@@ -101,7 +106,7 @@ if(isConnected){
                <Text style={styles.buttonText}>Submit for OTP</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
         </TouchableOpacity> */}
-         <TouchableOpacity style={styles.button} onPress={this.handlePress}>
+         <TouchableOpacity style={[styles.button,{marginBottom:hp("22%")}]} onPress={this.handlePress}>
                <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>

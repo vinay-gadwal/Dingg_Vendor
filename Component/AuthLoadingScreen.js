@@ -26,14 +26,14 @@ export default class AuthLoadingScreen extends React.Component {
   else{
   this.props.navigation.navigate(userToken ? 'D' : 'SignIn');
   }
-    // this.props.navigation.navigate(userTokenOTP ? 'Crea_pass' : 'SignIn');
+    // this.props.navigation.navigate('For_New_Pass');
   };
   // Fetch the token from storage then navigate to our appropriate place
 
   // Render any loading content that you like here
   render() {
     return (
-      <View style={{justifyContent:"center",alignItems:"center",backgroundColor:"white"}}>
+      <View style={{flex:1,justifyContent:"center",alignItems:"center",backgroundColor:"white"}}>
         <ActivityIndicator />
         <Text style={{ fontSize: RF(3), 
         fontFamily:"Muli-ExtraBold",

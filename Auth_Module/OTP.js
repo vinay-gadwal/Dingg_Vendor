@@ -32,19 +32,13 @@ export default class example extends Component {
       Alert.alert("Please Enter OTP")
     }
   }
-  componentDidMount(){
-  GLOBAL.mobile
-  }
   
   handlePress(code) {
     NetInfo.isConnected.fetch().done((isConnected) => {
 if(isConnected){
-  if(code == ""){
-    Alert.alert("Please Enter OTP")
-  }else{
     apis.OTP_SignUP(GLOBAL.mobile,code)
     .then((responseJson) => {
-      this.setState({ processing: false, loginText: 'Successful!' });
+      console.log(responseJson)
       if(responseJson.success == false && responseJson.code === 409)
       {
         Alert.alert(responseJson.message)
@@ -54,18 +48,14 @@ if(isConnected){
         // console.log(responseJson.data[0].auth_tokan)
         if(!responseJson.data[0].is_password)
         {
-          // apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.data[0].auth_tokan).then(() => {
-          //   this.props.navigation.navigate('Crea_pass');
-          //   }).catch((error) => {
-          //    Alert.alert(error);
-          //     this.setState({ loginText: 'Try Again' });
-          //   });
           this.props.navigation.navigate('Crea_pass');
         }else{
           this.props.navigation.navigate('SignIn');
           Alert.alert("Mobile Number Already Registered")
         }
       }else{
+        apis.Sign_LOCAL_SET_DATA_MOBILE('MobileTicket',responseJson.data.mobile);
+        console.log(responseJson.data.mobile)
         apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
           this.props.navigation.navigate('Crea_pass');
           GLOBAL.token = responseJson.token
@@ -79,12 +69,9 @@ if(isConnected){
         // console.log(responseJson)
       }
     })
-    .catch((error) => {
-      console.error(error);
-      Alert.alert(error)
-      this.setState({ processing: false, loginText: 'Try Again' });
-    });
-  }
+    // .catch((error) => {
+    //   Alert.alert(error)
+    // });
 }else{
   Alert.alert("Please check your internet connection")
 }   });
@@ -154,7 +141,6 @@ _resend_OTP = async () =>{
    this.setState({ time : 500 })
   })
   .catch((error) => {
-    console.error(error);
     Alert.alert(error)
   });
 }
@@ -197,10 +183,10 @@ _resend_OTP = async () =>{
           </View>
         </View>
         {/* onPress={() => {this.props.navigation.navigate('Crea_pass')}} */}
-          <TouchableOpacity style={styles.Otp_button_margin} onPress={this.otp_verified}>
-          {!this.state.processing ? <View style={styles.button}>
+          <TouchableOpacity style={[styles.Otp_button_margin,styles.button]} onPress={this.otp_verified}>
+          {/* {!this.state.processing ? <View style={styles.button}> */}
                <Text style={styles.buttonText}>Next</Text>
-             </View> :  <Text style={styles.buttonText}>Next</Text>}
+             {/* </View> :  <Text style={styles.buttonText}>Next</Text>} */}
           </TouchableOpacity>
 </KeyboardAwareScrollView>    );
   }

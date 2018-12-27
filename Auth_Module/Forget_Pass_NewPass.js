@@ -52,7 +52,7 @@ export default class Password extends Component {
               }
             })
             .catch((error) => {
-              console.error(error);
+              Alert.alert("error")
               this.setState({ processing: false, loginText: 'Try Again' });
             });
       }else{
@@ -62,15 +62,17 @@ export default class Password extends Component {
     }
   Password_Validate = () =>
   {
-    if(this.state.password.trim() === "" || this.state.new_pass.trim() === "" ){
-      Alert.alert("Please enter new password")
+    if(this.state.password.trim() === "" ){
+      Alert.alert("Please enter password.")
+    }
+    else if(this.state.new_pass.trim() === "" ){
+      Alert.alert("Please enter confirm password.")
     }
     else if(this.state.password.trim() === this.state.new_pass.trim()){
         {this.handlePress()}
       }
       else if(this.state.password.trim() != this.state.new_pass.trim() ){
-        this.setState({new_pass:""})
-        Alert.alert("Confirm Password is Different")
+        Alert.alert("Password and ConfirmPassword should be same.")
       }
   }
 
@@ -109,10 +111,10 @@ export default class Password extends Component {
           />
         </TextInputLayout>
     </View>
-        <TouchableOpacity onPress={this.Password_Validate}>
-        {!this.state.processing ? <View style={styles.button}>
+        <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{marginBottom:hp("15%")}]}>
+        {/* {!this.state.processing ? <View style={styles.button}> */}
                <Text style={styles.buttonText}>Submit</Text>
-             </View> :  <Text style={styles.buttonText}>Submit</Text>}
+             {/* </View> :  <Text style={styles.buttonText}>Submit</Text>} */}
         </TouchableOpacity>
         <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>

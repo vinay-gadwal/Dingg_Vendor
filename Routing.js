@@ -263,6 +263,7 @@ const RootStack = createStackNavigator({
   AddDetails:{
           screen: Add_Details,
           navigationOptions: ({ navigation }) => ({
+            title: 'ADD BUSINESS DETAIL',
             headerLeft: null,
             headerBackTitle:null,
           })

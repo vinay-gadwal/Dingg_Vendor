@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import {
-  AppRegistry,
   Image,
   Text,
   View,
@@ -38,16 +37,16 @@ export default class Login extends Component {
             label: 'Email ID',
             value:this.email(),
             color: GLOBAL.COLOR.ORANGE
-        }, 
-           
+        },   
             ],
     };  
   }
-
-
-  // Remove listener when component unmounts
+  componentWillReceiveProps(){
+this.setState({username:""})
+  }
  
   componentDidMount() {
+    console.log("check")
     NetInfo.isConnected.fetch().done((isConnected) => {
       if(isConnected){
         apis.LOCAL_GET_DATA('ticket').then((value) => {
@@ -59,16 +58,7 @@ export default class Login extends Component {
           Alert.alert(error);
           this.setState({ processing: false });
         });
-        // apis.OTP_LOCAL_GET_DATA('OTPticket').then((value) => {
-        //   GLOBAL.token = value;
-        //   console.log(GLOBAL.DetailsToken)
-        //   if (value!= null) {
-        //     this.props.navigation.dangerouslyGetParent().navigate('Crea_pass');
-        //   }
-        // }).catch((error) => {
-        //   Alert.alert(error);
-        //   this.setState({ processing: false });
-        // });
+
       }
       else{
         Alert.alert("Please check your internet connection")
@@ -77,17 +67,8 @@ export default class Login extends Component {
   }
   
     handlePress = () => {
-      NetInfo.isConnected.fetch().done((isConnected) => {
+NetInfo.isConnected.fetch().done((isConnected) => {
 if(isConnected){
-  if(this.state.username.trim() === "")
-      {
-          Alert.alert("Please Enter Mobile Number or Username")
-      }
-      else if(this.state.password.trim() === ""){
-        Alert.alert("Please Enter Password")
-      }
-      else{
-
     this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
@@ -98,7 +79,7 @@ if(isConnected){
             this.setState({ password:"" });
             this.props.navigation.navigate('AuthStack'); 
             }).catch((error) => {
-              console.error(error);
+              Alert.alert(error);
               this.setState({ processing: false });
             });
         } else {
@@ -107,10 +88,9 @@ if(isConnected){
         }
       })
       .catch((error) => {
-        console.error(error);
+        Alert.alert(error);
         this.setState({ processing: false, loginText: 'Try Again' });
       });
-  }
 } 
 else{
   Alert.alert("Please check your internet connection")
