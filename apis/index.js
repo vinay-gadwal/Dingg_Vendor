@@ -256,7 +256,6 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
   VENDOR_PROFILE_UPDATE: async (pic_1,pic_2,pic_3,pic_4,PicturePath,business_name,category,service,address,locality,city,
           website,email,contact_person,primary_no,secondary_number,landline_number,vendor_id,token) => {
     try {
-      debugger
       let formData  = new FormData();
       formData.append("business_name", business_name);
       formData.append("contact_person", contact_person);
@@ -268,10 +267,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       formData.append("mobile", primary_no);
       formData.append("secondary_number", secondary_number);
       formData.append("landline_number", landline_number);
-      formData.append('file[]', [{ uri: pic_1, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('file[]', [{ uri: pic_2, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('file[]', [{ uri: pic_3, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('file[]', [{ uri: pic_4, name: 'selfie.jpg', type: 'image/jpg' }]);
+      // formData.append('file[]', [{ uri: pic_1, name: 'selfie.jpg', type: 'image/jpg' }]);
       formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
       formData.append("email", email);
       formData.append("categoryId",category );

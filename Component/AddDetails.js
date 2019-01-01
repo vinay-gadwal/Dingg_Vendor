@@ -110,7 +110,6 @@ export default class App extends Component {
                   this.state.Secondry_no,this.state.Landline_No,
                   this.state.Master_Ven_ID,GLOBAL.token)
                   .then((responseJson) => {
-                    debugger
                     if(responseJson.Response.ok === true) {
                       this.props.navigation.navigate('AuthStack');
                       apis.LOCAL_Delete_DATA('MobileTicket').
