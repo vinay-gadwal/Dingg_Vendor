@@ -54,16 +54,20 @@ export default class App extends Component {
     this.setState({token_otp:userTokenMobile})
     GLOBAL.mobile = this.state.token_otp
     console.log(GLOBAL.mobile)
+    AsyncStorage.getItem("Profile_Token").then((Profile_boolean) => {
+      GLOBAL.token=Profile_boolean
+      console.log("Get profile token >> ", GLOBAL.token);
+   }).done();
     };
   handlePress = () => {
     if(this.state.Add_Bus_Details.trim() === "")
     {
         Alert.alert("Please Enter Business Name")
     }
-    else if(this.state.Category_Dropdown.trim() === ""){
+    else if(this.state.Category_Dropdown === ""){
       Alert.alert("Please Select Category")
     }
-    else if(this.state.service_dropdown.trim() === ""){
+    else if(this.state.service_dropdown === ""){
       Alert.alert("Please Select Service Type")
     }
     else if(this.state.Address.trim() === "")
@@ -74,7 +78,7 @@ export default class App extends Component {
     {
       Alert.alert("Please Enter Locality")
     }
-    else if(this.state.City_dropdown.trim() === ""){
+    else if(this.state.City_dropdown === ""){
       Alert.alert("Please Select City")
     }
     else if(this.state.Contact_Name.trim() === "")
@@ -96,11 +100,18 @@ export default class App extends Component {
         NetInfo.isConnected.fetch().done((isConnected) => {
           if(isConnected)
               {  this.setState({ processing: true });
-                apis.VENDOR_PROFILE_UPDATE(this.state.avatarSource,this.state.Add_Bus_Details,this.state.categoryName,this.state.service_name,this.state.Address,this.state.Locality,this.state.city,
-                  this.state.Website_url,this.state.Email,this.state.Contact_Name,GLOBAL.mobile,this.state.Secondry_no,
-                  this.state.Landline_No,this.state.Master_Ven_ID,GLOBAL.token)
+                apis.VENDOR_PROFILE_UPDATE(
+                  this.state.Image_Source,this.state.Image_Source_1,
+                  this.state.Image_Source_2,this.state.Image_Source_3,
+                  this.state.avatarSource,this.state.Add_Bus_Details,
+                  this.state.Category_Dropdown,this.state.service_dropdown,this.state.Address,
+                  this.state.Locality,this.state.City_dropdown,this.state.Website_url,
+                  this.state.Email,this.state.Contact_Name, GLOBAL.mobile,
+                  this.state.Secondry_no,this.state.Landline_No,
+                  this.state.Master_Ven_ID,GLOBAL.token)
                   .then((responseJson) => {
-                    if(responseJson.success === true) {
+                    debugger
+                    if(responseJson.Response.ok === true) {
                       this.props.navigation.navigate('AuthStack');
                       apis.LOCAL_Delete_DATA('MobileTicket').
                       console.log(responseJson)
@@ -113,7 +124,7 @@ export default class App extends Component {
                     // console.error(error);
                     this.setState({ processing: false, loginText: 'Try Again' });
                   });
-                this.props.navigation.navigate('Welcome');
+                  this.props.navigation.navigate('Welcome')
               }
               else{
                 Alert.alert("Please check your internet connection")
@@ -399,8 +410,8 @@ selectPhotoTapped5()
                           itemColor={GLOBAL.COLOR.ORANGE}  
                           value={'Select Category'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
-                          onChangeText={(value) => {
-                            this.setState({Category_Dropdown:value})
+                          onChangeText={(value , index) => {
+                            this.setState({Category_Dropdown:(index+1)})
                             console.log(this.state.Category_Dropdown)
                          }}
                          rippleCentered={false}
@@ -417,9 +428,8 @@ selectPhotoTapped5()
                           itemColor={GLOBAL.COLOR.ORANGE}  
                           value={'Select Service Type'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
-                          onChangeText={(value) => {
-                            console.log(value); // gives new value OK
-                            this.setState({service_dropdown:value})
+                          onChangeText={(value,index) => {
+                            this.setState({service_dropdown:(index+1)})
                          }}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
@@ -524,9 +534,8 @@ selectPhotoTapped5()
                           itemColor={GLOBAL.COLOR.ORANGE}  
                           value={'City'}
                           // onChangeText={() => this.setState({Category:data.indexOf[0]})}
-                          onChangeText={(value) => {
-                             console.log(value); // gives new value OK
-                            this.setState({City_dropdown:value})
+                          onChangeText={(value , index) => {
+                            this.setState({City_dropdown:(index+1)})
                          }}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"

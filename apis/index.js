@@ -1,6 +1,4 @@
-// import { Base64 } from 'js-base64';
 import { AsyncStorage,Alert,NetInfo } from 'react-native';
-// import RNFetchBlob from 'rn-fetch-blob'
 
 const base_url = 'http://18.217.123.119:3000/api/';
 
@@ -255,27 +253,29 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
   
-  VENDOR_PROFILE_UPDATE: async (PicturePath,business_name,category,service,address,locality,city,
+  VENDOR_PROFILE_UPDATE: async (pic_1,pic_2,pic_3,pic_4,PicturePath,business_name,category,service,address,locality,city,
           website,email,contact_person,primary_no,secondary_number,landline_number,vendor_id,token) => {
     try {
+      debugger
       let formData  = new FormData();
       formData.append("business_name", business_name);
       formData.append("contact_person", contact_person);
       formData.append("vendor_unique_id", vendor_id);
       formData.append("address", address);
       formData.append("locality",locality);
-      formData.append("cityId", "1");
+      formData.append("cityId", city);
       formData.append("website", website);
-      // formData.append("mobile", GLOBAL.mobile);
+      formData.append("mobile", primary_no);
       formData.append("secondary_number", secondary_number);
       formData.append("landline_number", landline_number);
-      // formData.append('file[]', [{ uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' }]);
-      // formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
-      // formData.append("notification", "true");
-      // formData.append("email", "z.ansari@ebabu.co");
-      // formData.append("categoryId", "1");
-      // formData.append("subcategory[0][subcategoryId]", "1");
-      // formData.append("subcategory[1][subcategoryId]", "2");
+      formData.append('file[]', [{ uri: pic_1, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('file[]', [{ uri: pic_2, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('file[]', [{ uri: pic_3, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('file[]', [{ uri: pic_4, name: 'selfie.jpg', type: 'image/jpg' }]);
+      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      formData.append("email", email);
+      formData.append("categoryId",category );
+      formData.append("subcategory[0][subcategoryId]",service );
       const options = {
         method: 'POST',
         body: formData,
@@ -310,7 +310,6 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       }
       return null;
     } catch (error) {
-      // Error retrieving data
       Alert.alert("Error")
       return null;
     }
@@ -338,7 +337,6 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       }
       return null;
     } catch (error) {
-      // Error retrieving data
       Alert.alert("Error")
       return null;
     }

@@ -46,6 +46,8 @@ export default class Password extends Component {
           if(responseJson.success === true){
             this.props.navigation.navigate('AddDetails');
             console.log(responseJson)
+            AsyncStorage.setItem('Profile', JSON.stringify(responseJson.profile))
+            AsyncStorage.setItem('Profile_Token', responseJson.authentication_token)
             this.setState({ Uid :""});
             this.setState({ password:"" });
             this.setState({ conf_pass:"" });

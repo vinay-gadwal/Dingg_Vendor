@@ -34,12 +34,9 @@ const initHeight = 2
       // alert('Changed to ' + isOn)
     }
     logout=()=>{
-      apis.LOCAL_Delete_DATA('OTPticket').then(() => {
-        this.props.navigation.navigate('login');    
-        })
-          apis.LOCAL_Delete_DATA('ticket').then(() => {
+      apis.LOCAL_Delete_DATA('Profile_Token')
+          apis.LOCAL_Delete_DATA('ticket')
             this.props.navigation.navigate('login');    
-            })
     }
   render() {
     const {

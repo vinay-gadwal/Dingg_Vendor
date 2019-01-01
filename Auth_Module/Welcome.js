@@ -4,7 +4,7 @@ import {
   Image,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,AsyncStorage
 } from "react-native";
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
@@ -16,6 +16,9 @@ export default class Login extends Component {
   constructor(props)
    {
     super(props);
+  }
+  componentDidMount(){
+    AsyncStorage.setItem('Profile', JSON.stringify(true))
   }
 render() {
     return (
