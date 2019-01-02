@@ -100,6 +100,7 @@ export default class App extends Component {
         NetInfo.isConnected.fetch().done((isConnected) => {
           if(isConnected)
               {  this.setState({ processing: true });
+              debugger
                 apis.VENDOR_PROFILE_UPDATE(
                   this.state.Image_Source,this.state.Image_Source_1,
                   this.state.Image_Source_2,this.state.Image_Source_3,
@@ -209,7 +210,9 @@ Get_Service = async () =>{
             let source = { uri: response.uri };
               GLOBAL.Image=source;
               this.setState({ avatarSource: source });
+              console.log(this.state.avatarSource)
               this.setState({ avatarSource1:source });
+              console.log(this.state.avatarSource1)
           }
         });
       }
@@ -406,18 +409,20 @@ selectPhotoTapped5()
                   <View style={[styles.DropDown_view]}>
                       <Dropdown
                           data={data_category} 
-                          itemColor={GLOBAL.COLOR.ORANGE}  
+                          // itemColor={GLOBAL.COLOR.ORANGE}  
                           value={'Select Category'}
-                          // onChangeText={() => this.setState({Category:data.indexOf[0]})}
                           onChangeText={(value , index) => {
                             this.setState({Category_Dropdown:(index+1)})
                             console.log(this.state.Category_Dropdown)
                          }}
                          rippleCentered={false}
+                         disabledItemColor	="red"
                           dropdownPosition={0}
-                          textColor="rgb(204,204,204)"
+                          textColor="black"
+                          baseColor="black"
+                          itemColor	="black"
                           selectedItemColor={GLOBAL.COLOR.GRAY}
-                          fontFamily={GLOBAL.COLOR.FontFamilyBold}
+                          fontFamily={GLOBAL.COLOR.fontfamily}
                           marginLeft={2}
                       />
                   </View>
@@ -433,7 +438,7 @@ selectPhotoTapped5()
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
                           selectedItemColor={GLOBAL.COLOR.GRAY}
-                          fontFamily={GLOBAL.COLOR.FontFamilyBold}
+                          fontFamily={GLOBAL.COLOR.fontfamily}
                           marginLeft={2}
                       />
                   </View>

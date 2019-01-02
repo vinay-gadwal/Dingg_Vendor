@@ -9,7 +9,7 @@ container: {
       alignItems: "center",
       backgroundColor:"rgb(242,242,242)",
     },
-margin_top:{marginTop:hp("5%")},
+margin_top:{marginVertical:hp("3%")},
 Row_divider:{
         flexDirection:"row",justifyContent:"space-between"
     },
@@ -18,7 +18,7 @@ Sign_up_context:{
     },
 otp_box:{ alignItems:"flex-start",flexDirection:"row",justifyContent:"space-around"},
 Otp_button_margin:{marginBottom:hp("50%")},
-Row_margin:{flexDirection:"row",marginTop:hp("1%")},
+Row_margin:{flexDirection:"row",marginTop:hp("4%")},
 DElete_icon:{
         width: hp("2%"),height: hp("2%"),
         marginTop:hp("3"),marginBottom:hp("2%"),marginTop:hp("1%"),alignItems:"flex-end",justifyContent:"flex-end"
@@ -174,7 +174,7 @@ orange_line:{
 box:{
         alignItems:"center",
         width: wp('90%'),
-        marginTop:hp("2%"),
+        // marginTop:hp("2%"),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
         paddingVertical:hp('2%'),
         borderRadius:10,

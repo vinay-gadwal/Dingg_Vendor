@@ -23,7 +23,7 @@ export default class Login extends Component {
    {
     super(props);
     this.state = {
-      username: "",
+      username: "",EAMIL:"",
       password: "",Email_password:"",
       hidePassword:"true",processing:false,
       data: [ 
@@ -65,17 +65,33 @@ this.setState({username:""})
       }
     });
   }
-  
-    handlePress = () => {
+  Validation(){
+    if(this.state.username == "" && this.state.EAMIL == ""){
+      Alert.alert("Please Enter Mobile Number or Email")
+    }
+    else if(this.state.username != ""){
+      this.setState({EAMIL:""})
+      {this.handlePress}
+    }
+    else if(this.state.EAMIL != ""){
+      this.setState({username:""})
+      {this.handlePress}
+    }
+  }
+  update(e){
+    if(this.state.username.trim()) this.props.dispatch(addTodo(this.state.username)); 
+    this.setState({username: "" }); 
+}
+    handlePress() {
 NetInfo.isConnected.fetch().done((isConnected) => {
 if(isConnected){
-    this.setState({ processing: true });
+  this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
         this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
           apis.Sign_LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
-            this.setState({ username:""});
+           this.state.username=""
             this.setState({ password:"" });
             this.props.navigation.navigate('AuthStack'); 
             }).catch((error) => {
@@ -99,6 +115,8 @@ else{
 }
 
   phone(){
+    this.setState({username:""})
+    this.setState({password:""})
     return(
       <View style={styles.Only_Column}>
       <View style={styles.Row_divider}>
@@ -108,6 +126,7 @@ else{
        <Text>   </Text>
        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
+         onSubmitEditing = { (e)=> { this.update(e); } }
          onChangeText={username => this.setState({ username })}
          style={[styles.Mobile_nput]}
         //  placeholderTextColor={GLOBAL.COLOR.GRAY}
@@ -137,9 +156,13 @@ else{
              <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
        </TouchableOpacity> */}
 </View>
+<TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
+              <Text style={[styles.text_orange,{marginLeft:"44%"}]}>Forgot Password?</Text>
+          </TouchableOpacity>
 </View>
     )
   }
+  
   email(){
     return(
       <View style={styles.Only_Column}>
@@ -158,12 +181,13 @@ else{
          placeholder="Enter Email ID"
        />
       </TextInputLayout>
+      <View style={styles.Row_divider}>
       <View style = { styles.textBoxBtnHolder } > 
        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
            <TextInput 
            // secureTextEntry = { this.state.hidePassword }
              placeholder="Enter Password"
-            //  onChangeText={password => this.setState({ password })}
+             onChangeText={password => this.setState({ password })}
              underlineColorAndroid = "transparent"
              secureTextEntry
              // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
@@ -174,18 +198,22 @@ else{
              <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
        </TouchableOpacity> */}
 </View>
+</View>
+<TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
+              <Text style={[styles.text_orange,{marginLeft:"44%"}]}>Forgot Password?</Text>
+          </TouchableOpacity>
   </View>
     )
   }
 
-  onPress = data => this.setState({ data });
+  onPress = data =>{[ this.setState({ data }),this.setState({username:""}),
+                  this.setState({password:""})]}
   
   managePasswordVisibility = () =>
   {
     this.setState({ hidePassword: !this.state.hidePassword });
   }
-
-  render() {
+ render() {
     let selectedButton = this.state.data.find(e => e.selected == true);
         selectedButton = selectedButton ? selectedButton.value : this.phone()
     return (
@@ -202,9 +230,6 @@ else{
          </View>
          {selectedButton}
           {/* <Text>{this.state.username}</Text> */}
-          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
-              <Text style={[styles.text_orange,{marginLeft:"44%"}]}>Forgot Password?</Text>
-          </TouchableOpacity>
       </View>
       
           {/* <TouchableOpacity onPress={this.handlePress}>
@@ -212,7 +237,7 @@ else{
                <Text style={styles.buttonText}>Sign In</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity> */}
-          <TouchableOpacity style={styles.button} onPress={this.handlePress}>
+          <TouchableOpacity style={styles.button} onPress={()=>{this.handlePress()}}>
                <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       
@@ -230,7 +255,7 @@ else{
         <Text style={styles.text}>here</Text>
       </View>
       
-      <View style={[styles.Row_margin,{marginBottom:hp("1.5%")}]}>
+      <View style={[styles.Row_margin,{marginBottom:hp("3%")}]}>
         <ResponsiveImage
           source={GLOBAL.Copy_right}
           initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}

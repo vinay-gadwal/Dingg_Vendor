@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Text,
   View,Image,
-  ScrollView,TouchableOpacity
+  ScrollView,TouchableOpacity,AsyncStorage
 } from 'react-native';
 import styles from './Style'
 import ToggleSwitch from 'toggle-switch-react-native'
@@ -34,9 +34,9 @@ const initHeight = 2
       // alert('Changed to ' + isOn)
     }
     logout=()=>{
-      apis.LOCAL_Delete_DATA('Profile_Token')
           apis.LOCAL_Delete_DATA('ticket')
-            this.props.navigation.navigate('login');    
+          AsyncStorage.removeItem('Registered');
+            this.props.navigation.navigate('SignIn');    
     }
   render() {
     const {

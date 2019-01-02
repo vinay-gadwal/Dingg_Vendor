@@ -75,10 +75,10 @@ else{
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
         keyboardShouldPersistTaps='handled'
       >      
-       <View style={styles.margin_top}>
+       <View style={[styles.margin_top,{marginVertical:hp("5%")}]}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box,{marginTop:hp("3%")}]}>
+        <View style={[styles.box]}>
           {/* <Text style={styles.text}>Enter the registered mobile number</Text> */}
           <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
@@ -108,10 +108,10 @@ else{
                <Text style={styles.buttonText}>Submit for OTP</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity> */}
-            <TouchableOpacity style={[styles.button,{marginBottom:hp("6%")}]} onPress={this.handlePress}>
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("17%")}]} onPress={this.handlePress}>
                <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
-        <View style={[styles.Row_margin,{marginTop:hp("10%")}]}>
+        <View style={[styles.Row_margin]}>
             <Text style={styles.text}>Already have an account? </Text>
             <View style={styles.Only_Column}>
               <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}>
@@ -124,7 +124,7 @@ else{
             </View>
             <Text style={styles.text}>here</Text>
         </View>
-        <View style={[styles.Colom_margin,{marginTop:hp("5%")}]}>
+        <View style={[styles.Colom_margin,{marginTop:hp("8%")}]}>
             <View style={styles.Row_divider}>
             <ResponsiveImage
           source={GLOBAL.Copy_right}

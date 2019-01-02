@@ -151,11 +151,6 @@ const AuthStack = createBottomTabNavigator({
     }
     })
   },
-  login: { screen: sing_in,
-    navigationOptions: ({ navigation }) => ({
-      tabBarVisible: false,
-    }), 
-      },
 },
 {
   initialRouteName: 'D',
@@ -558,8 +553,20 @@ Set_up:{
             },
 
 });
-
-
+const FinalStack = createStackNavigator({
+  RootStack:RootStack,
+  AuthStack:AuthStack,
+  SignIn:sing_in,
+  
+  
+},
+{
+  initialRouteName:"RootStack",
+  headerMode: "none",
+  navigationOptions: {
+    headerTitleStyle: GLOBAL.header
+      },
+    })
 export default class DinggApp extends React.Component {
   constructor(){
     super();
@@ -568,7 +575,7 @@ export default class DinggApp extends React.Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: GLOBAL.COLOR.White_color}}  forceInset={{top: 'always'}}>
-        <RootStack />
+        <FinalStack />
       </SafeAreaView>
     );
   }

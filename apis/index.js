@@ -257,6 +257,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
           website,email,contact_person,primary_no,secondary_number,landline_number,vendor_id,token) => {
     try {
       let formData  = new FormData();
+      debugger
       formData.append("business_name", business_name);
       formData.append("contact_person", contact_person);
       formData.append("vendor_unique_id", vendor_id);
@@ -268,7 +269,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       formData.append("secondary_number", secondary_number);
       formData.append("landline_number", landline_number);
       // formData.append('file[]', [{ uri: pic_1, name: 'selfie.jpg', type: 'image/jpg' }]);
-      formData.append('profile_pic', { uri: PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
+      formData.append('profile_pic', { PicturePath, name: 'selfie.jpg', type: 'image/jpg' });
       formData.append("email", email);
       formData.append("categoryId",category );
       formData.append("subcategory[0][subcategoryId]",service );
