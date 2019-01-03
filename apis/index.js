@@ -1,12 +1,12 @@
 import { AsyncStorage,Alert,NetInfo } from 'react-native';
 
-const base_url = 'http://18.217.123.119:3000/api/';
+const base_url = 'http://18.217.123.119/api/v1/';
 
 const apis = {
   LOGIN_API: async (user, pass) => {
     try {
       const response = await fetch(
-        base_url + 'vendor_login',
+        base_url + 'vendor/login',
         {
           method: 'POST',
           headers: {
@@ -30,7 +30,7 @@ const apis = {
   SIGN_UP: async (usermobile) => {
     try {
       const response = await fetch(
-        base_url + 'vendor_signup',
+        base_url + 'vendor/signup',
         {
           method: 'POST',
           headers: {
@@ -53,7 +53,7 @@ const apis = {
   OTP_SignUP: async (Mobile,code) => {
     try {
       const response = await fetch(
-        base_url + 'vendor_verify_account',
+        base_url + 'vendor/account/verify',
         {
           method: 'POST',
           headers: {
@@ -74,10 +74,34 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
 
+  Resend_OTP: async (Mobile,token) => {
+    try {
+      debugger
+      const response = await fetch(
+        base_url + 'vendor/otp/resend',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            // 'Authorization':token,
+                   },
+          body: JSON.stringify({
+            mobile:Mobile
+          }),
+        },
+      );
+      const responseJson = await response.json();
+      console.log(responseJson)
+      return responseJson;
+    } catch (error) {
+      Alert.alert("Error")
+    }
+  },
+
   Create_Pass: async (password,UID,token) => {
     try {
       const response = await fetch(
-        base_url + 'vendor_save_password',
+        base_url + 'vendor/password',
         {
           method: 'POST',
           headers: {
@@ -102,7 +126,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
   FORGET_PASS: async (usermobile) => {
     try {
       const response = await fetch(
-        base_url + 'vendor_forgot_password',
+        base_url + 'vendor/password/forgot',
         {
           method: 'POST',
           headers: {
@@ -124,40 +148,21 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
 
   OTP_FORGOT: async (Mobile,code) => {
     try {
+      debugger
       const response = await fetch(
-        base_url + 'vandor_verify_mobile',
+        base_url + 'vendor/account/verify',
         {
           method: 'POST',
           headers: {
             "content-type": "application/json",
             "cache-control": "no-cache",
-            "postman-token": "1d546500-20bd-02d9-403c-68dab1907fbb"
+            "postman-token": "fb22d4e7-ffa9-0f69-6881-3b82b617bbee"
           },
           body: JSON.stringify({
             mobile            :Mobile,
             verification_code :code,
-          }),
-        },
-      );
-      const responseJson = await response.json();
-      return responseJson;
-    } catch (error) {
-      Alert.alert("Error")
-    }
-  },
-
-  Resend_OTP: async (Mobile) => {
-    try {
-      const response = await fetch(
-        base_url + 'vendor_resend_otp',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjMsImlhdCI6MTU0MzI5NjcwOH0.D_8831a6S3xoFaz_kS_VyeImRmsJx3DJ7Y_GdcnnQwE',
-                   },
-          body: JSON.stringify({
-            mobile:Mobile
+            "device_type":"ios",
+            "device_token":"fiodfpisdfposidfpoisdfposdifsodfiskdfpsdfiosdfpdskfposdi"
           }),
         },
       );
@@ -192,7 +197,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
   //////Add Details Apis///////
-  GET_Cetegory: async () =>{
+  GET_Cetegory: async (token) =>{
     try {
       const response = await fetch(
         base_url + 'category',
@@ -200,6 +205,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
           method: 'GET',
           headers: {
             "content-type": "application/json",
+            // "authorization":token,
             "cache-control": "no-cache",
             "postman-token": "cb14e44b-cc78-29e4-d4b8-0c3f2ca2ba1b"
                    },
@@ -207,7 +213,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      Alert.alert(error)
+      Alert.alert('!error')
     }
   },
   Get_city: async (token) =>{
@@ -230,20 +236,21 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
     }
   },
 
-  Get_service: async () =>{
+  Get_service: async (token) =>{
     try {
       const response = await fetch(
-        base_url + 'getsubcategory',
+        base_url + 'service',
         {
           method: 'POST',
           headers: {
             "content-type": "application/json",
+            "authorization": token,
             "cache-control": "no-cache",
             "postman-token": "52d111cc-bc3d-02da-6560-1f1e7a0ab1bf"
                    },
-          body: JSON.stringify({
-            categoryId : "1"
-          }),
+          // body: JSON.stringify({
+          //   sub_category_id : "1"
+          // }),
         },
       );
       const responseJson = await response.json();
@@ -274,7 +281,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       formData.append("categoryId",category );
       formData.append("subcategory[0][subcategoryId]",service );
       const options = {
-        method: 'POST',
+        method: 'PUT',
         body: formData,
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -282,7 +289,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
         }
       };
       delete options.headers['Content-Type'];
-      fetch(base_url + "vendor_profile_update", options)
+      fetch(base_url + "vendor/profile", options)
       .then(function (response) {
          console.log(response);
       });

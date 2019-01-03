@@ -81,10 +81,10 @@ export default class Password extends Component {
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
         keyboardShouldPersistTaps='handled'
       >
-       <View style={styles.margin_top}>
+       <View style={[styles.margin_top,styles.Adddetails_image]}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box,{paddingBottom:hp("4%")}]}>
+        <View style={[styles.box,{paddingBottom:hp("6%")}]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
           <TextInput
             value={this.state.password}

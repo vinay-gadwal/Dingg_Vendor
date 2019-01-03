@@ -42,24 +42,25 @@ export default class Password extends Component {
         .then((responseJson) => {
           console.log(responseJson)
           this.setState({ processing: false, loginText: 'Successfull..' });
-          console.log(GLOBAL.token)
+          console.log("create password",GLOBAL.token)
           if(responseJson.success === true){
-            this.props.navigation.navigate('AddDetails');
+            debugger
+            apis.Sign_LOCAL_SET_DATA('Profile_Vendor',JSON.stringify(responseJson.is_profile))
+            // this.props.navigation.navigate('AddDetails');
             console.log(responseJson)
-            AsyncStorage.setItem('Profile', JSON.stringify(responseJson.profile))
-            AsyncStorage.setItem('Profile_Token', responseJson.authentication_token)
             this.setState({ Uid :""});
             this.setState({ password:"" });
             this.setState({ conf_pass:"" });
             apis.LOCAL_Delete_DATA('OTPticket');
-
           }
           else{
+            debugger
             Alert.alert(responseJson.message)
             console.log(responseJson)
           }
         })
         .catch((error) => {
+          debugger
           Alert.alert("error")
           this.setState({ processing: false, loginText: 'Try Again' });
         });
@@ -94,10 +95,10 @@ export default class Password extends Component {
 <KeyboardAwareScrollView  contentContainerStyle={styles.container}
   keyboardShouldPersistTaps='handled'
 >
-      <View style={styles.margin_top}>
+      <View style={[styles.margin_top,styles.Adddetails_image]}>
       <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
       </View>
-      <View style={styles.box}>
+      <View style={[styles.box,styles.padding_bottom]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.Uid}
@@ -144,7 +145,7 @@ export default class Password extends Component {
         </TouchableOpacity> */}
         <TouchableOpacity onPress={this.Password_Validate} style={[styles.button,{marginBottom:hp("10%")}]}>
         {/* {!this.state.processing ? <View style={styles.button}> */}
-               <Text style={styles.buttonText}>Submit</Text>
+               <Text style={styles.buttonText}>Complete Signup</Text>
              {/* </View> :  <Text style={styles.buttonText}>Submit</Text>} */}
         </TouchableOpacity>
     <View style={styles.Colom_margin}>

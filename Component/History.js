@@ -83,7 +83,7 @@ class Ongoing extends React.Component {
               <View style={styles.Flat_box}> 
                 <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
-                     <View style={styles.Row_divider}>
+                     <View style={[styles.Row_divider,{marginTop:hp("2%")}]}>
                        <ResponsiveImage  source={GLOBAL.Serve_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
                        <Text style={styles.grey_text}>{this.state.time}m</Text>
                      </View>

@@ -41,9 +41,9 @@ export default class App extends Component {
       }
     }
     componentDidMount(){
-      this.Get_Category()
-      this.Get_City()
-      this.Get_Service()
+      // this.Get_Category()
+      // this.Get_City()
+      // this.Get_Service()
       this._bootstrapAsync();
      }
     ////
@@ -64,12 +64,12 @@ export default class App extends Component {
     {
         Alert.alert("Please Enter Business Name")
     }
-    else if(this.state.Category_Dropdown === ""){
-      Alert.alert("Please Select Category")
-    }
-    else if(this.state.service_dropdown === ""){
-      Alert.alert("Please Select Service Type")
-    }
+    // else if(this.state.Category_Dropdown === ""){
+    //   Alert.alert("Please Select Category")
+    // }
+    // else if(this.state.service_dropdown === ""){
+    //   Alert.alert("Please Select Service Type")
+    // }
     else if(this.state.Address.trim() === "")
     {
       Alert.alert("Please Enter Address")
@@ -78,9 +78,9 @@ export default class App extends Component {
     {
       Alert.alert("Please Enter Locality")
     }
-    else if(this.state.City_dropdown === ""){
-      Alert.alert("Please Select City")
-    }
+    // else if(this.state.City_dropdown === ""){
+    //   Alert.alert("Please Select City")
+    // }
     else if(this.state.Contact_Name.trim() === "")
     {
       Alert.alert("Please Enter Contact Name")
@@ -137,7 +137,7 @@ export default class App extends Component {
     }
 
 Get_Category = async () =>{
-  apis.GET_Cetegory()
+  apis.GET_Cetegory(GLOBAL.token)
       .then((responseJson) => {
        console.log(responseJson)
        for (let i = 0; i <= responseJson.data.length-1; i++) 
@@ -153,7 +153,7 @@ Get_Category = async () =>{
     }
 
 Get_City = async () =>{
-  apis.Get_city()
+  apis.Get_city(GLOBAL.token)
       .then((responseJson) => {
        console.log(responseJson)
       for (let i = 0; i <= responseJson.data.length-1; i++) 
@@ -393,7 +393,7 @@ selectPhotoTapped5()
                       }
                 </View>
           </TouchableOpacity>
-          <Text style={[styles.text,styles.padding_verticle]}>Add Your Logo</Text>
+          <Text style={[styles.text,{paddingVertical:hp("1%")}]}>Add Your Logo</Text>
           <View style={styles.boxDetails}>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
@@ -415,15 +415,10 @@ selectPhotoTapped5()
                             this.setState({Category_Dropdown:(index+1)})
                             console.log(this.state.Category_Dropdown)
                          }}
-                         rippleCentered={false}
-                         disabledItemColor	="red"
-                          dropdownPosition={0}
-                          textColor="black"
-                          baseColor="black"
-                          itemColor	="black"
-                          selectedItemColor={GLOBAL.COLOR.GRAY}
-                          fontFamily={GLOBAL.COLOR.fontfamily}
-                          marginLeft={2}
+                         textColor="rgb(204,204,204)"
+                         selectedItemColor={GLOBAL.COLOR.GRAY}
+                         fontFamily={GLOBAL.COLOR.fontfamily}
+                         marginLeft={2}
                       />
                   </View>
                   <View style={[styles.DropDown_view]}>

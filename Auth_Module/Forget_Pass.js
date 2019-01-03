@@ -75,7 +75,7 @@ if(isConnected){
          <View style={[styles.margin_top,{marginVertical:hp("5%")}]}>
         <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
         </View>
-        <View style={[styles.box]}>
+        <View style={[styles.box,styles.padding_verticle]}>
           <Text style={styles.text}>Enter the registered mobile number</Text>
           <View style={styles.Sign_up_context}>
               <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
@@ -106,7 +106,7 @@ if(isConnected){
                <Text style={styles.buttonText}>Submit for OTP</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
         </TouchableOpacity> */}
-         <TouchableOpacity style={[styles.button,{marginBottom:hp("28%")}]} onPress={this.handlePress}>
+         <TouchableOpacity style={[styles.button,{marginBottom:hp("24%"),marginTop:hp("2%")}]} onPress={this.handlePress}>
                <Text style={styles.buttonText}>Submit for OTP</Text>
           </TouchableOpacity>
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>

@@ -66,10 +66,12 @@ if(isConnected){
   }
 
 _resend_OTP = async () =>{
+  debugger
   apis.Resend_OTP(GLOBAL.Mobile1)
   .then((response) => response.json())
   .then((responseJson) => {
    console.log(GLOBAL.Mobile1)
+   console.log(responseJson)
    this.setState({ time : 500 })
   })
   .catch((error) => {
@@ -82,7 +84,7 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-         <Text style={styles.Otp_text}>Verify to continue</Text>
+         <Text style={[styles.Otp_text,{marginRight:wp("40%")}]}>Verify to continue</Text>
         <View style={[styles.box,{marginBottom:hp("2%"),paddingVertical:hp("6%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.Mobile1}</Text>
           <View style={styles.otp_box}>
@@ -106,7 +108,7 @@ _resend_OTP = async () =>{
                         allowFontScaling={true}
                         style={styles.timer_countdown}
                     />
-                  <TouchableOpacity >
+                  <TouchableOpacity onPress={this._resend_OTP.bind(this)}>
                   <Text style={styles.timer_text}>Resend OTP</Text>
                   </TouchableOpacity>
               </View>

@@ -58,7 +58,7 @@ return (
                     <View style={styles.Flat_box}>
                         <View style={styles.setting_Row}>                          
                              <View style={styles.flat_box_colum}>
-                                <View style={styles.Row_divider}>
+                                <View style={[styles.Row_divider,{marginTop:hp("1%")}]}>
                                     <ResponsiveImage source={GLOBAL.Serve_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
                                  </View>

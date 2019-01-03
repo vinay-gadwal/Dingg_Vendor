@@ -112,7 +112,7 @@ class App extends Component {
                   
             </View>
             <Text></Text>
-            <TouchableOpacity style={[styles.Profile_Container,styles.Row_divider]}
+            <TouchableOpacity style={[styles.Profile_Container,styles.Row_divider,{paddingVertical:hp("1.5%")}]}
                           onPress={() => {this.props.navigation.navigate('QR_Code')}}>
                   
                   <Text style={[styles.profile_text]}>My Dingg Code</Text>

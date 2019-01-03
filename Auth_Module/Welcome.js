@@ -24,11 +24,11 @@ export default class Login extends Component {
 render() {
     return (
     <View  style={styles.container}>   
-        <ResponsiveImage source={GLOBAL.Welcome_icon} style={[styles.MARGIN_VERticle]} initWidth={GLOBAL.COLOR.Size_100} initHeight={GLOBAL.COLOR.Size_100}/>
+        <ResponsiveImage source={GLOBAL.Welcome_icon} style={[styles.margin_top,styles.Row_margin,{marginTop:hp("8%")}]} initWidth={GLOBAL.COLOR.Size_100} initHeight={GLOBAL.COLOR.Size_100}/>
        <Text style={[styles.text,{marginHorizontal:hp("8%"),justifyContent:"center"}]}>Thank you for submitting the</Text>
        <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center"}]}>information.</Text>
        <Text style={[styles.text,{marginHorizontal:hp("5%"),alignItems:"flex-end"}]}>You are now all set to explore </Text>
-       <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:hp("8%")}]}>your business.</Text>
+       <Text style={[styles.text,{marginHorizontal:hp("10%"),justifyContent:"center",marginBottom:hp("6%")}]}>your business.</Text>
           <TouchableOpacity style={[styles.button,{marginBottom:hp("40%")}]} onPress={() =>{this.props.navigation.navigate('AuthStack')}}>
           <Text style={styles.buttonText}>Let's Go</Text>
           </TouchableOpacity>

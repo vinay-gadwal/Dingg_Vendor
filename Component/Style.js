@@ -9,10 +9,9 @@ container: {
       alignItems: "center",
       backgroundColor:"rgb(242,242,242)",
     },
+padding_bottom:{paddingBottom:hp("6%")},
 margin_top:{marginVertical:hp("3%")},
-Row_divider:{
-        flexDirection:"row",justifyContent:"space-between"
-    },
+Row_divider:{flexDirection:"row",justifyContent:"space-between"},
 Sign_up_context:{
         flexDirection:"row",justifyContent:"space-between",marginBottom:hp("3%")
     },
@@ -34,17 +33,15 @@ Add_sty_text:{
 Mobile_number_divider:{
         marginTop:hp("1.3%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily,
     },
-Radio_button:{
-        marginRight:wp("9%")
-    },
+Radio_button:{marginRight:wp("9%")},
 _91_style:{
         marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily
     },
 Otp_text:{
-        fontSize:RF(3.5),
+        fontSize:RF(3),
         fontFamily:GLOBAL.COLOR.FontFamilyBold,
         marginVertical:hp("6%"),marginTop:hp("8%"),
-        marginRight:wp("35%"),
+        marginRight:wp("15%"),
           color: "rgb(68,68,68)",
           justifyContent:"flex-start"
     },
@@ -60,13 +57,13 @@ timer_text:{
         justifyContent:"flex-start"
     },
 timer_countdown:{
-        fontSize:RF(2),marginTop:hp("2%"),color:"rgb(176,176,176)",marginRight:wp("2%")
+        fontSize:RF(2),marginTop:hp("2%"),color:"black",marginRight:wp("2%")
     },
 Flat_box:{
       width: wp('90%'),marginHorizontal:"5%",
       backgroundColor:GLOBAL.COLOR.backgroundColor,
-      marginTop:hp('2%'),
-      borderRadius:10,
+      marginTop:hp('4%'),
+      borderRadius:8,
       shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
@@ -106,12 +103,13 @@ Mobile_nput:{
 Select_unselect_con:{
         width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")
     } ,
-AddServices:{marginHorizontal:"5%"},
-padding_verticle:{ paddingVertical:"5%"},
+AddServices:{marginHorizontal:wp("5%")},
+padding_verticle:{ paddingVertical:hp("3.5%")},
 MARGIN_VERticle:{marginVertical:hp("2%")},
+margin_left_5:{marginLeft:wp("5%")},
 Only_Column:{flexDirection:"column",alignItems:"center"},
 Column_reverse:{flexDirection:"column-reverse"},
-Adddetails_image:{marginTop:hp("4%")},
+Adddetails_image:{marginTop:hp("5%")},
 View_offer:{
         marginLeft:wp("70%"),marginBottom:hp("2%"),marginTop:hp("2%"),  width: hp("2%"),
         height: hp("2%"),
@@ -119,10 +117,9 @@ View_offer:{
     },
 button: {
         width: wp('35%'),
-        height: hp('6.5%'),
         backgroundColor:GLOBAL.COLOR.ORANGE,
         justifyContent: "center",marginHorizontal:wp("33%"),
-        paddingVertical: hp('1%'),marginVertical:hp("2%"),
+        paddingVertical: hp('1.7%'),marginVertical:hp("2%"),
         borderRadius:7,
         shadowColor: GLOBAL.COLOR.ORANGE,
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -139,18 +136,17 @@ Offer_button:{
     shadowRadius: 4,
     },
 Action_button:{
-        height:hp("5%"),
         width:wp("23%"),borderRadius:8,
         backgroundColor:"white",
         shadowColor: 'rgb(217,217,217)',
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 2,
         shadowRadius: 8,
-        paddingVertical: hp('1%'),
+        paddingVertical: hp('.5%'),
     } ,
 Send_alert:{marginTop:hp("1.5%"),marginLeft:wp("18%")},
 buttonText: {
-        fontSize: RF(2.2),
+        fontSize: RF(2.1),
         alignSelf: "center",
         textAlign: "center",
         color: "white",
@@ -177,7 +173,7 @@ box:{
         // marginTop:hp("2%"),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
         paddingVertical:hp('2%'),
-        borderRadius:10,
+        borderRadius:8,
         shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
@@ -190,8 +186,8 @@ Reject_box:{
         alignItems:"flex-start",
         width: wp('90%'),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
-        paddingVertical:hp('2%'),
-        borderRadius:10,
+        paddingVertical:hp('2%'),marginVertical:hp("5%"),
+        borderRadius:8,
         shadowColor: GLOBAL.COLOR.ShadowColor,marginTop:hp("5%"),
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
@@ -304,10 +300,10 @@ boxDetails:{
         alignItems:"flex-start",paddingLeft:wp("10%"),
         width: wp('90%'),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
-        borderRadius:10,
+        borderRadius:8,
         justifyContent: 'space-between',
         marginHorizontal:"5%",
-        paddingVertical:hp('3%'),marginVertical:hp("2%"),
+        paddingVertical:hp('1.5%'),marginVertical:hp("2%"),
         shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
@@ -351,13 +347,13 @@ Dashbosrd_image_top:{
 Dashboard_text:{
         fontFamily:'Muli-Bold',
         color:"#999999",
-        fontSize:RF(1.7),
+        fontSize:RF(1.7),marginTop:hp("1%"),
         fontFamily:GLOBAL.COLOR.FontFamilyBold,
-        width:wp("11%"),
+        width:wp("10%"),
         alignItems:"flex-end",
          },
 Dashboard_big_text:{
-            fontSize: RF(3.2),marginTop:hp("2%"),
+            fontSize: RF(3.2),marginTop:hp("1%"),
             marginLeft:wp("5%"),
             color:"rgb(68,68,68)",
             fontFamily:GLOBAL.COLOR.FontFamilyBold,
@@ -365,7 +361,7 @@ Dashboard_big_text:{
 Dashboard_block_box:{
         flexDirection:"row",
         justifyContent:"space-between",
-        marginHorizontal:wp("6%"),
+        marginHorizontal:wp("7%"),
         marginTop:hp("4%"),
         shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -375,8 +371,9 @@ Dashboard_block_box:{
 Dashboard_block:{
         width:wp("40%"),flexDirection:"row",
         backgroundColor:GLOBAL.COLOR.backgroundColor,
-        borderRadius:10,
+        borderRadius:8,
         shadowColor: GLOBAL.COLOR.ShadowColor,
+        paddingVertical:hp("1%"),
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
         shadowRadius: 4,
@@ -455,7 +452,7 @@ btnImage:{
 Profile_Container:{
         width:"90%",marginVertical:hp("1.5%"),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
-        borderRadius:10,
+        borderRadius:8,
         justifyContent: 'space-between',marginHorizontal:"5%",
         shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },

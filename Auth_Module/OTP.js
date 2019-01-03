@@ -44,8 +44,9 @@ if(isConnected){
         Alert.alert(responseJson.message)
       }
      else if(responseJson.success === false){
+       debugger
         GLOBAL.token = responseJson.data[0].auth_tokan
-        // console.log(responseJson.data[0].auth_tokan)
+        console.log("old user otp",responseJson.data[0].auth_tokan)
         if(!responseJson.data[0].is_password)
         {
           this.props.navigation.navigate('Crea_pass');
@@ -57,11 +58,11 @@ if(isConnected){
         apis.Sign_LOCAL_SET_DATA_MOBILE('MobileTicket',responseJson.data.mobile);
         console.log(responseJson.data.mobile)
         apis.Sign_LOCAL_SET_DATA('OTPticket',responseJson.token).then(() => {
+          debugger
           this.props.navigation.navigate('Crea_pass');
           GLOBAL.token = responseJson.token
-          console.log(responseJson.token)
+          console.log("OTP token",responseJson.token)
           }).catch((error) => {
-           Alert.alert(error);
             this.setState({ loginText: 'Try Again' });
           });
         // this.props.navigation.navigate('Crea_pass');
@@ -134,14 +135,15 @@ if(isConnected){
   }
 _resend_OTP = async () =>{
   this.setState({code:""})
-  apis.Resend_OTP(GLOBAL.mobile)
+  apis.Resend_OTP(GLOBAL.mobile,GLOBAL.token)
   .then((responseJson) => {
+    debugger
     console.log(responseJson)
    console.log(GLOBAL.mobile)
    this.setState({ time : 500 })
   })
   .catch((error) => {
-    Alert.alert(error)
+    Alert.alert("Please Enter Valid OTP")
   });
 }
   render() {
@@ -152,8 +154,8 @@ _resend_OTP = async () =>{
     <KeyboardAwareScrollView  contentContainerStyle={styles.container}
       keyboardShouldPersistTaps='handled'
     >      
-        <Text style={styles.Otp_text}>Verify to continue</Text>
-        <View style={[styles.box,{marginBottom:hp("2%"),paddingVertical:hp("6%")}]}>
+        <Text style={styles.Otp_text}>Verify your mobile Number</Text>
+        <View style={[styles.box,{marginBottom:hp("2%"),paddingVertical:hp("5%")}]}>
           <Text style={styles.text}>Enter OTP sent to +91-{GLOBAL.mobile}</Text>
           <View style={styles.otp_box}>
           <View style={styles.otp}> 

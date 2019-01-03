@@ -65,7 +65,7 @@ class App extends Component {
                     <ResponsiveImage source={Totol} style={styles.Dashbosrd_image_top}/>                
                     <View style={styles.Dashboard_block_colom}>
                     <Text style={styles.Dashboard_big_text}>100</Text>
-                    <Text style={styles.Dashboard_text}>Total</Text>
+                    <Text style={[styles.Dashboard_text,{width:wp("7.5%")}]}>Total</Text>
                     {/* <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),marginBottom:hp("2%")}]}>Booking</Text>             */}
                     </View>
         </View>
@@ -87,14 +87,14 @@ class App extends Component {
        </View>
         <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={Wait_time} style={styles.Dashbosrd_image_top}/>                
-                    <View style={[styles.Dashboard_block_colom,{width:wp("23%")}]}>
-                    <View style={styles.Row_divider}>
+                    <View style={[styles.Dashboard_block_colom,styles.margin_left_5]}>
+                    <View style={{flexDirection:"row",width:wp("23%")}}>
                     <TimerCountdown
                         initialSecondsRemaining={1000*60}
                         allowFontScaling={true}
-                        style={{ fontSize:RF(2.8),marginTop:hp("2%")  }}
+                        style={{ fontSize:RF(2.8),marginTop:hp("1%")  }}
                     />
-                    <Text style={[styles.Dashboard_big_text,{ marginTop:hp("1.5%")}]}>m</Text>
+                    <Text style={[styles.Dashboard_big_text,{ marginTop:hp(".5%"),marginLeft:wp("1%")}]}>m</Text>
                     </View>
                     <Text style={[styles.Dashboard_text,{width:wp("20%")}]}>Wait Time</Text>      
                     </View>      
@@ -214,8 +214,8 @@ class App extends Component {
         </View>
         
       <View style={styles.Profile_Container}>        
-              <View style={[styles.setting_Row,{marginVertical:hp("2%")}]}>
-                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("5%")}]}>
+              <View style={[styles.setting_Row,styles.MARGIN_VERticle]}>
+                          <View style={[styles.Dashbosrd_image,styles.margin_left_5]}>
                              <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
@@ -223,11 +223,11 @@ class App extends Component {
                              <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
-                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("12%")}]}>
+                          <View style={[styles.Dashbosrd_image,{marginLeft:wp("10%")}]}>
                              <ResponsiveImage source={require('../Image/main/employeeNameIcon3x.png')} initWidth="15" initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                     
-                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("12%")}]}>
+                           <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("8%")}]}>
                              <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                         
@@ -235,7 +235,7 @@ class App extends Component {
                              <ResponsiveImage source={require('../Image/main/customersHandledCopy3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
-                          <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("4%")}]}>
+                          <View style={[styles.Dashbosrd_image,{width:wp(.5),marginLeft:wp("2%")}]}>
                              <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           

@@ -41,10 +41,7 @@ export default class Login extends Component {
             ],
     };  
   }
-  componentWillReceiveProps(){
-this.setState({username:""})
-  }
- 
+
   componentDidMount() {
     console.log("check")
     NetInfo.isConnected.fetch().done((isConnected) => {
@@ -88,6 +85,7 @@ if(isConnected){
   this.setState({ processing: true });
     apis.LOGIN_API(this.state.username, this.state.password)
       .then((responseJson) => {
+        console.log(responseJson)
         this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
           apis.Sign_LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
@@ -126,10 +124,10 @@ else{
        <Text>   </Text>
        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
-         onSubmitEditing = { (e)=> { this.update(e); } }
-         onChangeText={username => this.setState({ username })}
+         ref={input => { this.textInput = input }}
+         onSubmitEditing = {() =>{this.textInput.clear() }}
+         onChangeText={value => this.setState({ username:value })}
          style={[styles.Mobile_nput]}
-        //  placeholderTextColor={GLOBAL.COLOR.GRAY}
          returnKeyType='done'
          underlineColorAndroid='transparent'
          ref={input => (this.emailInput = input)}
@@ -146,7 +144,7 @@ else{
            <TextInput 
            // secureTextEntry = { this.state.hidePassword }
              placeholder="Enter Password"
-             onChangeText={password => this.setState({ password })}
+             onChangeText={value => this.setState({ password:value })}
              underlineColorAndroid = "transparent"
              secureTextEntry
              // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
@@ -169,7 +167,7 @@ else{
       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
         //  value={this.state.username}
-         onChangeText={username => this.setState({ username })}
+         onChangeText={value => this.setState({ username :value})}
          style={styles.input}
          returnKeyType='next'
          underlineColorAndroid='transparent'
@@ -187,7 +185,7 @@ else{
            <TextInput 
            // secureTextEntry = { this.state.hidePassword }
              placeholder="Enter Password"
-             onChangeText={password => this.setState({ password })}
+             onChangeText={value => this.setState({ password:value })}
              underlineColorAndroid = "transparent"
              secureTextEntry
              // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
@@ -222,7 +220,7 @@ else{
       <View style={styles.margin_top}>
       <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
       </View>
-      <View style={styles.box}>
+      <View style={[styles.box,{paddingVertical:hp("3%")}]}>
          <Text style={[styles.text,{marginRight:wp("44%")}]}>Sign In Using</Text>
          <Text></Text>
          <View style={styles.Radio_button}>

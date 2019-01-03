@@ -17,34 +17,39 @@ export default class AuthLoadingScreen extends React.Component {
     const userToken = await AsyncStorage.getItem('ticket');
     const userTokenOTP = await AsyncStorage.getItem('OTPticket');
     const Profile_token = await AsyncStorage.getItem('Profile_Token');
-    const registered = await AsyncStorage.getItem('Registered');
+    const registered = await AsyncStorage.getItem('Profile_Vendor');
     console.log('registered',registered)
     console.log("tyoken",userTokenOTP);
     console.log("profile",Profile_token);
-    AsyncStorage.getItem("Profile").then((Profile_boolean) => {
-      GLOBAL.profile=Profile_boolean
-      console.log("Get Value >> ", GLOBAL.profile);
-      console.log("Get Value >>,,,,,,,,, ", GLOBAL.profile)
-      if(registered === "true"){
-        this.props.navigation.navigate('D')
-      }
-     else if(GLOBAL.profile === "true"){
-        if(userTokenOTP != undefined){
-          this.props.navigation.navigate(userTokenOTP ? 'Crea_pass' : 'SignIn');
-          }
-          else{
-          this.props.navigation.navigate(userToken ? 'D' : 'SignIn');
-          }
-      }
-   else{
-    this.props.navigation.navigate('AddDetails')
-      }
-   }).done();
+  //   AsyncStorage.getItem("Profile").then((Profile_boolean) => {
+  //     GLOBAL.profile=Profile_boolean
+  //     console.log("Get Value >> ", GLOBAL.profile);
+  //     console.log("Get Value >>,,,,,,,,, ", GLOBAL.profile)
+  //     if(registered === "true"){
+  //       this.props.navigation.navigate('D')
+  //     }
+  //    else if(GLOBAL.profile === "true"){
+  //       if(userTokenOTP != undefined){
+  //         this.props.navigation.navigate(userTokenOTP ? 'Crea_pass' : 'SignIn');
+  //         }
+  //         else{
+  //         this.props.navigation.navigate(userToken ? 'D' : 'SignIn');
+  //         }
+  //     }
+  //  else{
+  //   this.props.navigation.navigate('AddDetails')
+  //     }
+  //  }).done();
     
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
     
-    
+    if(userTokenOTP != undefined){
+      this.props.navigation.navigate(userTokenOTP ? 'Crea_pass' : 'SignIn');
+      }
+      else{
+      this.props.navigation.navigate(userToken ? 'D' : 'AddDetails');
+      }
     
     // this.props.navigation.navigate('For_New_Pass');
   };
