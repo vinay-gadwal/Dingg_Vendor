@@ -152,7 +152,7 @@ export default class Login extends Component {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  keyboardShouldPersistTaps='handled'>      
-        <View style={styles.box}>
+        <View style={[styles.box,{marginTop:hp("4%")}]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
@@ -245,14 +245,14 @@ export default class Login extends Component {
          </TextInputLayout>
           </View> 
           <Text></Text>
-          <View style={[styles.Radio_button]}>
+          <View style={[styles.Radio_button,{marginRight:wp("14%")}]}>
           <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
           {/* <Text style={{color:"white"}}>mdnds,</Text> */}
           </View>
          {/* {selectedButton}       */}
          <Text></Text>
       </View>     
-          <TouchableOpacity style={[styles.button]} >
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("12%")}]} >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
       </KeyboardAwareScrollView>   

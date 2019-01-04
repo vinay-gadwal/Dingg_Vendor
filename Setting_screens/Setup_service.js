@@ -88,7 +88,7 @@ return (
                     extraData={this.state.arrayHolder_name}
                     renderItem={({item}) => 
     <View style={styles.Flat_box}>
-          <Text style={styles.Big_text}> {item.name}</Text>
+          <Text style={[styles.Big_text,{fontSize: RF(2.5),marginLeft:wp("4%") }]}> {item.name}</Text>
         <FlatList
         data={this.state.arrayHolder}
         marginHorizontal="5%"

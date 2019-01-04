@@ -34,7 +34,7 @@ export default class App extends Component {
         return (
             <View style={styles.container}>
             <View style={styles.Reject_box}>
-            <Text style={[styles.Big_text,styles.margin_left_5]}>Give a reason to reject</Text>
+            <Text style={[styles.Big_text,styles.margin_left_5,{fontSize:RF(2.5)}]}>Give a reason to reject</Text>
                 {/* <Text style={styles.valueText}>
                     Value = {selectedButton}
                 </Text> */}
@@ -42,7 +42,7 @@ export default class App extends Component {
                 <RadioGroup  radioButtons={this.state.data} onPress={this.onPress} />
                 </View>
                 </View>
-          <TouchableOpacity style={[styles.button,styles.Otp_button_margin]} >
+          <TouchableOpacity style={[styles.button,styles.Otp_button_margin,{marginBottom:hp("40%")}]} >
           <Text style={styles.buttonText}>Send</Text>
           </TouchableOpacity>
       </View>

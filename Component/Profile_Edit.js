@@ -37,9 +37,9 @@ export default class App extends Component {
     this.state = {
         avatarSource: null,Image_Source1:null,Image_Source_1_1:null,
         Image_Source_2_1:null,Image_Source_3_1:null,
-        Address:"",Add_Data:"",Add_Bus_Details:"",Locality:"",City:"",
+        Address:"",Salon_name:"",Locality:"",City:"",
         Website_url:"",Email:"",Contact_Name:"",Primary_No:"",Secondry_no:"",
-        Landline_No:"",Master_Ven_ID:"",Category:"",
+        Landline_No:"",Master_Ven_ID:"",Category:"",Service_type:""
       }
     }
     Fun_Phot_save(){
@@ -236,10 +236,9 @@ export default class App extends Component {
      
   render() {
     return (
-      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
-
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
         <TouchableOpacity onPress={this.selectPhotoTapped1.bind(this)}>
-                <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%")}]}>
+                <View style={[styles.avatarMultiple, styles.avatarContainer,{marginHorizontal:wp("40%"),marginTop:hp("3%")}]}>
                       { this.state.avatarSource === null ? <Image
                                           source={GLOBAL.Plus_icon}
                                           style={{
@@ -263,17 +262,16 @@ export default class App extends Component {
           <Text style={styles.grey_text}>Salon Name</Text>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
-                        value={this.state.Add_Bus_Details}
-                        onChangeText={Add_Bus_Details => this.setState({ Add_Bus_Details })}
+                        value={this.state.Salon_name}
+                        onChangeText={Salon_name => this.setState({ Salon_name })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,]}
+                        style={[styles.input_Update,]}
                         // placeholder="Salon Name"
                         returnKeyType="next"
                       />
                   </TextInputLayout>
-                  <Text style={styles.grey_text}>Address</Text>
-                  <View style={styles.Row_margin}>
+                  {/* <View style={styles.Row_margin}>
                   <GooglePlacesAutocomplete
                          value={this.state.Address}
                          onChangeText={Address => this.setState({ Address })}
@@ -336,7 +334,19 @@ export default class App extends Component {
                         debounce={200}
                 />
                 <Text style={{color:"white"}}>bjjase</Text>
-                </View>
+                </View> */}
+                 <Text style={styles.grey_text}>Address</Text>
+                  <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
+                      <TextInput
+                        value={this.state.Address}
+                        onChangeText={Address => this.setState({ Address })}
+                        ref={input => (this.passwordCInput = input)}
+                        // onSubmitEditing={() => this.passwordInput.focus()}
+                        style={[styles.input_Update,]}                        // placeholder="Locality"
+                        returnKeyType="next"
+                        
+                      />
+                  </TextInputLayout>
                 <Text style={styles.grey_text}>Locality</Text>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                       <TextInput
@@ -344,7 +354,7 @@ export default class App extends Component {
                         onChangeText={Locality => this.setState({ Locality })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,]}                        // placeholder="Locality"
+                        style={[styles.input_Update,]}                        // placeholder="Locality"
                         returnKeyType="next"
                         
                       />
@@ -356,7 +366,7 @@ export default class App extends Component {
                         onChangeText={City => this.setState({ City })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input,]}                        // placeholder="City"
+                        style={[styles.input_Update,]}                        // placeholder="City"
                         returnKeyType="next"
                         
                       />
@@ -370,7 +380,7 @@ export default class App extends Component {
                         onChangeText={Website_url => this.setState({ Website_url })}
                         ref={input => (this.passwordCInput = input)}
                         // onSubmitEditing={() => this.passwordInput.focus()}
-                        style={[styles.input]}                        // placeholder="Website Url"
+                        style={[styles.input_Update]}                        // placeholder="Website Url"
                         returnKeyType="next"
                         keyboardType="email-address"
                       />
@@ -382,7 +392,7 @@ export default class App extends Component {
                           onChangeText={Email => this.setState({ Email })}
                           ref={input => (this.passwordCInput = input)}
                           // onSubmitEditing={() => this.passwordInput.focus()}
-                          style={[styles.input]}                          // placeholder="Email Id"
+                          style={[styles.input_Update]}                          // placeholder="Email Id"
                           returnKeyType="next"
                           keyboardType="email-address"
                         />
@@ -396,7 +406,7 @@ export default class App extends Component {
                             onChangeText={Contact_Name => this.setState({ Contact_Name })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input]}                            // placeholder="Contact name"
+                            style={[styles.input_Update]}                            // placeholder="Contact name"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
@@ -404,14 +414,14 @@ export default class App extends Component {
                   <View style={styles.Row_divider}>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-                      <Text style={styles.Mobile_number_divider}>+91     </Text>
+                      <Text style={styles.Mobile_number_divider_Update}>+91     </Text>
                   </TextInputLayout>
                           <Text>   </Text>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                         <TextInput
                           value={this.state.Primary_No}
                           onChangeText={Primary_No => this.setState({ Primary_No })}
-                          style={[styles.input,{width: wp('52')}]}
+                          style={[styles.input_Update,{width: wp('52')}]}
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -428,14 +438,14 @@ export default class App extends Component {
                   <View style={styles.Row_divider}>
                       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}>
 
-                      <Text style={styles.Mobile_number_divider}>+91     </Text>
+                      <Text style={styles.Mobile_number_divider_Update}>+91     </Text>
                       </TextInputLayout>
                       <Text>   </Text>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
                             value={this.state.Secondry_no}
                             onChangeText={Secondry_no => this.setState({ Secondry_no })}
-                            style={[styles.input,{width: wp('52')}]}
+                            style={[styles.input_Update,{width: wp('52')}]}
                             returnKeyType="done"
                             underlineColorAndroid='transparent'
                             ref={input => (this.emailInput = input)}
@@ -452,7 +462,7 @@ export default class App extends Component {
                         <TextInput
                           value={this.state.Landline_No}
                           onChangeText={Landline_No => this.setState({ Landline_No })}
-                          style={[styles.input,]}                          
+                          style={[styles.input_Update,]}                          
                           returnKeyType="done"
                           underlineColorAndroid='transparent'
                           ref={input => (this.emailInput = input)}
@@ -472,29 +482,29 @@ export default class App extends Component {
                             onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,]}                            // placeholder="Master vendor id"
+                            style={[styles.input_Update,]}                            // placeholder="Master vendor id"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
                   <Text style={styles.grey_text}>Category</Text>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
-                            value={this.state.Master_Ven_ID}
-                            onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
+                            value={this.state.Category}
+                            onChangeText={Category => this.setState({ Category })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,]}                            // placeholder="Master vendor id"
+                            style={[styles.input_Update,]}                            // placeholder="Master vendor id"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
                   <Text style={styles.grey_text}>Service Type</Text>
                   <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
                           <TextInput
-                            value={this.state.Master_Ven_ID}
-                            onChangeText={Master_Ven_ID => this.setState({ Master_Ven_ID })}
+                            value={this.state.Service_type}
+                            onChangeText={Service_type => this.setState({ Master_Ven_ID })}
                             ref={input => (this.passwordCInput = input)}
                             // onSubmitEditing={() => this.passwordInput.focus()}
-                            style={[styles.input,]}                            // placeholder="Master vendor id"
+                            style={[styles.input_Update,]}                            // placeholder="Master vendor id"
                             returnKeyType="next"
                           />
                   </TextInputLayout>
@@ -513,8 +523,8 @@ export default class App extends Component {
                       />
                   </View> */}
           </View>
-          <Text style={styles.text}>Add Images</Text>
-    <View style={styles.otp_box}>
+          <Text style={[styles.text,{marginBottom:hp("1.5%"),marginLeft:wp("5%")}]}>Add Images</Text>
+    <View style={[styles.otp_box]}>
     <TouchableOpacity onPress={this.selectPhotoTapped2.bind(this)}>
     
             <View style={[styles.avatarMultiple, styles.avatarContainer]}>

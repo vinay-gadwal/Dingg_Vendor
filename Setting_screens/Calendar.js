@@ -41,7 +41,7 @@ export default class Calendar extends Component {
  
     return (
       <View style={styles.container}>
-        <View style={[styles.box]}>
+        <View style={[styles.box,{marginTop:hp("4%")}]}>     
             <CalendarPicker
               startFromMonday={true}
               allowRangeSelection={true}

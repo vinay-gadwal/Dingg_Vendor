@@ -33,6 +33,9 @@ Add_sty_text:{
 Mobile_number_divider:{
         marginTop:hp("1.3%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily,
     },
+    Mobile_number_divider_Update:{
+        marginTop:hp(".6%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily,
+    },
 Radio_button:{marginRight:wp("9%")},
 _91_style:{
         marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily
@@ -61,8 +64,8 @@ timer_countdown:{
     },
 Flat_box:{
       width: wp('90%'),marginHorizontal:"5%",
-      backgroundColor:GLOBAL.COLOR.backgroundColor,
-      marginTop:hp('4%'),
+      backgroundColor:GLOBAL.COLOR.backgroundColor,paddingVertical:hp(".7%"),
+      marginTop:hp('3%'),
       borderRadius:8,
       shadowColor: GLOBAL.COLOR.ShadowColor,
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -73,10 +76,10 @@ Flat_box_row:{
       flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")
     },
     flat_box_colum:{
-      flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%")
+      flexDirection:"column",marginVertical:hp("1%"),marginLeft:wp("5%")
     },
 flat_box_colum_right:{
-        flexDirection:"column",marginVertical:hp("1.5%"),marginLeft:wp("5%"),width:wp("45%")
+        flexDirection:"column",marginVertical:hp("1%"),marginLeft:wp("5%"),width:wp("45%")
       },
 copy_rigth:{
       fontSize: RF(1.8),color:"rgb(153,153,153)",fontWeight: 'bold',
@@ -93,6 +96,15 @@ input: {
       borderColor:GLOBAL.COLOR.input_color,
       fontWeight:"bold"
     },
+    input_Update: {
+        width: wp('70%'),
+        height: hp('4%'),
+        fontSize: RF(2.2),
+        textAlign:'left',  
+        fontFamily:GLOBAL.COLOR.fontfamily,
+        borderColor:GLOBAL.COLOR.input_color,
+        fontWeight:"bold"
+      },
 Mobile_nput:{
         fontSize: RF(2.2),
         textAlign:'left',  
@@ -101,11 +113,11 @@ Mobile_nput:{
         width: wp('53'), height: hp('6%')
     },
 Select_unselect_con:{
-        width:wp(5.5),height:hp(3),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")
+        width:wp(4),height:hp(2),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")
     } ,
 AddServices:{marginHorizontal:wp("5%")},
 padding_verticle:{ paddingVertical:hp("3.5%")},
-MARGIN_VERticle:{marginVertical:hp("2%")},
+MARGIN_VERticle:{marginVertical:hp("2.3%")},
 margin_left_5:{marginLeft:wp("5%")},
 Only_Column:{flexDirection:"column",alignItems:"center"},
 Column_reverse:{flexDirection:"column-reverse"},
@@ -136,7 +148,7 @@ Offer_button:{
     shadowRadius: 4,
     },
 Action_button:{
-        width:wp("23%"),borderRadius:8,
+        width:wp("18%"),borderRadius:8,marginLeft:wp("1%"),
         backgroundColor:"white",
         shadowColor: 'rgb(217,217,217)',
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -186,15 +198,15 @@ Reject_box:{
         alignItems:"flex-start",
         width: wp('90%'),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
-        paddingVertical:hp('2%'),marginVertical:hp("5%"),
+        paddingVertical:hp('1.5%'),marginTop:hp("5%"),
         borderRadius:8,
-        shadowColor: GLOBAL.COLOR.ShadowColor,marginTop:hp("5%"),
+        shadowColor: GLOBAL.COLOR.ShadowColor,marginTop:hp("7%"),
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
         shadowRadius: 4,
     },
 reject_radio:{
-        marginTop:"5%",justifyContent:"flex-start",marginLeft:wp("2%"),paddingVertical:hp("2%")
+        marginTop:"3%",justifyContent:"flex-start",marginLeft:wp("2%"),paddingVertical:hp("2%")
     },
 Date_picker:{
         width: 150,marginTop:hp("2%")
@@ -211,7 +223,7 @@ profile_text:{
         fontFamily:GLOBAL.COLOR.fontfamily,
         justifyContent:"flex-start",
         color: GLOBAL.COLOR.Black,
-        marginVertical:hp("1%"),marginLeft:"10%"
+        marginVertical:hp("2profile_Small_text%"),marginLeft:"10%"
       },
 text:{
           fontSize: RF(2.2), 
@@ -227,7 +239,7 @@ tab_text:{
     width:wp("30%"),marginLeft:wp("4%"),marginTop:hp(".5%")
 },
 Tab_Top_style:{
-    marginTop:hp("2%"),marginLeft:wp("2%")
+    marginTop:hp("2%"),marginLeft:wp("0%")
 },
 Big_text:{
         fontSize: RF(3), 
@@ -240,8 +252,9 @@ grey_text:{
           color: GLOBAL.COLOR.GRAY,
           fontFamily:GLOBAL.COLOR.fontfamily,
           fontSize:RF(1.8),
-          marginTop:hp("0%")
+          marginTop:hp(".7%")
         },
+greay_View_offer:{ marginTop:hp("0%"), fontSize:RF(2),marginLeft:wp("3%")},
 DropDown_view:{ width:wp('70%')},
 DropDownStyle:{
         fontFamily:'Muli-Bold',
@@ -296,6 +309,16 @@ avatarMultiple: {
         shadowOpacity: 0.8,
         shadowRadius: 4,
          },
+FlatList_Image: {
+            borderRadius: wp("2"),
+            width: wp('17%'),
+            height: hp('10%'),
+            marginHorizontal:wp("1.5%"),marginVertical:hp("1.3%"),
+            shadowColor: GLOBAL.COLOR.ShadowColor,
+            shadowOffset: { width: 0, height: hp("0.5%") },
+            shadowOpacity: 0.8,
+            shadowRadius: 4,
+             },
 boxDetails:{
         alignItems:"flex-start",paddingLeft:wp("10%"),
         width: wp('90%'),
@@ -326,7 +349,7 @@ setting_text:{
         fontFamily:GLOBAL.COLOR.fontfamily,
         },
 Setting_text_:{
-            fontSize: RF(2.5),
+            fontSize: RF(2),
             paddingVertical:"2.5%",
             fontFamily:GLOBAL.COLOR.fontfamily,marginLeft:wp("5%")
         },
@@ -349,11 +372,11 @@ Dashboard_text:{
         color:"#999999",
         fontSize:RF(1.7),marginTop:hp("1%"),
         fontFamily:GLOBAL.COLOR.FontFamilyBold,
-        width:wp("10%"),
+        width:wp("10.8%"),
         alignItems:"flex-end",
          },
 Dashboard_big_text:{
-            fontSize: RF(3.2),marginTop:hp("1%"),
+            fontSize: RF(3),marginTop:hp("1%"),
             marginLeft:wp("5%"),
             color:"rgb(68,68,68)",
             fontFamily:GLOBAL.COLOR.FontFamilyBold,
@@ -373,7 +396,7 @@ Dashboard_block:{
         backgroundColor:GLOBAL.COLOR.backgroundColor,
         borderRadius:8,
         shadowColor: GLOBAL.COLOR.ShadowColor,
-        paddingVertical:hp("1%"),
+        paddingVertical:hp(".7%"),
         shadowOffset: { width: 0, height: hp("0.5%") },
         shadowOpacity: 0.8,
         shadowRadius: 4,
@@ -384,37 +407,37 @@ Dashboard_block_colom:{
         alignItems:"flex-end"
     },
 Dashboard_text_bottom:{
-        fontSize: RF(2.5),
-        paddingVertical:"2.5%",
+        fontSize: RF(2),
+        paddingVertical:hp("1.8%"),
         fontFamily:GLOBAL.COLOR.fontfamily,
         marginLeft:"6%",
     },
 DashBoard_User_name:{
-        fontSize: RF(2.5),
-        paddingVertical:"2.5%",
-        fontFamily:GLOBAL.COLOR.fontfamily,
+        fontSize: RF(2),
+        paddingVertical:hp("1%"),
+        fontFamily:GLOBAL.COLOR.fontfamily,marginRight:wp("3%"),
         width:wp("28%"),marginTop:hp("1%"),alignItems:"flex-start"
     },
 Dashboard_served:{
-        fontSize: RF(2.5),
-        paddingVertical:"2.5%",
+        fontSize: RF(2),
+        paddingVertical:hp("1%"),
         fontFamily:GLOBAL.COLOR.fontfamily,
         width:wp("10%"),marginTop:hp("1%"),alignItems:"center"
     },
 Dashboard_queue:{
         width:wp("8"),marginTop:hp("1%"),justifyContent:"flex-end",
-        fontSize: RF(2.5),
-        paddingVertical:"2.5%",
-        fontFamily:GLOBAL.COLOR.fontfamily,
+        fontSize: RF(2),
+        paddingVertical:hp("1%"),
+        fontFamily:GLOBAL.COLOR.fontfamily,marginLeft:wp("5%")
     },
 Dashboard_time:{
-        flexDirection:"row",justifyContent:"space-evenly",width:wp("10%"),marginRight:wp("5%")
+        flexDirection:"row",justifyContent:"space-evenly",width:wp("10%"),marginLeft:wp("3%")
     },
 profile_Small_text:{
         fontSize: RF(1.8),
         justifyContent:"flex-start",
         marginLeft:"10%",
-        marginTop:"3%",
+        marginTop:hp("3%"),
         color:"rgb(176,176,176)",
         fontWeight:"bold",
         },
@@ -425,7 +448,7 @@ profile_edit:{
             height:"1%",justifyContent:"center",alignItems:"center"
         },
 back_butt0n:{
-        marginLeft:wp("7%"),width: wp('7%'),height: hp('2.5%'),marginBottom:hp("1%"),marginTop:hp("1.3%")
+        marginLeft:wp("7%"),width: wp('7%'),height: hp('2.5%'),marginBottom:hp("2%"),marginTop:hp("1.3%")
         },
 back_butt0n_right:{
             marginLeft:wp("6%"),
@@ -450,7 +473,7 @@ btnImage:{
           width: wp('1.5%'),marginTop:hp("5.3%"),paddingLeft:wp("14%")
         },
 Profile_Container:{
-        width:"90%",marginVertical:hp("1.5%"),
+        width:"90%",marginVertical:hp("1%"),
         backgroundColor:GLOBAL.COLOR.backgroundColor,
         borderRadius:8,
         justifyContent: 'space-between',marginHorizontal:"5%",
@@ -471,7 +494,7 @@ QR_button:{
         height: hp('6.5%'),
         backgroundColor:GLOBAL.COLOR.ORANGE,
         justifyContent: "center",
-        marginVertical:hp("5%"),
+        marginBottom:hp("10%"),
         borderRadius:7,
         shadowColor: GLOBAL.COLOR.ORANGE,
         shadowOffset: { width: 0, height: hp("0.5%") },
@@ -518,17 +541,16 @@ Business_image:{
     },
 History_Action:{
       justifyContent:"flex-start",marginLeft:wp("5%"),marginBottom:hp("1%"),width:wp("65%"),
-      fontSize: RF(2.5),
+      fontSize: RF(2),
       justifyContent:"flex-start"
       ,marginLeft:"5%",
       paddingVertical:"2.5%",
       fontFamily:GLOBAL.COLOR.fontfamily,
     },
 item: {
-      fontSize: RF(2.5),
+      fontSize: RF(2),
       paddingVertical:hp("1%"),
       fontFamily:GLOBAL.COLOR.fontfamily,
-      color:"rgb(116,116,116)"
           }, 
 header_style:{
     fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"

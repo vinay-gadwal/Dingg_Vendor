@@ -18,8 +18,7 @@ export default class Login extends Component {
     super(props);
   }
   componentDidMount(){
-    AsyncStorage.setItem('Profile', JSON.stringify(true))
-    AsyncStorage.setItem('Registered', JSON.stringify(true))
+    AsyncStorage.setItem('Profile_Vendor', JSON.stringify(true))
   }
 render() {
     return (

@@ -20,7 +20,7 @@ class App extends Component {
     
   render() {
     return (
-      <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}>
+      <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}}>
       <View style={{alignItems:"center"}}>
         <Text></Text>
         <Text></Text>
@@ -39,14 +39,14 @@ class App extends Component {
           <Text></Text>
           <Text style={styles.text}>{GLOBAL.Master_Ven_ID}</Text>
           <Text></Text>
-          <View style={[styles.Profile_Container]}>
+          <View style={[styles.Profile_Container,{marginVertical:hp("0%")}]}>
                   <View style={styles.profile_edit}>
                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('Profile_edit')}}>
                   <ResponsiveImage source={GLOBAL.edit_icon}  initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>
                   </TouchableOpacity>
                   </View>
                     <Text style={styles.profile_Small_text}>Address</Text>
-                    <Text style={styles.profile_text}>jvvnfnk</Text>
+                    <Text style={styles.profile_text}>New Palasia indore</Text>
                     <View style={[styles.AddServices]}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                 </View>
@@ -66,7 +66,7 @@ class App extends Component {
             
                     <Text style={styles.profile_Small_text}>Website</Text>
                     <Text style={styles.profile_text}>{GLOBAL.Website_url}</Text>
-                    <View style={[styles.AddServices,styles.padding_verticle]}>
+                    <View style={[styles.AddServices]}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                 </View>
                   
@@ -79,19 +79,19 @@ class App extends Component {
             
                     <Text style={styles.profile_Small_text}>Conatct Name</Text>
                     <Text style={styles.profile_text}>{GLOBAL.Contact_Name}</Text>
-                    <View style={[styles.AddServices,styles.padding_verticle]}>
+                    <View style={[styles.AddServices]}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                 </View>
                   
                     <Text style={styles.profile_Small_text}>Primary Number</Text>
                     <Text style={styles.profile_text}>+91-{GLOBAL.Primary_No}</Text>
-                    <View style={[styles.AddServices,styles.padding_verticle]}>
+                    <View style={[styles.AddServices]}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                 </View>
 
                     <Text style={styles.profile_Small_text}>Secondry Number</Text>
                     <Text style={styles.profile_text}>+91-{GLOBAL.Secondry_no}</Text>
-                    <View style={[styles.AddServices,styles.padding_verticle]}>
+                    <View style={[styles.AddServices]}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                 </View>
                   
@@ -103,7 +103,7 @@ class App extends Component {
             <View style={styles.Profile_Container}>
                   <Text style={styles.profile_Small_text}>Category</Text>
                   <Text style={styles.profile_text}>{GLOBAL.Category}</Text>
-                  <View style={[styles.AddServices,styles.padding_verticle]}>
+                  <View style={[styles.AddServices]}>
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
                 </View>
 
@@ -112,7 +112,7 @@ class App extends Component {
                   
             </View>
             <Text></Text>
-            <TouchableOpacity style={[styles.Profile_Container,styles.Row_divider,{paddingVertical:hp("1.5%")}]}
+            <TouchableOpacity style={[styles.Profile_Container,styles.Row_divider,{paddingVertical:hp(".5%")}]}
                           onPress={() => {this.props.navigation.navigate('QR_Code')}}>
                   
                   <Text style={[styles.profile_text]}>My Dingg Code</Text>

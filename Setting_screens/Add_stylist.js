@@ -51,6 +51,8 @@ export default class Stylist extends Component {
     this.array.push({title : this.state.textInput_Holder});
 
     this.setState({ arrayHolder: [...this.array] })
+    this.setState({textInput_Holder:""})
+    this.setState({textInput_HolderName:""})
 
   }
   
@@ -68,6 +70,10 @@ export default class Stylist extends Component {
  GetItem(item) {
     Alert.alert(item);
   }
+  clean_data(){
+    this.setState({textInput_Holder:""})
+    this.setState({textInput_HolderName:""})
+  }
  render() {
 return (
   <ScrollView>
@@ -79,7 +85,7 @@ return (
                     
                     renderItem={({item}) => 
     <View style={styles.Flat_box}>
-          <Text style={styles.Big_text}> {item.name}</Text>
+          <Text style={[styles.Big_text,{fontSize: RF(2.5),marginLeft:wp("4%") }]}> {item.name}</Text>
         <FlatList
         data={this.state.arrayHolder}
         width='90%'
@@ -90,7 +96,7 @@ return (
         ItemSeparatorComponent={this.FlatListItemSeparator}
 
         renderItem={({ item }) => 
-        <Text style={[styles.item,styles.padding_verticle]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
+        <Text style={[styles.item]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
         />
         <View style={styles.Row_divider}> 
         <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>

@@ -46,7 +46,8 @@ export default class Password extends Component {
           if(responseJson.success === true){
             debugger
             apis.Sign_LOCAL_SET_DATA('Profile_Vendor',JSON.stringify(responseJson.is_profile))
-            // this.props.navigation.navigate('AddDetails');
+            this.props.navigation.navigate('AddDetails');
+            Alert.alert(responseJson.message)
             console.log(responseJson)
             this.setState({ Uid :""});
             this.setState({ password:"" });

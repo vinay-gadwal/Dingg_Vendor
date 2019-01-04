@@ -11,7 +11,7 @@ export default class App extends Component {
   render() {return (
       <View style={styles.container}>
         <View style={[styles.flat_box_colum,{alignItems:"center"}]}>
-            <Text style={styles.Big_text}>Scan this Dingg Code</Text>
+            <Text style={[styles.Big_text,{fontSize: RF(2.5),marginTop:hp("4%")}]}>Scan this Dingg Code</Text>
             <Text style={[styles.grey_text,{fontSize:RF(2.2)}]}>Add to Bianna beauty saloon queue</Text>
         </View>
         <View style={styles.QR_Code}>

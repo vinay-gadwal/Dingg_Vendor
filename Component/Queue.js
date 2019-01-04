@@ -19,10 +19,10 @@ class Queue extends Component {
                 isLoading: true,MakeUp_data:"",makeup_data_time:"",
                     dataSource : [ 
                         {
-                            name:"Hair cut"
+                            name:"1h 50m"
                         },
                         {
-                            name:"Hair cut"
+                            name:"50m"
                         },
                 ], order: 1
        }
@@ -56,10 +56,10 @@ return (
                              <View style={styles.flat_box_colum}>
                                 <View style={styles.Row_divider}>
                                     <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginTop:hp(".5%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
-                                    <Text style={[styles.text]}>{item.name}</Text>
+                                    <Text style={[styles.grey_text]}>{item.name}</Text>
                                  </View>
                                  <View >
-                                 <Image style={styles.avatarMultiple} source={GLOBAL.Image} />                                 
+                                 <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                                  </View>
                                 <PopoverTooltip 
                                                 // setBelow='true'

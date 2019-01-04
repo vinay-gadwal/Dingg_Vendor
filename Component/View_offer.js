@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
  import styles from './Style'
-import { StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
+import { StyleSheet, Platform, View, TouchableOpacity, FlatList, Text, Image, Alert, YellowBox } from 'react-native';
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ResponsiveImage from 'react-native-responsive-image';
@@ -112,19 +112,19 @@ GetItem (flower_name) {
                                     style={[styles.View_offer,{marginLeft:wp("3%")}]}
                                 />  
               </View>          
-              <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>dakkjkkj</Text>
-                <View style={styles.Row_margin}>
+              <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>Get 25% off on your First Haircut</Text>
+                <View style={[styles.Row_margin,{marginTop:hp("2%")}]}>
                             <ResponsiveImage
-                                        source={GLOBAL.SERve_image} style={{marginTop:hp("1.7%"),marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
+                                        source={GLOBAL.SERve_image} style={{marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
                                     />
-                            {/* <Text style={styles.text}>xxxxxxxx</Text> */}
+                            <Text style={[styles.grey_text,styles.greay_View_offer]}>Haircut</Text>
 
                 </View>
-                <View style={styles.Row_margin}>
+                <View style={[styles.Row_margin,{marginTop:hp("2%")}]}>
                 <ResponsiveImage
-                                        source={GLOBAL.Calender_Icon} style={{marginTop:hp("1.7%"),marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
+                                        source={GLOBAL.Calender_Icon} style={{marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
                                     />
-                            
+                       <Text style={[styles.grey_text,styles.greay_View_offer]}>Mon, 01 Oct 18 - Wed, 31 Oct 18</Text>
                 </View>
                 <View style={[styles.Offer_button]} >
                             <Text style={styles.buttonText}>{item.offer_per}% Off</Text>
@@ -132,6 +132,9 @@ GetItem (flower_name) {
             </View>       
           }
         />
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} onPress={() => {this.props.navigation.navigate('Add_Offer')}}>
+            <Text style={styles.buttonText}>Add Offers</Text>
+            </TouchableOpacity>
      </View>
    );
  }

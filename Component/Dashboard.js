@@ -21,7 +21,8 @@ const Totol = require('../Image/main/completetotalIcon3x.png')
 const Customer = require('../Image/main/completecustomersHandledCopy3x.png')
 const Queue = require('../Image/main/completequeueCopy3x.png')
 const Wait_time = require('../Image/main/completewaitTimeIcon3x.png')
-
+import View_Offer from './View_offer'
+import Add_Offer from './Add_offers'
 class App extends Component {
     state = {
         avatarSource: null,avatarSource1:null,
@@ -57,6 +58,7 @@ class App extends Component {
     const {
       switchThreeValue,switchvalue
     } = this.state;
+    let colors = ['red', 'black',]; 
     return (
       <ScrollView style={{backgroundColor:GLOBAL.COLOR.rootBAckgroundColor}} horizontal={false}>
       
@@ -65,7 +67,7 @@ class App extends Component {
                     <ResponsiveImage source={Totol} style={styles.Dashbosrd_image_top}/>                
                     <View style={styles.Dashboard_block_colom}>
                     <Text style={styles.Dashboard_big_text}>100</Text>
-                    <Text style={[styles.Dashboard_text,{width:wp("7.5%")}]}>Total</Text>
+                    <Text style={[styles.Dashboard_text,{width:wp("7.9%")}]}>Total</Text>
                     {/* <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),marginBottom:hp("2%")}]}>Booking</Text>             */}
                     </View>
         </View>
@@ -77,7 +79,7 @@ class App extends Component {
                     </View>
         </View>
         </View>
-        <View style={[styles.Dashboard_block_box]}>
+        <View style={[styles.Dashboard_block_box,{marginTop:hp("2%"),}]}>
          <View style={styles.Dashboard_block}>
                     <ResponsiveImage source={Queue} style={styles.Dashbosrd_image_top}/>                
                     <View style={styles.Dashboard_block_colom}>
@@ -101,7 +103,7 @@ class App extends Component {
         </View>
         </View>
         <Text></Text>
-        <View style={[styles.Profile_Container]}>
+        <View style={[styles.Profile_Container,{marginTop:hp("2.5%")}]}>
         
         <View style={[styles.setting_Row]}>
                     <Text style={[styles.Dashboard_text_bottom]}>Ready to Accept Booking</Text>
@@ -187,23 +189,23 @@ class App extends Component {
                                 style={[styles.Cancel_buton]}
                     />
             </TouchableOpacity>
-                      <Text style={[styles.text,{fontSize: RF(2.5),}]}>Choose a Dinng User Type</Text>
+                      <Text style={[styles.text,{fontSize: RF(2.2),}]}>Choose a Dinng User Type</Text>
                       <Text></Text>
-                      <TouchableOpacity style={[styles.button]} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
+                      <TouchableOpacity style={[styles.button,{width:wp("30%"),marginVertical:hp("0%")}]} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
                       <Text style={styles.buttonText}>New User</Text>
                       </TouchableOpacity>
                       <Text></Text>
                       <Text></Text>
-                      <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.navigate('Exist_User');this.openDialog(false)}}>
+                      <TouchableOpacity style={[styles.button,{marginVertical:hp("0%"),}]} onPress={() => {this.props.navigation.navigate('Exist_User');this.openDialog(false)}}>
                       <Text style={styles.buttonText}>Existing User</Text>
                       </TouchableOpacity>
                       <Text></Text>
         </Dialog>
  
-                  <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
+                  <TouchableOpacity onPress={() => {this.props.navigation.navigate('View_Offer')}}>
                   <View style={styles.setting_Row}>
                     <Text style={[styles.Dashboard_text_bottom]}>View Offers</Text>
-                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('AddOffer')}}>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('View_Offer')}}>
                     <Image
                                   source={GLOBAL.Arrow_image}
                                   style={[styles.setting_Image]}
@@ -247,7 +249,7 @@ class App extends Component {
                              <ResponsiveImage source={GLOBAL.Icon_Divider} iinitWidth={GLOBAL.COLOR.Icon_divider_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           
-                           <View style={[styles.Dashbosrd_image,{marginRight:wp("5%"),marginLeft:wp("3%")}]}>
+                           <View style={[styles.Dashbosrd_image,{marginRight:wp("5%"),marginLeft:wp("4%")}]}>
                              <ResponsiveImage source={require('../Image/main/waitTimeIcon3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
                           </View>
                           </View>
@@ -257,13 +259,14 @@ class App extends Component {
                    <FlatList
                       data={ this.state.dataSource }
                       // ItemSeparatorComponent = {this.FlatListItemSeparator}
-                      renderItem={({item}) => 
-                   <View style={[styles.setting_Row,{marginBottom:hp("2%"),height: hp('7%'),}]}>
-                                   <View style={{marginTop:hp("3%"),marginLeft:wp("2%")}}>
+                      keyExtractor={(item, index) => index}
+                      renderItem={({item , index}) => 
+                   <View style={[styles.setting_Row,{marginBottom:hp("2%"),height: hp('8%'),marginVertical:hp("0%")}]}>
+                                   <View style={{marginTop:hp("2.5%"),marginLeft:wp("4%")}}>
                                    <SwitchButton
                                       onValueChange={(val) => this.setState({ activeSwitch1: val })}      // this is necessary for this component
-                                      switchWidth = {wp("10%")}                 // optional: switch width --- default 44
-                                      switchHeight = {hp("3%")}                 // optional: switch height --- default 100
+                                      switchWidth = {wp("8%")}                 // optional: switch width --- default 44
+                                      switchHeight = {hp("2.5%")}                 // optional: switch height --- default 100
                                       switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                                       switchBorderRadius = {20}          // optional: switch border radius --- default oval
                                       switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -280,6 +283,8 @@ class App extends Component {
                                   />
                                    { this.state.activeSwitch1 === 1 ? console.log('view1') : console.log('view2') }
                                   </View>
+              <View style={{width:wp("75%"),flexDirection:"row",backgroundColor: index % 2 == 0 ? "white" : GLOBAL.COLOR.rootBAckgroundColor
+                  ,paddingHorizontal:wp("3%"),marginRight:wp("2%"),borderRadius:8}}>
                     <Text style={styles.DashBoard_User_name}>{item.name}</Text>
                    <Text style={styles.Dashboard_served}>{item.served}</Text>
                    <Text style={styles.Dashboard_queue}>{item.queue}</Text>
@@ -287,14 +292,15 @@ class App extends Component {
                     <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
-                        size={18}
+                        size={12}
                         digitBgColor="false"
-                        style={{marginTop:hp("2%"),marginLeft:wp("2%")}}
+                        style={{marginTop:hp("1.4%"),marginLeft:wp("2%")}}
                         marginTop="2%"
                         label="false"
                         timeTxtColor="white"
                     /> 
-                     <Text style={[styles.Dashboard_text_bottom,{marginTop:hp("2.3%")}]}>  m</Text>
+                     <Text style={[styles.Dashboard_text_bottom,{marginTop:hp(".3%")}]}> m</Text>
+                  </View>
                   </View>
                   </View>
                    }
@@ -331,6 +337,35 @@ export default createStackNavigator({
             source={GLOBAL.Notification_yellow}
             style={styles.back_butt0n_right}     
             />)
+          })
+        },
+        Add_Offer:{
+          screen:Add_Offer,
+          navigationOptions: ({ navigation }) => ({
+            title: 'ADD OFFER',
+            headerLeft:null,
+            headerBackTitle:null,
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n,]}
+            />
+            </TouchableOpacity>)
+          })
+        },
+        View_Offer:{
+          screen:View_Offer,
+          navigationOptions: ({ navigation }) => ({
+            title: 'VIEW OFFER',
+            headerBackTitle:null,
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={GLOBAL.Back_button}
+              style={[styles.back_butt0n,]}
+            />
+            </TouchableOpacity>)
           })
         },
 },

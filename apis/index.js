@@ -205,7 +205,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
           method: 'GET',
           headers: {
             "content-type": "application/json",
-            // "authorization":token,
+            "authorization": token,
             "cache-control": "no-cache",
             "postman-token": "cb14e44b-cc78-29e4-d4b8-0c3f2ca2ba1b"
                    },
@@ -239,14 +239,14 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
   Get_service: async (token) =>{
     try {
       const response = await fetch(
-        base_url + 'service',
+        base_url + 'subcategory',
         {
-          method: 'POST',
+          method: 'GET',
           headers: {
             "content-type": "application/json",
             "authorization": token,
             "cache-control": "no-cache",
-            "postman-token": "52d111cc-bc3d-02da-6560-1f1e7a0ab1bf"
+    "postman-token": "cfae0c18-304c-f72b-dd15-11bbcb2312d7"
                    },
           // body: JSON.stringify({
           //   sub_category_id : "1"

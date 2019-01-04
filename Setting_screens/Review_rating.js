@@ -230,28 +230,28 @@ return (
  <ScrollView>
 <View style={styles.container}>
         
-    <View style={styles.Flat_box}>
+    <View style={[styles.Flat_box,{paddingVertical:hp("0%"),}]}>
           
-     <View style={styles.Row_margin}>
+     <View style={[styles.Row_margin,{marginTop:hp("0%")}]}>
               <FlatList          
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                         <View style={styles.Row_divider}>                          
-                             <View style={styles.flat_box_colum}>
-                                <View style={styles.Row_margin}>
+                             <View style={[styles.flat_box_colum,{marginVertical:hp("0%"),marginTop:hp("1%")}]}>
+                                <View style={[styles.Row_margin,{marginTop:hp("0%")}]}>
                                     <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
                                  </View>
                                  <View style={styles.MARGIN_VERticle}>
-                                 <Image style={styles.avatarMultiple} source={GLOBAL.Image} />  
+                                 <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                                     <View style={styles.MARGIN_VERticle}>
                                        {view}
                                     </View>
                                  </View>
                             </View>           
-                              <View style={[styles.flat_box_colum_right,{alignItems:"flex-end",marginRight:wp("4%")}]}>
-                                 <Text style={[styles.text,{fontSize:RF(3)}]}>{item.name}</Text>
-                                 <Text style={[styles.text,]}>{item.name}</Text>
+                              <View style={[styles.flat_box_colum_right,{alignItems:"flex-end",marginRight:wp("4%"),marginVertical:hp("0%")}]}>
+                                 <Text style={[styles.text,{fontSize:RF(3),marginRight:wp("2%")}]}>{item.name}</Text>
+                                 <Text style={[styles.text,]}>Note that for network and data images, you will need to manually specify the dimensions of your image!</Text>
                             </View>           
                         </View>   }                       
                     />
@@ -291,11 +291,11 @@ StarReview.propTypes = {
     count: 5,
     rating: 0,
     default: 0,
-    starSize: 20,
+    starSize: 10,
     update: () => {},
     backingColor: 'white',
     opacity: false,
     half: false,
-    spacing: 0,
+    spacing: 5,
     marginVertical:"10%"
   }

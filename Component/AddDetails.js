@@ -41,9 +41,9 @@ export default class App extends Component {
       }
     }
     componentDidMount(){
-      // this.Get_Category()
-      // this.Get_City()
-      // this.Get_Service()
+      this.Get_Category()
+      this.Get_City()
+      this.Get_Service()
       this._bootstrapAsync();
      }
     ////
@@ -113,7 +113,8 @@ export default class App extends Component {
                   .then((responseJson) => {
                     if(responseJson.Response.ok === true) {
                       this.props.navigation.navigate('AuthStack');
-                      apis.LOCAL_Delete_DATA('MobileTicket').
+                      apis.LOCAL_Delete_DATA('MobileTicket')
+                      apis.LOCAL_Delete_DATA('OTPticket');
                       console.log(responseJson)
                       console.log(GLOBAL.token)
                     } else {
@@ -137,6 +138,7 @@ export default class App extends Component {
     }
 
 Get_Category = async () =>{
+  debugger
   apis.GET_Cetegory(GLOBAL.token)
       .then((responseJson) => {
        console.log(responseJson)
@@ -153,6 +155,7 @@ Get_Category = async () =>{
     }
 
 Get_City = async () =>{
+  debugger
   apis.Get_city(GLOBAL.token)
       .then((responseJson) => {
        console.log(responseJson)
@@ -168,6 +171,7 @@ Get_City = async () =>{
     }
     
 Get_Service = async () =>{
+  debugger
   apis.Get_service(GLOBAL.token)
       .then((responseJson) => {
         console.log(responseJson)

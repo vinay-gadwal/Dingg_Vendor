@@ -6,8 +6,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import ResponsiveImage from 'react-native-responsive-image'
 import {createStackNavigator,} from 'react-navigation';
 import Alert_top from './Alert'
-const Init_width = 28;
-const Init_hight = 28;
+const Init_width = 25;
+const Init_hight = 25;
 const GLOBAL = require('../Component/Color');
 
  class Queue_request extends Component {
@@ -60,9 +60,9 @@ return (
                              <View style={styles.flat_box_colum}>
                                 <View style={[styles.Row_divider,{marginTop:hp("1%")}]}>
                                     <ResponsiveImage source={GLOBAL.Serve_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
-                                    <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.time}</Text>
+                                    <Text style={[styles.grey_text]}>{item.time}</Text>
                                  </View>
-                                 <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
+                                 <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}} />
                                  <View style={styles.Row_divider}>
                                  <TouchableOpacity>
                                     <ResponsiveImage source={GLOBAL.Accept} initWidth={Init_width} initHeight={Init_hight}/>

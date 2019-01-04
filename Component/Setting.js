@@ -120,7 +120,7 @@ const initHeight = 2
 
               <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>Auto Accept</Text>
-                    <View style={styles.switch_Style}>
+                    <View style={[styles.switch_Style,{marginLeft:wp("48%")}]}>
                     {/* <ToggleSwitch  
                       onColor="rgb(255,164,0)" 
                       width={"1%"}
@@ -137,12 +137,12 @@ const initHeight = 2
                           // activeText={'On'}
                           // inactiveText={'Off'}
                           fontSize={16}
-                          switchWidth={48}
-                          switchHeight={18}
+                          switchWidth={40}
+                          switchHeight={15}
                           switchBorderRadius={12}
                           switchBorderWidth={0}
-                          buttonWidth={22}
-                          buttonHeight={22}
+                          buttonWidth={18}
+                          buttonHeight={18}
                           buttonBorderRadius={20}
                           buttonBorderWidth={0}
                           animationTime={150}

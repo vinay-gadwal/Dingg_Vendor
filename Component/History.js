@@ -15,7 +15,7 @@ const Plus_height = 30;
 const initWidth=320; 
 const initHeight=2;
 const InitTabWidth = 110;
-const InitTabheight = 5;
+const InitTabheight = 2.7;
 class Ongoing extends React.Component {
         state = {
                      valueArray: [], disabled: false ,hair_data:"",hair_data_time:"",
@@ -23,10 +23,10 @@ class Ongoing extends React.Component {
                      Select_unselect:"true",Select_unselect_1:"true",Select_unselect_2:"true",
                      Select_unselect_3:"true",Select_unselect_4:"true",Select_unselect_5:"true",
                          dataSource :[{
-                                 name:"Hair cut",
+                          name:"1h 50m"
                              },
                              {
-                              name:"Hair cut",
+                              name:"1h 50m"
                           },],
             }
           index = 0;
@@ -83,22 +83,22 @@ class Ongoing extends React.Component {
               <View style={styles.Flat_box}> 
                 <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
-                     <View style={[styles.Row_divider,{marginTop:hp("2%")}]}>
-                       <ResponsiveImage  source={GLOBAL.Serve_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
-                       <Text style={styles.grey_text}>{this.state.time}m</Text>
-                     </View>
-                        <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
+                  <View style={[styles.Row_divider,{marginTop:hp("1%")}]}>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginTop:hp(".5%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+                                    <Text style={[styles.grey_text,]}>{item.name}</Text>
+                                 </View>
+                     <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                         <View style={styles.Row_divider}>
                             <TouchableOpacity onPress={this.increase_time()}>
                               <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth={Plus_width} initHeight={Plus_height}/>
                             </TouchableOpacity>
-                              <Text style={[styles.text_orange,{fontSize:RF(1.8)}]}>Time</Text>
+                              <Text style={[styles.text_orange,{fontSize:RF(1.8),marginBottom:hp("1%")}]}>Time</Text>
                                           {/* {this.state.time+" " + 'M'} */}
                             <TouchableOpacity>
                               <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth={Plus_width} initHeight={Plus_height}/>
                             </TouchableOpacity>
                         </View>
-                            <TouchableOpacity style={[styles.Action_button]}
+                            <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("2.3%")}]}
                                            onPress={ () => this.openDialog(true) }>
                             <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE,fontSize:RF(1.5)}]}>Add Services</Text>
                             </TouchableOpacity>
@@ -131,11 +131,11 @@ class Ongoing extends React.Component {
                  <TouchableOpacity onPress={() => this.openDialog(false)}>
                       <Image
                                   source={GLOBAL.CancelIcon}
-                                  style={[styles.setting_Image,{marginLeft:wp("80%"),}]}
+                                  style={[styles.setting_Image,{marginLeft:wp("80%"),marginTop:hp("0%")}]}
                       />
                   </TouchableOpacity>
 
-                  <Text style={[styles.text,{fontSize: RF(3),}]}>Add Services</Text>
+                  <Text style={[styles.text,{fontSize: RF(2),}]}>Add Services</Text>
                   <Text></Text>
 
                  <TouchableOpacity onPress = { this.managePasswordVisibility} style={[styles.setting_Row,]}>
@@ -400,10 +400,10 @@ class StarReview extends React.Component {
                                      <View style={styles.flat_box_colum}>
                                         <View style={styles.Row_divider}>
                                             <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
-                                            <Text style={styles.grey_text}>{item.name}</Text>
+                                            {/* <Text style={styles.grey_text}>{item.name}</Text> */}
                                          </View>
                                          <View>
-                                         <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
+                                         <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                                          </View>
                                          {view}
                                     </View>           
@@ -481,7 +481,7 @@ const AuthStack = createMaterialTopTabNavigator ({
         return (
           <View style={styles.Only_Column}>
          <Text style={styles.tab_text}>Completed</Text>
-          <ResponsiveImage source={line} style={styles.Tab_Top_style} initWidth={InitTabWidth} initHeight={InitTabheight}/>
+          <ResponsiveImage source={line} style={[styles.Tab_Top_style,{marginRight:wp("4%")}]} initWidth={InitTabWidth} initHeight={InitTabheight}/>
           </View>
         )
     }

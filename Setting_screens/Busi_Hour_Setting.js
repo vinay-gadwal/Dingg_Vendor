@@ -358,8 +358,8 @@ left_time_less=()=>{
     <ScrollView style={GLOBAL.COLOR.rootBAckgroundColor}> 
       <View style={styles.container}>
             
-        <View style={styles.box}>     
-        <Text style={[styles.Big_text]}>Add Day and Time</Text>
+        <View style={[styles.box,{marginTop:hp("4%")}]}>     
+        <Text style={[styles.Big_text,{fontSize: RF(2.5),marginRight:wp("40%")}]}>Add Day and Time</Text>
         <View style={styles.Business_hour}>
         <View style={styles.Business_hour_Switch}>
         <Switch

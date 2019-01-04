@@ -3,7 +3,7 @@ import DatePicker from 'react-native-datepicker'
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
   Text,
-  View,
+  View,Alert,
   TextInput,
   TouchableOpacity
 } from "react-native";
@@ -72,8 +72,9 @@ export default class Login extends Component {
   };
 
   phone(){
-
   }
+  onPress = data =>{this.setState({ data })}
+
   Function_save_global(){
       GLOBAL.Offer_name=this.state.Offer_name
       GLOBAL.Offer_percentage=this.state.Offer_percenatge
@@ -98,15 +99,14 @@ export default class Login extends Component {
           />
           </TextInputLayout>
           
-          <View style={styles.DropDown_view}>
-                      <Dropdown
+          <View style={[styles.DropDown_view,{ width:wp('75%')}]}>
+                        <Dropdown
                           data={data_Services} itemColor={GLOBAL.COLOR.ORANGE}  selectedItemColor="grey"
                           value={'Service Name'}
                           onChangeText={() =>{this.setState({services:data_Services})}}
                           dropdownPosition={0}
                           textColor="rgb(204,204,204)"
-                          style={{ itemTextStyle: [styles.DropDownStyle]
-                          }}
+                        
                       />
             </View> 
             <View style={styles.Row_divider}>
@@ -164,7 +164,7 @@ export default class Login extends Component {
           <Text></Text>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
             </View>     
-            <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} onPress={() => {this.Function_save_global();this.props.navigation.navigate('ViewOffer')}}>
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("22%")}]} onPress={() => {this.Function_save_global()}}>
             <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
 </KeyboardAwareScrollView>

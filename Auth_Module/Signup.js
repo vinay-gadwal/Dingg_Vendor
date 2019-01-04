@@ -49,7 +49,13 @@ if(isConnected){
       apis.SIGN_UP(this.state.usermobile)
       .then((responseJson) => {
         this.setState({ processing: false, loginText: 'Successfull..' });
-        if(responseJson.success === true) {
+        console.log(responseJson.data[0])
+        console.log(responseJson.data[0].is_password)
+        if(responseJson.data[0].is_password === true){
+          this.props.navigation.navigate('SignIn');
+          Alert.alert(responseJson.message)
+        }
+       else if(responseJson.success === true) {
           GLOBAL.mobile = this.state.usermobile
           this.props.navigation.navigate('OTP');
           console.log(responseJson)
