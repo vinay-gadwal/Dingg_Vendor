@@ -59,7 +59,7 @@ export default class Calendar extends Component {
           <Text style={styles.text}>SELECTED START DATE:{ startDate }</Text>
           <Text style={styles.text}>SELECTED END DATE:{ endDate }</Text>
         </View> */}
-          <TouchableOpacity style={styles.button} >
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("31%")}]} >
           <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
       </View>

@@ -187,7 +187,7 @@ left_time_less=()=>{
                 }
               }
               else{
-                Alert.alert("select right time")
+                Alert.alert("select valid time")
               }
   }
   
@@ -359,7 +359,7 @@ left_time_less=()=>{
       <View style={styles.container}>
             
         <View style={[styles.box,{marginTop:hp("4%")}]}>     
-        <Text style={[styles.Big_text,{fontSize: RF(2.5),marginRight:wp("40%")}]}>Add Day and Time</Text>
+        <Text style={[styles.Big_text,{fontSize: RF(2.3),marginRight:wp("40%")}]}>Add Day and Time</Text>
         <View style={styles.Business_hour}>
         <View style={styles.Business_hour_Switch}>
         <Switch
@@ -368,13 +368,13 @@ left_time_less=()=>{
                           activeText={'Mon'}
                           inactiveText={'Mon'}
                           onChangeValue={(value) => {this.ShowAlert(value)}}              
-                          fontSize={10}
-                          switchWidth={52}
-                          switchHeight={17}
-                          switchBorderRadius={12}
+                          fontSize={5}
+                          switchWidth={40}
+                          switchHeight={13}
+                          switchBorderRadius={10}
                           switchBorderWidth={0}
-                          buttonWidth={24}
-                          buttonHeight={24}
+                          buttonWidth={20}
+                          buttonHeight={20}
                           buttonBorderRadius={20}
                           buttonBorderWidth={0}
                           animationTime={150}

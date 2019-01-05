@@ -33,7 +33,7 @@ export default class Add_User extends Component {
     return (
    <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                  >      
-        <View style={styles.box}>
+        <View style={[styles.box,{marginTop:hp("4%")}]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
         <TextInput
             value={this.state.First_name}
@@ -130,7 +130,7 @@ export default class Add_User extends Component {
           </View> 
          
       </View>     
-          <TouchableOpacity style={styles.button} >
+          <TouchableOpacity style={[styles.button,{marginBottom:hp("10%")}]} >
           <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
       </KeyboardAwareScrollView>   

@@ -112,7 +112,7 @@ if(isConnected){
         <View style={[styles.Colom_margin,{marginBottom:hp("2%")}]}>
           <View style={styles.Row_divider}>
           <ResponsiveImage
-          source={GLOBAL.Copy_right}
+          source={GLOBAL.Copy_right} style={{marginTop:hp(".2%")}}
           initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}
         />
             <Text style={styles.copy_rigth}> All copyright reserved to </Text>

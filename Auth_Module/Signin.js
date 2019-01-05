@@ -15,6 +15,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import apis from '../apis/index'
+// export const Login = React.createContext();
 
 const GLOBAL = require('../Component/Color');
 
@@ -31,18 +32,22 @@ export default class Login extends Component {
             label: 'Mobile Number',
             value:this.phone(),
             color: GLOBAL.COLOR.ORANGE,
-            fontFamily:"Muli-ExtraBold"
+            fontFamily:"Muli-ExtraBold",
+            size: 18,
         },
         {
             label: 'Email ID',
             value:this.email(),
-            color: GLOBAL.COLOR.ORANGE
+            color: GLOBAL.COLOR.ORANGE,
+            size: 18,
         },   
             ],
     };  
   }
 
   componentDidMount() {
+    // this.setState({username:username})
+    // this.setState({password:password})
     console.log("check")
     NetInfo.isConnected.fetch().done((isConnected) => {
       if(isConnected){
@@ -75,11 +80,11 @@ export default class Login extends Component {
       {this.handlePress}
     }
   }
-  update(e){
-    if(this.state.username.trim()) this.props.dispatch(addTodo(this.state.username)); 
-    this.setState({username: "" }); 
-}
-    handlePress() {
+//   update(e){
+//     if(this.state.username.trim()) this.props.dispatch(addTodo(this.state.username)); 
+//     this.setState({username: "" }); 
+// }
+    handlePress =()=> {
 NetInfo.isConnected.fetch().done((isConnected) => {
 if(isConnected){
   this.setState({ processing: true });
@@ -88,12 +93,13 @@ if(isConnected){
         console.log(responseJson)
         this.setState({ processing: false, loginText: 'Successfull..' });
         if(responseJson.success === true) {
+          apis.Sign_LOCAL_SET_DATA_MOBILE('MobileTicket',this.state.username)
           apis.Sign_LOCAL_SET_DATA('ticket',responseJson.token).then(() => {
            this.state.username=""
             this.setState({ password:"" });
             this.props.navigation.navigate('AuthStack'); 
             }).catch((error) => {
-              Alert.alert(error);
+              Alert.alert("Error!");
               this.setState({ processing: false });
             });
         } else {
@@ -102,7 +108,7 @@ if(isConnected){
         }
       })
       .catch((error) => {
-        Alert.alert(error);
+        Alert.alert("Error!");
         this.setState({ processing: false, loginText: 'Try Again' });
       });
 } 
@@ -113,8 +119,8 @@ else{
 }
 
   phone(){
-    this.setState({username:""})
-    this.setState({password:""})
+    // this.setState({username:""})
+    // this.setState({password:""})
     return(
       <View style={styles.Only_Column}>
       <View style={styles.Row_divider}>
@@ -125,7 +131,7 @@ else{
        <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE} labelFontSize={0.1}>
        <TextInput
          ref={input => { this.textInput = input }}
-         onSubmitEditing = {() =>{this.textInput.clear() }}
+        //  onSubmitEditing = {() =>{this.textInput.clear() }}
          onChangeText={value => this.setState({ username:value })}
          style={[styles.Mobile_nput]}
          returnKeyType='done'
@@ -235,7 +241,7 @@ else{
                <Text style={styles.buttonText}>Sign In</Text>
              </View> : <ResponsiveImage source={GLOBAL.Loader} initWidth={GLOBAL.COLOR.size_75} initHeight={GLOBAL.COLOR.size_75}/>}
           </TouchableOpacity> */}
-          <TouchableOpacity style={styles.button} onPress={()=>{this.handlePress()}}>
+          <TouchableOpacity style={styles.button} onPress={this.handlePress}>
                <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
       
@@ -253,9 +259,9 @@ else{
         <Text style={styles.text}>here</Text>
       </View>
       
-      <View style={[styles.Row_margin,{marginBottom:hp("3%")}]}>
+      <View style={[styles.Row_margin,{marginBottom:hp("2.5%")}]}>
         <ResponsiveImage
-          source={GLOBAL.Copy_right}
+          source={GLOBAL.Copy_right} style={{marginTop:hp(".2%")}}
           initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to Dingg 2018</Text>

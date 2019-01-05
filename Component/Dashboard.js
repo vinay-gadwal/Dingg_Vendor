@@ -67,7 +67,7 @@ class App extends Component {
                     <ResponsiveImage source={Totol} style={styles.Dashbosrd_image_top}/>                
                     <View style={styles.Dashboard_block_colom}>
                     <Text style={styles.Dashboard_big_text}>100</Text>
-                    <Text style={[styles.Dashboard_text,{width:wp("7.9%")}]}>Total</Text>
+                    <Text style={[styles.Dashboard_text,{width:wp("8.7%")}]}>Total</Text>
                     {/* <Text style={[styles.Dashboard_text,{color:"rgb(168,168,168)",fontSize:RF(1.7),marginBottom:hp("2%")}]}>Booking</Text>             */}
                     </View>
         </View>
@@ -75,7 +75,7 @@ class App extends Component {
                     <ResponsiveImage source={Customer} style={styles.Dashbosrd_image_top} />                
                     <View style={styles.Dashboard_block_colom}>
                     <Text style={styles.Dashboard_big_text}>100</Text>
-                    <Text style={styles.Dashboard_text}>Served</Text>      
+                    <Text style={[styles.Dashboard_text,{width:wp("12%")}]}>Served</Text>      
                     </View>
         </View>
         </View>
@@ -107,7 +107,7 @@ class App extends Component {
         
         <View style={[styles.setting_Row]}>
                     <Text style={[styles.Dashboard_text_bottom]}>Ready to Accept Booking</Text>
-                    <TouchableOpacity style={styles.switch_Style}>
+                    <TouchableOpacity style={[styles.switch_Style,{marginTop:hp("1%")}]}>
                     {/* <Switch
                           value={switchThreeValue}
                           onChangeValue={(value) => {
@@ -133,8 +133,8 @@ class App extends Component {
                         /> */}
                      <SwitchButton
                                       onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
-                                      switchWidth = {wp("12%")}                 // optional: switch width --- default 44
-                                      switchHeight = {hp("3%")}                 // optional: switch height --- default 100
+                                      switchWidth = {wp("10%")}                 // optional: switch width --- default 44
+                                      switchHeight = {hp("2.7%")}                 // optional: switch height --- default 100
                                       switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                                       switchBorderRadius = {20}          // optional: switch border radius --- default oval
                                       switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -215,7 +215,7 @@ class App extends Component {
                   </TouchableOpacity>
         </View>
         
-      <View style={styles.Profile_Container}>        
+      <View style={[styles.Profile_Container,{marginTop:hp("3%")}]}>        
               <View style={[styles.setting_Row,styles.MARGIN_VERticle]}>
                           <View style={[styles.Dashbosrd_image,styles.margin_left_5]}>
                              <ResponsiveImage source={require('../Image/main/attendanceIcon3x.png')} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_divider_height}/>                
@@ -283,8 +283,8 @@ class App extends Component {
                                   />
                                    { this.state.activeSwitch1 === 1 ? console.log('view1') : console.log('view2') }
                                   </View>
-              <View style={{width:wp("75%"),flexDirection:"row",backgroundColor: index % 2 == 0 ? "white" : GLOBAL.COLOR.rootBAckgroundColor
-                  ,paddingHorizontal:wp("3%"),marginRight:wp("2%"),borderRadius:8}}>
+              <View style={[styles.Dashboard_bottom,{backgroundColor: index % 2 == 0 ? "white" : GLOBAL.COLOR.rootBAckgroundColor,
+                    }]}>
                     <Text style={styles.DashBoard_User_name}>{item.name}</Text>
                    <Text style={styles.Dashboard_served}>{item.served}</Text>
                    <Text style={styles.Dashboard_queue}>{item.queue}</Text>
@@ -292,12 +292,12 @@ class App extends Component {
                     <CountDown
                         until={item.wait_time*60}
                         timeToShow	={['M']}
-                        size={12}
+                        size={RF(1.9)}
                         digitBgColor="false"
-                        style={{marginTop:hp("1.4%"),marginLeft:wp("2%")}}
+                        style={{marginTop:hp("1.2%"),marginLeft:wp("2%")}}
                         marginTop="2%"
-                        label="false"
-                        timeTxtColor="white"
+                        // label={}
+                        timeTxtColor= {index % 2 == 0 ? "white" : GLOBAL.COLOR.rootBAckgroundColor}
                     /> 
                      <Text style={[styles.Dashboard_text_bottom,{marginTop:hp(".3%")}]}> m</Text>
                   </View>

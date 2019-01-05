@@ -297,6 +297,31 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
       Alert.alert("Error")
     }
   },
+
+  Reset_password: async (Mobile,Password) =>{
+    try {
+      const response = await fetch(
+        base_url + 'vendor/password/reset',
+        {
+          method: 'POST',
+          headers: {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "022cc1b0-120c-a72e-5bfd-bfa0f5bcd18b"
+                   },
+                   body: JSON.stringify({
+                    mobile : Mobile,
+                    password : Password
+                   })
+        },
+      );
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      Alert.alert("Error")
+    }
+  },
+  
   LOCAL_SET_DATA: async (key, value) => {
     try {
       await AsyncStorage.setItem(key, value);

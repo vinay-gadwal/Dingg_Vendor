@@ -119,7 +119,7 @@ export default class Password extends Component {
         <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
         <ResponsiveImage
-          source={GLOBAL.Copy_right}
+          source={GLOBAL.Copy_right} style={{marginTop:hp(".2%")}}
           initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>

@@ -27,7 +27,7 @@ Add_sty:{
     ,flexDirection:"row",justifyContent:"space-between"
     },
 Add_sty_text:{
-        borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginBottom:wp("2%"),fontSize:RF(2.5)
+        borderBottomWidth:0,height:hp("5%"),width:wp("50%"),marginBottom:wp("2%"),fontSize:RF(2)
     , fontFamily:GLOBAL.COLOR.fontfamily,marginRight:wp("25%")
     },
 Mobile_number_divider:{
@@ -38,7 +38,7 @@ Mobile_number_divider:{
     },
 Radio_button:{marginRight:wp("9%")},
 _91_style:{
-        marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily
+        marginTop:hp("1.5%"),fontSize: RF(2.2),fontFamily:GLOBAL.COLOR.fontfamily,marginLeft:wp("1.5z%")
     },
 Otp_text:{
         fontSize:RF(3),
@@ -113,7 +113,7 @@ Mobile_nput:{
         width: wp('53'), height: hp('6%')
     },
 Select_unselect_con:{
-        width:wp(4),height:hp(2),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("1%")
+        width:wp("4%"),height:hp("2.3%"),marginLeft:wp("2%"),marginRight:wp("5%"),marginTop:hp("2%")
     } ,
 AddServices:{marginHorizontal:wp("5%")},
 padding_verticle:{ paddingVertical:hp("3.5%")},
@@ -212,7 +212,7 @@ Date_picker:{
         width: 150,marginTop:hp("2%")
     },
 text_orange:{
-        fontSize: RF(2.2), 
+        fontSize: RF(2), 
         fontFamily:GLOBAL.COLOR.fontfamily,
         justifyContent:"flex-start",
         color:GLOBAL.COLOR.ORANGE,
@@ -239,7 +239,7 @@ tab_text:{
     width:wp("30%"),marginLeft:wp("4%"),marginTop:hp(".5%")
 },
 Tab_Top_style:{
-    marginTop:hp("2%"),marginLeft:wp("0%")
+    marginTop:hp("2.5%"),marginLeft:wp("0%")
 },
 Big_text:{
         fontSize: RF(3), 
@@ -433,6 +433,9 @@ Dashboard_queue:{
 Dashboard_time:{
         flexDirection:"row",justifyContent:"space-evenly",width:wp("10%"),marginLeft:wp("3%")
     },
+Icon_style:{marginTop:hp("1.3%"),marginLeft:wp("1.7%")},
+    Dashboard_bottom:{width:wp("75%"),flexDirection:"row"
+    ,paddingHorizontal:wp("3%"),marginRight:wp("2%"),borderRadius:8},
 profile_Small_text:{
         fontSize: RF(1.8),
         justifyContent:"flex-start",
@@ -518,26 +521,26 @@ business_line_left:{
       marginTop:wp("2%"),marginRight:wp("0%"),width:wp("5%")
     },
 Business_hour_text:{
-     width:wp("13%"),
-          fontSize: RF(2.2), 
+     width:wp("10%"),
+          fontSize: RF(2), marginRight:wp("2%"),
           fontFamily:GLOBAL.COLOR.fontfamily,
       },
 business_line_right:{
      marginTop:hp("1%"),width:wp("5%")
     },
 Business_Arrow_right:{
-      marginLeft:wp("7%"),marginTop:hp(".7%")
+      marginLeft:wp("0%"),marginTop:hp(".7%")
     },
 Business_to:{
       marginHorizontal:wp("0%"),
-      fontSize: RF(2.2), 
+      fontSize: RF(2), 
       color: "rgb(68,68,68)",
       fontWeight:"bold",
-      marginTop:hp(".5%"),
+      marginTop:hp(".7%"),
       fontWeight:"bold"
     },
 Business_image:{
-        width:wp(4.5),height:hp(2.5),marginTop:hp("1%"),marginRight:wp("3%")
+        width:wp("4%"),height:hp("2.3%"),marginTop:hp("1%"),marginRight:wp("3%")
     },
 History_Action:{
       justifyContent:"flex-start",marginLeft:wp("5%"),marginBottom:hp("1%"),width:wp("65%"),

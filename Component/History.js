@@ -84,7 +84,7 @@ class Ongoing extends React.Component {
                 <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
                   <View style={[styles.Row_divider,{marginTop:hp("1%")}]}>
-                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginTop:hp(".5%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.COLOR.size_11}/>
                                     <Text style={[styles.grey_text,]}>{item.name}</Text>
                                  </View>
                      <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
@@ -129,7 +129,7 @@ class Ongoing extends React.Component {
                     visible={ this.state.showDialog }
                 >   
                  <TouchableOpacity onPress={() => this.openDialog(false)}>
-                      <Image
+                      <ResponsiveImage
                                   source={GLOBAL.CancelIcon}
                                   style={[styles.setting_Image,{marginLeft:wp("80%"),marginTop:hp("0%")}]}
                       />
@@ -141,7 +141,7 @@ class Ongoing extends React.Component {
                  <TouchableOpacity onPress = { this.managePasswordVisibility} style={[styles.setting_Row,]}>
                         <Text style={styles.History_Action}>Hair Oil Massage</Text>
                   <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility }>
-                        <Image source = { ( this.state.Select_unselect ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
+                        <ResponsiveImage source = { ( this.state.Select_unselect ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
                   </View>
                   </TouchableOpacity>
                   <View style={styles.AddServices}>
@@ -151,7 +151,7 @@ class Ongoing extends React.Component {
                   <TouchableOpacity onPress = { this.managePasswordVisibility_1 } style={[styles.setting_Row,]}>
                         <Text style={styles.History_Action}>Shampoo</Text>
                   <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_1 }>
-                        <Image source = { ( this.state.Select_unselect_1 ) ?GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
+                        <ResponsiveImage source = { ( this.state.Select_unselect_1 ) ?GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
                   </View>
                   </TouchableOpacity>
                   <View style={styles.AddServices}>
@@ -161,7 +161,7 @@ class Ongoing extends React.Component {
                   <TouchableOpacity onPress = { this.managePasswordVisibility_2 } style={[styles.setting_Row,]}>
                         <Text style={styles.History_Action}>Regular Hair Cut</Text>
                   <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_2 }>
-                        <Image source = { ( this.state.Select_unselect_2 ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
+                        <ResponsiveImage source = { ( this.state.Select_unselect_2 ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
                   </View>
                   </TouchableOpacity>
                   <View style={styles.AddServices}>
@@ -181,7 +181,7 @@ class Ongoing extends React.Component {
                   <TouchableOpacity onPress = { this.managePasswordVisibility_4 } style={[styles.setting_Row,]}>
                         <Text style={styles.History_Action}>Blow Dry</Text>
                   <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_4 }>
-                        <Image source = { ( this.state.Select_unselect_4 ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
+                        <ResponsiveImage source = { ( this.state.Select_unselect_4 ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
                   </View>
                   </TouchableOpacity>
                   <View style={styles.AddServices}>
@@ -191,7 +191,7 @@ class Ongoing extends React.Component {
                     <TouchableOpacity onPress = { this.managePasswordVisibility_5 } style={[styles.setting_Row,]}>
                         <Text style={styles.History_Action}>Hair Styling</Text>
                   <View activeOpacity = { 0.8 }  onPress = { this.managePasswordVisibility_5 }>
-                        <Image source = { ( this.state.Select_unselect_5 ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
+                        <ResponsiveImage source = { ( this.state.Select_unselect_5 ) ? GLOBAL.UnSelectIcon : GLOBAL.SelectIcon } style = {styles.Select_unselect_con} />
                   </View>
                   </TouchableOpacity>            
          </Dialog>
@@ -399,7 +399,7 @@ class StarReview extends React.Component {
                                 <View style={styles.Row_divider}>                          
                                      <View style={styles.flat_box_colum}>
                                         <View style={styles.Row_divider}>
-                                            <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+                                            <ResponsiveImage source={GLOBAL.Calender_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.COLOR.size_11}/>
                                             {/* <Text style={styles.grey_text}>{item.name}</Text> */}
                                          </View>
                                          <View>

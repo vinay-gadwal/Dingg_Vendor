@@ -38,7 +38,7 @@ import QR_Code from './Component/QR_Code'
 import OTP from './Auth_Module/OTP'
 import OTP_forget from './Auth_Module/OTP_Forget'
 import AuthLoadingScreen from './Component/AuthLoadingScreen';
-
+import Change_password from './Setting_screens/Change_password'
 const GLOBAL = require('./Component/Color');
 
 // import Alert from './Component/Alert'
@@ -58,7 +58,7 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Dashboard_yellow
         return (
           <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={[styles.Tab_style,{marginLeft:wp("4%")}]} initWidth={GLOBAL.COLOR.Yellow_50} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={line} style={[styles.Tab_style,{marginLeft:wp("4%")}]} initWidth={GLOBAL.COLOR.size_50} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
           <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
@@ -77,7 +77,7 @@ const AuthStack = createBottomTabNavigator({
         return (
           <View style={styles.Only_Column}>
           <ResponsiveImage source={line} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
-          <ResponsiveImage source={image}style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_27} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={image}style={styles.Tab_style} initWidth={GLOBAL.COLOR.size_23} initHeight={GLOBAL.COLOR.Icon_width}/>
           </View>
         )
     }
@@ -128,7 +128,7 @@ const AuthStack = createBottomTabNavigator({
         return (
           <View style={styles.Only_Column}>
           <ResponsiveImage source={line} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_60} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={image} style={styles.Tab_style} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.size_23}/>
           </View>
             )
     }
@@ -144,8 +144,8 @@ const AuthStack = createBottomTabNavigator({
         : GLOBAL.Profile_white
         return (
          <View style={styles.Only_Column}>
-          <ResponsiveImage source={line} style={[styles.Tab_style,{marginRight:wp("4%")}]} initWidth={GLOBAL.Yellow_50} initHeight={GLOBAL.Icon_divider_width}/>
-          <ResponsiveImage source={image} style={[styles.Tab_style,{marginRight:wp("4%")}]} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.Icon_width}/>
+          <ResponsiveImage source={line} style={[styles.Tab_style,{marginRight:wp("4%")}]} initWidth={GLOBAL.COLOR.size_50} initHeight={GLOBAL.COLOR.Icon_divider_width}/>
+          <ResponsiveImage source={image} style={[styles.Tab_style,]} initWidth={GLOBAL.COLOR.Size_21} initHeight={GLOBAL.COLOR.size_23}/>
           </View>
         )
     }
@@ -543,12 +543,27 @@ Set_up:{
             </TouchableOpacity>)
           })
         },
+        Change_password:{
+          screen:Change_password,
+          headerMode: null,
+          navigationOptions: ({ navigation }) => ({
+            title: 'CHANGE PASSWORD',
+            headerLeft:(
+              <TouchableOpacity  onPress={ () => { navigation.goBack() }}>
+            <Image
+              source={GLOBAL.Back_button}
+              style={styles.back_butt0n}
+            />
+            </TouchableOpacity>)
+          })
+        },
       },
 
       {
         initialRouteName:"AuthLoadingScreen",
         // headerMode: "none",
         navigationOptions: {
+           gesturesEnabled: false,
           headerTitleStyle: GLOBAL.header
             },
 
@@ -557,13 +572,12 @@ const FinalStack = createStackNavigator({
   RootStack:RootStack,
   AuthStack:AuthStack,
   SignIn:sing_in,
-  
-  
 },
 {
   initialRouteName:"RootStack",
   headerMode: "none",
   navigationOptions: {
+    gesturesEnabled: false,
     headerTitleStyle: GLOBAL.header
       },
     })

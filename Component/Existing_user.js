@@ -20,27 +20,44 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 const GLOBAL = require('../Component/Color');
 
 const radioGroupList = [{
-  label: '4 pm',
+  label: '10 am',
   value: 'transport_car'
 }, {
-  label: '5 pm',
+  label: '11 am',
   value: 'transport_bike',
 }, {
-  label: '6 pm',
+  label: '12 pm',
   value: 'transport_bus'
 },{
-  label: '5 pm',
+  label: '1 pm',
   value: 'transport_bike',
 }, {
-  label: '6 pm',
+  label: '2 pm',
   value: 'transport_bus'
 },{
-  label: '5 pm',
+  label: '3 pm',
   value: 'transport_bike',
 }, {
-  label: '6 pm',
+  label: '5 pm',
   value: 'transport_bus'
 },
+{
+  label: '6 pm',
+  value: 'transport_bus'
+}, {
+  label: '7 pm',
+  value: 'transport_bus'
+},
+{
+  label: '8 pm',
+  value: 'transport_bus'
+}, {
+  label: '9 pm',
+  value: 'transport_bus'
+}, {
+  label: '10 pm',
+  value: 'transport_bus'
+}, 
 ];
 const data_Services = [
   {
@@ -84,11 +101,13 @@ export default class Login extends Component {
             label: 'Join Now',
             color: GLOBAL.COLOR.ORANGE,
             value:this.JoinNow(),
+            size: 18,
         },
         {
             label: 'Join Later',
             color: GLOBAL.COLOR.ORANGE,
             value:this.JoinLatter(),
+            size: 18,
         }, 
           ],
     };  
@@ -104,9 +123,10 @@ export default class Login extends Component {
   }
   JoinLatter(){
     return(
-     <View style={{height:hp("17%")}}>
-       <Text style={[styles.text,styles.padding_verticle,{color:GLOBAL.COLOR.GRAY}]}>Select Time Slot</Text>
+     <View style={{height:hp("20%"),marginBottom:hp("3%")}}>
+       <Text style={[styles.text,styles.padding_verticle,{color:GLOBAL.COLOR.GRAY,marginLeft:wp("10%")}]}>Select Time Slot</Text>
      <ScrollView horizontal="true">
+     <View style={{marginHorizontal:wp("2%")}}>
       <RadioGroupS radioGroupList={radioGroupList} 
        buttonContainerActiveStyle = {{backgroundColor:GLOBAL.COLOR.ORANGE}}
        buttonTextActiveStyle = {{color: GLOBAL.COLOR.White_color}}
@@ -114,6 +134,7 @@ export default class Login extends Component {
        buttonTextInactiveStyle = {{color: GLOBAL.COLOR.ORANGE}}
        buttonContainerStyle ={styles.Select_time_user}
      />
+     </View>
      </ScrollView>
      </View>
     )
@@ -181,7 +202,7 @@ export default class Login extends Component {
                       />
               </View>    
                   <Text></Text>
-          <View style={[styles.radioButtons]}>
+          <View style={[styles.radioButtons,{marginRight:wp("18%")}]}>
           <RadioGroup radioButtons={this.state.data} onPress={this.onPress} flexDirection='row' />
           </View>       
           {selectedButton}

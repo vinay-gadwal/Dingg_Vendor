@@ -44,19 +44,19 @@ export default class App_Setting extends Component {
                           // activeText={'On'}
                           // inactiveText={'Off'}
                           fontSize={16}
-                          switchWidth={48}
-                          switchHeight={18}
+                          switchWidth={40}
+                          switchHeight={15}
                           switchBorderRadius={12}
                           switchBorderWidth={0}
-                          buttonWidth={22}
-                          buttonHeight={22}
+                          buttonWidth={18}
+                          buttonHeight={18}
                           buttonBorderRadius={20}
                           buttonBorderWidth={0}
                           animationTime={150}
                           // padding={true}
                           activeBackgroundColor	="rgb(238,238,238)"
                           inactiveBackgroundColor	="rgb(238,238,238)"
-                          activeButtonBackgroundColor	="rgb(255,164,0)"
+                          activeButtonBackgroundColor	={GLOBAL.COLOR.ORANGE}
                           inactiveButtonBackgroundColor={'rgb(153,153,153)'}
                         />
                     </View>
@@ -65,7 +65,7 @@ export default class App_Setting extends Component {
               <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR._width} initHeight={GLOBAL.COLOR._height}/>
             </View>
             
-            <TouchableOpacity >   
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Change_password')}}>   
                    <View style={styles.setting_Row}>
                     <Text style={styles.Setting_text_}>Change Password</Text>
                     <Image

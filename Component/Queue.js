@@ -55,7 +55,7 @@ return (
                         <View style={styles.Row_divider}>                          
                              <View style={styles.flat_box_colum}>
                                 <View style={styles.Row_divider}>
-                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={{marginTop:hp(".5%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.COLOR.size_11}/>
                                     <Text style={[styles.grey_text]}>{item.name}</Text>
                                  </View>
                                  <View >

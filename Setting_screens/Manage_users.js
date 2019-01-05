@@ -112,7 +112,7 @@ GetItem (flower_name) {
        <FlatList
         data={ this.state.dataSource }
         // ItemSeparatorComponent = {this.FlatListItemSeparator}
-        renderItem={({item}) => 
+        renderItem={({item ,index}) => 
         <View style={[styles.otp_box,{paddingVertical:hp(".5%")}]}>
                 <Text style={[styles.text,{width:wp("45%")}]}>{item.name}</Text>
                             <Image
@@ -129,7 +129,7 @@ GetItem (flower_name) {
         />
         </View>
         <TouchableOpacity onPress={() => {this.props.navigation.navigate('Add_user')}}>
-        <View style={[styles.button,{marginBottom:hp("26%")}]} >
+        <View style={[styles.button,{marginBottom:hp("20%")}]} >
         <Text style={styles.buttonText}>Add New User</Text>
        </View>
        </TouchableOpacity>

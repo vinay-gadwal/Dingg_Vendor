@@ -45,19 +45,22 @@ export default class Login extends Component {
             label: 'New',
             value:this.phone(),
             color: GLOBAL.COLOR.ORANGE,
-            fontFamily:"Muli-Bold"
+            fontFamily:"Muli-Bold",
+            size: 18,
         },
         {
             label: 'Existing',
             value:this.phone(),
             color: GLOBAL.COLOR.ORANGE,
-            fontFamily:"Muli-Bold"
+            fontFamily:"Muli-Bold",
+            size: 18,
         }, 
         {
           label: 'Frequent',
           value:this.phone(),
           color: GLOBAL.COLOR.ORANGE,
-          fontFamily:"Muli-Bold"
+          fontFamily:"Muli-Bold",
+          size: 18,
         }
           ],
     };  

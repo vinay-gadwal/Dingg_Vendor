@@ -99,7 +99,7 @@ return (
         <Text style={[styles.item]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
         />
         <View style={styles.Row_divider}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+        <ResponsiveImage style={{marginTop:hp("2%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_Holder: data })}
@@ -112,7 +112,7 @@ return (
     }/>
 
   <View style={[styles.Add_sty]}> 
-        <ResponsiveImage style={{marginTop:hp("1.5%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
+        <ResponsiveImage style={{marginTop:hp("2%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
         placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_HolderName: data })}

@@ -42,8 +42,8 @@ return (
           <View style={styles.Flat_box}>
               <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
-                    <Image style={styles.avatarMultiple} source={GLOBAL.Image} />
-                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.padding_verticle} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
+                  <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
+                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles._91_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
                     <ResponsiveImage source={GLOBAL.Calender_Icon} style={styles._91_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
                   </View>           
                   <View style={[styles.Flat_box_row,{width:wp("60%")}]}>
@@ -52,7 +52,7 @@ return (
                           <Text style={styles.text}>Token ID : TK102</Text>
                           <ResponsiveImage style={styles.Send_alert} source={GLOBAL.Right_yellow_arrow} initWidth={GLOBAL.COLOR.Size_8} initHeight={GLOBAL.COLOR.Yellow_10}/>
                         </View>
-                        <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("32%"),marginTop:hp("3%")}]}>
+                        <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("28%"),marginTop:hp("3%"),width:wp("25%")}]}>
                          <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE}]}>Send Alert</Text>
                         </TouchableOpacity>
                   </View> 

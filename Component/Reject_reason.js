@@ -12,15 +12,18 @@ export default class App extends Component {
             {
                 label: 'Not Available',
                 color: GLOBAL.COLOR.ORANGE,
+                size: 18,
             },
             {
                 label: 'Busy',
-                color: GLOBAL.COLOR.ORANGE
+                color: GLOBAL.COLOR.ORANGE,
+                size: 18,
             },
             {
                 label: 'Another Appointment',
                 color: GLOBAL.COLOR.ORANGE,
-                fontSize:RF(2)
+                fontSize:RF(2),
+                size: 18,
             },
         ],
     };

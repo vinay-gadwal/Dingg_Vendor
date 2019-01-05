@@ -36,6 +36,7 @@ const initHeight = 2
     logout=()=>{
           apis.LOCAL_Delete_DATA('ticket')
           AsyncStorage.removeItem('Registered');
+          AsyncStorage.removeItem('MobileTicket');
             this.props.navigation.navigate('SignIn');    
     }
   render() {

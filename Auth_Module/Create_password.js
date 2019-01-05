@@ -151,9 +151,9 @@ export default class Password extends Component {
         </TouchableOpacity>
     <View style={styles.Colom_margin}>
         <View style={styles.Row_margin}>
-        <Image
-         source={GLOBAL.Copy_right}
-         style={styles.copy_rigth_image}
+        <ResponsiveImage
+          source={GLOBAL.Copy_right} style={{marginTop:hp(".2%")}}
+          initWidth={GLOBAL.COLOR.size_12} initHeight={GLOBAL.COLOR.size_12}
         />
         <Text style={styles.copy_rigth}> All copyright reserved to </Text>
           </View>

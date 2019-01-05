@@ -62,12 +62,14 @@ export default class Login extends Component {
         {
             label: 'Join Now',
             value:this.phone(),
-            color: GLOBAL.COLOR.ORANGE
+            color: GLOBAL.COLOR.ORANGE,
+            size: 18,
         },
         {
             label: 'Join Later',
             value:this.email(),
-            color: GLOBAL.COLOR.ORANGE
+            color: GLOBAL.COLOR.ORANGE,
+            size: 18,
         }, 
           ],
           selectedItems :[],
@@ -245,7 +247,7 @@ export default class Login extends Component {
          </TextInputLayout>
           </View> 
           <Text></Text>
-          <View style={[styles.Radio_button,{marginRight:wp("14%")}]}>
+          <View style={[styles.Radio_button,{marginRight:wp("18%")}]}>
           <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
           {/* <Text style={{color:"white"}}>mdnds,</Text> */}
           </View>
