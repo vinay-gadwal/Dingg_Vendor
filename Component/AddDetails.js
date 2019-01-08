@@ -137,23 +137,6 @@ export default class App extends Component {
       }
     }
 
-Get_Category = async () =>{
-  debugger
-  apis.GET_Cetegory(GLOBAL.token)
-      .then((responseJson) => {
-       console.log(responseJson)
-       for (let i = 0; i <= responseJson.data.length-1; i++) 
-       {
-         this.setState({categoryName:responseJson.data[i].category})
-         data_category.push({value:this.state.categoryName});
-         console.log(data_category)
-       }
-      })
-      .catch((error) => {
-        Alert.alert(error)
-      });
-    }
-
 Get_City = async () =>{
   debugger
   apis.Get_city(GLOBAL.token)
@@ -163,13 +146,33 @@ Get_City = async () =>{
           {
             this.setState({City_Name:responseJson.data[i].city})
             data_1.push({value:this.state.City_Name});
+            console.log("city",this.state.City_Name)
           }
       })
       .catch((error) => {
         Alert.alert(error)
       });
     }
-    
+  
+    Get_Category = async () =>{
+      debugger
+      apis.GET_Cetegory(GLOBAL.token)
+          .then((responseJson) => {
+           console.log(responseJson)
+           for (let i = 0; i <= responseJson.data.length-1; i++) 
+           {
+             debugger
+             this.setState({categoryName:responseJson.data[i].category})
+             console.log(responseJson.data[i].category)
+             data_category.push({value:responseJson.data[i].category});
+             console.log("category",this.state.categoryName)
+           }
+          })
+          .catch((error) => {
+            Alert.alert(error)
+          });
+        }
+
 Get_Service = async () =>{
   debugger
   apis.Get_service(GLOBAL.token)

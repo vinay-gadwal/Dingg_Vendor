@@ -46,13 +46,11 @@ export default class Stylist extends Component {
   }
   joinData = () => {
     this.array_name.push({name : this.state.textInput_HolderName});
-
     this.setState({ arrayHolder_name: [...this.array_name] })
+    
     this.array.push({title : this.state.textInput_Holder});
-
     this.setState({ arrayHolder: [...this.array] })
-    this.setState({textInput_Holder:""})
-    this.setState({textInput_HolderName:""})
+
 
   }
   
@@ -83,9 +81,9 @@ return (
                     // keyExtractor={(index) => index.toString()}
                     extraData={this.state.arrayHolder_name}
                     
-                    renderItem={({item}) => 
+                    renderItem={({item ,index}) => 
     <View style={styles.Flat_box}>
-          <Text style={[styles.Big_text,{fontSize: RF(2.5),marginLeft:wp("4%") }]}> {item.name}</Text>
+          <Text style={[styles.Big_text,{fontSize: RF(2.5),marginLeft:wp("4%") }]} onPress={this.GetItem.bind(this, item.title,index.title)}> {item.name}</Text>
         <FlatList
         data={this.state.arrayHolder}
         width='90%'
@@ -119,7 +117,7 @@ return (
         style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />
-        </View>
+  </View>
 <TouchableOpacity onPress={this.joinData}  activeOpacity={0.7} style={[styles.button,{marginVertical:hp("2%"),marginHorizontal:wp("30%")}]} >
 
 <Text  style={styles.buttonText}>Save</Text>

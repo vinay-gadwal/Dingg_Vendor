@@ -205,7 +205,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
           method: 'GET',
           headers: {
             "content-type": "application/json",
-            "authorization": token,
+            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjI1LCJpYXQiOjE1NDY5MzE5MjN9.q2fdAupe2d8RE3xadeUmnQFuch8csHOxY-vOf4ddAG4",
             "cache-control": "no-cache",
             "postman-token": "cb14e44b-cc78-29e4-d4b8-0c3f2ca2ba1b"
                    },
@@ -223,7 +223,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
         {
           method: 'GET',
           headers: {
-            "authorization": token,
+            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjI1LCJpYXQiOjE1NDY5MzE5MjN9.q2fdAupe2d8RE3xadeUmnQFuch8csHOxY-vOf4ddAG4",
           "content-type": "application/json",
           "cache-control": "no-cache",
           "postman-token": "a3d8f4a6-b009-2e09-8f80-9055092b360e"
@@ -244,7 +244,7 @@ Alert.alert("Invalid OTP, Please enter a valid OTP.")
           method: 'GET',
           headers: {
             "content-type": "application/json",
-            "authorization": token,
+            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZW5kb3JfaWQiOjI1LCJpYXQiOjE1NDY5MzE5MjN9.q2fdAupe2d8RE3xadeUmnQFuch8csHOxY-vOf4ddAG4",
             "cache-control": "no-cache",
     "postman-token": "cfae0c18-304c-f72b-dd15-11bbcb2312d7"
                    },

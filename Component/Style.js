@@ -76,7 +76,7 @@ Flat_box_row:{
       flexDirection:"column",marginVertical:hp("2%"),alignItems:"flex-start",width:wp("50%")
     },
     flat_box_colum:{
-      flexDirection:"column",marginVertical:hp("1%"),marginLeft:wp("5%")
+      flexDirection:"column",marginVertical:hp(".8%"),marginLeft:wp("5%")
     },
 flat_box_colum_right:{
         flexDirection:"column",marginVertical:hp("1%"),marginLeft:wp("5%"),width:wp("45%")
@@ -139,7 +139,7 @@ button: {
         shadowRadius: 4,
     },  
 Offer_button:{
-    borderRadius:40,height:hp("4%"),width:wp("25%"),marginHorizontal:wp("5%"),marginVertical:hp("2%"), 
+    borderRadius:40,height:hp("4%"),width:wp("25%"),marginHorizontal:wp("5%"),marginVertical:hp("2.5%"), 
     backgroundColor:GLOBAL.COLOR.ORANGE,
     justifyContent: "center",
     shadowColor: GLOBAL.COLOR.ORANGE,
@@ -226,7 +226,7 @@ profile_text:{
         marginVertical:hp("2profile_Small_text%"),marginLeft:"10%"
       },
 text:{
-          fontSize: RF(2.2), 
+          fontSize: RF(2), 
           color: "rgb(68,68,68)",
           fontFamily:GLOBAL.COLOR.fontfamily,
           justifyContent:"flex-start"
@@ -359,7 +359,7 @@ setting_Image:{
         marginTop:hp("2"),
         marginRight:wp("6%")
          },
-Cancel_buton:{marginLeft:wp("75%"),marginBottom:hp("2%"),marginTop:hp("0%"), width: hp("2%"),height: hp("2%"),marginRight:wp("6%")},
+Cancel_buton:{marginLeft:wp("75%"),marginBottom:hp("1%"),marginTop:hp("0%"), width: hp("2%"),height: hp("2%"),marginRight:wp("6%")},
 Dashbosrd_image_top:{
         height:hp("8%"),
         width:wp("15%"),
@@ -521,7 +521,7 @@ business_line_left:{
       marginTop:wp("2%"),marginRight:wp("0%"),width:wp("5%")
     },
 Business_hour_text:{
-     width:wp("10%"),
+     width:wp("12%"),
           fontSize: RF(2), marginRight:wp("2%"),
           fontFamily:GLOBAL.COLOR.fontfamily,
       },

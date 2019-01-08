@@ -97,7 +97,7 @@ return (
         renderItem={({ item }) =>  
                  <View style={styles.Row_divider}>
                  <View style={styles.Only_Column}>
-                <Text style={[styles.item,{}]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>
+                <Text style={[styles.item,{width:wp("60%")}]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>
                 <ResponsiveImage source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.Size_250} initHeight={GLOBAL.COLOR._height}/>
                 </View>
                 <View style={styles.Only_Column}>

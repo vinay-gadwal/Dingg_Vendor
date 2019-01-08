@@ -83,22 +83,22 @@ class Ongoing extends React.Component {
               <View style={styles.Flat_box}> 
                 <View style={styles.Row_divider}>                          
                   <View style={styles.flat_box_colum}>
-                  <View style={[styles.Row_divider,{marginTop:hp("1%")}]}>
-                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.COLOR.size_11}/>
+                  <View style={[styles.Row_divider,]}>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
                                     <Text style={[styles.grey_text,]}>{item.name}</Text>
                                  </View>
                      <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                         <View style={styles.Row_divider}>
-                            <TouchableOpacity onPress={this.increase_time()}>
+                            <TouchableOpacity style={{marginLeft:wp("1%")}} onPress={this.increase_time()}>
                               <ResponsiveImage source={require('../Image/main/plusIcon3x.png')} initWidth={Plus_width} initHeight={Plus_height}/>
                             </TouchableOpacity>
                               <Text style={[styles.text_orange,{fontSize:RF(1.8),marginBottom:hp("1%")}]}>Time</Text>
                                           {/* {this.state.time+" " + 'M'} */}
                             <TouchableOpacity>
-                              <ResponsiveImage source={require('../Image/main/minusIcon3x.png')} initWidth={Plus_width} initHeight={Plus_height}/>
+                              <ResponsiveImage style={{marginRight:wp("1%")}} source={require('../Image/main/minusIcon3x.png')} initWidth={Plus_width} initHeight={Plus_height}/>
                             </TouchableOpacity>
                         </View>
-                            <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("2.3%")}]}
+                            <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("2.3%"),width:wp("23%")}]}
                                            onPress={ () => this.openDialog(true) }>
                             <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE,fontSize:RF(1.5)}]}>Add Services</Text>
                             </TouchableOpacity>
@@ -399,11 +399,11 @@ class StarReview extends React.Component {
                                 <View style={styles.Row_divider}>                          
                                      <View style={styles.flat_box_colum}>
                                         <View style={styles.Row_divider}>
-                                            <ResponsiveImage source={GLOBAL.Calender_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.COLOR.size_11}/>
+                                            <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
                                             {/* <Text style={styles.grey_text}>{item.name}</Text> */}
                                          </View>
                                          <View>
-                                         <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
+                                         <Image style={[styles.FlatList_Image,{marginVertical:hp("2%")}]} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}  />                                 
                                          </View>
                                          {view}
                                     </View>           
@@ -451,12 +451,12 @@ StarReview.defaultProps = {
   count: 5,
   rating: 0,
   default: 0,
-  starSize: 12,
+  starSize: 9,
   update: () => {},
   backingColor: 'white',
   opacity: false,
   half: false,
-  spacing: 7
+  spacing: 4
 }
 
 const AuthStack = createMaterialTopTabNavigator ({

@@ -237,7 +237,7 @@ return (
                     data={ this.state.dataSource }
                     renderItem={({item}) => 
                         <View style={styles.Row_divider}>                          
-                             <View style={[styles.flat_box_colum,{marginVertical:hp("0%"),marginTop:hp("1%")}]}>
+                             <View style={[styles.flat_box_colum,{marginTop:hp("2%")}]}>
                                 <View style={[styles.Row_margin,{marginTop:hp("0%")}]}>
                                     <ResponsiveImage source={GLOBAL.Calender_Icon} initWidth={GLOBAL.COLOR.Icon_width} initHeight={GLOBAL.COLOR.Icon_width}/>
                                     <Text style={[styles.text,{marginLeft:wp("3%")}]}>{item.name}</Text>
@@ -249,8 +249,8 @@ return (
                                     </View>
                                  </View>
                             </View>           
-                              <View style={[styles.flat_box_colum_right,{alignItems:"flex-end",marginRight:wp("4%"),marginVertical:hp("0%")}]}>
-                                 <Text style={[styles.text,{fontSize:RF(3),marginRight:wp("2%")}]}>{item.name}</Text>
+                              <View style={[styles.flat_box_colum_right,{alignItems:"flex-end",marginRight:wp("4%"),marginTop:hp("1%")}]}>
+                                 <Text style={[styles.text,{fontSize:RF(3),marginRight:wp("1.5%")}]}>{item.name}</Text>
                                  <Text style={[styles.text,]}>Note that for network and data images, you will need to manually specify the dimensions of your image!</Text>
                             </View>           
                         </View>   }                       

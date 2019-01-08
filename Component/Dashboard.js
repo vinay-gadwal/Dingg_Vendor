@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,Image,
+  View,Image,Alert,
   ScrollView,TextInput,TouchableOpacity,FlatList
 } from 'react-native';
 import styles from './Style'
@@ -25,7 +25,7 @@ import View_Offer from './View_offer'
 import Add_Offer from './Add_offers'
 class App extends Component {
     state = {
-        avatarSource: null,avatarSource1:null,
+        avatarSource: null,avatarSource1:null,SwitchOnValueHolder:false,
         videoSource: null,isOnDefaultToggleSwitch: false,
         isOnLargeToggleSwitch_user: true,activeSwitch:1,activeSwitch1:1,
         isOnBlueToggleSwitch: false,switchThreeValue: true,switchvalue:true,
@@ -53,7 +53,26 @@ class App extends Component {
     onToggle(isOn){
       // alert('Changed to ' + isOn)
     }
+    ShowAlert = (value) =>{
+
+      this.setState({
     
+        SwitchOnValueHolder: value
+      })
+    
+      if(value == true)
+      {
+    
+        //Perform any task here which you want to execute on Switch ON event.
+        Alert.alert("Switch is On.");
+      }
+      else{
+    
+        //Perform any task here which you want to execute on Switch OFF event.
+        Alert.alert("Switch is Off.");
+      }
+    
+    }
   render() {
     const {
       switchThreeValue,switchvalue
@@ -147,7 +166,7 @@ class App extends Component {
                                       text1 = '.'                        // optional: first text in switch button --- default ON
                                       text2 = '.'   
                                   />
-                      { this.state.activeSwitch === 1 ? console.log('view1') : console.log('view2') }
+                      {/* { this.state.activeSwitch === 1 ? console.log('view1') : console.log('view2') } */}
 
                     </TouchableOpacity>
             </View>
@@ -189,7 +208,7 @@ class App extends Component {
                                 style={[styles.Cancel_buton]}
                     />
             </TouchableOpacity>
-                      <Text style={[styles.text,{fontSize: RF(2.2),}]}>Choose a Dinng User Type</Text>
+                      <Text style={[styles.text,{fontSize: RF(2.2),marginBottom:hp("1.5%")}]}>Choose a Dinng User Type</Text>
                       <Text></Text>
                       <TouchableOpacity style={[styles.button,{width:wp("30%"),marginVertical:hp("0%")}]} onPress={() => {this.props.navigation.navigate('New_User');this.openDialog(false)}}>
                       <Text style={styles.buttonText}>New User</Text>
@@ -264,7 +283,7 @@ class App extends Component {
                    <View style={[styles.setting_Row,{marginBottom:hp("2%"),height: hp('8%'),marginVertical:hp("0%")}]}>
                                    <View style={{marginTop:hp("2.5%"),marginLeft:wp("4%")}}>
                                    <SwitchButton
-                                      onValueChange={(val) => this.setState({ activeSwitch1: val })}      // this is necessary for this component
+                                      onValueChange={(value) => {this.ShowAlert(value),this.setState({activeSwitch1:index}), console.log(index)}}      // this is necessary for this component
                                       switchWidth = {wp("8%")}                 // optional: switch width --- default 44
                                       switchHeight = {hp("2.5%")}                 // optional: switch height --- default 100
                                       switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
@@ -281,7 +300,6 @@ class App extends Component {
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}         // optional: active font color --- default #fff
                                   />
-                                   { this.state.activeSwitch1 === 1 ? console.log('view1') : console.log('view2') }
                                   </View>
               <View style={[styles.Dashboard_bottom,{backgroundColor: index % 2 == 0 ? "white" : GLOBAL.COLOR.rootBAckgroundColor,
                     }]}>

@@ -38,11 +38,13 @@ if(isConnected){
     Alert.alert("Please Enter OTP")
   }
   else{
+    debugger
     this.setState({ processing: true });
-    apis.OTP_FORGOT(GLOBAL.Mobile1,code)
+    apis.OTP_SignUP(GLOBAL.Mobile1,code)
     .then((responseJson) => {
       console.log(responseJson)
       this.setState({ processing: false, loginText: 'Successfull..' });
+      debugger
       if(responseJson.success === true){
           this.props.navigation.navigate('For_New_Pass');
           GLOBAL.token = responseJson.token;

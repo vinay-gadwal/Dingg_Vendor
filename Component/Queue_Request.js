@@ -58,11 +58,11 @@ return (
                     <View style={styles.Flat_box}>
                         <View style={styles.setting_Row}>                          
                              <View style={styles.flat_box_colum}>
-                                <View style={[styles.Row_divider,{marginTop:hp("1%")}]}>
-                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.COLOR.size_11}/>
+                                <View style={[styles.Row_divider,]}>
+                                    <ResponsiveImage source={GLOBAL.Serve_Icon} style={styles.Icon_style} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_width}/>
                                     <Text style={[styles.grey_text]}>{item.time}</Text>
                                  </View>
-                                 <Image style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}} />
+                                 <ResponsiveImage style={styles.FlatList_Image} source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}} />
                                  <View style={[styles.Row_divider,{marginHorizontal:wp("1.5%")}]}>
                                  <TouchableOpacity>
                                     <ResponsiveImage source={GLOBAL.Accept} initWidth={Init_width} initHeight={Init_hight}/>

@@ -68,6 +68,7 @@ export default class Login extends Component {
     });
   }
   Validation(){
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(this.state.username == "" && this.state.EAMIL == ""){
       Alert.alert("Please Enter Mobile Number or Email")
     }
@@ -75,9 +76,12 @@ export default class Login extends Component {
       this.setState({EAMIL:""})
       {this.handlePress}
     }
-    else if(this.state.EAMIL != ""){
+    else if(reg.test(this.state.EAMIL) == true){
       this.setState({username:""})
       {this.handlePress}
+    }
+    else{
+      Alert.alert("invalid Email Address")
     }
   }
 //   update(e){

@@ -52,7 +52,7 @@ return (
                           <Text style={styles.text}>Token ID : TK102</Text>
                           <ResponsiveImage style={styles.Send_alert} source={GLOBAL.Right_yellow_arrow} initWidth={GLOBAL.COLOR.Size_8} initHeight={GLOBAL.COLOR.Yellow_10}/>
                         </View>
-                        <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("28%"),marginTop:hp("3%"),width:wp("25%")}]}>
+                        <TouchableOpacity style={[styles.Action_button,{marginLeft:wp("28%"),marginTop:hp("7%"),width:wp("25%")}]}>
                          <Text style={[styles.buttonText,{color:GLOBAL.COLOR.ORANGE}]}>Send Alert</Text>
                         </TouchableOpacity>
                   </View> 

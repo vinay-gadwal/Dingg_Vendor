@@ -11,7 +11,7 @@ import {
 import styles from '../Component/Style'
 import RF from "react-native-responsive-fontsize"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-// import SwitchButton from 'switch-button-react-native';
+import SwitchButton from 'switch-button-react-native';
 import Switch from 'react-native-customisable-switch';
 import ResponsiveImage from 'react-native-responsive-image'
 const GLOBAL = require('../Component/Color');
@@ -232,102 +232,6 @@ left_time_less=()=>{
     }
   }
 
-  ///// tuesday time ////
-  tueOnIncrease(){
-    if(this.state.Tue_time_on_min <= 30)
-    {
-      this.setState({
-        Tue_time_on_min : (this.state.Tue_time_on_min)+15,
-        Tue_zero_min:""
-      })
-    }
-    else {
-      this.setState({
-        Tue_time_on_hour : (this.state.Tue_time_on_hour)+1 , Tue_time_on_min : 0,Tue_zero_min:0
-      })
-      if(this.state.Tue_time_on_hour > 8){
-        this.setState({
-        Tue_zero_hour : "",
-        })
-      }
-    }  
-  }
-
-  tueOnDecrease(){
-    if(this.state.Tue_time_on_hour > 0 && this.state.Tue_time_on_hour < 10){
-      this.setState({
-       Tue_zero_hour:0
-      })
-    }
-    if(this.state.Tue_time_on_min > 0)
-    {
-      this.setState({
-        Tue_time_on_min : (this.state.Tue_time_on_min)-15,Tue_zero_min:""
-      })
-    }
-    else if(this.state.Tue_time_on_min === 0 && this.state.Tue_time_on_hour >=1) 
-    {
-      this.setState({
-        Tue_time_on_min : 45,
-        Tue_time_on_hour : -1+(this.state.Tue_time_on_hour)
-      })
-    }
-    else if(this.state.Tue_time_on_hour <= 0 || this.state.Tue_time_on_min <= 0){
-      this.setState({
-        Tue_zero_min : 0,
-        })
-      Alert.alert("increase your time")
-    }  
-  }
-
-  tueOffIncrease(){
-    if(this.state.Tue_time_off_min <= 30)
-    {
-      this.setState({
-        Tue_time_off_min : (this.state.Tue_time_off_min)+15,
-        Tue_zero_min_off:""
-      })
-    }
-    else {
-      this.setState({
-        Tue_time_off_hour : (this.state.Tue_time_off_hour)+1 , Tue_time_off_min : 0,Tue_zero_min_off:0
-      })
-      if(this.state.Tue_time_off_hour > 8){
-        this.setState({
-        Tue_zero_hour_off : "",
-        })
-      }
-    }  
-  }
-
-  tueOffDecrease(){
-    if(this.state.Tue_time_off_hour > 0 && this.state.Tue_time_off_hour < 10){
-      this.setState({
-       Tue_zero_hour_off:0
-      })
-    }
-    if(this.state.Tue_time_off_min > 0)
-    {
-      this.setState({
-        Tue_time_off_min : (this.state.Tue_time_off_min)-15,Tue_zero_min_off:""
-      })
-    }
-    else if(this.state.Tue_time_off_min === 0 && this.state.Tue_time_off_hour >=1) 
-    {
-      this.setState({
-        Tue_time_off_min : 45,
-        Tue_time_off_hour : -1+(this.state.Tue_time_off_hour),
-        Tue_zero_hour_off:""
-      })
-    }
-    else if(this.state.Tue_time_off_hour <= 0 || this.state.Tue_time_off_min <= 0){
-      this.setState({
-        Tue_zero_min_off : 0,
-        })
-      Alert.alert("increase your time")
-    }  
-  }
-  ////////end ///////
 
   ShowAlert = (value) =>{
 
@@ -362,29 +266,25 @@ left_time_less=()=>{
         <Text style={[styles.Big_text,{fontSize: RF(2.3),marginRight:wp("40%")}]}>Add Day and Time</Text>
         <View style={styles.Business_hour}>
         <View style={styles.Business_hour_Switch}>
-        <Switch
-                          value={switchMonValue}
-                          onChangeValue={() => this.setState({ switchMonValue: !switchMonValue })}
-                          activeText={'Mon'}
-                          inactiveText={'Mon'}
-                          onChangeValue={(value) => {this.ShowAlert(value)}}              
-                          fontSize={5}
-                          switchWidth={40}
-                          switchHeight={13}
-                          switchBorderRadius={10}
-                          switchBorderWidth={0}
-                          buttonWidth={20}
-                          buttonHeight={20}
-                          buttonBorderRadius={20}
-                          buttonBorderWidth={0}
-                          animationTime={150}
-                          inactiveTextColor="black"
-                          // padding={true}
-                          activeBackgroundColor	="rgb(255,164,0)"
-                          inactiveBackgroundColor	="rgb(238,238,238)"
-                          // activeButtonBackgroundColor	="rgb(255,164,0)"
-                          // inactiveButtonBackgroundColor={'rgb(153,153,153)'}
-                        />
+        <SwitchButton
+                                      onValueChange={(val) => this.setState({ activeSwitch1: val })}      // this is necessary for this component
+                                      switchWidth = {wp("17%")}                 // optional: switch width --- default 44
+                                      switchHeight = {hp("3.3%")}                 // optional: switch height --- default 100
+                                      switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
+                                      switchBorderRadius = {20}          // optional: switch border radius --- default oval
+                                      switchSpeedChange = {500}           // ∂optional: button change speed --- default 100
+                                      switchBorderColor = {GLOBAL.COLOR.White_color}       // optional: switch border color --- default #d4d4d4
+                                      switchBackgroundColor = {GLOBAL.COLOR.ORANGE}      // optional: switch background color --- default #fff
+                                      btnBorderColor = {GLOBAL.COLOR.ORANGE}          // optional: button border color --- default #00a4b9
+                                      btnBackgroundColor = "white"    // optional: button background color --- default #00bcd4
+                                      fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = 'white' 
+                                      text1 = 'Off'                        // optional: first text in switch button --- default ON
+                                      text2 = 'MON'   
+                                      fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = {GLOBAL.COLOR.ORANGE}   
+                                      fontSize={2}      // optional: active font color --- default #fff
+                                  />
             </View>
             <View style={styles.Only_Column}>
             <View style={styles.Business_hour_time}>
@@ -418,7 +318,7 @@ left_time_less=()=>{
             </View>
             </View> 
             <TouchableOpacity activeOpacity = { 0.8 }  onPress = { this.Select_unselect_mon }>
-                        <Image source = { ( this.state.Select_unselect_mon ) ? GLOBAL.UnSelectIcon : GLOBAL.Plus_yellow_icon } style = {styles.Business_image} />
+                        <ResponsiveImage source = { ( this.state.Select_unselect_mon ) ? GLOBAL.UnSelectIcon : GLOBAL.Plus_yellow_icon } initHeight="18" initWidth="18" />
            </TouchableOpacity>    
         </View>
       <TouchableOpacity style={[styles.button,{backgroundColor:GLOBAL.COLOR.White_color,shadowColor: GLOBAL.COLOR.GRAY}]} onPress={() => {this.props.navigation.navigate('Calendar')}} >

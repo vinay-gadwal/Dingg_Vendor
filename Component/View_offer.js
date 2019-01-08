@@ -101,38 +101,38 @@ GetItem (flower_name) {
         // ItemSeparatorComponent = {this.FlatListItemSeparator
         renderItem={({item}) => 
         <View style={[styles.Flat_box]}>
-               <View style={styles.Row_divider}>
+               <View style={[styles.Row_divider,{marginVertical:hp("1.5%")}]}>
 
-                            <Image
-                                    source={GLOBAL.Edit_image}
-                                    style={styles.View_offer}
+                            <ResponsiveImage
+                                    source={GLOBAL.Edit_image} style={{marginLeft:wp("72%")}}
+                                    initWidth={GLOBAL.COLOR.size_16} initHeight={GLOBAL.COLOR.size_16}
                                 />
-                            <Image
-                                    source={GLOBAL.Delete_image}
-                                    style={[styles.View_offer,{marginLeft:wp("3%")}]}
+                            <ResponsiveImage
+                                    source={GLOBAL.Delete_image} style={{marginRight:wp("4%")}}
+                                    initWidth={GLOBAL.COLOR.size_16} initHeight={GLOBAL.COLOR.size_16}
                                 />  
               </View>          
               <Text style={[styles.text,{marginHorizontal:wp("5%")}]}>Get 25% off on your First Haircut</Text>
                 <View style={[styles.Row_margin,{marginTop:hp("2%")}]}>
                             <ResponsiveImage
-                                        source={GLOBAL.SERve_image} style={{marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
+                                        source={GLOBAL.SERve_image} style={{marginLeft:wp("4%"),marginTop:hp(".5%")}} initWidth={GLOBAL.COLOR.size_16} initHeight={GLOBAL.COLOR.size_16}
                                     />
                             <Text style={[styles.grey_text,styles.greay_View_offer]}>Haircut</Text>
 
                 </View>
                 <View style={[styles.Row_margin,{marginTop:hp("2%")}]}>
                 <ResponsiveImage
-                                        source={GLOBAL.Calender_Icon} style={{marginLeft:wp("4%")}} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}
+                                        source={GLOBAL.Calender_Icon} style={{marginLeft:wp("4%"),marginTop:hp(".5%")}} initWidth={GLOBAL.COLOR.size_16} initHeight={GLOBAL.COLOR.size_16}
                                     />
                        <Text style={[styles.grey_text,styles.greay_View_offer]}>Mon, 01 Oct 18 - Wed, 31 Oct 18</Text>
                 </View>
-                <View style={[styles.Offer_button]} >
+                <View style={[styles.Offer_button,]} >
                             <Text style={styles.buttonText}>{item.offer_per}% Off</Text>
                 </View>
             </View>       
           }
         />
-            <TouchableOpacity style={[styles.button,{marginBottom:hp("5%")}]} onPress={() => {this.props.navigation.navigate('Add_Offer')}}>
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("40%")}]} onPress={() => {this.props.navigation.navigate('Add_Offer')}}>
             <Text style={styles.buttonText}>Add Offers</Text>
             </TouchableOpacity>
      </View>
