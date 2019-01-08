@@ -13,6 +13,7 @@ import {TextInputLayout} from 'rn-textinputlayout';
 import { Dropdown } from 'react-native-material-dropdown';
 import RadioGroup from 'react-native-radio-buttons-group';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import ResponsiveImage from 'react-native-responsive-image'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const GLOBAL = require('../Component/Color');
 const data_Services = [
@@ -89,7 +90,7 @@ export default class Login extends Component {
     return (
       <KeyboardAwareScrollView  contentContainerStyle={styles.container}
                keyboardShouldPersistTaps='handled'>            
-        <View style={[styles.box,{marginTop:hp("5%")}]}>
+        <View style={[styles.box,{marginTop:hp("4%")}]}>
         <TextInputLayout focusColor={GLOBAL.COLOR.GRAY} labelFontSize={0.1}>
         <TextInput
             value={this.state.Offer_name}
@@ -113,34 +114,42 @@ export default class Login extends Component {
                       />
             </View> 
             <View style={styles.Row_divider}>
-            <Text style={[styles.text,{marginLeft:wp("3%"),marginRight:wp("15%")}]}>Start Date</Text> 
-            <Text style={[styles.text,{marginRight:wp("23%")}]}>Valid Till</Text> 
+            <Text style={[styles.text,{marginLeft:wp("0%"),marginRight:wp("17%")}]}>Start Date</Text> 
+            <Text style={[styles.text,{marginRight:wp("20%"),marginLeft:wp("5%")}]}>Valid Till</Text> 
             </View>
-            <View style={styles.Row_divider}>
+            <View style={[styles.Row_divider,{marginRight:wp("14%")}]}>
+            <View style={{flexDirection:"column",marginLeft:wp("3%")}}>
+            <View style={{marginLeft:wp("1%")}}>
             <DatePicker
                         style={styles.Date_picker}
                         date={this.state.Start_date}
                         mode="date"
                         placeholder="select date"
                         format="DD-MM-YYYY"
-                        minDate="01-05-2019"
-                        maxDate="01-06-2016"
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
+                        showIcon={false}
+                        customStyles={{dateInput:{borderWidth: 0,borderHeight:0},marginLeft:wp("2%")}}
                         onDateChange={(Start_date) => {this.setState({Start_date: Start_date})}}
             />
-           <DatePicker
+            </View>
+            <ResponsiveImage style={{marginLeft:wp("10%")}} source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.size_120} initHeight={GLOBAL.COLOR._height}/>
+            </View>
+            <View style={{flexDirection:"column"}}>
+            <DatePicker
                         style={styles.Date_picker}
                         date={this.state.end_date}
                         mode="date"
+                        showIcon={false}
                         placeholder="select date"
                         format="DD-MM-YYYY"
-                        minDate="01-05-2019"
-                        maxDate="01-06-2016"
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
+                        customStyles={{dateInput:{borderWidth: 0},marginRight:wp("0%")}}
                         onDateChange={(end_date) => {this.setState({end_date: end_date})}}
             />
+             <ResponsiveImage style={{marginLeft:wp("7%")}} source={GLOBAL.TableDivider} initWidth={GLOBAL.COLOR.size_120} initHeight={GLOBAL.COLOR._height}/>
+            </View>
             </View>
             {/* <View >
         <TouchableOpacity onPress={this._showDateTimePicker}>
@@ -167,7 +176,7 @@ export default class Login extends Component {
           <Text></Text>
           <RadioGroup style={color="red"} radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
             </View>     
-            <TouchableOpacity style={[styles.button,{marginBottom:hp("22%")}]} onPress={() => {this.Function_save_global()}}>
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("17%")}]} onPress={() => {this.Function_save_global()}}>
             <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>
 </KeyboardAwareScrollView>

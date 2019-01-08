@@ -2,6 +2,6 @@
 import {AppRegistry} from 'react-native';
 //import App from './App';
 import {name as appName} from './app.json';
-// import Stting from './Component/d'
+// import Stting from './Setting_screens/Busi_Hour_Setting'
 import route from './Routing'
 AppRegistry.registerComponent(appName, () => route);

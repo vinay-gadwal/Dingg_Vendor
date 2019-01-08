@@ -34,7 +34,8 @@ export default class Stylist extends Component {
   ],
    this.state = {
                 arrayHolder: [],arrayHolder_name:[],
-                textInput_Holder: '',textInput_HolderName:''
+                textInput_Holder: '',textInput_HolderName:'',    clearInput:false
+
        }
      this.index = 0;
      this.animatedValue = new Animated.Value(0);
@@ -50,8 +51,6 @@ export default class Stylist extends Component {
     
     this.array.push({title : this.state.textInput_Holder});
     this.setState({ arrayHolder: [...this.array] })
-
-
   }
   
  FlatListItemSeparator = () => {
@@ -93,7 +92,7 @@ return (
 
         ItemSeparatorComponent={this.FlatListItemSeparator}
 
-        renderItem={({ item }) => 
+        renderItem={({ item,index }) => 
         <Text style={[styles.item]} onPress={this.GetItem.bind(this, item.title)} > {item.title} </Text>}
         />
         <View style={styles.Row_divider}> 
@@ -101,14 +100,18 @@ return (
         <TextInput
         placeholder="Add More Service "
         onChangeText={data => this.setState({ textInput_Holder: data })}
+        value={this.state.clearInput ? this.state.textInput_Holder : null}
+        onSubmitEditing={()=>{
+          this.setState({
+          clearInput:this.state.clearInput,
+          })
+        }}
         style={[styles.Add_sty_text]}
         underlineColorAndroid='transparent'
         />
         </View>
 </View>
-
     }/>
-
   <View style={[styles.Add_sty]}> 
         <ResponsiveImage style={{marginTop:hp("2%"),marginLeft:wp("5%")}} source={GLOBAL.Plus_icon_stylist} initWidth={GLOBAL.Icon_width} initHeight={GLOBAL.Icon_height}/>
         <TextInput
@@ -119,9 +122,7 @@ return (
         />
   </View>
 <TouchableOpacity onPress={this.joinData}  activeOpacity={0.7} style={[styles.button,{marginVertical:hp("2%"),marginHorizontal:wp("30%")}]} >
-
 <Text  style={styles.buttonText}>Save</Text>
-
 </TouchableOpacity>
   </View>
   </ScrollView>

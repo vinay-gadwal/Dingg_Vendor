@@ -231,7 +231,7 @@ else{
       <ResponsiveImage source={GLOBAL.Logo} initWidth={GLOBAL.COLOR.Logo_width} initHeight={GLOBAL.COLOR.Logo_height}/>
       </View>
       <View style={[styles.box,{paddingVertical:hp("3%")}]}>
-         <Text style={[styles.text,{marginRight:wp("44%")}]}>Sign In Using</Text>
+         <Text style={[styles.text,{marginRight:wp("46%")}]}>Sign In Using</Text>
          <Text></Text>
          <View style={styles.Radio_button}>
            <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />

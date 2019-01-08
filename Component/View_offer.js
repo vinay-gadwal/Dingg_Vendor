@@ -132,7 +132,7 @@ GetItem (flower_name) {
             </View>       
           }
         />
-            <TouchableOpacity style={[styles.button,{marginBottom:hp("40%")}]} onPress={() => {this.props.navigation.navigate('Add_Offer')}}>
+            <TouchableOpacity style={[styles.button,{marginBottom:hp("38%")}]} onPress={() => {this.props.navigation.navigate('Add_Offer')}}>
             <Text style={styles.buttonText}>Add Offers</Text>
             </TouchableOpacity>
      </View>

@@ -139,13 +139,9 @@ button: {
         shadowRadius: 4,
     },  
 Offer_button:{
-    borderRadius:40,height:hp("4%"),width:wp("25%"),marginHorizontal:wp("5%"),marginVertical:hp("2.5%"), 
+    borderRadius:40,height:hp("4%"),width:wp("25%"),marginLeft:wp("4%"),marginVertical:hp("2.5%"), 
     backgroundColor:GLOBAL.COLOR.ORANGE,
     justifyContent: "center",
-    shadowColor: GLOBAL.COLOR.ORANGE,
-    shadowOffset: { width: 0, height: hp("0.5%") },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
     },
 Action_button:{
         width:wp("18%"),borderRadius:8,marginLeft:wp("1%"),
@@ -508,7 +504,7 @@ Camera_style:{height:"1%",justifyContent:"center",alignItems:"center",marginLeft
 Business_hour:{
       flexDirection:"row",
       justifyContent:"space-between",
-      marginVertical:hp("1.5%"),
+      marginBottom:hp("1.5%"),
       paddingHorizontal:wp("7%")
         },
 Business_hour_Switch:{
@@ -518,27 +514,27 @@ Business_hour_time:{
       flexDirection:"row",marginTop:hp(".3%"),marginLeft:wp("2%")
     },
 business_line_left:{
-      marginTop:wp("2%"),marginRight:wp("0%"),width:wp("5%")
+      marginTop:wp("2.2%"),marginRight:wp("2%"),marginTop:hp("2.3%")
     },
 Business_hour_text:{
-     width:wp("12%"),
-          fontSize: RF(2), marginRight:wp("2%"),
-          fontFamily:GLOBAL.COLOR.fontfamily,
+    width:wp("2%"),marginRight:wp("5%"),marginLeft:wp("0%")
       },
+business_Switch:{marginRight:wp("0%"),marginLeft:wp("0%"),width:wp("11%"),marginTop:hp("0%")},
 business_line_right:{
-     marginTop:hp("1%"),width:wp("5%")
+     marginTop:hp("1%"),marginRight:wp("2%"),marginLeft:wp("5%"),marginTop:hp("2.3%")
     },
 Business_Arrow_right:{
-      marginLeft:wp("0%"),marginTop:hp(".7%")
+      marginLeft:wp("0%"),
     },
 Business_to:{
       marginHorizontal:wp("0%"),
       fontSize: RF(2), 
       color: "rgb(68,68,68)",
       fontWeight:"bold",
-      marginTop:hp(".7%"),
+      marginTop:hp("1.8%"),
       fontWeight:"bold"
     },
+Business_Off:{marginRight:wp("0%"),marginLeft:wp("2%"),marginTop:hp("2%")},
 Business_image:{
         width:wp("4%"),height:hp("2.3%"),marginTop:hp("1%"),marginRight:wp("3%")
     },

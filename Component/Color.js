@@ -25,7 +25,7 @@ module.exports = {
        Size_250 :250,
        Size_15:15,
        Size_60:60,
-       Size_35:35,Size_8:8,size_50:45,size_16:17,
+       Size_35:35,Size_8:8,size_50:45,size_16:17,size_120:140,
        Size_100:80,Size_21:21,Size_27:27,size_75:75,size_12:12,size_23:23.5,size_11:13
     },
     Header:{fontWeight: 'bold',marginBottom:hp("2%"),fontSize: RF("2.4"),justifyContent:"center",alignItems:"center"
