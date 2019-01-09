@@ -79,11 +79,11 @@ export default class Business extends Component {
                                       btnBorderColor = {GLOBAL.COLOR.ORANGE}          // optional: button border color --- default #00a4b9
                                       btnBackgroundColor = "white"    // optional: button background color --- default #00bcd4
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
-                                      activeFontColor = 'white'  
+                                      activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
                                       text2 = 'MON'   
-                                      // fontColor = 'black'               // optional: text font color --- default #b1b1b1
-                                      // activeFontColor = {GLOBAL.COLOR.ORANGE}   
+                                      fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
+                                      activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff
                                   />
             </View>
@@ -170,7 +170,7 @@ export default class Business extends Component {
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
-                                      text2 = 'MON'   
+                                      text2 = 'TUE'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff
@@ -259,7 +259,7 @@ export default class Business extends Component {
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
-                                      text2 = 'MON'   
+                                      text2 = 'WED'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff
@@ -348,7 +348,7 @@ export default class Business extends Component {
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
-                                      text2 = 'MON'   
+                                      text2 = 'THU'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff
@@ -437,7 +437,7 @@ export default class Business extends Component {
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
-                                      text2 = 'MON'   
+                                      text2 = 'FRI'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff
@@ -526,7 +526,7 @@ export default class Business extends Component {
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
-                                      text2 = 'MON'   
+                                      text2 = 'SAT'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff
@@ -615,7 +615,7 @@ export default class Business extends Component {
                                       fontColor = {GLOBAL.COLOR.White_color}               // optional: text font color --- default #b1b1b1
                                       activeFontColor = 'white' 
                                       text1 = 'Off'                        // optional: first text in switch button --- default ON
-                                      text2 = 'MON'   
+                                      text2 = 'SUN'   
                                       fontColor = 'rgb(243,242,242)'               // optional: text font color --- default #b1b1b1
                                       activeFontColor = {GLOBAL.COLOR.ORANGE}   
                                       fontSize={2}      // optional: active font color --- default #fff

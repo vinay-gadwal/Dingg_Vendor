@@ -26,7 +26,7 @@ export default class Login extends Component {
     this.state = {
       username: "",EAMIL:"",
       password: "",Email_password:"",
-      hidePassword:"true",processing:false,
+      hidePassword:true,processing:false,
       data: [ 
         {
             label: 'Mobile Number',
@@ -88,7 +88,7 @@ export default class Login extends Component {
 //     if(this.state.username.trim()) this.props.dispatch(addTodo(this.state.username)); 
 //     this.setState({username: "" }); 
 // }
-    handlePress =()=> {
+handlePress =()=> {
 NetInfo.isConnected.fetch().done((isConnected) => {
 if(isConnected){
   this.setState({ processing: true });
@@ -107,7 +107,12 @@ if(isConnected){
               this.setState({ processing: false });
             });
         } else {
-          Alert.alert(responseJson.message)
+          if(isNaN(this.state.username)){
+            Alert.alert("No user registered with this Email.")
+          }
+          else{
+          Alert.alert("No user registered with this mobile number.")
+          }
           console.log(this.state.username)
         }
       })
@@ -149,21 +154,7 @@ else{
        />
       </TextInputLayout>
       </View>
-       <View style = { styles.textBoxBtnHolder } > 
-       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
-           <TextInput 
-           // secureTextEntry = { this.state.hidePassword }
-             placeholder="Enter Password"
-             onChangeText={value => this.setState({ password:value })}
-             underlineColorAndroid = "transparent"
-             secureTextEntry
-             // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
-              style = { styles.input }/>
-       </TextInputLayout>
-       {/* <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
-             <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
-       </TouchableOpacity> */}
-</View>
+    
 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Forget_password')}}>
               <Text style={[styles.text_orange,{marginLeft:"44%"}]}>Forgot Password?</Text>
           </TouchableOpacity>
@@ -237,6 +228,21 @@ else{
            <RadioGroup radioButtons={this.state.data} onPress={this.onPress}  flexDirection='row' />
          </View>
          {selectedButton}
+         <View style = { styles.textBoxBtnHolder } > 
+       <TextInputLayout focusColor={GLOBAL.COLOR.ORANGE}  labelFontSize={0.1}>
+           <TextInput 
+           secureTextEntry = { this.state.hidePassword }
+             placeholder="Enter Password"
+             onChangeText={value => this.setState({ password:value })}
+             underlineColorAndroid = "transparent"
+            //  secureTextEntry
+             // placeholderStyle={{ fontFamily: "AnotherFont", borderColor: 'red' }}
+              style = { styles.input }/>
+       </TextInputLayout>
+       <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+             <Image source = { ( this.state.hidePassword ) ? require('../Image/icon/showIcon2.png') : require('../Image/icon/hideicon.png') } style = { styles.btnImage } />
+       </TouchableOpacity>
+</View>
           {/* <Text>{this.state.username}</Text> */}
       </View>
       
